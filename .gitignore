@@ -1,0 +1,11 @@
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+.DS_Store
+template.aux
+template.bbl
+template.log
+template.out
+template.pdf
+template.synctex.gz
