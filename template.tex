@@ -63,6 +63,10 @@
 %=================================================================
 % Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, float, amsmath, amssymb, lineno, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, colortbl, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, array, tabularx, pbox, ragged2e, tocloft, marginnote, marginfix, enotez, amsthm, natbib, hyperref, cleveref, scrextend, url, geometry, newfloat, caption, draftwatermark, seqsplit
 % cleveref: load \crefname definitions after \begin{document}
+\usepackage{changes}            % For editorial changes
+\definechangesauthor[color=teal, name={Matthew Kuperus Heun}]{MKH}
+
+
 
 %=================================================================
 % Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypothesis, Remark, Definition, Notation, Assumption
@@ -251,37 +255,87 @@ $^{4}$ \quad MARETEC—Marine, Environment and Technology Center, LARSyS, Instit
 \section{Methods}
 
 
-
-The exergy of a system is the maximum amount of work one can extract
-from the process that takes the system
-to the equilibrium state with the reference environment
+\replaced[id=MKH]{
+The exergy of a system is the maximum amount of work
+that can be extracted
+by processes that take the system
+to equilibrium with the reference environment,
 defined by $T_{0}$, $P_{0}$, and a certain chemical composition.
+}
+{% Not this
+The exergy of a system is the maximum amount of work
+one can extract
+from the process that takes the system
+to the equilibrium state
+with the reference environment
+defined by $T_{0}$, $P_{0}$, and a certain chemical composition.
+}
+\replaced[id=MKH]{Thus, the total exergy of a system
+is the sum of the work of two reversible processes
+that bring the system
+(a) from $T$ and $P$ to
+$T_{0}$ and $P_{0}$
+(without changes in the chemical composition) and
+(b) from its chemical composition to
+to the reference chemical composition
+(while the system remains at $T_{0}$ and $P_{0}$).
+}
+{% Not this
 Thus, the total exergy is the sum of the work
-of the reversible proces that brings the system at $T, P$ to $T_{0}$,$P_{0}$
+of the reversible proces that
+brings the system at $T, P$ to $T_{0}$,$P_{0}$
 (without changes in the chemical composition)
 plus the work of the reversible process that takes the system at $T_{0}$,$P_{0}$
 to the equilibrium with the reference environment.
+}
+\replaced[id=MKH]{
+The first term is thermomechanical exergy ($b_{th}$).
+The second term is chemical exergy ($b_{ch}$).
+}
+{% Not this
 The first term is named thermomechanical exergy, $b_{th}$.
-The second term is the chemical exergy, $b_{ch}$.
+The second term is the chemical exergy, $b_{ch}$.}
 
 \begin{equation}\label{eq:general_material_exergy_definition}
-  b_{total} = b_{ch} + b_{th}
+  \replaced[id=MKH]{b_{total} = b_{th} + b_{ch}}
+                   {% Not this
+                   b_{total} = b_{ch} + b_{th}}
 \end{equation}
 
-Reference environments include the Atmosphere,
-the Ocean, or the Earth's crust.
-The reference environments are at $T_{0}$, $P_{0}$, and are
-characterized by a mixture of reference species.
-Reference species are charcterized by the partial pressure,
-$P_{i}=P_{0}, x_{i}$ in the Atmosphere,
-by concentrations $[C]_{i}$ in the ocean
-and by the molar fraction $x_{i}$ in the Earth's crust.
-
+\replaced[id=MKH]{
+Here, we assume that the system is at
+$T_{0}$ and $P_{0}$;
+thus, thermomechanical exergy ($b_{th}$) is zero.
+Doing so enables focus on the chemical exergy
+($b_{ch}$, also called material exergy).}
+{% Not this
 Here, we assume that our system is at
 $T_{0}$ and $P_{0}$.
 Thus, thermomechanical exergy, $b_{th}$, is zero
 and we can focus only on the system's chemical exergy
-(or material exergy).
+(or material exergy).}
+
+Reference environments \added[id=MKH]{can} include the Atmosphere,
+the Ocean, or the Earth's crust.
+\added[id=MKH]{For our purposes,}
+\replaced[id=MKH]{the}{The}
+reference environments are at $T_{0}$ and $P_{0}$, and are
+characterized by a mixture of reference species.
+\replaced[id=MKH]{
+Reference species are charcterized by partial pressure
+($P_{i} = P_{0} y_{i}$) in the Atmosphere,
+by concentrations ($[C]_{i}$) in the Ocean
+and by mole fraction ($y_{i}$)
+in the Earth's crust.
+**** I think we need $y_i$ instead of $x_i$
+for mole fractions.
+Am I right? ---MKH ****}
+{% Not this
+Reference species are charcterized by the partial pressure,
+$P_{i}=P_{0}, x_{i}$ in the Atmosphere,
+by concentrations $[C]_{i}$ in the ocean
+and by the molar fraction $x_{i}$ in the Earth's crust.}
+
 
 % begin take out of the following paragraphs
 When considering the mineral composition
