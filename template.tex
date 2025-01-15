@@ -89,6 +89,7 @@
         Sofie Schumerth $^{2,\dagger}$\orcidB{},
         Matthew Kuperus Heun $^{3,*}$\orcidC{}, and
         T\^{a}nia Sousa $^{4}$\orcidD{}}
+        
 
 %\longauthorlist{yes}
 
@@ -249,9 +250,95 @@ $^{4}$ \quad MARETEC—Marine, Environment and Technology Center, LARSyS, Instit
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Methods}
 
-Exergy is the maximum amount of work one can extract
-at each stage of a process relative to the defined equilibrium state.
-Material exergy per mole ($b$) requires chemical ($b_{ch}$) and distribution ($b_d$) exergies per mole
+
+
+The exergy of a system is the maximum amount of work one can extract
+from the process that takes the system
+to the equilibrium state with the reference environment 
+defined by $T_{0}$, $P_{0}$, and a certain chemical composition.
+Thus, the total exergy is the sum of the work
+of the reversible proces that brings the system at $T, P$ to $T_{0}$,$P_{0}$
+(without changes in the chemical composition) 
+plus the work of the reversible process that takes the system at $T_{0}$,$P_{0}$
+to the equilibrium with the reference environment.
+The first term is named thermomechanical exergy, $b_{th}$.
+The second term is the chemical exergy, $b_{ch}$. 
+
+\begin{equation}\label{eq:general_material_exergy_definition}
+  b_{total} = b_{ch} + b_{th}
+\end{equation}
+
+Reference environments include the Atmosphere, 
+the Ocean, or the Earth's crust.
+The reference environments are at $T_{0}$, $P_{0}$, and are 
+characterized by a mixture of reference species.
+Reference species are charcterized by the partial pressure,
+$P_{i}=P_{0}, x_{i}$ in the Atmosphere, 
+by concentrations $[C]_{i}$ in the ocean
+and by the molar fraction $x_{i}$ in the Earth's crust.
+
+Here, we assume that our system is at
+$T_{0}$ and $P_{0}$.
+Thus, thermomechanical exergy, $b_{th}$, is zero
+and we can focus only on the system's chemical exergy
+(or material exergy).
+
+% begin take out of the following paragraphs
+When considering the mineral composition 
+of the Earth's crust, 
+a reference environment of Thanatia 
+or the Crepuscular Crust model is used.
+In this model, the 294 most abundant mineral species
+that make up the Earth's crust 
+are considered to be uniformly dispersed
+and have even concentration throughout any portion
+of the upper continental crust.
+
+According the Crepuscular Crust model,
+natural resources have a positive material exergy
+because they have a chemical composition that 
+differs from the composition they would have when 
+completely dispersed.
+% End taking out paragraphs
+
+Natural resources have a positive material exergy, $b_{ch}$,
+because they have a chemical composition 
+that differentiates them from the Environment.
+Material exergy of a natural resource, $b_{ch,i}$,
+is the work that would be needed
+to produce that substance with its 
+structure and concentration
+in a reversible process,
+with respect to the reference environment.
+A natural resource is a mixture of compounds.
+If it is a mixture of gases,
+it is assumed to behave as an ideal mixture of gases.
+If it is a mixture of solid or liquid components, 
+it is assumed to behave as an ideal solution.
+
+The material exergy of a natural resource
+has two components:
+(1) the amount of work that must be done
+to separate, in a reversible process, the mixture
+at $T_{0}$ and $P_{0}$, and
+(2) the sum of the amounts of work
+that can be obtained by the reversible processes
+that take each pure compound at $T_{0}$, $P_{0}$
+to the equilibrium concentration in the Crepuscular Crust.
+
+The amount of work obtained 
+in a reversible process is the Gibbs energy
+of formation for that process.
+This is the difference between the Gibbs energies
+of the input species and output species.
+
+
+Henceforth, the natural resource is assumed to be a mixture 
+of liquids or solids 
+and to behave as an ideal solution.
+
+Material exergy per mole ($b$) requires chemical ($b_{ch}$) 
+and distribution ($b_d$) exergies per mole
 for each species in a mixture.
 A species may change from process to process.
 The number of moles of a species in each mixture
@@ -261,9 +348,14 @@ The original statepoint of concentration exergy is the amount of moles per moles
 in the Earth's crust, also known as Thanatia.
 
 \begin{equation}\label{eq:simplified_material_exergy_definition}
-  b_{i,1} = b_{ch,i,1} = b_{d,i,1}
+  b_{i,1} = b_{ch,i,1} + b_{d,i,1}
 \end{equation}
 
+The first component of molar intensive material exergy, $b_{1}$, 
+is the sum of chemical exergies of each compound 
+present in the mixture, $b_{ch,i,1}$,
+and the second is the sum of distribution exergies of each compound
+present in the mixutre, $b_{d,i,1}$
 The total exergy per mole ($b$) is equal to the sum of the chemical exergies ($b_{ch}$)
 and the distribution exergies ($b_d$) for each compound.
 
@@ -271,21 +363,42 @@ and the distribution exergies ($b_d$) for each compound.
   b_{1} = \sum_{i}{b_{ch,i,1}} + \sum_{i}{b_{d,i,1}}
 \end{equation}
 
-The material exergy ($B$) is the sum of the chemical ($b_{ch}$) and distribution ($b_d$) exergies when individually multiplied by the number of moles ($n$) for each compound.
+The material exergy ($B$) is the sum of the chemical ($b_{ch}$) and distribution ($b_d$) exergies 
+when individually multiplied 
+by the number of moles ($n_i$) for each compound
+in the mixture.
 
 \begin{equation}\label{eq:specific_exergy_definition}
   B_{1} = \sum_{i}{n_{i,1}b_{ch,i,1}} + \sum_{i}{n_{i,1}b_{d,i,1}}
 \end{equation}
 
-The chemical exergy ($b$) is the Gibbs energy ($G$) for the compound
-plus the sum of chemical exergy ($b_{ch}$) multiplied by the number of moles
-in the mix ($n$) for each species. %j is element in the compound, i is the compound
+Chemical and distribution exergies are broken down
+by the element in a compound
+for a mixture.
+
+The chemical exergy, ($b_{ch}$), is the Gibbs energy, ($G$), for the compound
+plus the sum of chemical exergy, ($b_{ch}$), 
+multiplied by the number of moles
+in the mix ($n-{j,i}$) for each element, $j$, 
+in the compound observed, $i$. 
 
 \begin{equation}\label{eq:specific_chemical_exergy_definition}
   b_{ch,i} = \Delta{G_{f,i}} + \sum_{j}{n_{j,i}b_{ch,j}}
 \end{equation}
 
-The chemical exergy per mole ($b_{ch}$) is the molar fraction ($y$) of a species multiplied by the chemical exergy of that same species ($b_{ch}$).
+The chemical exergy of each compound, $i$, is dependent
+on whether it exists or not
+in the reference environment.
+If compound $i$ does not exist
+in the reference environment,
+chemical exergy is the amount of work obtained
+in the reversible chemical reactions
+that decomposes the pure compound at ambient temperature, $T_{0}$
+into reference species, $i$, that are in equilibrium
+with the environment.
+
+The chemical exergy per mole ($b_{ch}$) is the molar fraction ($y$) 
+of a species multiplied by the chemical exergy of that same species ($b_{ch}$).
 
 \begin{equation}\label{eq:chemical_exergy_state_point1}
   b_{ch,i,1} = y_{i,1}b_{ch,i}
@@ -315,19 +428,14 @@ in the mixture ($N_{mix}$).
   B_{mix} = \frac{b_{mix}}{N_{mix}} = -RT_{0}\sum_{i}y_{i}\ln{y_{i}}
 \end{equation}
 
-The distribution exergy ($b_d$)
-for a species
+The distribution exergy for a species, ($b_d,i$),
 either at the current state or Thanatia.
-equation uses the gas constant ($R$), ambient temperature ($T_0$),
-and molar fraction of a species ($y_i$).
+equation uses the universal gas constant, ($R$), ambient temperature, ($T_0$),
+and molar fraction of a species, ($y_i$).
 
 \begin{equation}\label{eq:specific_distribution_exergy_of_current_statepoint_definition}
   b_{d,i} = -RT_{0}y_{i}\ln{y_{i}}
 \end{equation}
-
-where ($R$) is the universal gas constant,
-($T_0$) is the ambient temperature,
-and ($y_i$) is molar fraction of a species.
 
 The total distribution of a species ($b_{d,i}$) is the change in distribution exergy from Thanatia ($b_{d,i,0}$)
 to the species current state ($b_{d,i,1}$)
@@ -767,7 +875,7 @@ All appendix sections must be cited in the main text. In the appendices, Figures
 \label{sec:nomenclature}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
+testing
 Nomenclature for this paper is described in several tables.
 Table~\ref{tab:symbols} shows symbols and abbreviations, their meanings, and example units.
 Table~\ref{tab:abbreviations} shows abbreviations and acronyms.
@@ -791,14 +899,16 @@ $B$                 & total material exergy [kJ] \\
 $b$                 & molar intensive material exergy [kJ/mol] \\
 $b_{ch}$            & molar intensive chemical exergy [kJ/mol] \\
 $b_d$               & molar intensive distrubution exergy [kJ/mol] \\
+$b_{th}$            & thermomechanical exergy [kJ/mol] \\
 $\Delta{G_{f}}$     & Gibbs energy [kJ/mol] \\
-$i$                 & \\
-$j$                 & \\
+$i$                 & specific compound \\
+$j$                 & element in the specific compound \\
 $N_{mix}$           & total number of moles for a mixture [mol] \\
 $n$                 & number of moles [mol] \\
 $R$                 & Universal gas constant [kJ/molK] \\
 $S_{mix}$           & entropy of a mixture [kJ/K] \\
 $T_{0}$             & ambient temperature [K] \\
+$x_{i,0}$           & ADD DEFINITION \\
 $y_i$               & molar fraction [mol/mol] \\
 
 \bottomrule
