@@ -563,21 +563,54 @@ Doing so enables focus on the chemical exergy
 % \subsection{Figures, Tables and Schemes}
 %
 % All figures and tables should be cited in the main text as Figure~\ref{fig1}, Table~\ref{tab1}, etc.
-\begin{figure}[h!]
-%\begin{adjustwidth}{-\extralength}{0cm}
-  \centering
-  \includegraphics[width=0.8\textwidth]{images/efficiency_methods.pdf}
-%\end{adjustwidth}
-  \caption{Efficiency Methods}
-  \label{fig:Efficiency Methods}
-\end{figure}
+
+In this section we display results
+for the material exergy
+of inputs to the blast furnace,
+the PSUT matrices for energy accounting,
+and of the efficiency methods used.
+
+A complete material and energy exergy accounting,
+additional matrices,
+and efficiencies
+for the material conversion chain
+can be found in Appendix [].
+%++++++++++++++++++++++++++++++
+\subsection{Blast Furnace Inputs}
+%++++++++++++++++++++++++++++++
+
+Equations [] to [] are the basis for material exergy accounting
+of the material conversion chain.
+Figure [] and [] displays the solid inputs: iron ore, limestone, and coking coal,
+and the gaseous inputs, air,
+into the blast furnace.
+Note that Figures [] and []
+only show material exergy contributions
+for one statepoint.
+Additional material exergy statepoint calculations
+for the entire material conversion chain
+can be found in Appendix [].
+
+
+The chemical and concentration exergy,
+columns [] and [],
+contribute to the total material exergy
+based on the molar amount
+of each component.
+Column [] is the total material exergy
+for each component.
+The sum of $B_{m,i}$
+is the total material exergy
+of the mixture.
+
+%Should the figures for the BF inputs be tables instead?
 
 \begin{figure}[h!]
 %\begin{adjustwidth}{-\extralength}{0cm}
   \centering
   \includegraphics[width=0.8\textwidth]{images/Solid BF Inputs.pdf}
 %\end{adjustwidth}
-  \caption{Iron ore, limestone, and coking coal inputs to the Blast Furnace}
+  \caption{Material exergy accounting for the solid blast furnace inputs: iron ore, limestone, and coking coal.}
   \label{fig:Solid Blast Furnace Inputs}
 \end{figure}
 
@@ -586,9 +619,42 @@ Doing so enables focus on the chemical exergy
   \centering
   \includegraphics[width=0.8\textwidth]{images/Air BF Inputs.pdf}
 %\end{adjustwidth}
-  \caption{Air input to the Blast Furnace}
-  \label{fig:Air Blast Furnace Inputs}
+  \caption{Material exergy accounting for the gaseous blast furnace inputs: air.}
+  \label{fig:Gaseous Blast Furnace Inputs}
 \end{figure}
+
+%++++++++++++++++++++++++++++++
+\subsection{Efficiency Methods}
+%++++++++++++++++++++++++++++++
+
+Three efficiency calculation methods,
+seen in Figure [],
+were applied to the material conversion chain
+from mineral extraction
+to the blast furnace.
+
+\begin{itemize}
+  \item The Bejan method focuses on the main product
+  at a statepoint
+  to quantify how the material's exergy upgraded
+  due to concentration of the compound
+  by energy exergy inputted.
+  \item The Product method focuses on the main product's exergy
+  compared to the total exergy used
+  at the previous statepoint,
+  \item The Student method focuses on the total output
+  compared to the total input.
+\end{itemize}
+
+\begin{figure}[h!]
+%\begin{adjustwidth}{-\extralength}{0cm}
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/efficiency_methods.pdf}
+%\end{adjustwidth}
+  \caption{Three efficiency methods used for energy and material exergy conversion chains.}
+  \label{fig:Efficiency Methods}
+\end{figure}
+
 % \begin{figure}
 % \includegraphics[width=10.5 cm]{Definitions/logo-mdpi}
 % \caption{Efficiency Methods. If there are multiple panels, they should be listed as: (\textbf{a}) Description of what is contained in the first panel. (\textbf{b}) Description of what is contained in the second panel. Figures should be placed in the main text near to the first time they are cited. A caption on a single line should be centered.\label{fig1}}
