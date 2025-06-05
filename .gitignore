@@ -13,3 +13,4 @@ template.fdb_latexmk
 template.fls
 template.loc
 template.soc
+template-concordance.tex
