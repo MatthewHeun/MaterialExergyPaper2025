@@ -14,3 +14,9 @@ template.fls
 template.loc
 template.soc
 template-concordance.tex
+MatExPaper.aux
+MatExPaper.bbl
+MatExPaper.log
+MatExPaper.out
+MatExPaper.pdf
+MatExPaper.synctex.gz

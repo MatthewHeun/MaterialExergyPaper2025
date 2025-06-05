@@ -1,4 +1,4 @@
-%% Bibliography style for MDPI journals
+%% Bibliography style for MDPI journals, updated on December 17, 2024
 
 ENTRY
   { address
