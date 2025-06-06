@@ -241,7 +241,8 @@ Contributions:
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Materials and Methods}
-
+\label{sec: materials and methods}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Materials and Methods should be described with sufficient details to allow others to replicate and build on published results. Please note that publication of your manuscript implicates that you must make all materials, data, computer code, and protocols associated with the publication available to readers. Please disclose at the submission stage any restrictions on the availability of materials or information. New methods and protocols should be described in detail while well-established methods can be briefly described and appropriately cited.
 %
@@ -257,6 +258,7 @@ Contributions:
 
 %++++++++++++++++++++++++++++++
 \subsection{Material Exergy Calculation}
+\label{ssec: material exergy calculation}
 %++++++++++++++++++++++++++++++
 % \replaced[id=MKH]{
 % The exergy of a system is the maximum amount of work
@@ -297,6 +299,17 @@ in entropy of the mixture from the Earth's crust to the current state ($S_{mix}$
   B_{mix} = T_{0}S_{mix} = -RT_{0}\sum_{i}{N_{i}{y_{i}}\ln{y_{i}}}
 \end{equation}
 
+The entropy of a mixture ($S$) is the negative gas constant ($R$)
+and number of mole of the mix ($N$)
+multiplied by the sum of the molar fraction
+and log of the fraction of moles per species ($y_i$$lny_i$).
+
+\begin{equation}\label{eq:specific_entropy_of_mixture_definition}
+  S_{mix} = -RN_{mix}(y_{1}\ln{y_{1}} + y_{2}\ln{y_{2}} + y_{3}\ln{y_{3}} + \ldots)
+          = -RN_{mix}\sum_{i} y_{i}\ln{y_{i}}
+\end{equation}
+
+
 The total exergy of a mixture ($B_{mix}$) is the exergy per mole ($b_{mix}$)
 multiplied by the number of moles
 in the mixture ($N_{mix}$).
@@ -334,7 +347,7 @@ The first component of molar intensive material exergy, $b_{1}$,
 is the sum of chemical exergies of each compound
 present in the mixture, $b_{ch,i,1}$,
 and the second is the sum of concentration exergies of each compound
-present in the mixutre, $b_{d,i,1}$
+present in the mixutre, $b_{c,i,1}$
 The total exergy per mole ($b$) is equal to the sum of the chemical exergies ($b_{ch}$)
 and the concentration exergies ($b_{d,i}$) for each compound.
 
@@ -343,7 +356,7 @@ and the concentration exergies ($b_{d,i}$) for each compound.
 \end{equation}
 
 Chemical ($b_{ch,i}$) and concentration ($b_{c,i}$) exergies are broken down
-by the element in a compound
+by the element ($j$) in a compound ($i$)
 for a mixture.
 
 Natural resources have a positive material exergy, ($b$),
@@ -353,7 +366,7 @@ Material exergy of a natural resource, ($b_{i}$),
 is the work that would be needed
 to produce that substance with its structure,
 known as chemical exergy ($b_{ch,i}$),
-and the concentration in a reversible process ($b_{d,i}$),
+and the concentration in a reversible process ($b_{c,i}$),
 with respect to the reference environment.
 A natural resource is a mixture of compounds.
 If it is a mixture of gases,
@@ -395,24 +408,50 @@ of a species multiplied by the chemical exergy of that same species ($b_{ch}$).
   b_{ch,i,1} = y_{i,1}b_{ch,i}
 \end{equation}
 
-A concentration of a species
+The concentration of a species
 may change between statepoints.
 The number of moles of a species in each mixture ($n_{i,mix}$)
 determines the concentration of the species
 compared to the rest of the mixture.
-The original statepoint of concentration exergy ($b_d$) is the amount of moles per moles
-in the Earth's crust, also known as Thanatia.
+The original statepoint of concentration exergy ($b_c$) is the pure substance
+of an element ($j$) or compound ($i$).
 
 The concentration exergy for a species, ($b_c,i$),
-either at the current state or Thanatia
+at the current state
 equation uses the universal gas constant, ($R$),
 ambient temperature, ($T_0$),
 and molar fraction of a species, ($y_i$).
 
 \begin{equation}\label{eq:specific_concentration_exergy_of_current_statepoint_definition}
-  b_{c,i} = -RT_{0}y_{i}
+  b_{c,i} = -RT_{0}(\ln(y_{i}) - \ln(y_{i,0})
 \end{equation}
 
+The pure substance molar fraction ($y_{i,0}$) is always equal to one.
+Equation equation~\ref{eq:specific_concentration_exergy_of_current_statepoint_definition} becomes
+
+\begin{equation}\label{eq:specific_concentration_exergy_of_current_statepoint_definition}
+  b_{c,i} = -RT_{0}(\ln(y_{i}).
+\end{equation}
+
+The exergy contribution of a compound ($i$) is dependent
+on its molar fraction
+and the total number of moles
+in a mixture.
+
+\begin{equation}\label{eq:specific_exergy_of_current_statepoint_molar_based_definition}
+  b_{m,i,1} = y_{i,1}b_{i,1}
+\end{equation}
+
+\begin{equation}\label{eq:specific_exergy_of_current_statepoint_mixture_definition}
+  B_{m,i,1} = N_{1}b_{i,1}
+\end{equation}
+
+The total exergy at a statepoint
+is the sum of the component's exergy.
+
+\begin{equation}\label{eq:total_exergy_of_current_statepoint_mixture_definition}
+  B_{1} = \sum{B_{m,i,1}}
+\end{equation}
 
 %Substituting Equation~(\ref{eq:specific_concentration_exergy_of_current_statepoint_definition}) into Equation~(\ref{eq:specific_distribution_exergy_from_reference_statepoint_to_thanatia}),
 %the following equation is found
@@ -421,32 +460,30 @@ and molar fraction of a species, ($y_i$).
  % b_{d,i} = -RT_{0}(y_{i,1}\ln{y_{i,1}} - y_{i,0}\ln{y_{i,0}}) \ .
 %\end{equation}
 
-% begin Move the following paragraphs
-When considering the mineral composition
-of the Earth's crust,
-a reference environment of Thanatia
-or the Crepuscular Crust model is used.
-In this model, the 294 most abundant mineral species
-that make up the Earth's crust
-are considered to be uniformly dispersed
-and have even concentration throughout any portion
-of the upper continental crust.
-
-According the Crepuscular Crust model,
-natural resources have a positive material exergy
-because they have a chemical composition that
-differs from the composition they would have when
-completely dispersed.
-
-
-Henceforth, the natural resource is assumed to be a mixture
-of liquids or solids
-and to behave as an ideal solution.
-
-Material exergy per mole ($b$) requires chemical ($b_{ch}$) and concentration ($b_c$) exergies per mole
-for each species in a mixture.
-
-
+% % begin Move the following paragraphs
+% When considering the mineral composition
+% of the Earth's crust,
+% a reference environment of Thanatia
+% or the Crepuscular Crust model is used.
+% In this model, the 294 most abundant mineral species
+% that make up the Earth's crust
+% are considered to be uniformly dispersed
+% and have even concentration throughout any portion
+% of the upper continental crust.
+%
+% According the Crepuscular Crust model,
+% natural resources have a positive material exergy
+% because they have a chemical composition that
+% differs from the composition they would have when
+% completely dispersed.
+%
+%
+% Henceforth, the natural resource is assumed to be a mixture
+% of liquids or solids
+% and to behave as an ideal solution.
+%
+% Material exergy per mole ($b$) requires chemical ($b_{ch}$) and concentration ($b_c$) exergies per mole
+% for each species in a mixture.
 
 
 ****
@@ -457,34 +494,12 @@ Then we have
 $b_{ch}$ being inside the $b_{i,1}$ equation below.
 ---MKH
 
-****
-
-****
-
-Also, we should define $i$ and $j$ subscripts in the text.
----MKH
-
-****
-
-****
 
 Finally, I think we should have a diagram associated with this description.
 Maybe something like Figure 1 from Valero 2011.
 ---MKH
 
 ****
-
-
-% Potentially start with the entropy equation or remove following lines
-The entropy of a mixture ($S$) is the negative gas constant ($R$)
-and number of mole of the mix ($N$)
-multiplied by the sum of the molar fraction
-and log of the fraction of moles per species ($y_i$$lny_i$).
-
-\begin{equation}\label{eq:specific_entropy_of_mixture_definition}
-  S_{mix} = -RN_{mix}(y_{1}\ln{y_{1}} + y_{2}\ln{y_{2}} + y_{3}\ln{y_{3}} + \ldots)
-          = -RN_{mix}\sum_{i} y_{i}\ln{y_{i}}
-\end{equation}
 
 % \replaced[id=MKH]{
 % The first term is thermomechanical exergy ($b_{th}$).
@@ -503,23 +518,81 @@ and log of the fraction of moles per species ($y_i$$lny_i$).
 % Doing so enables focus on the chemical exergy
 % ($b_{ch}$, also called material exergy).}
 
+%++++++++++++++++++++++++++++++
+\subsection{Energy Exergy Calculation}
+\label{ssec: energy exergy calculation}
+%++++++++++++++++++++++++++++++
+
+A material conversion chain
+is made of both material and energy inputs.
+To change a mixture's composition,
+energy is used
+to concentrate certain components
+and remove unnecessary components,
+
+The total energy exergy ($X$)
+of a process
+is determined by the type of energy utilized.
+A constant, denoted by ($\phi$),
+is multiplied by the energy input
+to calculate the exergy.
+The phi constant depends on the type of energy used.
+For example, natural gas has a phi constant
+of 1.04
+while coking coal has a constant
+of 1.05.
+Further information about the phi constants used
+may be found in Appendix [X].
+
+\begin{equation}\label{eq:energy_exergy_definition}
+  X_{i} = \phi E_{i}
+\end{equation}
+
+The sum of energy exergy inputs is the total energy exergy
+included in a process.
+
+\begin{equation}\label{eq:total_energy_exergy_definition}
+  X = \sum{\phi E_{i}}
+\end{equation}
+
+
+
 
 %++++++++++++++++++++++++++++++
 \subsection{Efficiency Methods}
 \label{ssec: efficiency_methods_and_calculations}
 %++++++++++++++++++++++++++++++
 
+Efficiencies for a process may be calculated
+in various ways.
+Each efficiency calculation provides specific information
+about a process.
+The following three efficiency calculation methods apply
+in the context of a material conversion chain:
+
 \begin{itemize}
   \item The Bejan method focuses on the main product
   at a statepoint
-  to quantify how the material's exergy upgraded
-  due to concentration of the compound
-  by energy exergy inputted.
-  \item The Product method focuses on the main product's exergy
-  compared to the total exergy used
-  at the previous statepoint,
-  \item The Student method focuses on the total output
-  compared to the total input.
+  to quantify how the material's concentration exergy upgraded.
+  due to energy inputs.\\
+
+  \begin{equation}\label{eq:Bejan Efficiency}
+  n_{x} = \frac{N_i(b_{m,i,1} - b_{m,i,0})}{\sum{X_{in}}}
+  \end{equation}
+
+  \item The Product method focuses on the main product's exergy output
+  compared to the total exergy input.
+
+  \begin{equation}\label{eq:Product Efficiency}
+  n_{x} = \frac{(B_{m,i,1})}{\sum{X_{in}}+\sum{B_{in}}}
+  \end{equation}
+
+  \item The Student method focuses on the total exergy output
+  compared to the total exergy input.\\
+
+  \begin{equation}\label{eq:Product Efficiency}
+  n_{x} = \frac{\sum{B_{out}}}{\sum{X_{in}} + \sum{B_{out}}}
+  \end{equation}
 \end{itemize}
 
 \begin{figure}
@@ -530,8 +603,9 @@ and log of the fraction of moles per species ($y_i$$lny_i$).
 \end{figure}
 
 
+
 The Bejan method uses the material exergy ($b_{m,i}$)
-of hematite ore, 2.93 kJ as seen in Figure~\ref{fig1},
+of hematite ore, **2.93**~kJ as seen in Figure~\ref{fig1},
 and compare it to the material exergy
 at the next statepoint.
 The energy exergy input,
@@ -548,7 +622,7 @@ of all material and energy streams
 as the input.
 In the blast furnace example,
 the total material exergy input
-is 7081428.83 kJ.
+is ***7081***~MJ.
 
 The Student method uses the total material exergy ($B$)
 of all material and energy streams
@@ -627,9 +701,9 @@ of the mixture.
 
 
 The total material exergy of solid inputs ($B_{m,i}$)
-in Table~\ref{tab1} is 7072~MJ.
+in Table~\ref{tab1} is **7072**~MJ.
 The material exergy in Figure~\ref{fig1}
-of hematite ore is 76~MJ.
+of hematite ore is **76**~MJ.
 
 \begin{table}
 %\begin{adjustwidth}{-\extralength}{0cm}
@@ -642,7 +716,7 @@ of hematite ore is 76~MJ.
 \end{table}
 
 The total material exergy of air
-in Table~\ref{tab2} is 9~MJ.
+in Table~\ref{tab2} is **9**~MJ.
 
 
 %++++++++++++++++++++++++++++++
@@ -669,20 +743,20 @@ The efficiencies of iron ore processes,
 in Table~\ref{fig:Process Efficiencies for iron, limestone, and coal ore.},
 are lower than the limestone and coal efficiencies.
 
-The iron ore extraction Students efficiency is 54$\%$
-and the Product efficiency is 45$\%$.
+The iron ore extraction Students efficiency is **54**$\%$
+and the Product efficiency is **45**$\%$.
 The limestone and coal extraction efficiencies range
-from 78 to 99$\%$.
+from **78** to **99**$\%$.
 Refer to Table~\ref{fig:Process Efficiencies for iron, limestone, and coal ore.}
 to see similar results
-for hauling efficiencies.
+for hauling efficiencies.\\
 The mixer and blast furnace efficiencies
 are equal because the desired output is the same.
 The Bejan efficiency
 for the blast furnace
-is 8$\%$.
-The Students efficiency is 45$\%$
-and the Product efficiency is 42$\%$.
+is **8**$\%$.
+The Students efficiency is **45**$\%$
+and the Product efficiency is **42**$\%$.
 
 
 
