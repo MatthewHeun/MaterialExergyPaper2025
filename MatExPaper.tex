@@ -483,7 +483,7 @@ is made of both material and energy inputs.
 To change a mixture's composition,
 energy is used
 to concentrate certain components
-and remove unnecessary components,
+and remove unnecessary components.
 
 The total energy exergy ($X$)
 of a process
@@ -492,10 +492,8 @@ A constant, denoted by ($\phi$),
 is multiplied by the energy input
 to calculate the exergy.
 The phi constant depends on the type of energy used.
-For example, natural gas has a phi constant
-of 1.04
-while coking coal has a constant
-of 1.05.
+For example, natural gas has a phi constant of 1.04
+while coking coal has a constant of 1.05.
 Further information about the phi constants used
 may be found in Appendix [X].
 
@@ -528,26 +526,57 @@ in the context of a material conversion chain:
 \begin{itemize}
   \item The Bejan method focuses on the main product
   at a statepoint
-  to quantify how the material's concentration exergy upgraded.
-  due to energy inputs.\\
+  to quantify how the material's concentration exergy upgraded
+  due to energy inputs.
+  See figure Figure~\ref{fig: efficiencymethods}\\
 
   \begin{equation}\label{eq:Bejan Efficiency}
   n_{x} = \frac{N_i(b_{m,i,1} - b_{m,i,0})}{\sum{X_{in}}}
   \end{equation}
 
+  In the case of the blast furnace,
+  the Bejan method uses the material exergy ($b_{m,i}$)
+  of hematite ore
+  and compares it to the material exergy
+  at the next statepoint.
+  The energy exergy input, to the blast furnace,
+  is the work it takes to concentrate the hematite ore
+  to pig iron.
+  The Bejan method is helpful
+  for calculating the efficiency
+  of concentrating a specific element or compound.
+
   \item The Product method focuses on the main product's exergy output
   compared to the total exergy input.
+  See figure Figure~\ref{fig: efficiencymethods}\\
 
   \begin{equation}\label{eq:Product Efficiency}
   n_{x} = \frac{(B_{m,i,1})}{\sum{X_{in}}+\sum{B_{in}}}
   \end{equation}
 
+  The Product method uses the total material exergy ($B$) of the desired output,
+  such as pig iron,
+  and the total material exergy
+  of all material and energy streams
+  as the input.
+
+  The Product method is helpful
+  for calculating the efficiency
+  for creating a specific mixture separated
+  from waste streams.\\
+
   \item The Student method focuses on the total exergy output
-  compared to the total exergy input.\\
+  compared to the total exergy input.
+  See figure Figure~\ref{fig: efficiencymethods}\\
 
   \begin{equation}\label{eq:Product Efficiency}
   n_{x} = \frac{\sum{B_{out}}}{\sum{X_{in}} + \sum{B_{out}}}
   \end{equation}
+
+  The Student method is helpful
+  for quick efficiency calculations
+  of an overall process.
+
 \end{itemize}
 
 \begin{figure}
@@ -559,42 +588,7 @@ in the context of a material conversion chain:
 
 
 
-The Bejan method uses the material exergy ($b_{m,i}$)
-of hematite ore, **2.93**~kJ as seen in Figure~\ref{fig1},
-and compares it to the material exergy
-at the next statepoint.
-The energy exergy input,
-to the blast furnace,
-is the work it takes
-to concentrate the hematite ore
-to pig iron.
-The Bejan method is helpful
-for calculating the efficiency
-of concentrating a specific element or compound.
 
-The Product method uses the total material exergy ($B$)
-of the desired output,
-such as pig iron,
-and the total material exergy
-of all material and energy streams
-as the input.
-In the blast furnace example,
-the total material exergy input
-is ***7081***~MJ.
-The Product method is helpful
-for calculating the efficiency
-of creating a specific mixture separated
-from waste streams.
-
-The Student method uses the total material exergy ($B$)
-of all material and energy streams
-as the input
-and the total material exergy
-of all material streams
-as the output.
-The Student method is helpful
-for quick efficiency calculations
-of an overall process.
 
 %++++++++++++++++++++++++++++++
 \subsection{Data}
@@ -630,6 +624,7 @@ additional matrices,
 and efficiencies
 for the material conversion chain
 can be found in Appendix [X].
+
 %++++++++++++++++++++++++++++++
 \subsection{Material Exergies}
 \label{ssec: blast furnace example}
@@ -648,7 +643,7 @@ along the material conversion chain.
 Table [X] shows the solid inputs
 to the blast furnace: iron ore, limestone, and coking coal.
 Table [X] shows the air input
-into the blast furnace.
+to the blast furnace.
 
 
 The chemical and concentration exergy,
@@ -664,7 +659,6 @@ The sum of exergy inputs ($B_{m,i}$)
 is the total material exergy
 of the mixture.
 
-%Should the figures for the BF inputs be tables instead?
 
 \begin{table}
 %\begin{adjustwidth}{-\extralength}{0cm}
