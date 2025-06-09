@@ -269,10 +269,10 @@ and by mole fraction ($y_{i}$)
 in the Earth's crust.
 
 
-Natural resources have a positive material exergy, ($b$),
+Natural resources have a positive material exergy ($b$)
 because they have a chemical composition
 that differentiates them from the Environment.
-Material exergy of a natural resource, ($b_{i}$),
+Material exergy of a natural resource ($b_{i}$)
 is the work that would be needed
 to produce that substance with its structure,
 known as chemical exergy ($b_{ch,i}$),
@@ -329,28 +329,14 @@ The first component of molar intensive material exergy, $b_{1}$,
 is the sum of chemical exergies of each compound
 present in the mixture, $b_{ch,i,1}$,
 and the second is the sum of concentration exergies of each compound
-present in the mixutre, $b_{c,i,1}$
+present in the mixutre, $b_{c,i,1}$.
 The total exergy per mole ($b$) is equal to the sum of the chemical exergies ($b_{ch}$)
-and the concentration exergies ($b_{d,i}$) for each compound.
+and the concentration exergies ($b_{c,i}$) for each compound.
 
 \begin{equation}\label{eq:specific_molar_intensive_exergy_definition}
   b_{i,1} = \sum_{i}{b_{ch,i,1}} + \sum_{i}{b_{c,i,1}}
 \end{equation}
 
-
-The material exergy at some statepoint, for example, the first statepoint, ($B_{1}$)
-is the sum of the chemical ($b_{ch,1}$) and concentration ($b_c,1$) exergies
-when individually multiplied
-by the number of moles ($n_{i,1}$)
-for each compound ($i$) in the mixture.
-
-\begin{equation}\label{eq:specific_exergy_definition}
-  B_{i,1} = \sum_{i}{n_{i,1}b_{ch,i,1}} + \sum_{i}{n_{i,1}b_{c,i,1}}
-\end{equation}
-
-\begin{equation}\label{eq:simplified_material_exergy_definition}
-  b_{i,1} = b_{ch,i,1} + b_{c,i,1}
-\end{equation}
 
 % How are we defining the compound compared to the component number?
 
@@ -358,22 +344,22 @@ Chemical ($b_{ch,i}$) and concentration ($b_{c,i}$) exergies are broken down
 by the element ($j$) in a compound ($i$)
 for a mixture.
 
-The chemical exergy of each compound, ($b_{ch,i}$), is dependent
+The chemical exergy of each compound ($b_{ch,i}$) is dependent
 on whether it exists or not
 in the reference environment.
 If compound ($i$) does not exist
 in the reference environment,
 chemical exergy is the amount of work obtained
 in the reversible chemical reactions
-that decomposes the pure compound at ambient temperature, ($T_{0}$),
+that decomposes the pure compound at ambient temperature ($T_{0}$)
 into reference species ($i$) that are in equilibrium
 with the environment.
 
-The chemical exergy, ($b_{ch}$), is the Gibbs energy, ($\delta{G}$),
-plus the sum of chemical exergy, ($b_{ch}$),
+The chemical exergy ($b_{ch}$) is the Gibbs energy ($\delta{G}$)
+plus the sum of chemical exergy ($b_{ch}$)
 multiplied by the number of moles
-in the mix ($n_{j,i}$) for each element, $j$,
-in the compound observed, $i$.
+in the mix ($n_{j,i}$) for each element ($j$)
+in the compound observed ($i$).
 
 The amount of work obtained
 in a reversible process is the Gibbs energy
@@ -400,10 +386,10 @@ compared to the rest of the mixture.
 The original statepoint of concentration exergy ($b_{c,0}$) is the pure substance
 of an element ($j$) or compound ($i$).
 
-The concentration exergy for a species, ($b_c,i$),
+The concentration exergy for a species ($b_c,i$)
 at the current state
-equation uses the universal gas constant, ($R$),
-ambient temperature, ($T_0$),
+equation uses the universal gas constant ($R$),
+ambient temperature ($T_0$),
 and molar fraction of a species, ($y_i$).
 
 \begin{equation}\label{eq:specific_concentration_exergy_of_current_statepoint_definition}
@@ -417,7 +403,21 @@ Equation equation~\ref{eq:specific_concentration_exergy_of_current_statepoint_de
   b_{c,i} = -RT_{0}(\ln(y_{i}).
 \end{equation}
 
-%define statepoint here or leave equations without statepoint definition?
+
+The material exergy at some statepoint, for example, the first statepoint, ($B_{1}$)
+is the sum of the chemical ($b_{ch,1}$) and concentration ($b_c,1$) exergies
+when individually multiplied
+by the number of moles ($n_{i,1}$)
+for each compound ($i$) in the mixture.
+
+\begin{equation}\label{eq:specific_exergy_of_current_statepoint_definition}
+  B_{i,1} = \sum_{i}{n_{i,1}b_{ch,i,1}} + \sum_{i}{n_{i,1}b_{c,i,1}}
+\end{equation}
+
+\begin{equation}\label{eq:simplified_material_exergy_of_current_statepoint_definition}
+  b_{i,1} = b_{ch,i,1} + b_{c,i,1}
+\end{equation}
+
 The exergy contribution of a compound ($b_i$) is dependent
 on its molar fraction
 and the total number of moles
@@ -428,17 +428,19 @@ in a mixture.
 \end{equation}
 
 \begin{equation}\label{eq:specific_exergy_of_current_statepoint_mixture_definition}
-  B_{mix,i,1} = N_{1}b_{i,1}
+  B_{mix,i,1} = N_{mix,1}b_{i,1}
 \end{equation}
 
 The total exergy at a statepoint
 is the sum of the component's exergy.
 
 \begin{equation}\label{eq:total_exergy_of_current_statepoint_mixture_definition}
-  B_{1} = \sum{B_{mix,i,1}}
+  B_{mix,1} = \sum{B_{mix,i,1}}
 \end{equation}
 
-
+The material exergy at each statepoint ($B_{mix}$) is calculated as shown.
+The results allow for further calculations
+of process efficiencies.
 
 % % begin Move the following paragraphs
 % When considering the mineral composition
