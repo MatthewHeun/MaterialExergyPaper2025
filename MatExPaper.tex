@@ -871,94 +871,94 @@ All appendix sections must be cited in the main text. In the appendices, Figures
 %=====================================
 % References, variant A: external bibliography
 %=====================================
-% \bibliography{your_external_BibTeX_file}
+\bibliography{references}
 
 %=====================================
 % References, variant B: internal bibliography
 %=====================================
-
-% ACS format
-\isAPAandChicago{}{%
-\begin{thebibliography}{999}
-% Reference 1
-\bibitem[Author1(year)]{ref-journal}
-Author~1, T. The title of the cited article. {\em Journal Abbreviation} {\bf 2008}, {\em 10}, 142--149.
-% Reference 2
-\bibitem[Author2(year)]{ref-book1}
-Author~2, L. The title of the cited contribution. In {\em The Book Title}; Editor 1, F., Editor 2, A., Eds.; Publishing House: City, Country, 2007; pp. 32--58.
-% Reference 3
-\bibitem[Author1 and Author2 (year)]{ref-book2}
-Author 1, A.; Author 2, B. \textit{Book Title}, 3rd ed.; Publisher: Publisher Location, Country, 2008; pp. 154--196.
-% Reference 4
-\bibitem[Author4(year)]{ref-unpublish}
-Author 1, A.B.; Author 2, C. Title of Unpublished Work. \textit{Abbreviated Journal Name} year, \textit{phrase indicating stage of publication (submitted; accepted; in press)}.
-% Reference 5
-\bibitem[Author8(year)]{ref-url}
-Title of Site. Available online: URL (accessed on Day Month Year).
-% Reference 6
-\bibitem[Author6(year)]{ref-proceeding}
-Author 1, A.B.; Author 2, C.D.; Author 3, E.F. Title of presentation. In Proceedings of the Name of the Conference, Location of Conference, Country, Date of Conference (Day Month Year); Abstract Number (optional), Pagination (optional).
-% Reference 7
-\bibitem[Author7(year)]{ref-thesis}
-Author 1, A.B. Title of Thesis. Level of Thesis, Degree-Granting University, Location of University, Date of Completion.
-\end{thebibliography}
-}
-
-% Chicago format (Used for journal: arts, genealogy, histories, humanities, jintelligence, laws, literature, religions, risks, socsci)
-\isChicagoStyle{%
-\begin{thebibliography}{999}
-% Reference 1
-\bibitem[Aranceta-Bartrina(1999a)]{ref-journal}
-Aranceta-Bartrina, Javier. 1999a. Title of the cited article. \textit{Journal Title} 6: 100--10.
-% Reference 2
-\bibitem[Aranceta-Bartrina(1999b)]{ref-book1}
-Aranceta-Bartrina, Javier. 1999b. Title of the chapter. In \textit{Book Title}, 2nd ed. Edited by Editor 1 and Editor 2. Publication place: Publisher, vol. 3, pp. 54–96.
-% Reference 3
-\bibitem[Baranwal and Munteanu {[1921]}(1955)]{ref-book2}
-Baranwal, Ajay K., and Costea Munteanu. 1955. \textit{Book Title}. Publication place: Publisher, pp. 154--96. First published 1921 (op-tional).
-% Reference 4
-\bibitem[Berry and Smith(1999)]{ref-thesis}
-Berry, Evan, and Amy M. Smith. 1999. Title of Thesis. Level of Thesis, Degree-Granting University, City, Country. Identifi-cation information (if available).
-% Reference 5
-\bibitem[Cojocaru et al.(1999)]{ref-unpublish}
-Cojocaru, Ludmila, Dragos Constatin Sanda, and Eun Kyeong Yun. 1999. Title of Unpublished Work. \textit{Journal Title}, phrase indicating stage of publication.
-% Reference 6
-\bibitem[Driver et al.(2000)]{ref-proceeding}
-Driver, John P., Steffen Rohrs, and Sean Meighoo. 2000. Title of Presentation. In \textit{Title of the Collected Work} (if available). Paper presented at Name of the Conference, Location of Conference, Date of Conference.
-% Reference 7
-\bibitem[Harwood(2008)]{ref-url}
-Harwood, John. 2008. Title of the cited article. Available online: URL (accessed on Day Month Year).
-\end{thebibliography}
-}{}
-
-% APA format (Used for journal: admsci, behavsci, businesses, econometrics, economies, education, ejihpe, games, humans, ijfs, journalmedia, jrfm, languages, psycholint, publications, tourismhosp, youth)
-\isAPAStyle{%
-\begin{thebibliography}{999}
-% Reference 1
-\bibitem[\protect\citeauthoryear{Azikiwe \BBA\ Bello}{{2020a}}]{ref-journal}
-Azikiwe, H., \& Bello, A. (2020a). Title of the cited article. \textit{Journal Title}, \textit{Volume}(Issue),
-Firstpage--Lastpage/Article Number.
-% Reference 2
-\bibitem[\protect\citeauthoryear{Azikiwe \BBA\ Bello}{{2020b}}]{ref-book1}
-Azikiwe, H., \& Bello, A. (2020b). \textit{Book title}. Publisher Name.
-% Reference 3
-\bibitem[Davison(1623/2019)]{ref-book2}
-Davison, T. E. (2019). Title of the book chapter. In A. A. Editor (Ed.), \textit{Title of the book: Subtitle}
-(pp. Firstpage--Lastpage). Publisher Name. (Original work published 1623) (Optional).
-% Reference 4
-\bibitem[Fistek et al.(2017)]{ref-proceeding}
-Fistek, A., Jester, E., \& Sonnenberg, K. (2017, Month Day). Title of contribution [Type of contribution]. Conference Name, Conference City, Conference Country.
-% Reference 5
-\bibitem[Hutcheson(2012)]{ref-thesis}
-Hutcheson, V. H. (2012). \textit{Title of the thesis} [XX Thesis, Name of Institution Awarding the Degree].
-% Reference 6
-\bibitem[Lippincott \& Poindexter(2019)]{ref-unpublish}
-Lippincott, T., \& Poindexter, E. K. (2019). \textit{Title of the unpublished manuscript} [Unpublished manuscript/Manuscript in prepara-tion/Manuscript submitted for publication]. Department Name, Institution Name.
-% Reference 7
-\bibitem[Harwood(2008)]{ref-url}
-Harwood, J. (2008). \textit{Title of the cited article}. Available online: URL (accessed on Day Month Year).
-\end{thebibliography}
-}{}
+%
+% % ACS format
+% \isAPAandChicago{}{%
+% \begin{thebibliography}{999}
+% % Reference 1
+% \bibitem[Author1(year)]{ref-journal}
+% Author~1, T. The title of the cited article. {\em Journal Abbreviation} {\bf 2008}, {\em 10}, 142--149.
+% % Reference 2
+% \bibitem[Author2(year)]{ref-book1}
+% Author~2, L. The title of the cited contribution. In {\em The Book Title}; Editor 1, F., Editor 2, A., Eds.; Publishing House: City, Country, 2007; pp. 32--58.
+% % Reference 3
+% \bibitem[Author1 and Author2 (year)]{ref-book2}
+% Author 1, A.; Author 2, B. \textit{Book Title}, 3rd ed.; Publisher: Publisher Location, Country, 2008; pp. 154--196.
+% % Reference 4
+% \bibitem[Author4(year)]{ref-unpublish}
+% Author 1, A.B.; Author 2, C. Title of Unpublished Work. \textit{Abbreviated Journal Name} year, \textit{phrase indicating stage of publication (submitted; accepted; in press)}.
+% % Reference 5
+% \bibitem[Author8(year)]{ref-url}
+% Title of Site. Available online: URL (accessed on Day Month Year).
+% % Reference 6
+% \bibitem[Author6(year)]{ref-proceeding}
+% Author 1, A.B.; Author 2, C.D.; Author 3, E.F. Title of presentation. In Proceedings of the Name of the Conference, Location of Conference, Country, Date of Conference (Day Month Year); Abstract Number (optional), Pagination (optional).
+% % Reference 7
+% \bibitem[Author7(year)]{ref-thesis}
+% Author 1, A.B. Title of Thesis. Level of Thesis, Degree-Granting University, Location of University, Date of Completion.
+% \end{thebibliography}
+% }
+%
+% % Chicago format (Used for journal: arts, genealogy, histories, humanities, jintelligence, laws, literature, religions, risks, socsci)
+% \isChicagoStyle{%
+% \begin{thebibliography}{999}
+% % Reference 1
+% \bibitem[Aranceta-Bartrina(1999a)]{ref-journal}
+% Aranceta-Bartrina, Javier. 1999a. Title of the cited article. \textit{Journal Title} 6: 100--10.
+% % Reference 2
+% \bibitem[Aranceta-Bartrina(1999b)]{ref-book1}
+% Aranceta-Bartrina, Javier. 1999b. Title of the chapter. In \textit{Book Title}, 2nd ed. Edited by Editor 1 and Editor 2. Publication place: Publisher, vol. 3, pp. 54–96.
+% % Reference 3
+% \bibitem[Baranwal and Munteanu {[1921]}(1955)]{ref-book2}
+% Baranwal, Ajay K., and Costea Munteanu. 1955. \textit{Book Title}. Publication place: Publisher, pp. 154--96. First published 1921 (op-tional).
+% % Reference 4
+% \bibitem[Berry and Smith(1999)]{ref-thesis}
+% Berry, Evan, and Amy M. Smith. 1999. Title of Thesis. Level of Thesis, Degree-Granting University, City, Country. Identifi-cation information (if available).
+% % Reference 5
+% \bibitem[Cojocaru et al.(1999)]{ref-unpublish}
+% Cojocaru, Ludmila, Dragos Constatin Sanda, and Eun Kyeong Yun. 1999. Title of Unpublished Work. \textit{Journal Title}, phrase indicating stage of publication.
+% % Reference 6
+% \bibitem[Driver et al.(2000)]{ref-proceeding}
+% Driver, John P., Steffen Rohrs, and Sean Meighoo. 2000. Title of Presentation. In \textit{Title of the Collected Work} (if available). Paper presented at Name of the Conference, Location of Conference, Date of Conference.
+% % Reference 7
+% \bibitem[Harwood(2008)]{ref-url}
+% Harwood, John. 2008. Title of the cited article. Available online: URL (accessed on Day Month Year).
+% \end{thebibliography}
+% }{}
+%
+% % APA format (Used for journal: admsci, behavsci, businesses, econometrics, economies, education, ejihpe, games, humans, ijfs, journalmedia, jrfm, languages, psycholint, publications, tourismhosp, youth)
+% \isAPAStyle{%
+% \begin{thebibliography}{999}
+% % Reference 1
+% \bibitem[\protect\citeauthoryear{Azikiwe \BBA\ Bello}{{2020a}}]{ref-journal}
+% Azikiwe, H., \& Bello, A. (2020a). Title of the cited article. \textit{Journal Title}, \textit{Volume}(Issue),
+% Firstpage--Lastpage/Article Number.
+% % Reference 2
+% \bibitem[\protect\citeauthoryear{Azikiwe \BBA\ Bello}{{2020b}}]{ref-book1}
+% Azikiwe, H., \& Bello, A. (2020b). \textit{Book title}. Publisher Name.
+% % Reference 3
+% \bibitem[Davison(1623/2019)]{ref-book2}
+% Davison, T. E. (2019). Title of the book chapter. In A. A. Editor (Ed.), \textit{Title of the book: Subtitle}
+% (pp. Firstpage--Lastpage). Publisher Name. (Original work published 1623) (Optional).
+% % Reference 4
+% \bibitem[Fistek et al.(2017)]{ref-proceeding}
+% Fistek, A., Jester, E., \& Sonnenberg, K. (2017, Month Day). Title of contribution [Type of contribution]. Conference Name, Conference City, Conference Country.
+% % Reference 5
+% \bibitem[Hutcheson(2012)]{ref-thesis}
+% Hutcheson, V. H. (2012). \textit{Title of the thesis} [XX Thesis, Name of Institution Awarding the Degree].
+% % Reference 6
+% \bibitem[Lippincott \& Poindexter(2019)]{ref-unpublish}
+% Lippincott, T., \& Poindexter, E. K. (2019). \textit{Title of the unpublished manuscript} [Unpublished manuscript/Manuscript in prepara-tion/Manuscript submitted for publication]. Department Name, Institution Name.
+% % Reference 7
+% \bibitem[Harwood(2008)]{ref-url}
+% Harwood, J. (2008). \textit{Title of the cited article}. Available online: URL (accessed on Day Month Year).
+% \end{thebibliography}
+% }{}
 
 % If authors have biography, please use the format below
 %\section*{Short Biography of Authors}
