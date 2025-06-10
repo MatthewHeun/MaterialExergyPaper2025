@@ -173,34 +173,12 @@ $^{4}$ \quad MARETEC—Marine, Environment and Technology Center, LARSyS, Instit
 %\datasetlicense{License under which the data set is made available (CC0, CC-BY, CC-BY-SA, CC-BY-NC, etc.)}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Only for the journal BioTech, Fishes, Neuroimaging and Toxins
-%\keycontribution{The breakthroughs or highlights of the manuscript. Authors can write one or two sentences to describe the most important part of the paper.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Only for the journal Encyclopedia
 %\encyclopediadef{For entry manuscripts only: please provide a brief overview of the entry title instead of an abstract.}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Only for the journal Advances in Respiratory Medicine, Future, Sensors and Smart Cities
-%\addhighlights{yes}
-%\renewcommand{\addhighlights}{%
-%
-%\noindent This is an obligatory section in ``Advances in Respiratory Medicine'', ``Future'', ``Sensors'' and ``Smart Cities”, whose goal is to increase the discoverability and readability of the article via search engines and other scholars. Highlights should not be a copy of the abstract, but a simple text allowing the reader to quickly and simplified find out what the article is about and what can be cited from it. Each of these parts should be devoted up to 2~bullet points.\vspace{3pt}\\
-%\textbf{What are the main findings?}
-% \begin{itemize}[labelsep=2.5mm,topsep=-3pt]
-% \item First bullet.
-% \item Second bullet.
-% \end{itemize}\vspace{3pt}
-%\textbf{What is the implication of the main finding?}
-% \begin{itemize}[labelsep=2.5mm,topsep=-3pt]
-% \item First bullet.
-% \item Second bullet.
-% \end{itemize}
-%}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -260,25 +238,23 @@ Contributions:
 \subsection{Material Exergy Calculation}
 \label{ssec: material exergy calculation}
 %++++++++++++++++++++++++++++++
-% \replaced[id=MKH]{
-% The exergy of a system is the maximum amount of work
-% that can be extracted
-% by processes that take the system
-% to equilibrium with the reference environment,
-% defined by $T_{0}$, $P_{0}$, and a certain chemical composition.
-% }
-%
-% \replaced[id=MKH]{
-% Thus, the total exergy of a system
-% is the sum of the work of two reversible processes
-% that bring the system
-% (a) from $T$ and $P$ to
-% $T_{0}$ and $P_{0}$
-% (without changes in the chemical composition) and
-% (b) from its chemical composition to
-% to the reference chemical composition
-% (while the system remains at $T_{0}$ and $P_{0}$).
-% }
+
+The exergy of a system ($B$) is the maximum amount of work
+that can be extracted
+by processes that take the system
+to equilibrium with the reference environment,
+defined by $T_{0}$, $P_{0}$, and a certain chemical composition.\\
+
+Thus, the total exergy of a system ($B$)
+is the sum of the work of two reversible processes
+that bring the system
+(a) from $T$ and $P$ to
+$T_{0}$ and $P_{0}$
+(without changes in the chemical composition) and
+(b) from its chemical composition to
+to the reference chemical composition
+(while the system remains at $T_{0}$ and $P_{0}$).
+
 
 Reference environments can include the Atmosphere,
 the Ocean, or the Earth's crust.
@@ -292,7 +268,23 @@ by concentrations ($[C]_{i}$) in the Ocean
 and by mole fraction ($y_{i}$)
 in the Earth's crust.
 
-The exergy in the total process ($B_mix$) is the ambient temperature ($T_{0}$) multiplied by the change
+
+Natural resources have a positive material exergy ($b$)
+because they have a chemical composition
+that differentiates them from the Environment.
+Material exergy of a natural resource ($b_{i}$)
+is the work that would be needed
+to produce that substance with its structure,
+known as chemical exergy ($b_{ch,i}$),
+and the concentration in a reversible process ($b_{c,i}$),
+with respect to the reference environment.
+A natural resource is a mixture of compounds ($i$).
+If it is a mixture of gases,
+it is assumed to behave as an ideal mixture of gases.
+If it is a mixture of solid or liquid components,
+it is assumed to behave as an ideal solution.
+
+The exergy in the total process ($B_{mix}$) is the ambient temperature ($T_{0}$) multiplied by the change
 in entropy of the mixture from the Earth's crust to the current state ($S_{mix}$).
 
 \begin{equation}\label{eq:specific_exergy_of_mixture_definition1}
@@ -315,81 +307,59 @@ multiplied by the number of moles
 in the mixture ($N_{mix}$).
 
 \begin{equation}\label{eq:specific_exergy_of_mixture_definition2}
-  B_{mix} = \frac{b_{mix}}{N_{mix}} = -RT_{0}\sum_{i}y_{i}\ln{y_{i}}
+  B_{mix} = {b_{mix}}{N_{mix}} = -RT_{0}\sum_{i}y_{i}\ln{y_{i}}
 \end{equation}
 
-The material exergy ($B$) of a natural resource
-has two components:
-(1) the amount of work that must be done
-to separate, in a reversible process, the mixture
-at $T_{0}$ and $P_{0}$, and
-(2) the sum of the amounts of work
-that can be obtained by the reversible processes
-that take each pure compound at $T_{0}$, $P_{0}$
-to the equilibrium concentration in the Crepuscular Crust.
+Material exergy ($b$) is broken down into three components.
+The first term is thermomechanical exergy ($b_{th}$).
+The second term is chemical exergy ($b_{ch}$).
+The third term is concentration exergy ($b_{c}$).
 
-The material exergy ($B$) is the sum of the chemical ($b_{ch}$) and concentration ($b_c$) exergies
-when individually multiplied
-by the number of moles ($n_i$)
-for each compound in the mixture.
-
-\begin{equation}\label{eq:specific_exergy_definition}
-  B_{1} = \sum_{i}{n_{i,1}b_{ch,i,1}} + \sum_{i}{n_{i,1}b_{c,i,1}}
+\begin{equation}\label{eq:general_material_exergy_definition}
+ b_{total} = b_{th} + b_{ch} + b_{c}
 \end{equation}
 
-\begin{equation}\label{eq:simplified_material_exergy_definition}
-  b_{i,1} = b_{ch,i,1} + b_{c,i,1}
-\end{equation}
-
-% How are we defining the compound compared to the component number?
+Here, we assume that the system is at
+$T_{0}$ and $P_{0}$;
+thus, thermomechanical exergy ($b_{th}$) is zero.
+Doing so enables focus on the chemical and concentration exergy
+($b_{ch}$ and $b_{c}$, also called material exergy).
 
 The first component of molar intensive material exergy, $b_{1}$,
 is the sum of chemical exergies of each compound
 present in the mixture, $b_{ch,i,1}$,
 and the second is the sum of concentration exergies of each compound
-present in the mixutre, $b_{c,i,1}$
+present in the mixutre, $b_{c,i,1}$.
 The total exergy per mole ($b$) is equal to the sum of the chemical exergies ($b_{ch}$)
-and the concentration exergies ($b_{d,i}$) for each compound.
+and the concentration exergies ($b_{c,i}$) for each compound.
 
 \begin{equation}\label{eq:specific_molar_intensive_exergy_definition}
-  b_{1} = \sum_{i}{b_{ch,i,1}} + \sum_{i}{b_{c,i,1}}
+  b_{i,1} = \sum_{i}{b_{ch,i,1}} + \sum_{i}{b_{c,i,1}}
 \end{equation}
+
+
+% How are we defining the compound compared to the component number?
 
 Chemical ($b_{ch,i}$) and concentration ($b_{c,i}$) exergies are broken down
 by the element ($j$) in a compound ($i$)
 for a mixture.
 
-Natural resources have a positive material exergy, ($b$),
-because they have a chemical composition
-that differentiates them from the Environment.
-Material exergy of a natural resource, ($b_{i}$),
-is the work that would be needed
-to produce that substance with its structure,
-known as chemical exergy ($b_{ch,i}$),
-and the concentration in a reversible process ($b_{c,i}$),
-with respect to the reference environment.
-A natural resource is a mixture of compounds.
-If it is a mixture of gases,
-it is assumed to behave as an ideal mixture of gases.
-If it is a mixture of solid or liquid components,
-it is assumed to behave as an ideal solution.
-
-The chemical exergy of each compound, ($b_{ch,i}$), is dependent
+The chemical exergy of each compound ($b_{ch,i}$) is dependent
 on whether it exists or not
 in the reference environment.
 If compound ($i$) does not exist
 in the reference environment,
 chemical exergy is the amount of work obtained
 in the reversible chemical reactions
-that decomposes the pure compound at ambient temperature, ($T_{0}$)
+that decomposes the pure compound at ambient temperature ($T_{0}$)
 into reference species ($i$) that are in equilibrium
 with the environment.
 
-The chemical exergy, ($b_{ch}$), is the Gibbs energy, ($G$), for the compound
-plus the sum of chemical exergy, ($b_{ch}$),
+The chemical exergy ($b_{ch}$) is the Gibbs energy ($\delta{G}$)
+plus the sum of chemical exergy ($b_{ch}$)
 multiplied by the number of moles
-in the mix ($n-{j,i}$) for each element, $j$,
-in the compound observed, $i$.
+in the mix ($n_{j,i}$) for each element ($j$)
+in the compound observed ($i$).
 
 The amount of work obtained
 in a reversible process is the Gibbs energy
@@ -398,14 +368,14 @@ This is the difference between the Gibbs energies
 of the input species and output species.
 
 \begin{equation}\label{eq:specific_chemical_exergy_definition}
-  b_{ch,i} = \Delta{G_{f,i}} + \sum_{j}{n_{j,i}b_{ch,j}}
+  b_{ch,i} = \Delta{G_{f,i}} + \sum_{i}{n_{j,i}b_{ch,j}}
 \end{equation}
 
 The chemical exergy per mole ($b_{ch}$) is the molar fraction ($y$)
 of a species multiplied by the chemical exergy of that same species ($b_{ch}$).
 
 \begin{equation}\label{eq:chemical_exergy_state_point1}
-  b_{ch,i,1} = y_{i,1}b_{ch,i}
+  b_{ch,i} = y_{i}b_{ch,i}
 \end{equation}
 
 The concentration of a species
@@ -413,13 +383,13 @@ may change between statepoints.
 The number of moles of a species in each mixture ($n_{i,mix}$)
 determines the concentration of the species
 compared to the rest of the mixture.
-The original statepoint of concentration exergy ($b_c$) is the pure substance
+The original statepoint of concentration exergy ($b_{c,0}$) is the pure substance
 of an element ($j$) or compound ($i$).
 
-The concentration exergy for a species, ($b_c,i$),
+The concentration exergy for a species ($b_c,i$)
 at the current state
-equation uses the universal gas constant, ($R$),
-ambient temperature, ($T_0$),
+equation uses the universal gas constant ($R$),
+ambient temperature ($T_0$),
 and molar fraction of a species, ($y_i$).
 
 \begin{equation}\label{eq:specific_concentration_exergy_of_current_statepoint_definition}
@@ -433,32 +403,44 @@ Equation equation~\ref{eq:specific_concentration_exergy_of_current_statepoint_de
   b_{c,i} = -RT_{0}(\ln(y_{i}).
 \end{equation}
 
-The exergy contribution of a compound ($i$) is dependent
+
+The material exergy at some statepoint, for example, the first statepoint, ($B_{1}$)
+is the sum of the chemical ($b_{ch,1}$) and concentration ($b_c,1$) exergies
+when individually multiplied
+by the number of moles ($n_{i,1}$)
+for each compound ($i$) in the mixture.
+
+\begin{equation}\label{eq:specific_exergy_of_current_statepoint_definition}
+  B_{i,1} = \sum_{i}{n_{i,1}b_{ch,i,1}} + \sum_{i}{n_{i,1}b_{c,i,1}}
+\end{equation}
+
+\begin{equation}\label{eq:simplified_material_exergy_of_current_statepoint_definition}
+  b_{i,1} = b_{ch,i,1} + b_{c,i,1}
+\end{equation}
+
+The exergy contribution of a compound ($b_i$) is dependent
 on its molar fraction
 and the total number of moles
 in a mixture.
 
 \begin{equation}\label{eq:specific_exergy_of_current_statepoint_molar_based_definition}
-  b_{m,i,1} = y_{i,1}b_{i,1}
+  B_{i,1} = y_{i,1}b_{i,1}
 \end{equation}
 
 \begin{equation}\label{eq:specific_exergy_of_current_statepoint_mixture_definition}
-  B_{m,i,1} = N_{1}b_{i,1}
+  B_{mix,i,1} = N_{mix,1}b_{i,1}
 \end{equation}
 
 The total exergy at a statepoint
 is the sum of the component's exergy.
 
 \begin{equation}\label{eq:total_exergy_of_current_statepoint_mixture_definition}
-  B_{1} = \sum{B_{m,i,1}}
+  B_{mix,1} = \sum{B_{mix,i,1}}
 \end{equation}
 
-%Substituting Equation~(\ref{eq:specific_concentration_exergy_of_current_statepoint_definition}) into Equation~(\ref{eq:specific_distribution_exergy_from_reference_statepoint_to_thanatia}),
-%the following equation is found
-
-%\begin{equation} \label{eq:specific_distribution_exergy_from_statepoint_to_thanatia_definition}
- % b_{d,i} = -RT_{0}(y_{i,1}\ln{y_{i,1}} - y_{i,0}\ln{y_{i,0}}) \ .
-%\end{equation}
+The material exergy at each statepoint ($B_{mix}$) is calculated as shown.
+The results allow for further calculations
+of process efficiencies.
 
 % % begin Move the following paragraphs
 % When considering the mineral composition
@@ -481,19 +463,9 @@ is the sum of the component's exergy.
 % Henceforth, the natural resource is assumed to be a mixture
 % of liquids or solids
 % and to behave as an ideal solution.
-%
-% Material exergy per mole ($b$) requires chemical ($b_{ch}$) and concentration ($b_c$) exergies per mole
-% for each species in a mixture.
 
 
 ****
-
-We have a nomenclature problem here.
-We have $b_{total} = b_{th} + b_{ch}$.
-Then we have
-$b_{ch}$ being inside the $b_{i,1}$ equation below.
----MKH
-
 
 Finally, I think we should have a diagram associated with this description.
 Maybe something like Figure 1 from Valero 2011.
@@ -501,22 +473,7 @@ Maybe something like Figure 1 from Valero 2011.
 
 ****
 
-% \replaced[id=MKH]{
-% The first term is thermomechanical exergy ($b_{th}$).
-% The second term is chemical exergy ($b_{ch}$).
-% }
 
-% Not sure where to add the thermomechanical exergy in
-%\begin{equation}\label{eq:general_material_exergy_definition}
-%  \replaced[id=MKH]{b_{total} = b_{th} + b_{ch}}
-%\end{equation}
-
-% \replaced[id=MKH]{
-% Here, we assume that the system is at
-% $T_{0}$ and $P_{0}$;
-% thus, thermomechanical exergy ($b_{th}$) is zero.
-% Doing so enables focus on the chemical exergy
-% ($b_{ch}$, also called material exergy).}
 
 %++++++++++++++++++++++++++++++
 \subsection{Energy Exergy Calculation}
@@ -528,7 +485,7 @@ is made of both material and energy inputs.
 To change a mixture's composition,
 energy is used
 to concentrate certain components
-and remove unnecessary components,
+and remove unnecessary components.
 
 The total energy exergy ($X$)
 of a process
@@ -537,10 +494,8 @@ A constant, denoted by ($\phi$),
 is multiplied by the energy input
 to calculate the exergy.
 The phi constant depends on the type of energy used.
-For example, natural gas has a phi constant
-of 1.04
-while coking coal has a constant
-of 1.05.
+For example, natural gas has a phi constant of 1.04
+while coking coal has a constant of 1.05.
 Further information about the phi constants used
 may be found in Appendix [X].
 
@@ -573,26 +528,57 @@ in the context of a material conversion chain:
 \begin{itemize}
   \item The Bejan method focuses on the main product
   at a statepoint
-  to quantify how the material's concentration exergy upgraded.
-  due to energy inputs.\\
+  to quantify how the material's concentration exergy upgraded
+  due to energy inputs.
+  See figure Figure~\ref{fig: efficiencymethods}\\
 
   \begin{equation}\label{eq:Bejan Efficiency}
   n_{x} = \frac{N_i(b_{m,i,1} - b_{m,i,0})}{\sum{X_{in}}}
   \end{equation}
 
+  In the case of the blast furnace,
+  the Bejan method uses the material exergy ($b_{m,i}$)
+  of hematite ore
+  and compares it to the material exergy
+  at the next statepoint.
+  The energy exergy input, to the blast furnace,
+  is the work it takes to concentrate the hematite ore
+  to pig iron.
+  The Bejan method is helpful
+  for calculating the efficiency
+  of concentrating a specific element or compound.
+
   \item The Product method focuses on the main product's exergy output
   compared to the total exergy input.
+  See figure Figure~\ref{fig: efficiencymethods}\\
 
   \begin{equation}\label{eq:Product Efficiency}
   n_{x} = \frac{(B_{m,i,1})}{\sum{X_{in}}+\sum{B_{in}}}
   \end{equation}
 
+  The Product method uses the total material exergy ($B$) of the desired output,
+  such as pig iron,
+  and the total material exergy
+  of all material and energy streams
+  as the input.
+
+  The Product method is helpful
+  for calculating the efficiency
+  for creating a specific mixture separated
+  from waste streams.\\
+
   \item The Student method focuses on the total exergy output
-  compared to the total exergy input.\\
+  compared to the total exergy input.
+  See figure Figure~\ref{fig: efficiencymethods}\\
 
   \begin{equation}\label{eq:Product Efficiency}
   n_{x} = \frac{\sum{B_{out}}}{\sum{X_{in}} + \sum{B_{out}}}
   \end{equation}
+
+  The Student method is helpful
+  for quick efficiency calculations
+  of an overall process.
+
 \end{itemize}
 
 \begin{figure}
@@ -604,42 +590,7 @@ in the context of a material conversion chain:
 
 
 
-The Bejan method uses the material exergy ($b_{m,i}$)
-of hematite ore, **2.93**~kJ as seen in Figure~\ref{fig1},
-and compares it to the material exergy
-at the next statepoint.
-The energy exergy input,
-to the blast furnace,
-is the work it takes
-to concentrate the hematite ore
-to pig iron.
-The Bejan method is helpful
-for calculating the efficiency
-of concentrating a specific element or compound.
 
-The Product method uses the total material exergy ($B$)
-of the desired output,
-such as pig iron,
-and the total material exergy
-of all material and energy streams
-as the input.
-In the blast furnace example,
-the total material exergy input
-is ***7081***~MJ.
-The Product method is helpful
-for calculating the efficiency
-of creating a specific mixture separated
-from waste streams.
-
-The Student method uses the total material exergy ($B$)
-of all material and energy streams
-as the input
-and the total material exergy
-of all material streams
-as the output.
-The Student method is helpful
-for quick efficiency calculations
-of an overall process.
 
 %++++++++++++++++++++++++++++++
 \subsection{Data}
@@ -675,6 +626,7 @@ additional matrices,
 and efficiencies
 for the material conversion chain
 can be found in Appendix [X].
+
 %++++++++++++++++++++++++++++++
 \subsection{Material Exergies}
 \label{ssec: blast furnace example}
@@ -693,7 +645,7 @@ along the material conversion chain.
 Table [X] shows the solid inputs
 to the blast furnace: iron ore, limestone, and coking coal.
 Table [X] shows the air input
-into the blast furnace.
+to the blast furnace.
 
 
 The chemical and concentration exergy,
@@ -709,7 +661,6 @@ The sum of exergy inputs ($B_{m,i}$)
 is the total material exergy
 of the mixture.
 
-%Should the figures for the BF inputs be tables instead?
 
 \begin{table}
 %\begin{adjustwidth}{-\extralength}{0cm}
