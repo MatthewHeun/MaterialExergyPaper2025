@@ -264,7 +264,7 @@ and are characterized by a mixture of reference species.
 
 Reference species are charcterized by partial pressure
 ($P_{i} = P_{0} y_{i}$) in the Atmosphere,
-by concentrations ($[C]_{i}$) in the Ocean
+by concentrations ($C_{i}$) in the Ocean
 and by mole fraction ($y_{i}$)
 in the Earth's crust.
 
@@ -327,8 +327,10 @@ Doing so enables focus on the chemical and concentration exergy
 
 The first component of molar intensive material exergy, $b_{1}$,
 is the sum of chemical exergies of each compound
-present in the mixture, $b_{ch,i,1}$,
-and the second is the sum of concentration exergies of each compound
+present in the mixture, $b_{ch,i,1}$.
+% We calculate chemical exergy values ($b_{ch}$)
+% from Table 9.1 in Valero and Valero. ~\cite{Valero 2015}
+The second is the sum of concentration exergies of each compound
 present in the mixutre, $b_{c,i,1}$.
 The total exergy per mole ($b$) is equal to the sum of the chemical exergies ($b_{ch}$)
 and the concentration exergies ($b_{c,i}$) for each compound.
@@ -533,7 +535,7 @@ in the context of a material conversion chain:
   See figure Figure~\ref{fig: efficiencymethods}\\
 
   \begin{equation}\label{eq:Bejan Efficiency}
-  n_{x} = \frac{N_i(b_{m,i,1} - b_{m,i,0})}{\sum{X_{in}}}
+  \eta_{x} = \frac{N_i(b_{m,i,1} - b_{m,i,0})}{\sum{X_{in}}}
   \end{equation}
 
   In the case of the blast furnace,
@@ -553,7 +555,7 @@ in the context of a material conversion chain:
   See figure Figure~\ref{fig: efficiencymethods}\\
 
   \begin{equation}\label{eq:Product Efficiency}
-  n_{x} = \frac{(B_{m,i,1})}{\sum{X_{in}}+\sum{B_{in}}}
+  \eta_{x} = \frac{(B_{m,i,1})}{\sum{X_{in}}+\sum{B_{in}}}
   \end{equation}
 
   The Product method uses the total material exergy ($B$) of the desired output,
@@ -571,8 +573,8 @@ in the context of a material conversion chain:
   compared to the total exergy input.
   See figure Figure~\ref{fig: efficiencymethods}\\
 
-  \begin{equation}\label{eq:Product Efficiency}
-  n_{x} = \frac{\sum{B_{out}}}{\sum{X_{in}} + \sum{B_{out}}}
+  \begin{equation}\label{eq:Student Efficiency}
+  \eta_{x} = \frac{\sum{B_{out}}}{\sum{X_{in}} + \sum{B_{in}}}
   \end{equation}
 
   The Student method is helpful
