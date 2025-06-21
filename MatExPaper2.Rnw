@@ -635,186 +635,156 @@ Limestone production compositions and energy inputs are taken from
 
 
 
-
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
 \label{sec:results}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This section may be divided by subheadings. It should provide a concise and precise description of the experimental results, their interpretation as well as the experimental conclusions that can be drawn.
-\subsection{Subsection}
-\subsubsection{Subsubsection}
+In this section we present results
+for the material exergy
+of inputs to the blast furnace,
+the PSUT matrices for exergy accounting,
+and selected process efficiencies.
 
-Bulleted lists look like this:
-\begin{itemize}
-\item	First bullet;
-\item	Second bullet;
-\item	Third bullet.
-\end{itemize}
+An entire exergy accounting,
+additional matrices,
+and efficiencies
+for the material conversion chain
+can be found in Appendix [X].
 
-Numbered lists can be added as follows:
-\begin{enumerate}
-\item	First item;
-\item	Second item;
-\item	Third item.
-\end{enumerate}
 
-The text continues here.
+%++++++++++++++++++++++++++++++
+\subsection{Material Exergies}
+\label{ssec: blast furnace example}
+%++++++++++++++++++++++++++++++
 
-\subsection{Figures, Tables and Schemes}
+A material conversion chain
+of pig iron production
+contains 25 material statepoints,
+11 energy statepoints,
+and 12 processes.
+Example tables for the statepoints exergies
+can be found in Appendix [X].\\
 
-All figures and tables should be cited in the main text as Figure~\ref{fig1}, Table~\ref{tab1}, etc.
+Equations [X] to [X] are the basis for material exergy accounting
+along the material conversion chain.
+Table [X] shows the solid inputs
+to the blast furnace: iron ore, limestone, and coking coal.
+Table [X] shows the air input
+to the blast furnace.
 
-\begin{figure}[H]
-%\isPreprints{\centering}{} % Only used for preprints
-\includegraphics[width=4 cm]{Definitions/logo-mdpi}
-\caption{This is a figure. Schemes follow the same formatting.\label{fig1}}
-\end{figure}
-\unskip
 
-\begin{table}[H]
-%\small % Change table font size
-\caption{This is a table caption. Tables should be placed in the main text near to the first time they are~cited.\label{tab1}}
-%\isPreprints{\centering}{} % Only used for preprints
-\begin{tabularx}{\textwidth}{CCC}
-\toprule
-\textbf{Title 1}	& \textbf{Title 2}	& \textbf{Title 3}\\
-\midrule
-Entry 1		& Data			& Data\\
-Entry 2		& Data			& Data \textsuperscript{1}\\
-\bottomrule
-\end{tabularx}
+The chemical and concentration exergy,
+columns [X] and [X],
+sum to the total material exergy
+based on the molar amount
+of each component
+based on Eqn. [X].
+Column [X] is the total material exergy
+for each component
+calculated by Eqn. [X].
+The sum of exergy inputs ($B_{m,i}$)
+is the total material exergy
+of the mixture.
 
-\noindent{\footnotesize{\textsuperscript{1} Tables may have a footer.}}
+
+\begin{table}
+%\begin{adjustwidth}{-\extralength}{0cm}
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/Solid BF Inputs.pdf}
+%\end{adjustwidth}
+  \caption{Material exergy accounting for the solid blast furnace inputs: iron ore, limestone, and coking coal.}
+  \label{fig:Solid Blast Furnace Inputs}
 \end{table}
 
-The text continues here (Figure~\ref{fig2} and Table~\ref{tab2}).
 
-% Example of a figure that spans the whole page width and with subfigures. The same concept works for tables, too.
-\begin{figure}[H]
-%\isPreprints{}{% This command is only used for ``preprints''.
-\begin{adjustwidth}{-\extralength}{0cm}
-\centering
-%} % If the paper is ``preprints'', please uncomment this parenthesis.
-\subfloat[\centering]{\includegraphics[width=7.0cm]{Definitions/logo-mdpi}}
-%\hfill
-\subfloat[\centering]{\includegraphics[width=7.0cm]{Definitions/logo-mdpi}}\\
-\subfloat[\centering]{\includegraphics[width=7.0cm]{Definitions/logo-mdpi}}
-%\hfill
-\subfloat[\centering]{\includegraphics[width=7.0cm]{Definitions/logo-mdpi}}
-%\isPreprints{}{% This command is only used for ``preprints''.
-\end{adjustwidth}
-%} % If the paper is ``preprints'', please uncomment this parenthesis.
-\caption{This is a wide figure. Schemes follow the same formatting. If there are multiple panels, they should be listed as: (\textbf{a}) Description of what is contained in the first panel. (\textbf{b}) Description of what is contained in the second panel. (\textbf{c}) Description of what is contained in the third panel. (\textbf{d}) Description of what is contained in the fourth panel. Figures should be placed in the main text near to the first time they are cited. A caption on a single line should be centered.\label{fig2}}
-\end{figure}
 
-\begin{table}[H]
-\caption{This is a wide table.\label{tab2}}
-%\isPreprints{\centering}{% This command is only used for ``preprints''.
-	\begin{adjustwidth}{-\extralength}{0cm}
-%} % If the paper is ``preprints'', please uncomment this parenthesis.
-%\isPreprints{\begin{tabularx}{\textwidth}{CCCC}}{% This command is only used for ``preprints''.
-		\begin{tabularx}{\fulllength}{CCCC}
-%} % If the paper is ``preprints'', please uncomment this parenthesis.
-			\toprule
-			\textbf{Title 1}	& \textbf{Title 2}	& \textbf{Title 3}     & \textbf{Title 4}\\
-			\midrule
-\multirow[m]{3}{*}{Entry 1 *}	& Data			& Data			& Data\\
-			  	                   & Data			& Data			& Data\\
-			             	      & Data			& Data			& Data\\
-                   \midrule
-\multirow[m]{3}{*}{Entry 2}    & Data			& Data			& Data\\
-			  	                  & Data			& Data			& Data\\
-			             	     & Data			& Data			& Data\\
-			\bottomrule
-		\end{tabularx}
-%		\isPreprints{}{% This command is only used for ``preprints''.
-	\end{adjustwidth}
-%} % If the paper is ``preprints'', please uncomment this parenthesis.
-	\noindent{\footnotesize{* Tables may have a footer.}}
+The total material exergy of solid inputs ($B_{m,i}$)
+in Table~\ref{tab1} is **7072**~MJ.
+The material exergy in Figure~\ref{fig1}
+of hematite ore is **76**~MJ.
+
+\begin{table}
+%\begin{adjustwidth}{-\extralength}{0cm}
+  \centering
+  \caption{Material exergy accounting for the gaseous blast furnace inputs: air.}
+  \label{fig:Gaseous Blast Furnace Inputs}
+  \includegraphics[width=0.8\textwidth]{images/Air BF Inputs.pdf}
+%\end{adjustwidth}
+
 \end{table}
 
-%\begin{listing}[H]
-%\caption{Title of the listing}
-%\rule{\columnwidth}{1pt}
-%\raggedright Text of the listing. In font size footnotesize, small, or normalsize. Preferred format: left aligned and single spaced. Preferred border format: top border line and bottom border line.
-%\rule{\columnwidth}{1pt}
-%\end{listing}
-
-Text.
-
-Text.
-
-\subsection{Formatting of Mathematical Components}
-
-This is the example 1 of equation:
-\begin{linenomath}
-\begin{equation}
-a = 1,
-\end{equation}
-\end{linenomath}
-the text following an equation need not be a new paragraph. Please punctuate equations as regular text.
-%% If the documentclass option "submit" is chosen, please insert a blank line before and after any math environment (equation and eqnarray environments). This ensures correct linenumbering. The blank line should be removed when the documentclass option is changed to "accept" because the text following an equation should not be a new paragraph.
-
-This is the example 2 of equation:
-%\isPreprints{}{% This command is only used for ``preprints''.
-\begin{adjustwidth}{-\extralength}{0cm}
-%} % If the paper is ``preprints'', please uncomment this parenthesis.
-\begin{equation}
-a = b + c + d + e + f + g + h + i + j + k + l + m + n + o + p + q + r + s + t + u + v + w + x + y + z
-\end{equation}
-%\isPreprints{}{% This command is only used for ``preprints''.
-\end{adjustwidth}
-%} % If the paper is ``preprints'', please uncomment this parenthesis.
-
-%% Example of a page in landscape format (with table and table footnote).
-%\startlandscape
-%\begin{table}[H] %% Table in wide page
-%%\isPreprints{\centering}{} % This command is only used for ``preprints''.
-%\caption{This is a very wide table.\label{tab3}}
-%	\begin{tabularx}{\textwidth}{CCCC}
-%		\toprule
-%		\textbf{Title 1}	& \textbf{Title 2}	& \textbf{Title 3}	& \textbf{Title 4}\\
-%		\midrule
-%		Entry 1		& Data			& Data			& This cell has some longer content that runs over two lines.\\
-%		Entry 2		& Data			& Data			& Data\textsuperscript{1}\\
-%		\bottomrule
-%	\end{tabularx}
-%%\isPreprints{}{% This command is only used for ``preprints''.
-%	\begin{adjustwidth}{+\extralength}{0cm}
-%%} % If the paper is ``preprints'', please uncomment this parenthesis.
-%		\noindent\footnotesize{\textsuperscript{1} This is a table footnote.}
-%%\isPreprints{}{% This command is only used for ``preprints''.
-%	\end{adjustwidth}
-%%} % If the paper is ``preprints'', please uncomment this parenthesis.
-%\end{table}
-%\finishlandscape
+The total material exergy of air
+in Table~\ref{tab2} is **9**~MJ.
 
 
-Please punctuate equations as regular text. Theorem-type environments (including propositions, lemmas, corollaries etc.) can be formatted as follows:
-%% Example of a theorem:
-\begin{Theorem}
-Example text of a theorem.
-\end{Theorem}
+%++++++++++++++++++++++++++++++
+\subsection{Efficiencies }
+\label{ssec: efficiency}
+%++++++++++++++++++++++++++++++
 
-The text continues here. Proofs must be formatted as follows:
+Three efficiency calculation methods,
+shown in Figure~\ref{fig:efficiencymethods},
+were applied to processing steps
+in the material conversion chain.
+%
+% \begin{table}
+% %\begin{adjustwidth}{-\extralength}{0cm}
+%   \centering
+%   \caption{Various efficiency calculations at each process in pig iron production.}
+%   \label{fig:Process Efficiencies for iron, limestone, and coal ore.}
+%   \includegraphics[width=0.8\textwidth]{images/efficiency_tables.pdf}
+% %\end{adjustwidth}
+%
+% \end{table}
 
-%% Example of a proof:
-\begin{proof}[Proof of Theorem 1]
-Text of the proof. Note that the phrase ``of Theorem 1'' is optional if it is clear which theorem is being referred to.
-\end{proof}
-The text continues here.
+The efficiencies of iron ore processes,
+in Table~\ref{fig:Process Efficiencies for iron, limestone, and coal ore.},
+are lower than the limestone and coal efficiencies.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The iron ore extraction Students efficiency is **54**$\%$
+and the Product efficiency is **45**$\%$.
+The limestone and coal extraction efficiencies range
+from **78** to **99**$\%$.
+Refer to Table~\ref{fig:Process Efficiencies for iron, limestone, and coal ore.}
+to see similar results
+for hauling efficiencies.\\
+The mixer and blast furnace efficiencies
+are equal for all ores because the desired output, pig iron, is the same.
+The Bejan efficiency for the blast furnace
+is **8**$\%$,
+the Students efficiency is **45**$\%$,
+and the Resource efficiency is **42**$\%$.
+
+
+%++++++++++++++++++++++++++++++
+\subsection{PSUT Matrices}
+\label{ssec: psut matrices results}
+%++++++++++++++++++++++++++++++
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
+\label{sec:discussion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Authors should discuss the results and how they can be interpreted from the perspective of previous studies and of the working hypotheses. The findings and their implications should be discussed in the broadest context possible. Future research directions may also be highlighted.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Conclusions}
 
-This section is not mandatory, but can be added to the manuscript if the discussion is unusually long or complex.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusion}
+\label{sec:conclusion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Patents}
