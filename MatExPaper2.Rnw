@@ -202,6 +202,13 @@ Contributions of this paper:
 \label{sec: material exergy calculation}
 %++++++++++++++++++++++++++++++
 
+****
+I think much of this section needs to be revisited
+with our new understanding of how to calculate
+chemical exergy.
+---MKH
+****
+
 The exergy of a system ($B$) is the maximum amount of work
 that can be extracted
 by processes that take the system
@@ -352,81 +359,262 @@ and \citet{Gibbs_formation}.
   b_{ch,i} = \Delta{G_{f,i}} + \sum_{i}{n_{j,i}b_{ch,j}}
 \end{equation}
 
-% The chemical exergy per mole ($b_{ch}$) is the molar fraction ($y$)
-% of a species multiplied by the chemical exergy of that same species ($b_{ch}$).
-%
-% \begin{equation}\label{eq:chemical_exergy_state_point1}
-%   b_{ch,i} = y_{i}b_{ch,i}
-% \end{equation}
-%
-% The concentration of a species
-% may change between statepoints.
-% The number of moles of a species in each mixture ($n_{i,mix}$)
-% determines the concentration of the species
-% compared to the rest of the mixture.
-% The original statepoint of concentration exergy ($b_{c,0}$) is the pure substance
-% of an element ($j$) or compound ($i$).
-%
-% The concentration exergy for a species ($b_c,i$)
-% at the current state
-% equation uses the universal gas constant ($R$),
-% ambient temperature ($T_0$),
-% and molar fraction of a species, ($y_i$).
-% The following two equations are in reference to \citet{Valero_2015}.
-%
-% \begin{equation}\label{eq:specific_concentration_exergy_of_current_statepoint_definition}
-%   b_{c,i} = -RT_{0}(\ln(y_{i}) - \ln(y_{i,0})
-% \end{equation}
-%
-% The pure substance molar fraction ($y_{i,0}$) is always equal to one.
-% Equation equation~\ref{eq:specific_concentration_exergy_of_current_statepoint_definition} becomes
-%
-% \begin{equation}\label{eq:specific_concentration_exergy_of_current_statepoint_definition}
-%   b_{c,i} = -RT_{0}(\ln(y_{i}).
-% \end{equation}
-%
-%
-% The material exergy at some statepoint, for example, the first statepoint, ($B_{1}$)
-% is the sum of the chemical ($b_{ch,1}$) and concentration ($b_{c,1}$) exergies
-% when individually multiplied
-% by the number of moles ($n_{i,1}$)
-% for each compound ($i$) in the mixture.
-%
-% \begin{equation}\label{eq:specific_exergy_of_current_statepoint_definition}
-%   B_{i,1} = \sum_{i}{n_{i,1}b_{ch,i,1}} + \sum_{i}{n_{i,1}b_{c,i,1}}
-% \end{equation}
-%
-% \begin{equation}\label{eq:simplified_material_exergy_of_current_statepoint_definition}
-%   b_{i,1} = b_{ch,i,1} + b_{c,i,1}
-% \end{equation}
-%
-% The exergy contribution of a compound ($b_i$) is dependent
-% on its molar fraction
-% and the total number of moles
-% in a mixture.
-%
-% \begin{equation}\label{eq:specific_exergy_of_current_statepoint_molar_based_definition}
-%   B_{i,1} = y_{i,1}b_{i,1}
-% \end{equation}
-%
-% \begin{equation}\label{eq:specific_exergy_of_current_statepoint_mixture_definition}
-%   B_{mix,i,1} = N_{mix,1}b_{i,1}
-% \end{equation}
-%
-% The total exergy at a statepoint
-% is the sum of the component's exergy.
-%
-% \begin{equation}\label{eq:total_exergy_of_current_statepoint_mixture_definition}
-%   B_{mix,1} = \sum{B_{mix,i,1}}
-% \end{equation}
-%
-% The material exergy at each statepoint ($B_{mix}$) is calculated as shown.
-% The results allow for further calculations
-% of process efficiencies.
+The chemical exergy per mole ($b_{ch}$) is the molar fraction ($y$)
+of a species multiplied by the chemical exergy of that same species ($b_{ch}$).
+
+\begin{equation}\label{eq:chemical_exergy_state_point1}
+  b_{ch,i} = y_{i}b_{ch,i}
+\end{equation}
+
+The concentration of a species
+may change between statepoints.
+The number of moles of a species in each mixture ($n_{i,mix}$)
+determines the concentration of the species
+compared to the rest of the mixture.
+The original statepoint of concentration exergy ($b_{c,0}$) is the pure substance
+of an element ($j$) or compound ($i$).
+
+The concentration exergy for a species ($b_c,i$)
+at the current state
+equation uses the universal gas constant ($R$),
+ambient temperature ($T_0$),
+and molar fraction of a species, ($y_i$).
+The following two equations are in reference to \citet{Valero_2015}.
+
+\begin{equation}\label{eq:specific_concentration_exergy_of_current_statepoint_definition}
+  b_{c,i} = -RT_{0}(\ln(y_{i}) - \ln(y_{i,0})
+\end{equation}
+
+The pure substance molar fraction ($y_{i,0}$) is always equal to one.
+Equation~(\ref{eq:specific_concentration_exergy_of_current_statepoint_definition}) becomes
+
+\begin{equation}
+  b_{c,i} = -RT_{0}(\ln(y_{i}).
+\end{equation}
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The material exergy at some statepoint, for example, the first statepoint, ($B_{1}$)
+is the sum of the chemical ($b_{ch,1}$) and concentration ($b_{c,1}$) exergies
+when individually multiplied
+by the number of moles ($n_{i,1}$)
+for each compound ($i$) in the mixture.
+
+\begin{equation}\label{eq:specific_exergy_of_current_statepoint_definition}
+  B_{i,1} = \sum_{i}{n_{i,1}b_{ch,i,1}} + \sum_{i}{n_{i,1}b_{c,i,1}}
+\end{equation}
+
+\begin{equation}\label{eq:simplified_material_exergy_of_current_statepoint_definition}
+  b_{i,1} = b_{ch,i,1} + b_{c,i,1}
+\end{equation}
+
+The exergy contribution of a compound ($b_i$) is dependent
+on its molar fraction
+and the total number of moles
+in a mixture.
+
+\begin{equation}\label{eq:specific_exergy_of_current_statepoint_molar_based_definition}
+  B_{i,1} = y_{i,1}b_{i,1}
+\end{equation}
+
+\begin{equation}\label{eq:specific_exergy_of_current_statepoint_mixture_definition}
+  B_{mix,i,1} = N_{mix,1}b_{i,1}
+\end{equation}
+
+The total exergy at a statepoint
+is the sum of the component's exergy.
+
+\begin{equation}\label{eq:total_exergy_of_current_statepoint_mixture_definition}
+  B_{mix,1} = \sum{B_{mix,i,1}}
+\end{equation}
+
+The material exergy at each statepoint ($B_{mix}$) is calculated as shown.
+The results allow for further calculations
+of process efficiencies.
+
+
+%++++++++++++++++++++++++++++++
+\subsection{The exergy of energy}
+\label{sec:exergy_of_energy}
+%++++++++++++++++++++++++++++++
+
+A material conversion chain
+uses both material and energy inputs.
+To change a mixture's composition,
+energy is used
+to concentrate certain components
+and remove unnecessary components.
+
+The total energy exergy **** suggestion: exergy of energy ---MKH **** ($X$)
+of a process **** processes don't have exergy. statepoints do. ---MKH ****
+is determined by the type of energy utilized.
+**** Let's be more concise here. ---MKH ****
+\st{A constant, denoted by ($\phi$),
+is multiplied by the energy input
+to calculate the exergy.}
+Energy inputs are multiplied by an exergy-to-energy ratio ($\phi$)
+to obtain exergy inputs.
+The $\phi$ constant is a function of the type of energy used.
+For example, natural gas has $\phi = 1.04$
+while coking coal has $\phi = 1.05$.
+**** Be more concise. ---MKH ****
+\st{Further information about the phi constants used
+may be found in Appendix~X.
+Phi constants and examples for certain fuels come from} \citep{Kotas_1995}.
+We take $\phi$ values from \citet{Kotas_1995}.
+See Appendix~X.
+
+
+\begin{equation}\label{eq:energy_exergy_definition}
+  X_{i} = \phi E_{i}
+\end{equation}
+
+The sum of energy exergy inputs is the total energy exergy
+included in a process.
+**** be more precise. ``input to a process?'' ---MKH ****
+
+\begin{equation}\label{eq:total_energy_exergy_definition}
+  X = \sum{\phi E_{i}}
+\end{equation}
+
+****
+Does the ``i`` subscript above mean the same thing it meant earlier in the paper?
+---MKH
+****
+
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Efficiency Methods}
+\label{ssec: efficiency_methods_and_calculations}
+%++++++++++++++++++++++++++++++
+
+Efficiencies for a process may be calculated
+in various ways.
+Each efficiency calculation provides specific information
+about a process.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{images/efficiency_methods.pdf}
+  \caption{Three efficiency methods used for energy and material exergy conversion chains.}
+  \label{fig:efficiencymethods}
+\end{figure}
+
+The following three efficiency calculation methods apply
+in the context of a material conversion chain:
+
+\begin{itemize}
+  \item The Bejan method focuses on the main product
+  at a statepoint
+  to quantify how the material's concentration exergy upgraded
+  due to energy inputs.
+  See Figure~\ref{fig:efficiencymethods}.
+
+  \begin{equation}\label{eq:Bejan Efficiency}
+  \eta_{x} = \frac{N_i(b_{m,i,1} - b_{m,i,0})}{\sum{X_{in}}}
+  \end{equation}
+
+  In the case of the blast furnace,
+  the Bejan method uses the material exergy ($b_{m,i}$)
+  of hematite ore
+  and compares it to the material exergy
+  at the next statepoint.
+  The energy exergy input, to the blast furnace,
+  is the work it takes to concentrate the hematite ore
+  to pig iron.
+  The Bejan method is helpful
+  for calculating the efficiency
+  of concentrating a specific element or compound.
+
+  \item The Resource method focuses on the main product's exergy output
+  compared to the total exergy input.
+  See Figure~\ref{fig:efficiencymethods}.
+
+  \begin{equation}\label{eq:Resource Efficiency}
+  \eta_{x} = \frac{(B_{m,i,1})}{\sum{X_{in}}+\sum{B_{in}}}
+  \end{equation}
+
+  The Resource method uses the total material exergy ($B$) of the desired output,
+  such as pig iron,
+  and the total material exergy
+  of all material and energy streams
+  as the input.
+
+  The Resource method is helpful
+  for calculating the efficiency
+  for creating a specific mixture separated
+  from waste streams.
+
+  \item The Student method focuses on the total exergy output
+  compared to the total exergy input.
+  See figure Figure~\ref{fig:efficiencymethods}
+
+  \begin{equation}\label{eq:Student Efficiency}
+  \eta_{x} = \frac{\sum{B_{out}}}{\sum{X_{in}} + \sum{B_{in}}}
+  \end{equation}
+
+  The Student method is helpful
+  for quick efficiency calculations
+  of an overall process.
+
+\end{itemize}
+
+
+%++++++++++++++++++++++++++++++
+\subsection{PSUT Matrix Structure}
+\label{ssec: psut matrices}
+%++++++++++++++++++++++++++++++
+
+The energy and material conversion chains are used
+to understand how masses and energy are applied to processes.
+The outputs of materials and energy end up
+in specific sectors of the economy.
+Physical Supply Use Tables (PSUTs) matrices
+show which products, industries, and sectors
+materials and energy interact with.
+
+Benefits of the PSUT framework include quantification of product flows,
+final demand for energy and material products tracked to primary resources,
+and end-use efficiencies for material, energy, and exergy.
+
+The PSUT framework is applied to conversion chains.
+Once the material and energy conversion chains are modelled,
+both chains may be converted to exergy chains.
+
+**** Redo the next two paragraphs as shown below. ---MKH ****
+Figure 1 from ~\citep{Aramendia_2022} is the Physical Supply Use Tables framework
+applied to energy, material, and exergy conversion chains in this paper.
+The main four matrices the conversion chains are applied to are the Resources, Make, Use, and Final demand matrices.
+Table 1 from ~\citep{Aramendia_2022} explains the rows and columns for each matrix.
+
+The Resource matrix ($R$) is an exogenous resource-by-resource matrix.
+The Make matrix ($V$) is an industry-by-product matrix.
+The Use matrix ($U$) is a product-by-industry matrix.
+The Final demand matrix ($Y$) is a product-by-sector matrix.
+
+**** This is better. ****
+We apply the Physical Supply-Use Table (PSUT) framework
+from \citet[Figure~1]{Aramendia_2022}
+to material, energy, and exergy conversion chains developed in Section~\ref{sec:results}
+below.
+The PSUT framework comprises four matrices.
+The resource matrix (\textbf{R}) contains exogeneous inputs to a conversion chain.
+The use (\textbf{U}) and make (\textbf{V}) matrices
+describe the consumption and production of materials and energy by processes in conversion chains.
+The final demand matrix (\textbf{Y}) includes product consumption by economic sectors.
+(See \citet[Table~1]{Aramendia_2022}.)
+
+
+
+
+**** Delete this paragraph, as it is now incorporated above. ---MKH ****
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
+\label{sec:results}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 This section may be divided by subheadings. It should provide a concise and precise description of the experimental results, their interpretation as well as the experimental conclusions that can be drawn.
 \subsection{Subsection}
