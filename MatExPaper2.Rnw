@@ -605,9 +605,35 @@ The final demand matrix (\textbf{Y}) includes product consumption by economic se
 (See \citet[Table~1]{Aramendia_2022}.)
 
 
+%++++++++++++++++++++++++++++++
+\subsection{Data}
+\label{sec:data}
+%++++++++++++++++++++++++++++++
+
+The material conversion chain is a partial example chain
+of a potential South African pig iron production process.
+Energy inputs information
+for extraction, hauling, and beneficiation processes
+is from the Energy and Environmental Profile of the U.S.\ Mining Industry
+\citet{Ore_2025} and the \citet{Uni_Cape_Town_2002}.
+Additional energy information comes from \citet{Jamison_2015}.
+
+Mass amounts and composition
+for each statepoint
+comes from various sources.
+The ore and coal compositions closely represent potential versions
+of a South African pig iron production process.
+Coal production compositions and energy inputs are taken from
+\citet{Matsuhashi_2012},
+\citet{Zhang_2019},
+\citet{Kotas_1995}, and
+various webpages **** Need to cite the web pages. ****
+Limestone production compositions and energy inputs are taken from
+\citet{Saidur_2011},
+\citet{Eriksson_2014}, and
+\citet{Satyendra_2013}.
 
 
-**** Delete this paragraph, as it is now incorporated above. ---MKH ****
 
 
 
