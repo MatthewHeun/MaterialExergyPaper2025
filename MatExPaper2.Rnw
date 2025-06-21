@@ -245,14 +245,25 @@ it is assumed to behave as an ideal mixture of gases.
 If it is a mixture of solid or liquid components,
 it is assumed to behave as an ideal solution.
 
-The exergy in the total process ($B_{mix}$)
-is the ambient temperature ($T_{0}$) multiplied by the change
-in entropy of the mixture from the Earth's crust to the current state ($S_{mix}$).
+****
+Erin:
+Note this is the appropriate way to narrate equations.
+****
+The exergy of a mixture ($B_{mix}$)
+is given by
 
 \begin{equation}\label{eq:specific_exergy_of_mixture_definition1}
-  B_{mix} = T_0 S_{mix} = -R T_0 \sum_{i}{N_{i}{y_{i}} \ln{y_{i}}}
+  B_{mix} = T_0 S_{mix} = -R T_0 \sum_{i}{N_{i}{y_{i}} \ln{y_{i}}} \,
 \end{equation}
+%
+where $T_0$ is the ambient temperature,
+multiplied by the change
+in entropy of the mixture from the Earth's crust to the current state ($S_{mix}$).
 
+****
+Erin:
+Note this is \emph{not} the way to narrate equations.
+****
 The entropy of a mixture ($S$) is the negative gas constant ($R$)
 and number of mole of the mix ($N$)
 multiplied by the sum of the molar fraction
@@ -262,29 +273,29 @@ the mass composition of the stream and
 each component's molecular weight,
 which we take from \citet{Fisher_2025}.
 
-% \begin{equation}\label{eq:specific_entropy_of_mixture_definition}
-%   S_{mix} = -RN_{mix}(y_{1}\ln{y_{1}} + y_{2}\ln{y_{2}} + y_{3}\ln{y_{3}} + \ldots)
-%           = -RN_{mix}\sum_{i} y_{i}\ln{y_{i}}
-% \end{equation}
-%
-%
-% The total exergy of a mixture ($B_{mix}$) is the exergy per mole ($b_{mix}$)
-% multiplied by the number of moles
-% in the mixture ($N_{mix}$).
-%
-% \begin{equation}\label{eq:specific_exergy_of_mixture_definition2}
-%   B_{mix} = {b_{mix}}{N_{mix}} = -RT_{0}\sum_{i}y_{i}\ln{y_{i}}
-% \end{equation}
-%
-% Material exergy ($b$) is broken down into three components.
-% The first term is thermomechanical exergy ($b_{th}$).
-% The second term is chemical exergy ($b_{ch}$).
-% The third term is concentration exergy ($b_{c}$).
-%
-% \begin{equation}\label{eq:general_material_exergy_definition}
-%  b_{total} = b_{th} + b_{ch} + b_{c}
-% \end{equation}
-%
+\begin{equation}\label{eq:specific_entropy_of_mixture_definition}
+  S_{mix} = -RN_{mix}(y_{1}\ln{y_{1}} + y_{2}\ln{y_{2}} + y_{3}\ln{y_{3}} + \ldots)
+          = -RN_{mix}\sum_{i} y_{i}\ln{y_{i}}
+\end{equation}
+
+
+The total exergy of a mixture ($B_{mix}$) is the exergy per mole ($b_{mix}$)
+multiplied by the number of moles
+in the mixture ($N_{mix}$).
+
+\begin{equation}\label{eq:specific_exergy_of_mixture_definition2}
+  B_{mix} = {b_{mix}}{N_{mix}} = -RT_{0}\sum_{i}y_{i}\ln{y_{i}}
+\end{equation}
+
+Material exergy ($b$) is broken down into three components.
+The first term is thermomechanical exergy ($b_{th}$).
+The second term is chemical exergy ($b_{ch}$).
+The third term is concentration exergy ($b_{c}$).
+
+\begin{equation}\label{eq:general_material_exergy_definition}
+ b_{total} = b_{th} + b_{ch} + b_{c}
+\end{equation}
+
 % Here, we assume that the system is at
 % $T_{0}$ and $P_{0}$;
 % thus, thermomechanical exergy ($b_{th}$) is zero.
