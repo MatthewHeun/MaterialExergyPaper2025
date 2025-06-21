@@ -71,6 +71,7 @@
 % Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, float, amsmath, amssymb, lineno, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, colortbl, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, array, tabularx, pbox, ragged2e, tocloft, marginnote, marginfix, enotez, amsthm, natbib, hyperref, cleveref, scrextend, url, geometry, newfloat, caption, draftwatermark, seqsplit
 % cleveref: load \crefname definitions after \begin{document}
 
+
 %=================================================================
 % Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypothesis, Remark, Definition, Notation, Assumption
 %% For proofs, please use the proof environment (the amsthm package is loaded by the MDPI class).
@@ -89,8 +90,12 @@
 \newcommand{\orcidauthorD}{0000-0002-3502-3371} % Add \orcidD{} behind the author's name
 
 % Authors, for the paper (add full first names)
-\Author{Erin Schuman $^{1,\dagger}$\orcidA{},
-        Sofie Schumerth $^{2,\dagger}$\orcidB{},
+% \Author{Erin Schuman $^{1,\dagger}$\orcidA{},
+%         Sofie Schumerth $^{2,\dagger}$\orcidB{},
+%         Matthew Kuperus Heun $^{3,}$*\orcidC{}, and
+%         Tania Sousa $^{4}$\orcidD{} }
+\Author{Erin Schuman $^{1}$\orcidA{},
+        Sofie Schumerth $^{2}$\orcidB{},
         Matthew Kuperus Heun $^{3,}$*\orcidC{}, and
         Tania Sousa $^{4}$\orcidD{} }
 
@@ -133,8 +138,8 @@ $^{4}$ \quad MARETEC—Marine, Environment and Technology Center, LARSyS, Instit
 \corres{Corresponding author: mkh2@calvin.ed, +1 (616) 526-6663}
 
 % Current address and/or shared authorship
-\firstnote{Current address: Affiliation.}  % Current address should not be the same as any items in the Affiliation section.
-\secondnote{These authors contributed equally to this work.}
+% \firstnote{Current address: Affiliation.}  % Current address should not be the same as any items in the Affiliation section.
+% \secondnote{These authors contributed equally to this work.}
 % The commands \thirdnote{} till \eighthnote{} are available for further notes
 
 %\simplesumm{} % Simple summary
@@ -152,75 +157,260 @@ $^{4}$ \quad MARETEC—Marine, Environment and Technology Center, LARSyS, Instit
 %\MSC{}
 %\JEL{}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Only for the journal Diversity
-%\LSID{\url{http://}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Only for the journal Applied Sciences
-%\featuredapplication{Authors are encouraged to provide a concise description of the specific application or a potential application of the work. This section is not mandatory.}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Only for the journal Data
-%\dataset{DOI number or link to the deposited data set if the data set is published separately. If the data set shall be published as a supplement to this paper, this field will be filled by the journal editors. In this case, please submit the data set as a supplement.}
-%\datasetlicense{License under which the data set is made available (CC0, CC-BY, CC-BY-SA, CC-BY-NC, etc.)}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Only for the journal BioTech, Fishes, Neuroimaging and Toxins
-%\keycontribution{The breakthroughs or highlights of the manuscript. Authors can write one or two sentences to describe the most important part of the paper.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Only for the journal Encyclopedia
-%\encyclopediadef{For entry manuscripts only: please provide a brief overview of the entry title instead of an abstract.}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Only for the journal Advances in Respiratory Medicine, Future, Sensors and Smart Cities
-%\addhighlights{yes}
-%\renewcommand{\addhighlights}{%
-%
-%\noindent This is an obligatory section in ``Advances in Respiratory Medicine'', ``Future'', ``Sensors'' and ``Smart Cities”, whose goal is to increase the discoverability and readability of the article via search engines and other scholars. Highlights should not be a copy of the abstract, but a simple text allowing the reader to quickly and simplified find out what the article is about and what can be cited from it. Each of these parts should be devoted up to 2~bullet points.\vspace{3pt}\\
-%\textbf{What are the main findings?}
-% \begin{itemize}[labelsep=2.5mm,topsep=-3pt]
-% \item First bullet.
-% \item Second bullet.
-% \end{itemize}\vspace{3pt}
-%\textbf{What is the implication of the main finding?}
-% \begin{itemize}[labelsep=2.5mm,topsep=-3pt]
-% \item First bullet.
-% \item Second bullet.
-% \end{itemize}
-%}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\setcounter{section}{-1} %% Remove this when starting to work on the template.
-\section{How to Use this Template}
 
-The template details the sections that can be used in a manuscript. Note that the order and names of article sections may differ from the requirements of the journal (e.g., the positioning of the Materials and Methods section). Please check the instructions on the authors' page of the journal to verify the correct order and names. For any questions, please contact the editorial office of the journal or support@mdpi.com. For LaTeX-related questions please contact latex@mdpi.com.%\endnote{This is an endnote.} % To use endnotes, please un-comment \printendnotes below (before References). Only journal Laws uses \footnote.
 
-% The order of the section titles is different for some journals. Please refer to the "Instructions for Authors” on the journal homepage.
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
+\label{sec:introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The introduction should briefly place the study in a broad context and highlight why it is important. It should define the purpose of the work and its significance. The current state of the research field should be reviewed carefully and key publications cited. Please highlight controversial and diverging hypotheses when necessary. Finally, briefly mention the main aim of the work and highlight the principal conclusions. As far as possible, please keep the introduction comprehensible to scientists outside your particular field of research. Citing a journal paper \citep{ref-journal}.  Now citing a book reference \citep{ref-book1,ref-book2} or other reference types \citep{ref-unpublish,ref-url}. Please use the command \citep{ref-proceeding,ref-thesis} for the following MDPI journals, which use author--date citation: Administrative Sciences, Arts, Behavioral Sciences, Businesses, Econometrics, Economies, Education Sciences, European Journal of Investigation in Health, Psychology and Education, Games, Genealogy, Histories, Humanities, Humans, IJFS, Journal of Intelligence, Journalism and Media, JRFM, Languages, Laws, Literature, Psychology International, Publications, Religions, Risks, Social Sciences, Tourism and Hospitality, Youth.
+Our research question:
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Materials and Methods}
+How should integrated energy and material conversion chains
+be represented for societal exergy analysis?
 
-Materials and Methods should be described with sufficient details to allow others to replicate and build on published results. Please note that publication of your manuscript implicates that you must make all materials, data, computer code, and protocols associated with the publication available to readers. Please disclose at the submission stage any restrictions on the availability of materials or information. New methods and protocols should be described in detail while well-established methods can be briefly described and appropriately cited.
+Contributions of this paper:
 
-Research manuscripts reporting large datasets that are deposited in a publicly avail-able database should specify where the data have been deposited and provide the relevant accession numbers. If the accession numbers have not yet been obtained at the time of submission, please state that they will be provided during review. They must be provided prior to publication.
+\begin{enumerate}
 
-Interventionary studies involving animals or humans, and other studies require ethical approval must list the authority that provided approval and the corresponding ethical approval code.
+  \item Demonstrate a consistent exergy analysis approach for ECCs and MCCs,
+        including physical, chemical, and concentration exergies.
 
-In this section, where applicable, authors are required to disclose details of how gen-erative artificial intelligence (GenAI) has been used in this paper (e.g., to generate text, data, or graphics, or to assist in study design, data collection, analysis, or interpretation). The use of GenAI for superficial text editing (e.g., grammar, spelling, punctuation, and formatting) does not need to be declared.
+  \item Apply the exergy analysis approach to a MCC
+        from extraction (iron ore, coking coal, limestone)
+        to pig iron.
 
-\begin{quote}
-This is an example of a quote.
-\end{quote}
+  \item Demonstrate the interaction
+        between energy and material conversion chains
+        using PSUT matrices
+        amenable to existing energy conversion chain datasets.
+
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Methods and data}
+\label{sec:methods_and_data}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%++++++++++++++++++++++++++++++
+\subsection{Material Exergy Calculation}
+\label{sec: material exergy calculation}
+%++++++++++++++++++++++++++++++
+
+The exergy of a system ($B$) is the maximum amount of work
+that can be extracted
+by processes that take the system
+to equilibrium with the reference environment,
+defined by $T_0$, $P_0$, and a certain chemical composition.
+
+Thus, the total exergy of a system ($B$)
+is the sum of the work of two reversible processes
+that bring the system
+(a)~from $T$ and $P$ to
+    $T_0$ and $P_0$
+    (without changes in the chemical composition) and
+(b)~from its chemical composition to
+    to the reference chemical composition
+    (while the system remains at $T_0$ and $P_0$).
+
+
+Reference environments can include the atmosphere,
+the ocean, or the Earth's crust.
+For our purposes,
+the reference environments are at $T_0$ and $P_0$,
+and are characterized by a mixture of reference species.
+
+Reference species are characterized by partial pressure
+($P_i = P_0 y_i$) in the atmosphere,
+by concentrations ($C_i$) in the ocean
+and by mole fraction ($y_i$)
+in the Earth's crust.
+
+
+% Natural resources have a positive material exergy ($b$)
+% because they have a chemical composition
+% that differentiates them from the Environment.
+% Material exergy of a natural resource ($b_{i}$)
+% is the work that would be needed
+% to produce that substance with its structure,
+% known as chemical exergy ($b_{ch,i}$),
+% and the concentration in a reversible process ($b_{c,i}$),
+% with respect to the reference environment.
+% A natural resource is a mixture of compounds ($i$).
+% If it is a mixture of gases,
+% it is assumed to behave as an ideal mixture of gases.
+% If it is a mixture of solid or liquid components,
+% it is assumed to behave as an ideal solution.
+%
+% The exergy in the total process ($B_{mix}$) is the ambient temperature ($T_{0}$) multiplied by the change
+% in entropy of the mixture from the Earth's crust to the current state ($S_{mix}$).
+%
+% \begin{equation}\label{eq:specific_exergy_of_mixture_definition1}
+%   B_{mix} = T_{0}S_{mix} = -RT_{0}\sum_{i}{N_{i}{y_{i}}\ln{y_{i}}}
+% \end{equation}
+%
+% The entropy of a mixture ($S$) is the negative gas constant ($R$)
+% and number of mole of the mix ($N$)
+% multiplied by the sum of the molar fraction
+% and log of the fraction of moles per species ($y_i$$lny_i$).
+% The number of moles in a mixture is determined by the mass composition of the stream and each components molecular weight which come from Fisher Scientific \citep{Fisher_2025}.
+%
+% \begin{equation}\label{eq:specific_entropy_of_mixture_definition}
+%   S_{mix} = -RN_{mix}(y_{1}\ln{y_{1}} + y_{2}\ln{y_{2}} + y_{3}\ln{y_{3}} + \ldots)
+%           = -RN_{mix}\sum_{i} y_{i}\ln{y_{i}}
+% \end{equation}
+%
+%
+% The total exergy of a mixture ($B_{mix}$) is the exergy per mole ($b_{mix}$)
+% multiplied by the number of moles
+% in the mixture ($N_{mix}$).
+%
+% \begin{equation}\label{eq:specific_exergy_of_mixture_definition2}
+%   B_{mix} = {b_{mix}}{N_{mix}} = -RT_{0}\sum_{i}y_{i}\ln{y_{i}}
+% \end{equation}
+%
+% Material exergy ($b$) is broken down into three components.
+% The first term is thermomechanical exergy ($b_{th}$).
+% The second term is chemical exergy ($b_{ch}$).
+% The third term is concentration exergy ($b_{c}$).
+%
+% \begin{equation}\label{eq:general_material_exergy_definition}
+%  b_{total} = b_{th} + b_{ch} + b_{c}
+% \end{equation}
+%
+% Here, we assume that the system is at
+% $T_{0}$ and $P_{0}$;
+% thus, thermomechanical exergy ($b_{th}$) is zero.
+% Doing so enables focus on the chemical and concentration exergy
+% ($b_{ch}$ and $b_{c}$, also called material exergy).
+%
+% The first component of molar intensive material exergy, $b_{1}$,
+% is the sum of chemical exergies of each compound
+% present in the mixture, $b_{ch,i,1}$.
+% We calculate chemical exergy values ($b_{ch}$)
+% from \citet[Table~9.1]{Valero_2015}.
+% The second is the sum of concentration exergies of each compound
+% present in the mixutre, $b_{c,i,1}$.
+% The total exergy per mole ($b$) is equal to the sum of the chemical exergies ($b_{ch}$)
+% and the concentration exergies ($b_{c,i}$) for each compound.
+%
+% \begin{equation}\label{eq:specific_molar_intensive_exergy_definition}
+%   b_{i,1} = \sum_{i}{b_{ch,i,1}} + \sum_{i}{b_{c,i,1}}
+% \end{equation}
+%
+%
+% % How are we defining the compound compared to the component number?
+%
+% Chemical ($b_{ch,i}$) and concentration ($b_{c,i}$) exergies are broken down
+% by the element ($j$) in a compound ($i$)
+% for a mixture.
+%
+% The chemical exergy of each compound ($b_{ch,i}$) is dependent
+% on whether it exists or not
+% in the reference environment.
+% If compound ($i$) does not exist
+% in the reference environment,
+% chemical exergy is the amount of work obtained
+% in the reversible chemical reactions
+% that decomposes the pure compound at ambient temperature ($T_{0}$)
+% into reference species ($i$) that are in equilibrium
+% with the environment.
+%
+% The chemical exergy ($b_{ch}$) is the Gibbs energy ($\delta{G}$)
+% plus the sum of chemical exergy ($b_{ch}$)
+% multiplied by the number of moles
+% in the mix ($n_{j,i}$) for each element ($j$)
+% in the compound observed ($i$).
+%
+% The amount of work obtained
+% in a reversible process is the Gibbs energy
+% of formation ($\delta{G_{f}}$) for that process.
+% This is the difference between the Gibbs energies
+% of the input species and output species.
+% $\delta{G_{f}}$ values come from \citep{Dean_1979}
+% and \citep{Gibbs_formation}.
+%
+% \begin{equation}\label{eq:specific_chemical_exergy_definition}
+%   b_{ch,i} = \Delta{G_{f,i}} + \sum_{i}{n_{j,i}b_{ch,j}}
+% \end{equation}
+%
+% The chemical exergy per mole ($b_{ch}$) is the molar fraction ($y$)
+% of a species multiplied by the chemical exergy of that same species ($b_{ch}$).
+%
+% \begin{equation}\label{eq:chemical_exergy_state_point1}
+%   b_{ch,i} = y_{i}b_{ch,i}
+% \end{equation}
+%
+% The concentration of a species
+% may change between statepoints.
+% The number of moles of a species in each mixture ($n_{i,mix}$)
+% determines the concentration of the species
+% compared to the rest of the mixture.
+% The original statepoint of concentration exergy ($b_{c,0}$) is the pure substance
+% of an element ($j$) or compound ($i$).
+%
+% The concentration exergy for a species ($b_c,i$)
+% at the current state
+% equation uses the universal gas constant ($R$),
+% ambient temperature ($T_0$),
+% and molar fraction of a species, ($y_i$).
+% The following two equations are in reference to \citet{Valero_2015}.
+%
+% \begin{equation}\label{eq:specific_concentration_exergy_of_current_statepoint_definition}
+%   b_{c,i} = -RT_{0}(\ln(y_{i}) - \ln(y_{i,0})
+% \end{equation}
+%
+% The pure substance molar fraction ($y_{i,0}$) is always equal to one.
+% Equation equation~\ref{eq:specific_concentration_exergy_of_current_statepoint_definition} becomes
+%
+% \begin{equation}\label{eq:specific_concentration_exergy_of_current_statepoint_definition}
+%   b_{c,i} = -RT_{0}(\ln(y_{i}).
+% \end{equation}
+%
+%
+% The material exergy at some statepoint, for example, the first statepoint, ($B_{1}$)
+% is the sum of the chemical ($b_{ch,1}$) and concentration ($b_{c,1}$) exergies
+% when individually multiplied
+% by the number of moles ($n_{i,1}$)
+% for each compound ($i$) in the mixture.
+%
+% \begin{equation}\label{eq:specific_exergy_of_current_statepoint_definition}
+%   B_{i,1} = \sum_{i}{n_{i,1}b_{ch,i,1}} + \sum_{i}{n_{i,1}b_{c,i,1}}
+% \end{equation}
+%
+% \begin{equation}\label{eq:simplified_material_exergy_of_current_statepoint_definition}
+%   b_{i,1} = b_{ch,i,1} + b_{c,i,1}
+% \end{equation}
+%
+% The exergy contribution of a compound ($b_i$) is dependent
+% on its molar fraction
+% and the total number of moles
+% in a mixture.
+%
+% \begin{equation}\label{eq:specific_exergy_of_current_statepoint_molar_based_definition}
+%   B_{i,1} = y_{i,1}b_{i,1}
+% \end{equation}
+%
+% \begin{equation}\label{eq:specific_exergy_of_current_statepoint_mixture_definition}
+%   B_{mix,i,1} = N_{mix,1}b_{i,1}
+% \end{equation}
+%
+% The total exergy at a statepoint
+% is the sum of the component's exergy.
+%
+% \begin{equation}\label{eq:total_exergy_of_current_statepoint_mixture_definition}
+%   B_{mix,1} = \sum{B_{mix,i,1}}
+% \end{equation}
+%
+% The material exergy at each statepoint ($B_{mix}$) is calculated as shown.
+% The results allow for further calculations
+% of process efficiencies.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
