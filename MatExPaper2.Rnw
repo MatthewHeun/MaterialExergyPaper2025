@@ -218,7 +218,6 @@ that bring the system
     to the reference chemical composition
     (while the system remains at $T_0$ and $P_0$).
 
-
 Reference environments can include the atmosphere,
 the ocean, or the Earth's crust.
 For our purposes,
@@ -231,22 +230,21 @@ by concentrations ($C_i$) in the ocean
 and by mole fraction ($y_i$)
 in the Earth's crust.
 
+Natural resources have a positive material exergy ($b$)
+because they have a chemical composition
+that differentiates them from the Environment.
+Material exergy of a natural resource ($b_{i}$)
+is the work that would be needed
+to produce that substance with its structure,
+known as chemical exergy ($b_{ch,i}$),
+and the concentration in a reversible process ($b_{c,i}$),
+with respect to the reference environment.
+A natural resource is a mixture of compounds ($i$).
+If it is a mixture of gases,
+it is assumed to behave as an ideal mixture of gases.
+If it is a mixture of solid or liquid components,
+it is assumed to behave as an ideal solution.
 
-% Natural resources have a positive material exergy ($b$)
-% because they have a chemical composition
-% that differentiates them from the Environment.
-% Material exergy of a natural resource ($b_{i}$)
-% is the work that would be needed
-% to produce that substance with its structure,
-% known as chemical exergy ($b_{ch,i}$),
-% and the concentration in a reversible process ($b_{c,i}$),
-% with respect to the reference environment.
-% A natural resource is a mixture of compounds ($i$).
-% If it is a mixture of gases,
-% it is assumed to behave as an ideal mixture of gases.
-% If it is a mixture of solid or liquid components,
-% it is assumed to behave as an ideal solution.
-%
 % The exergy in the total process ($B_{mix}$) is the ambient temperature ($T_{0}$) multiplied by the change
 % in entropy of the mixture from the Earth's crust to the current state ($S_{mix}$).
 %
