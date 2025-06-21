@@ -288,7 +288,7 @@ in the mixture ($N_{mix}$).
 \end{equation}
 
 Material exergy ($b$) is broken down into three components.
-The first term is thermomechanical exergy ($b_{th}$).
+The first term is physical exergy ($b_{ph}$).
 The second term is chemical exergy ($b_{ch}$).
 The third term is concentration exergy ($b_{c}$).
 
@@ -296,62 +296,62 @@ The third term is concentration exergy ($b_{c}$).
  b_{total} = b_{th} + b_{ch} + b_{c}
 \end{equation}
 
-% Here, we assume that the system is at
-% $T_{0}$ and $P_{0}$;
-% thus, thermomechanical exergy ($b_{th}$) is zero.
-% Doing so enables focus on the chemical and concentration exergy
-% ($b_{ch}$ and $b_{c}$, also called material exergy).
-%
-% The first component of molar intensive material exergy, $b_{1}$,
-% is the sum of chemical exergies of each compound
-% present in the mixture, $b_{ch,i,1}$.
-% We calculate chemical exergy values ($b_{ch}$)
-% from \citet[Table~9.1]{Valero_2015}.
-% The second is the sum of concentration exergies of each compound
-% present in the mixutre, $b_{c,i,1}$.
-% The total exergy per mole ($b$) is equal to the sum of the chemical exergies ($b_{ch}$)
-% and the concentration exergies ($b_{c,i}$) for each compound.
-%
-% \begin{equation}\label{eq:specific_molar_intensive_exergy_definition}
-%   b_{i,1} = \sum_{i}{b_{ch,i,1}} + \sum_{i}{b_{c,i,1}}
-% \end{equation}
-%
-%
-% % How are we defining the compound compared to the component number?
-%
-% Chemical ($b_{ch,i}$) and concentration ($b_{c,i}$) exergies are broken down
-% by the element ($j$) in a compound ($i$)
-% for a mixture.
-%
-% The chemical exergy of each compound ($b_{ch,i}$) is dependent
-% on whether it exists or not
-% in the reference environment.
-% If compound ($i$) does not exist
-% in the reference environment,
-% chemical exergy is the amount of work obtained
-% in the reversible chemical reactions
-% that decomposes the pure compound at ambient temperature ($T_{0}$)
-% into reference species ($i$) that are in equilibrium
-% with the environment.
-%
-% The chemical exergy ($b_{ch}$) is the Gibbs energy ($\delta{G}$)
-% plus the sum of chemical exergy ($b_{ch}$)
-% multiplied by the number of moles
-% in the mix ($n_{j,i}$) for each element ($j$)
-% in the compound observed ($i$).
-%
-% The amount of work obtained
-% in a reversible process is the Gibbs energy
-% of formation ($\delta{G_{f}}$) for that process.
-% This is the difference between the Gibbs energies
-% of the input species and output species.
-% $\delta{G_{f}}$ values come from \citep{Dean_1979}
-% and \citep{Gibbs_formation}.
-%
-% \begin{equation}\label{eq:specific_chemical_exergy_definition}
-%   b_{ch,i} = \Delta{G_{f,i}} + \sum_{i}{n_{j,i}b_{ch,j}}
-% \end{equation}
-%
+Here, we assume that the system is at
+$T_0$ and $P_0$;
+thus, thermomechanical exergy ($b_{ph}$) is zero.
+Doing so enables focus on chemical and concentration exergy
+($b_{ch}$ and $b_{c}$, also called material exergy).
+
+The first component of molar intensive material exergy, $b_{1}$,
+is the sum of chemical exergies of each compound
+present in the mixture, $b_{ch,i,1}$.
+We calculate chemical exergy values ($b_{ch}$)
+following \citet[Table~9.1]{Valero_2015}.
+The second component is the sum of concentration exergies of each compound
+present in the mixture, $b_{c,i,1}$.
+The total exergy per mole ($b$) is equal to the sum of the chemical exergies ($b_{ch}$)
+and the concentration exergies ($b_{c,i}$) for each compound.
+
+\begin{equation}\label{eq:specific_molar_intensive_exergy_definition}
+  b_{i,1} = \sum_{i}{b_{ch,i,1}} + \sum_{i}{b_{c,i,1}}
+\end{equation}
+
+
+% How are we defining the compound compared to the component number?
+
+Chemical ($b_{ch,i}$) and concentration ($b_{c,i}$) exergies are broken down
+by the element ($j$) in a compound ($i$)
+for a mixture.
+
+The chemical exergy of each compound ($b_{ch,i}$) is dependent
+on whether it exists or not
+in the reference environment.
+If compound ($i$) does not exist
+in the reference environment,
+chemical exergy is the amount of work obtained
+in the reversible chemical reactions
+that decomposes the pure compound at ambient temperature ($T_{0}$)
+into reference species ($i$) that are in equilibrium
+with the environment.
+
+The chemical exergy ($b_{ch}$) is the Gibbs energy ($\delta{G}$)
+plus the sum of chemical exergy ($b_{ch}$)
+multiplied by the number of moles
+in the mix ($n_{j,i}$) for each element ($j$)
+in the compound observed ($i$).
+
+The amount of work obtained
+in a reversible process is the Gibbs energy
+of formation ($\delta{G_{f}}$) for that process.
+This is the difference between the Gibbs energies
+of the input species and output species.
+$\delta{G_{f}}$ values are taken from \citet{Dean_1979}
+and \citet{Gibbs_formation}.
+
+\begin{equation}\label{eq:specific_chemical_exergy_definition}
+  b_{ch,i} = \Delta{G_{f,i}} + \sum_{i}{n_{j,i}b_{ch,j}}
+\end{equation}
+
 % The chemical exergy per mole ($b_{ch}$) is the molar fraction ($y$)
 % of a species multiplied by the chemical exergy of that same species ($b_{ch}$).
 %
