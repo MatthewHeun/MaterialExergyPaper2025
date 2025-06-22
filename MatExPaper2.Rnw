@@ -158,20 +158,6 @@ $^{4}$ \quad MARETEC—Marine, Environment and Technology Center, LARSyS, Instit
 %\JEL{}
 
 
-% <<Functions>>=
-% # See
-% # https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/sprintf
-% # for information on the fmt string.
-% read_named_cell <- function(named_cell,
-%                             fmt = "%.2f",
-%                             file = file.path("data", "Example.xlsx")) {
-%   val <- openxlsx2::read_xlsx(file = file, named_region = named_cell)
-%   sprintf(fmt = fmt, val)
-% }
-% @
-%
-%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
