@@ -158,9 +158,65 @@ $^{4}$ \quad MARETEC—Marine, Environment and Technology Center, LARSyS, Instit
 %\JEL{}
 
 
+% <<Functions>>=
+% # See
+% # https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/sprintf
+% # for information on the fmt string.
+% read_named_cell <- function(named_cell,
+%                             fmt = "%.2f",
+%                             file = file.path("data", "Example.xlsx")) {
+%   val <- openxlsx2::read_xlsx(file = file, named_region = named_cell)
+%   sprintf(fmt = fmt, val)
+% }
+% @
+%
+%
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+<<setup, echo=FALSE>>=
+library(openxlsx2)
+@
+
+
+<<Functions, echo=FALSE>>=
+# Type "?sprintf" at the console for details of fmt strings.
+read_named_cell <- function(named_cell,
+                            fmt = "%.2f",
+                            file = file.path("data", "Example.xlsx")) {
+  val_df <- openxlsx2::read_xlsx(file = file,
+                                 named_region = named_cell,
+                                 col_names = FALSE)
+  val <- val_df[[1]][[1]]
+  sprintf(fmt = fmt, val)
+}
+@
+
+
+
+<<ExampleValues, echo=FALSE>>=
+# Above a paragraph where you want to use
+# values read from a spreadsheet,
+# create an R chunk and
+# read values using read_named_cell().
+# This is the place to control the formatting of the number
+# with the fmt argument.
+ex1 <- read_named_cell("example1",
+                       file = file.path("data", "Example.xlsx"))
+ex2 <- read_named_cell("example2",
+                       fmt = "%e",
+                       file = file.path("data", "Example.xlsx"))
+@
+
+
+% Then use the value with the \Sexpr LaTeX command.
+The value of \texttt{example1} is \Sexpr{ex1}.
+
+The value of \texttt{example2} is \Sexpr{ex2}.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
