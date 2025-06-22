@@ -302,7 +302,7 @@ The exergy of a mixture ($B_{mix}$)
 is given by
 
 \begin{equation}\label{eq:specific_exergy_of_mixture_definition1}
-  B_{mix} = T_0 S_{mix} = -R T_0 \sum_{i}{N_{i}{y_{i}} \ln{y_{i}}} \,
+  B_{mix} = T_0 S_{mix} = -R T_0 \sum_{i}{N_{i}{y_{i}} \ln{y_{i}}} \; ,
 \end{equation}
 %
 where $T_0$ is the ambient temperature,
