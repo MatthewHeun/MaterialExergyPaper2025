@@ -165,20 +165,57 @@ $^{4}$ \quad MARETEC—Marine, Environment and Technology Center, LARSyS, Instit
 
 <<setup, echo=FALSE>>=
 library(openxlsx2)
+library(xtable)
 @
 
 
 <<Functions, echo=FALSE>>=
 # Type "?sprintf" at the console for details of fmt strings.
-read_named_cell <- function(named_cell,
+read_named_cell <- function(cell_name,
                             fmt = "%.2f",
                             file = file.path("data", "Example.xlsx")) {
   val_df <- openxlsx2::read_xlsx(file = file,
-                                 named_region = named_cell,
+                                 named_region = cell_name,
                                  col_names = FALSE)
   val <- val_df[[1]][[1]]
   sprintf(fmt = fmt, val)
 }
+
+# digits is can be defined as a single value,
+# interpreted as digits for the entire matrix.
+# Or, specify as a vector:  c(overall, rownames, Col1, Col2, Col3, etc.)
+# Default is digits = 2.
+read_named_matrix <- function(matrix_name,
+                              file = file.path("data", "Example.xlsx"),
+                              digits = 2) {
+  # Read the matrix as a data frame
+  mat_df <- openxlsx2::read_xlsx(file = file,
+                                 named_region = matrix_name,
+                                 row_names = TRUE) |>
+  tibble::rownames_to_column(var = " ")
+
+  # Rotate the column names
+  rotated_colnames <- c(paste0("\\rotatebox[origin=b]{90}{", colnames(mat_df), "}"))
+
+  # Create an xtable from the matrix
+  xt <- xtable::xtable(mat_df)
+  # Rotate the column names
+  colnames(xt) <- rotated_colnames
+  # Set alignment of rownames (r) and numbers in the matrix (c)
+  xt_align <- paste0("r", paste(rep("c", times = ncol(mat_df)-1), collapse = ""))
+  # Print the matrix as a xtable
+  print(xt,
+        include.rownames = FALSE,
+        sanitize.colnames.function = identity,
+        align = xt_align,
+        digits = digits)
+}
+@
+
+<<ExampleMatrix, echo=FALSE, results=tex>>=
+read_named_matrix(matrix_name = "Rmat",
+                  file = file.path("data", "Example.xlsx"),
+                  digits = c(2, 0, 1, 2, 3))
 @
 
 
@@ -198,10 +235,13 @@ ex2 <- read_named_cell("example2",
 @
 
 
+
 % Then use the value with the \Sexpr LaTeX command.
 The value of \texttt{example1} is \Sexpr{ex1}.
 
 The value of \texttt{example2} is \Sexpr{ex2}.
+
+
 
 
 
