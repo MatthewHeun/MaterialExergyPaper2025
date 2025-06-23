@@ -186,11 +186,11 @@ read_named_cell <- function(cell_name,
 # interpreted as digits for the entire matrix.
 # Or, specify as a vector:  c(overall, rownames, Col1, Col2, Col3, etc.)
 # Default is digits = 2.
-read_named_matrix <- function(matrix_name,
-                              file = file.path("data", "Example.xlsx"),
-                              digits = 2,
-                              caption = NULL,
-                              size = "\\normalsize") {
+print_named_matrix <- function(matrix_name,
+                               file = file.path("data", "Example.xlsx"),
+                               digits = 2,
+                               caption = NULL,
+                               size = "\\normalsize") {
   # Read the matrix as a data frame
   mat_df <- openxlsx2::read_xlsx(file = file,
                                  named_region = matrix_name,
@@ -248,11 +248,11 @@ The value of \texttt{example2} is \Sexpr{ex2}.
 You can also show a matrix as below.
 
 <<ExampleMatrix, echo=FALSE, results=tex>>=
-read_named_matrix(matrix_name = "Rmat",
-                  file = file.path("data", "Example.xlsx"),
-                  digits = c(0, 0, 1, 2, 3),
-                  caption = "Example resource matrix (\\textbf{R}).",
-                  size = "\\tiny")
+print_named_matrix(matrix_name = "Rmat",
+                   file = file.path("data", "Example.xlsx"),
+                   digits = c(0, 0, 1, 2, 3),
+                   caption = "Example resource matrix (\\textbf{R}).",
+                   size = "\\tiny")
 @
 
 
