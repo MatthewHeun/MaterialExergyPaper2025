@@ -70,6 +70,7 @@
 %=================================================================
 % Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, float, amsmath, amssymb, lineno, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, colortbl, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, array, tabularx, pbox, ragged2e, tocloft, marginnote, marginfix, enotez, amsthm, natbib, hyperref, cleveref, scrextend, url, geometry, newfloat, caption, draftwatermark, seqsplit
 % cleveref: load \crefname definitions after \begin{document}
+\usepackage{rotating}
 
 
 %=================================================================
@@ -200,13 +201,14 @@ read_named_matrix <- function(matrix_name,
   # Create an xtable from the matrix
   xt <- xtable::xtable(mat_df)
   # Rotate the column names
-  colnames(xt) <- rotated_colnames
+  # colnames(xt) <- rotated_colnames
   # Set alignment of rownames (r) and numbers in the matrix (c)
   xt_align <- paste0("r", paste(rep("c", times = ncol(mat_df)-1), collapse = ""))
   # Print the matrix as a xtable
   print(xt,
         include.rownames = FALSE,
         sanitize.colnames.function = identity,
+        rotate.colnames = TRUE,
         align = xt_align,
         digits = digits)
 }
