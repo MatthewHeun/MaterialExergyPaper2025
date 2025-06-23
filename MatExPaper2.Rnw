@@ -210,7 +210,8 @@ read_named_matrix <- function(matrix_name,
         sanitize.colnames.function = identity,
         rotate.colnames = TRUE,
         align = xt_align,
-        digits = digits)
+        digits = digits,
+        hline.after = NULL)
 }
 @
 
