@@ -199,7 +199,8 @@ read_named_matrix <- function(matrix_name,
   rotated_colnames <- c(paste0("\\rotatebox[origin=b]{90}{", colnames(mat_df), "}"))
 
   # Create an xtable from the matrix
-  xt <- xtable::xtable(mat_df)
+  xt <- xtable::xtable(mat_df,
+                       digits = digits)
   # Rotate the column names
   # colnames(xt) <- rotated_colnames
   # Set alignment of rownames (r) and numbers in the matrix (c)
@@ -210,7 +211,6 @@ read_named_matrix <- function(matrix_name,
         sanitize.colnames.function = identity,
         rotate.colnames = TRUE,
         align = xt_align,
-        digits = digits,
         hline.after = NULL)
 }
 @
@@ -218,7 +218,7 @@ read_named_matrix <- function(matrix_name,
 <<ExampleMatrix, echo=FALSE, results=tex>>=
 read_named_matrix(matrix_name = "Rmat",
                   file = file.path("data", "Example.xlsx"),
-                  digits = c(2, 0, 1, 2, 3))
+                  digits = c(0, 0, 1, 2, 3))
 @
 
 
