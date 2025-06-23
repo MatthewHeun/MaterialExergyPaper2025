@@ -188,7 +188,8 @@ read_named_cell <- function(cell_name,
 # Default is digits = 2.
 read_named_matrix <- function(matrix_name,
                               file = file.path("data", "Example.xlsx"),
-                              digits = 2) {
+                              digits = 2,
+                              caption = NULL) {
   # Read the matrix as a data frame
   mat_df <- openxlsx2::read_xlsx(file = file,
                                  named_region = matrix_name,
@@ -200,7 +201,8 @@ read_named_matrix <- function(matrix_name,
 
   # Create an xtable from the matrix
   xt <- xtable::xtable(mat_df,
-                       digits = digits)
+                       digits = digits,
+                       caption = caption)
   # Rotate the column names
   # colnames(xt) <- rotated_colnames
   # Set alignment of rownames (r) and numbers in the matrix (c)
@@ -211,15 +213,11 @@ read_named_matrix <- function(matrix_name,
         sanitize.colnames.function = identity,
         rotate.colnames = TRUE,
         align = xt_align,
-        hline.after = NULL)
+        hline.after = NULL,
+        floating.environment = "figure")
 }
 @
 
-<<ExampleMatrix, echo=FALSE, results=tex>>=
-read_named_matrix(matrix_name = "Rmat",
-                  file = file.path("data", "Example.xlsx"),
-                  digits = c(0, 0, 1, 2, 3))
-@
 
 
 
@@ -238,11 +236,23 @@ ex2 <- read_named_cell("example2",
 @
 
 
-
 % Then use the value with the \Sexpr LaTeX command.
 The value of \texttt{example1} is \Sexpr{ex1}.
 
 The value of \texttt{example2} is \Sexpr{ex2}.
+
+
+
+You can also show a matrix as below.
+
+<<ExampleMatrix, echo=FALSE, results=tex>>=
+read_named_matrix(matrix_name = "Rmat",
+                  file = file.path("data", "Example.xlsx"),
+                  digits = c(0, 0, 1, 2, 3),
+                  caption = "Example resource matrix (\\textbf{R}).")
+@
+
+
 
 
 
