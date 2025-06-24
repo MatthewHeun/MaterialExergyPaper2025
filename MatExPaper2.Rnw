@@ -133,7 +133,7 @@ $^{2}$ \quad Engineering Department, Calvin University, 3201 Burton St.\ SE, Gra
 $^{3}$ \quad Engineering Department, Calvin University, 3201 Burton St.\ SE, Grand Rapids, MI, USA, mkh2@calvin.edu;
              Sustainability Research Institute, School of Earth and Environment, University of Leeds, Leeds, UK;
              School for Public Leadership, Faculty of Economic and Management Science, Stellenbosch University, Stellenbosch, South Africa \\
-$^{4}$ \quad MARETEC—Marine, Environment and Technology Center, LARSyS, Instituto Superior T\'{e}cnico, Universidade de Lisboa, Avenida Rovisco Pais, 1, Lisboa, Portugal, taniasousa@tecnico.ulisboa.pt}
+$^{4}$ \quad MARETEC--Marine, Environment and Technology Center, LARSyS, Instituto Superior T\'{e}cnico, Universidade de Lisboa, Avenida Rovisco Pais, 1, Lisboa, Portugal, taniasousa@tecnico.ulisboa.pt}
 
 % Contact information of the corresponding author
 \corres{Corresponding author: mkh2@calvin.ed, +1 (616) 526-6663}
@@ -232,8 +232,8 @@ print_statepoint_table <- function(statepoint_table_name,
                                                         "$m_i$",
                                                         "MW",
                                                         "$N_i$",
-                                                        "$b_{ch,i}$"
-                                                        "$y_i$"
+                                                        "$b_{ch,i}$",
+                                                        "$y_i$",
                                                         "$\\ln(y_i)$",
                                                         "$b_{c,i}$",
                                                         "$b_i$",
@@ -964,7 +964,7 @@ This section is not mandatory, but may be added if there are patents resulting f
 
 \funding{Please add: ``This research received no external funding'' or ``This research was funded by NAME OF FUNDER grant number XXX.'' and  and ``The APC was funded by XXX''. Check carefully that the details given are accurate and use the standard spelling of funding agency names at \url{https://search.crossref.org/funding}, any errors may affect your future funding.}
 
-\institutionalreview{In this section, you should add the Institutional Review Board Statement and approval number, if relevant to your study. You might choose to exclude this statement if the study did not require ethical approval. Please note that the Editorial Office might ask you for further information. Please add “The study was conducted in accordance with the Declaration of Helsinki, and approved by the Institutional Review Board (or Ethics Committee) of NAME OF INSTITUTE (protocol code XXX and date of approval).” for studies involving humans. OR “The animal study protocol was approved by the Institutional Review Board (or Ethics Committee) of NAME OF INSTITUTE (protocol code XXX and date of approval).” for studies involving animals. OR “Ethical review and approval were waived for this study due to REASON (please provide a detailed justification).” OR “Not applicable” for studies not involving humans or animals.}
+\institutionalreview{In this section, you should add the Institutional Review Board Statement and approval number, if relevant to your study. You might choose to exclude this statement if the study did not require ethical approval. Please note that the Editorial Office might ask you for further information. Please add ``The study was conducted in accordance with the Declaration of Helsinki, and approved by the Institutional Review Board (or Ethics Committee) of NAME OF INSTITUTE (protocol code XXX and date of approval).'' for studies involving humans. OR ``The animal study protocol was approved by the Institutional Review Board (or Ethics Committee) of NAME OF INSTITUTE (protocol code XXX and date of approval).'' for studies involving animals. OR ``Ethical review and approval were waived for this study due to REASON (please provide a detailed justification).'' OR ``Not applicable'' for studies not involving humans or animals.}
 
 \informedconsent{Any research article describing a study involving humans should contain this statement. Please add ``Informed consent was obtained from all subjects involved in the study.'' OR ``Patient consent was waived due to REASON (please provide a detailed justification).'' OR ``Not applicable'' for studies not involving humans. You might also choose to exclude this statement if the study did not involve humans.
 
@@ -982,9 +982,9 @@ Written informed consent for publication must be obtained from participating pat
 %\guidelinesstandards{Please add a statement indicating which reporting guideline was used when drafting the report. For example, ``This manuscript was drafted against the XXX (the full name of reporting guidelines and citation) for XXX (type of research) research''. A complete list of reporting guidelines can be accessed via the equator network: \url{https://www.equator-network.org/}.}
 %
 %% Only for journal Nursing Reports
-%\useofartificialintelligence{Please describe in detail any and all uses of artificial intelligence (AI) or AI-assisted tools used in the preparation of the manuscript. This may include, but is not limited to, language translation, language editing and grammar, or generating text. Alternatively, please state that “AI or AI-assisted tools were not used in drafting any aspect of this manuscript”.}
+%\useofartificialintelligence{Please describe in detail any and all uses of artificial intelligence (AI) or AI-assisted tools used in the preparation of the manuscript. This may include, but is not limited to, language translation, language editing and grammar, or generating text. Alternatively, please state that ``AI or AI-assisted tools were not used in drafting any aspect of this manuscript''.}
 
-\acknowledgments{In this section you can acknowledge any support given which is not covered by the author contribution or funding sections. This may include administrative and technical support, or donations in kind (e.g., materials used for experiments). Where GenAI has been used for purposes such as generating text, data, or graphics, or for study design, data collection, analysis, or interpretation of data, please add “During the preparation of this manuscript/study, the author(s) used [tool name, version information] for the purposes of [description of use]. The authors have reviewed and edited the output and take full responsibility for the content of this publication.”}
+\acknowledgments{In this section you can acknowledge any support given which is not covered by the author contribution or funding sections. This may include administrative and technical support, or donations in kind (e.g., materials used for experiments). Where GenAI has been used for purposes such as generating text, data, or graphics, or for study design, data collection, analysis, or interpretation of data, please add ``During the preparation of this manuscript/study, the author(s) used [tool name, version information] for the purposes of [description of use]. The authors have reviewed and edited the output and take full responsibility for the content of this publication.''}
 
 \conflictsofinterest{Declare conflicts of interest or state ``The authors declare no conflicts of interest.'' Authors must identify and declare any personal circumstances or interest that may be perceived as inappropriately influencing the representation or interpretation of reported research results. Any role of the funders in the design of the study; in the collection, analyses or interpretation of data; in the writing of the manuscript; or in the decision to publish the results must be declared in this section. If there is no role, please state ``The funders had no role in the design of the study; in the collection, analyses, or interpretation of data; in the writing of the manuscript; or in the decision to publish the results''.}
 
@@ -1042,7 +1042,7 @@ All appendix sections must be cited in the main text. In the appendices, Figures
 
 
 
-% Please provide either the correct journal abbreviation (e.g. according to the “List of Title Word Abbreviations” http://www.issn.org/services/online-services/access-to-the-ltwa/) or the full name of the journal.
+% Please provide either the correct journal abbreviation (e.g. according to the ``List of Title Word Abbreviations'' http://www.issn.org/services/online-services/access-to-the-ltwa/) or the full name of the journal.
 % Citations and References in Supplementary files are permitted provided that they also appear in the reference list here.
 
 %=====================================
