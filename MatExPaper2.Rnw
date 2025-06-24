@@ -198,12 +198,16 @@ print_named_matrix <- function(matrix_name,
   tibble::rownames_to_column(var = " ")
 
   # Rotate the column names
-  rotated_colnames <- c(paste0("\\rotatebox[origin=b]{90}{", colnames(mat_df), "}"))
+  # rotated_colnames <- c(paste0("\\rotatebox[origin=b]{90}{", colnames(mat_df), "}"))
+  # rotated_colnames <- paste0("\\makebox[3em][c]{\\rotatebox[origin=b]{90}{", colnames(mat_df), "}}")
+  # rotated_colnames <- paste0("\\rotatebox[origin=b]{90}{\\parbox[t]{2cm}{\\centering ", colnames(mat_df), "}}")
+  # rotated_colnames <- paste0("\\rotatebox[origin=b]{90}{\\makebox[0pt][c]{", colnames(mat_df), "}}")
 
   # Create an xtable from the matrix
   xt <- xtable::xtable(mat_df,
                        digits = digits,
-                       caption = caption)
+                       caption = caption,
+                       align = rep("c", ncol(mat_df) + 1))
   # Rotate the column names
   # colnames(xt) <- rotated_colnames
   # Set alignment of rownames (r) and numbers in the matrix (c)
@@ -219,7 +223,7 @@ print_named_matrix <- function(matrix_name,
         size = size)
 }
 
-# Set a name for the numbers of the table only.
+# Set a name in the Excel sheet for the numbers of the table only.
 # Set rownames in the rownames_latex argument.
 # Set column names and units in arguments (or accept defaults).
 print_statepoint_table <- function(statepoint_table_name,
