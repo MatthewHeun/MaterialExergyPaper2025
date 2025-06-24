@@ -218,6 +218,46 @@ print_named_matrix <- function(matrix_name,
         floating.environment = "figure",
         size = size)
 }
+
+# Set a name for the numbers of the table only.
+# Set rownames in the rownames_latex argument.
+# Set column names and units in arguments (or accept defaults).
+print_statepoint_table <- function(statepoint_table_name,
+                                   file = file.path("data", "Example.xlsx"),
+                                   rownames_latex,
+                                   digits = 2,
+                                   caption = NULL,
+                                   size = "\\normalsize",
+                                   col_header_latex = c("",
+                                                        "$m_i$",
+                                                        "MW",
+                                                        "$N_i$",
+                                                        "$b_{ch,i}$"
+                                                        "$y_i$"
+                                                        "$\\ln(y_i)$",
+                                                        "$b_{c,i}$",
+                                                        "$b_i$",
+                                                        "$b_m$",
+                                                        "$B_m$"),
+                                   col_units_latex = c("[--]",
+                                                       "\\mathrm{$[kg_i]$}",
+                                                       "\\mathrm{$[kg_i/mol_i]$}",
+                                                       "\\mathrm{$[mol_i]$}",
+                                                       "\\mathrm{$[kJ_i/mol_i]$}",
+                                                       "\\mathrm{$[mol_i/mol_m]$}",
+                                                       "[--]",
+                                                       "\\mathrm{$[kJ_i/mol_i]$}",
+                                                       "\\mathrm{$[kJ_i/mol_i]$}",
+                                                       "\\mathrm{$[kJ_i/mol_m]$}",
+                                                       "\\mathrm{$[kJ_i]$}")) {
+
+  # Read the matrix as a data frame
+  table_df <- openxlsx2::read_xlsx(file = file,
+                                   named_region = matrix_name,
+                                   row_names = TRUE)
+
+
+}
 @
 
 
