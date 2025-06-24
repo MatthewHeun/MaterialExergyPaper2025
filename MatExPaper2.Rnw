@@ -205,7 +205,7 @@ print_named_matrix <- function(matrix_name,
   # Print the matrix as a xtable
   print(xt,
         include.rownames = FALSE,
-        sanitize.colnames.function = identity,
+        # sanitize.colnames.function = identity,
         rotate.colnames = TRUE,
         hline.after = NULL,
         floating.environment = "figure",
@@ -246,13 +246,38 @@ print_statepoint_table <- function(statepoint_table_name,
 
   # Read the matrix as a data frame
   table_df <- openxlsx2::read_xlsx(file = file,
-                                   named_region = matrix_name,
+                                   named_region = statepoint_table_name,
                                    row_names = TRUE)
+
+  xt <- xtable::xtable(table_df,
+                       digits = digits,
+                       caption = caption,
+                       align = rep("c", ncol(table_df) + 1))
+
+  print(xt,
+        include.rownames = FALSE,
+        sanitize.colnames.function = identity,
+        rotate.colnames = TRUE,
+        hline.after = NULL,
+        floating.environment = "figure",
+        size = size)
 
 
 }
 @
 
+
+
+
+You can also include a statepoint table as shown below.
+
+<<ExampleStatepointTable, echo=FALSE, results=tex>>=
+print_statepoint_table(statepoint_table_name = "statepoint_table",
+                       file = file.path("data", "Example.xlsx"),
+                       digits = 3,
+                       caption = "Example statpoint table.",
+                       size = "\\tiny")
+@
 
 
 
