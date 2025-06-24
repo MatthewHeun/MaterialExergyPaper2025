@@ -197,27 +197,16 @@ print_named_matrix <- function(matrix_name,
                                  row_names = TRUE) |>
   tibble::rownames_to_column(var = " ")
 
-  # Rotate the column names
-  # rotated_colnames <- c(paste0("\\rotatebox[origin=b]{90}{", colnames(mat_df), "}"))
-  # rotated_colnames <- paste0("\\makebox[3em][c]{\\rotatebox[origin=b]{90}{", colnames(mat_df), "}}")
-  # rotated_colnames <- paste0("\\rotatebox[origin=b]{90}{\\parbox[t]{2cm}{\\centering ", colnames(mat_df), "}}")
-  # rotated_colnames <- paste0("\\rotatebox[origin=b]{90}{\\makebox[0pt][c]{", colnames(mat_df), "}}")
-
   # Create an xtable from the matrix
   xt <- xtable::xtable(mat_df,
                        digits = digits,
                        caption = caption,
                        align = rep("c", ncol(mat_df) + 1))
-  # Rotate the column names
-  # colnames(xt) <- rotated_colnames
-  # Set alignment of rownames (r) and numbers in the matrix (c)
-  xt_align <- paste0("r", paste(rep("c", times = ncol(mat_df)-1), collapse = ""))
   # Print the matrix as a xtable
   print(xt,
         include.rownames = FALSE,
         sanitize.colnames.function = identity,
         rotate.colnames = TRUE,
-        align = xt_align,
         hline.after = NULL,
         floating.environment = "figure",
         size = size)
