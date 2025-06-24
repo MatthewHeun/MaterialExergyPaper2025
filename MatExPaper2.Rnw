@@ -221,8 +221,7 @@ print_statepoint_table <- function(statepoint_table_name,
                                    digits = 2,
                                    caption = NULL,
                                    size = "\\normalsize",
-                                   col_header_latex = c("",
-                                                        "$m_i$",
+                                   col_header_latex = c("$m_i$",
                                                         "MW",
                                                         "$N_i$",
                                                         "$b_{ch,i}$",
@@ -245,9 +244,12 @@ print_statepoint_table <- function(statepoint_table_name,
                                                        "\\mathrm{$[kJ_i]$}")) {
 
   # Read the matrix as a data frame
-  table_df <- openxlsx2::read_xlsx(file = file,
-                                   named_region = statepoint_table_name,
-                                   row_names = TRUE)
+  table_df <- openxlsx2::read_xlsx(file = file.path("data", "Example.xlsx"),
+                                   named_region = "statepoint_table",
+                                   row_names = FALSE,
+                                   col_names = FALSE)
+  rownames(table_df) <- rownames_latex
+  colnames(table_df) <- col_header_latex
 
   xt <- xtable::xtable(table_df,
                        digits = digits,
@@ -255,14 +257,13 @@ print_statepoint_table <- function(statepoint_table_name,
                        align = rep("c", ncol(table_df) + 1))
 
   print(xt,
-        include.rownames = FALSE,
+        include.rownames = TRUE,
         sanitize.colnames.function = identity,
-        rotate.colnames = TRUE,
+        sanitize.rownames.function = identity,
+        rotate.colnames = FALSE,
         hline.after = NULL,
         floating.environment = "figure",
         size = size)
-
-
 }
 @
 
@@ -273,6 +274,11 @@ You can also include a statepoint table as shown below.
 
 <<ExampleStatepointTable, echo=FALSE, results=tex>>=
 print_statepoint_table(statepoint_table_name = "statepoint_table",
+                       rownames_latex = c("$\\mathrm{Fe_2 O_3}$",
+                                          "$\\mathrm{Si O_2}$",
+                                          "CaO",
+                                          "C",
+                                          "Sum"),
                        file = file.path("data", "Example.xlsx"),
                        digits = 3,
                        caption = "Example statpoint table.",
@@ -310,7 +316,7 @@ print_named_matrix(matrix_name = "Rmat",
                    file = file.path("data", "Example.xlsx"),
                    digits = c(0, 0, 1, 2, 3),
                    caption = "Example resource matrix (\\textbf{R}).",
-                   size = "\\tiny")
+                   size = "tiny")
 @
 
 
