@@ -70,6 +70,7 @@
 %=================================================================
 % Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, float, amsmath, amssymb, lineno, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, colortbl, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, array, tabularx, pbox, ragged2e, tocloft, marginnote, marginfix, enotez, amsthm, natbib, hyperref, cleveref, scrextend, url, geometry, newfloat, caption, draftwatermark, seqsplit
 % cleveref: load \crefname definitions after \begin{document}
+\usepackage{makecell}
 \usepackage{rotating}
 
 
@@ -325,6 +326,31 @@ print_named_matrix(matrix_name = "Rmat",
 
 
 
+
+
+
+<<ExampleMakeCell, echo=FALSE, results=tex>>=
+# Sample data
+df <- data.frame(
+  A = 1:3,
+  B = 4:6
+)
+
+# Create xtable object
+xtab <- xtable(df)
+
+# Two-line column names
+colnames(xtab) <- c("Col A", "Col B")
+
+# Custom column headers with line breaks using \makecell
+headers <- c("& \\makecell{First \\\\ Column} & \\makecell{Second \\\\ Column} \\\\")
+
+# Print with add.to.row to customize header row
+print(xtab,
+      include.colnames = FALSE,
+      add.to.row = list(pos = list(0), command = headers),
+      sanitize.colnames.function = identity)
+@
 
 
 
