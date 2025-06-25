@@ -188,6 +188,7 @@ read_named_cell <- function(cell_name,
 # Or, specify as a vector:  c(overall, rownames, Col1, Col2, Col3, etc.)
 # Default is digits = 2.
 print_named_matrix <- function(matrix_name,
+                               latex_label,
                                file = file.path("data", "Example.xlsx"),
                                digits = 2,
                                caption = NULL,
@@ -202,7 +203,8 @@ print_named_matrix <- function(matrix_name,
   xt <- xtable::xtable(mat_df,
                        digits = digits,
                        caption = caption,
-                       align = rep("c", ncol(mat_df) + 1))
+                       align = rep("c", ncol(mat_df) + 1),
+                       label = latex_label)
   # Print the matrix as a xtable
   print(xt,
         include.rownames = FALSE,
@@ -218,8 +220,9 @@ print_named_matrix <- function(matrix_name,
 # Set rownames in the rownames_latex argument.
 # Set column names and units in arguments (or accept defaults).
 print_statepoint_table <- function(statepoint_table_name,
-                                   file = file.path("data", "Example.xlsx"),
+                                   latex_label,
                                    rownames_latex,
+                                   file = file.path("data", "Example.xlsx"),
                                    digits = 2,
                                    caption = NULL,
                                    size = "\\normalsize",
@@ -245,8 +248,7 @@ print_statepoint_table <- function(statepoint_table_name,
   xt <- xtable::xtable(table_df,
                        digits = digits,
                        caption = caption,
-                       # align = c("r", rep("c", ncol(table_df)))
-                       )
+                       label = latex_label)
 
   print(xt,
         include.rownames = TRUE,
@@ -260,24 +262,6 @@ print_statepoint_table <- function(statepoint_table_name,
         table.placement = NULL,
         caption.placement = "top")
 }
-@
-
-
-
-
-You can also include a statepoint table as shown below.
-
-<<ExampleStatepointTable, echo=FALSE, results=tex>>=
-print_statepoint_table(statepoint_table_name = "statepoint_table",
-                       rownames_latex = c("$\\mathrm{Fe_2 O_3}$",
-                                          "$\\mathrm{Si O_2}$",
-                                          "CaO",
-                                          "C",
-                                          "Sum"),
-                       file = file.path("data", "Example.xlsx"),
-                       digits = c(0, 1, 3, 1, 2, 3, 3, 3, 2, 3, 1),
-                       caption = "Example statpoint table.",
-                       size = "\\tiny")
 @
 
 
@@ -304,10 +288,11 @@ The value of \texttt{example2} is \Sexpr{ex2}.
 
 
 
-You can also show a matrix as below.
+You can also show a matrix as shown in Figure~\ref{fig:ExampleMatrix}.
 
 <<ExampleMatrix, echo=FALSE, results=tex>>=
 print_named_matrix(matrix_name = "Rmat",
+                   latex_label = "fig:ExampleMatrix",
                    file = file.path("data", "Example.xlsx"),
                    digits = c(0, 0, 1, 2, 3),
                    caption = "Example resource matrix (\\textbf{R}).",
@@ -316,31 +301,30 @@ print_named_matrix(matrix_name = "Rmat",
 
 
 
+You can also include a statepoint table as shown
+in Table~\ref{tab:ExampleStatepointTable}.
+The named range in the Excel file should cover only the numbers.
+Default column names that include units on a second line are provided
+by \verb+print_statepoint_table()+.
+Change as needed.
+Row names must be supplied in the call to the function.
 
-
-
-<<ExampleMakeCell, echo=FALSE, results=tex>>=
-# Sample data
-df <- data.frame(
-  A = 1:3,
-  B = 4:6
-)
-
-# Create xtable object
-xtab <- xtable(df)
-
-# Two-line column names
-colnames(xtab) <- c("Col A", "Col B")
-
-# Custom column headers with line breaks using \makecell
-headers <- c("& \\makecell{First \\\\ Column} & \\makecell{Second \\\\ Column} \\\\")
-
-# Print with add.to.row to customize header row
-print(xtab,
-      include.colnames = FALSE,
-      add.to.row = list(pos = list(0), command = headers),
-      sanitize.colnames.function = identity)
+<<ExampleStatepointTable, echo=FALSE, results=tex>>=
+print_statepoint_table(statepoint_table_name = "statepoint_table",
+                       latex_label = "tab:ExampleStatepointTable",
+                       rownames_latex = c("$\\mathrm{Fe_2 O_3}$",
+                                          "$\\mathrm{Si O_2}$",
+                                          "CaO",
+                                          "C",
+                                          "Sum"),
+                       file = file.path("data", "Example.xlsx"),
+                       digits = c(0, 1, 3, 1, 2, 3, 3, 3, 2, 3, 1),
+                       caption = "Example statpoint table.",
+                       size = "\\tiny")
 @
+
+
+
 
 
 
