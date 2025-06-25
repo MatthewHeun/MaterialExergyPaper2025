@@ -209,7 +209,8 @@ print_named_matrix <- function(matrix_name,
         rotate.colnames = TRUE,
         hline.after = NULL,
         floating.environment = "figure",
-        size = size)
+        size = size,
+        table.placement = NULL)
 }
 
 # Set a name in the Excel sheet for the numbers of the table only.
@@ -261,10 +262,12 @@ print_statepoint_table <- function(statepoint_table_name,
         sanitize.colnames.function = identity,
         sanitize.rownames.function = identity,
         rotate.colnames = FALSE,
-        floating.environment = "figure",
+        # floating.environment = "figure",
         size = size,
         booktabs = TRUE,
-        hline.after = c(-1, 0, nrow(xt)-1, nrow(xt)))
+        hline.after = c(-1, 0, nrow(xt)-1, nrow(xt)),
+        table.placement = NULL,
+        caption.placement = "top")
 }
 @
 
