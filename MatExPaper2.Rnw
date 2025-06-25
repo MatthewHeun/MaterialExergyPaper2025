@@ -254,7 +254,7 @@ print_statepoint_table <- function(statepoint_table_name,
   xt <- xtable::xtable(table_df,
                        digits = digits,
                        caption = caption,
-                       align = rep("c", ncol(table_df) + 1))
+                       align = c("r", rep("c", ncol(table_df))))
 
   print(xt,
         include.rownames = TRUE,
