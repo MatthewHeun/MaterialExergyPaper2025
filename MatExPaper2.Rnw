@@ -263,7 +263,9 @@ print_statepoint_table <- function(statepoint_table_name,
         rotate.colnames = FALSE,
         hline.after = NULL,
         floating.environment = "figure",
-        size = size)
+        size = size,
+        booktabs = TRUE,
+        hline_after = c(-1, 0, nrow(xt)))
 }
 @
 
