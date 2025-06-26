@@ -50,7 +50,9 @@ psut_zaf_2013_io <- psut_zaf_2013 |>
 # Read energy and exergy requirements
 # from the material conversion chain spreadsheet.
 
-new_Y <- openxlsx2::read_xlsx(file = "~/data/Example_mcc.xlsx", named_region = "the name")
+new_Y <- openxlsx2::read_xlsx(file = file.path("data", "Paper Examples 3.xlsx"),
+                              named_region = "mcc_energy_reqts") |>
+  dplyr::select(EnergyCarrier, `E [TJ]`, `X [TJ]`)
 
 
 
