@@ -1010,14 +1010,27 @@ LD & Linear dichroism
 The appendix is an optional section that can contain details and data supplemental to the main text---for example, explanations of experimental details that would disrupt the flow of the main text but nonetheless remain crucial to understanding and reproducing the research shown; figures of replicates for experiments of which representative data are shown in the main text can be added here if brief, or as Supplementary Data. Mathematical proofs of results not central to the paper can be added as an appendix.
 
 \begin{table}[H]
-\caption{This is a table caption.\label{tab5}}
+\caption{Nomenclature tabl.\label{tab5}}
 %\newcolumntype{C}{>{\centering\arraybackslash}X}
 \begin{tabularx}{\textwidth}{CCC}
 \toprule
-\textbf{Title 1}	& \textbf{Title 2}	& \textbf{Title 3}\\
+\textbf{Symbol}	& \textbf{Description}\\
 \midrule
-Entry 1		& Data			& Data\\
-Entry 2		& Data			& Data\\
+$T_0$					    & ambient temperature [K]\\
+$P_0$					    & ambient pressure [atm]\\
+$y_i$             & molar fraction of a species [mol/mol mixture]\\
+$b$               & material exergy [kJ/mol]\\
+$b_{ch}$          & chemical exergy [kJ/mol]\\
+$b_c$             & concentration exergy [kJ/mol]\\
+$b_{com}$         & comminution exergy [kJ/mol]\\
+$\Delta{G_{f,i}}$ & Gibbs free energy of formation [kJ/mol]\\
+$i$               & compound [NA]\\
+$j$               & element [NA]\\
+$m$               & mixture [NA]\\
+$S_m$             & entropy of mixing [kJ/mol-K]\\
+$R$               & universal gas constant [kJ/mol-K]\\
+$N$               & number of moles [mol]\\
+$B$               & molar intensive exergy [kJ]\\
 \bottomrule
 \end{tabularx}
 \end{table}
