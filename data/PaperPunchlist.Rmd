@@ -4,6 +4,6 @@ author: Erin Schuman
 date: "26 June 2025"
 ---
 
-1. Rotary kiln efficiencies should be higher 
-2. Coke oven efficiencies should be lower 
-3. Tidy up arrows 
+- [ ] Rotary kiln efficiencies should be higher 
+- [ ] Coke oven efficiencies should be lower 
+- [ ] Tidy up arrows 
