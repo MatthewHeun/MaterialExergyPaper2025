@@ -35,11 +35,22 @@ psut_io_zaf_2013 <- PFUPipelineTools::pl_filter_collect("PSUTReAllChopAllDsAllGr
                                                         conn = conn,
                                                         collect = TRUE,
                                                         matrix_class = "matrix") |>
-  dplyr::mutate(
-    Dataset = factor(Dataset, levels = c("CL-PFU IEA", "CL-PFU MW", "CL-PFU IEA+MW"))
-  ) |>
-  dplyr::arrange(Country, Year, EnergyType, LastStage, IncludesNEU, Dataset) |>
+  dplyr::arrange(EnergyType) |>
   Recca::calc_io_mats()
+
+psut_io_zaf_2013_path <- file.path("data", "psut_io_zaf_2013.xlsx")
+psut_io_zaf_2013 |>
+  Recca::write_ecc_to_excel(path = psut_io_zaf_2013_path,
+                            overwrite_file = TRUE)
+
+
+
+
+# Add tab names
+openxlsx2::wb_load(file = psut_io_zaf_2013_path) |>
+  openxlsx2::wb_set_sheet_names(old = 1, new = "E") |>
+  openxlsx2::wb_set_sheet_names(old = 2, new = "X") |>
+  openxlsx2::wb_save(file = psut_io_zaf_2013_path, overwrite = TRUE)
 
 #
 # Formulate Y_prime matrices.
@@ -93,7 +104,11 @@ ecc <- dplyr::left_join(psut_io_zaf_2013, mcc_energy_reqts, by = "EnergyType") |
                 IncludesNEU, Year, R, U, V, Y, U_EIOU, U_feed, r_EIOU, S_units)
 
 ecc |>
-  Recca::write_ecc_to_excel(path = "data/energy_ecc.xlsx", overwrite_file = TRUE)
+  Recca::write_ecc_to_excel(path = file.path("data", "energy_ecc.xlsx"),
+                            overwrite_file = TRUE)
+
+# Set the names of the tabs in the workbook
+
 
 
 
