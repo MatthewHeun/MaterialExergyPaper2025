@@ -363,8 +363,8 @@ Contributions of this paper:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %++++++++++++++++++++++++++++++
-\subsection{Material Exergy Calculation}
-\label{sec: material exergy calculation}
+\subsection{Material Exergy}
+\label{sec: material exergy}
 %++++++++++++++++++++++++++++++
 
 ****
@@ -424,6 +424,11 @@ and $b_{c,i}$ is the concentration exergy,
 and $b_{com}$ is the comminution exergy
 according to \citet{Valero_2015}.
 
+%++++++++++++++++++++++++++++++
+\subsubsection{Chemical Exergy Calculation}
+\label{sssec: chemical exergy calculation}
+%++++++++++++++++++++++++++++++
+
 Chemical exergy ($b_{ch,i}$) is the minimum work needed to form a compound ($i$) or element ($j$).
 Concentration exergy ($b_{c,i}$) is the minimum work done to concentration a species
 from a pure substance to a different molar concentration ($y_i$).
@@ -456,7 +461,62 @@ and $b_{ch,j}$ is the chemical exergy of each element.
 $\delta{G_{f}}$ values are taken from \citet{Dean_1979}
 and \citet{Gibbs_formation}.
 We calculate chemical exergy values ($b_{ch,j}$)
-following \citet[Table~9.1]{Valero_2015}.
+following \citet[Table~9.1]{Valero_2015}.\\
+
+
+%++++++++++++++++++++++++++++++
+\subsubsection{Concentration Exergy Calculation}
+\label{sssec: concentration exergy calculation}
+%++++++++++++++++++++++++++++++
+
+Concentration exergy ($b_c$) is the the work required
+to change the molar fraction ($y$) of a species.
+The definition of concentration exergy is derived from the entropy of mixing.
+
+The entropy of a mixture ($S_{mix}$)
+is given by
+
+\begin{equation}\label{eq:specific_entropy_of_mixture_definition}
+  S_{mix} = -RN_{mix}(y_{1}\ln{y_{1}} + y_{2}\ln{y_{2}} + y_{3}\ln{y_{3}} + \ldots)
+          = -RN_{mix}\sum_{i} y_{i}\ln{y_{i}}
+\end{equation}
+
+where $R$ is the universal gas constant,
+$N$ is the number of total moles in a mixture,
+and $y_i$ is the molar fraction of a species in a mixture.
+The number of moles in a mixture is determined by
+the mass composition of the stream and
+each component's molecular weight,
+which we take from \citet{Fisher_2025}.
+
+The molar fraction of a species always refers back to the molar fraction
+of the species as a pure substance.
+The molar fraction of a pure substance ($y_{i,0}$) is equal to one
+because the number of total moles in a mixture
+is equivalent to the number of moles of the species.\\
+
+
+\citet{Valero_2025} defines concentration exergy of a compound as
+
+\begin{equation}\label{eq:specific_concentration_exergy_of_current_statepoint_definition}
+  b_{c,i} = -RT_0(\ln(y_i) - \ln(y_{i,0}).
+\end{equation}
+
+This equation is simplified to
+
+\begin{equation}
+  b_{c,i} = -RT_0(\ln(y_i)
+\end{equation}
+
+because the natural log of a pure substance's molar fraction is always zero.
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Material Exergy Calculation}
+\label{sec: material exergy calculation}
+%++++++++++++++++++++++++++++++
+
+
 
 
 \begin{equation}\label{eq:specific_molar_intensive_exergy_definition}
@@ -475,21 +535,7 @@ following \citet[Table~9.1]{Valero_2015}.
 % multiplied by the change
 % in entropy of the mixture from the Earth's crust to the current state ($S_{mix}$).
 %
-% The entropy of a mixture ($S_{mix}$)
-% is given by
-%
-% \begin{equation}\label{eq:specific_entropy_of_mixture_definition}
-%   S_{mix} = -RN_{mix}(y_{1}\ln{y_{1}} + y_{2}\ln{y_{2}} + y_{3}\ln{y_{3}} + \ldots)
-%           = -RN_{mix}\sum_{i} y_{i}\ln{y_{i}}
-% \end{equation}
-%
-% where $R$ is the negative gas constant,
-% $N$ is the number of total moles in a mixture,
-% and $y_i$ is the molar fraction of a species in a mixture.
-% The number of moles in a mixture is determined by
-% the mass composition of the stream and
-% each component's molecular weight,
-% which we take from \citet{Fisher_2025}.
+
 
 
 The total exergy of a mixture is
@@ -523,35 +569,6 @@ for a mixture.
 
 
 
-\begin{equation}\label{eq:chemical_exergy_state_point1}
-  b_{ch,i} = y_{i}b_{ch,i}
-\end{equation}
-
-The concentration of a species
-may change between statepoints.
-The number of moles of a species in each mixture ($n_{i,mix}$)
-determines the concentration of the species
-compared to the rest of the mixture.
-The original statepoint of concentration exergy ($b_{c,0}$) is the pure substance
-of an element ($j$) or compound ($i$).
-
-The concentration exergy for a species ($b_c,i$)
-at the current state
-equation uses the universal gas constant ($R$),
-ambient temperature ($T_0$),
-and molar fraction of a species, ($y_i$).
-The following two equations are in reference to \citet{Valero_2015}.
-
-\begin{equation}\label{eq:specific_concentration_exergy_of_current_statepoint_definition}
-  b_{c,i} = -RT_{0}(\ln(y_{i}) - \ln(y_{i,0})
-\end{equation}
-
-The pure substance molar fraction ($y_{i,0}$) is always equal to one.
-Equation~(\ref{eq:specific_concentration_exergy_of_current_statepoint_definition}) becomes
-
-\begin{equation}
-  b_{c,i} = -RT_{0}(\ln(y_{i}).
-\end{equation}
 
 
 The material exergy at some statepoint, for example, the first statepoint, ($B_{1}$)
