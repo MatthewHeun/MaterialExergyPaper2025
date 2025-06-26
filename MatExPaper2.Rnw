@@ -416,11 +416,11 @@ that differentiates them from the Environment.
 Material exergy of a natural resource ($b_i$) is defined as
 
 \begin{equation}\label{eq:general_material_exergy_definition}
- b_i = b_{ch} + b_c + b_{com}
+  b_i = b_{ch} + b_c + b_{com}
 \end{equation}
 
-where $b_{ch,i}$ is the chemical exergy
-and $b_{c,i}$ is the concentration exergy,
+where $b_{ch}$ is the chemical exergy
+and $b_{c}$ is the concentration exergy,
 and $b_{com}$ is the comminution exergy
 according to \citet{Valero_2015}.
 
@@ -498,14 +498,14 @@ is equivalent to the number of moles of the species.\\
 
 \citet{Valero_2025} defines concentration exergy of a compound as
 
-\begin{equation}\label{eq:specific_concentration_exergy_of_current_statepoint_definition}
-  b_{c,i} = -RT_0(\ln(y_i) - \ln(y_{i,0}).
+\begin{equation}\label{eq:equation}
+  b_{c,i} = -RT_0(\ln(y_i) - \ln(y_{i,0})).
 \end{equation}
 
 This equation is simplified to
 
-\begin{equation}
-  b_{c,i} = -RT_0(\ln(y_i)
+\begin{equation}\label{eq:concentration_exergy_definition}
+  b_{c,i} = -RT_0(\ln(y_i))
 \end{equation}
 
 because the natural log of a pure substance's molar fraction is always zero.
@@ -516,17 +516,57 @@ because the natural log of a pure substance's molar fraction is always zero.
 \label{sec: material exergy calculation}
 %++++++++++++++++++++++++++++++
 
-
-
+With equations \ref{eq:concentration_exergy_definition}
+and \ref{eq:chemical_exergy_definition}
+the total material exergy of a compound ($i$) at a statepoint
+is defined as
 
 \begin{equation}\label{eq:specific_molar_intensive_exergy_definition}
-  b_{i,1} = \sum_{i}{b_{ch,i,1}} + \sum_{i}{b_{c,i,1}}
+  b_{m,i,1} = y_{i,1}(\sum_{i}{b_{ch,i,1}}+\sum_{i}{b_{c,i,1}}).
+\end{equation}
+
+If there is a mixture of compounds or elements at a statepoint,
+then the material exergy
+is defined as
+
+\begin{equation}\label{eq:specific_exergy_of_current_statepoint_definition}
+  B_{i,1} = \sum_{i}{n_{i,1}b_{ch,i,1}} + \sum_{i}{n_{i,1}b_{c,i,1}}
+\end{equation}
+
+where
+\begin{equation}\label{eq:simplified_material_exergy_of_current_statepoint_definition}
+  b_{i,1} = b_{ch,i,1} + b_{c,i,1}
+\end{equation}
+
+The exergy contribution of a compound ($b_i$) is dependent
+on its molar fraction
+and the total number of moles
+in a mixture.
+
+\begin{equation}\label{eq:specific_exergy_of_current_statepoint_molar_based_definition}
+  B_{i,1} = y_{i,1}b_{i,1}
 \end{equation}
 
 
-% The exergy of a mixture ($B_{mix}$)
-% is given by
-%
+
+The total exergy at a statepoint
+is the sum of the component's exergy.
+
+\begin{equation}\label{eq:total_exergy_of_current_statepoint_mixture_definition}
+  B_{mix,1} = \sum{B_{mix,i,1}}
+\end{equation}
+
+The material exergy at each statepoint ($B_{mix}$) is calculated as shown.
+The results allow for further calculations
+of process efficiencies.
+
+\begin{equation}\label{eq:specific_exergy_of_current_statepoint_mixture_definition}
+  B_{mix,i,1} = N_{mix,1}b_{i,1}
+\end{equation}
+
+where $N_{mix,1}$ is the number of moles in a mixture at statepoint 1.
+
+
 % \begin{equation}\label{eq:specific_exergy_of_mixture_definition1}
 %   B_{mix} = T_0 S_{mix} = -R T_0 \sum_{i}{N_{i}{y_{i}} \ln{y_{i}}} \; ,
 % \end{equation}
@@ -563,12 +603,6 @@ where $b_{mix}$ is the nonmolar intensive material exergy of a mixture.
 
 % How are we defining the compound compared to the component number?
 
-Chemical ($b_{ch,i}$) and concentration ($b_{c,i}$) exergies are broken down
-by the element ($j$) in a compound ($i$)
-for a mixture.
-
-
-
 
 
 The material exergy at some statepoint, for example, the first statepoint, ($B_{1}$)
@@ -577,37 +611,7 @@ when individually multiplied
 by the number of moles ($n_{i,1}$)
 for each compound ($i$) in the mixture.
 
-\begin{equation}\label{eq:specific_exergy_of_current_statepoint_definition}
-  B_{i,1} = \sum_{i}{n_{i,1}b_{ch,i,1}} + \sum_{i}{n_{i,1}b_{c,i,1}}
-\end{equation}
 
-\begin{equation}\label{eq:simplified_material_exergy_of_current_statepoint_definition}
-  b_{i,1} = b_{ch,i,1} + b_{c,i,1}
-\end{equation}
-
-The exergy contribution of a compound ($b_i$) is dependent
-on its molar fraction
-and the total number of moles
-in a mixture.
-
-\begin{equation}\label{eq:specific_exergy_of_current_statepoint_molar_based_definition}
-  B_{i,1} = y_{i,1}b_{i,1}
-\end{equation}
-
-\begin{equation}\label{eq:specific_exergy_of_current_statepoint_mixture_definition}
-  B_{mix,i,1} = N_{mix,1}b_{i,1}
-\end{equation}
-
-The total exergy at a statepoint
-is the sum of the component's exergy.
-
-\begin{equation}\label{eq:total_exergy_of_current_statepoint_mixture_definition}
-  B_{mix,1} = \sum{B_{mix,i,1}}
-\end{equation}
-
-The material exergy at each statepoint ($B_{mix}$) is calculated as shown.
-The results allow for further calculations
-of process efficiencies.
 
 
 %++++++++++++++++++++++++++++++
