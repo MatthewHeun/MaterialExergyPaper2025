@@ -19,12 +19,13 @@
 % journal
 %----------
 % Choose between the following MDPI journals:
-% energies
+% accountaudit, acoustics, actuators, addictions, adhesives, admsci, adolescents, aerobiology, aerospace, agriculture, agriengineering, agrochemicals, agronomy, ai, air, algorithms, allergies, alloys, amh, analytica, analytics, anatomia, anesthres, animals, antibiotics, antibodies, antioxidants, applbiosci, appliedchem, appliedmath, appliedphys, applmech, applmicrobiol, applnano, applsci, aquacj, architecture, arm, arthropoda, arts, asc, asi, astronomy, atmosphere, atoms, audiolres, automation, axioms, bacteria, batteries, bdcc, behavsci, beverages, biochem, bioengineering, biologics, biology, biomass, biomechanics, biomed, biomedicines, biomedinformatics, biomimetics, biomolecules, biophysica, biosensors, biosphere, biotech, birds, blockchains, bloods, blsf, brainsci, breath, buildings, businesses, cancers, carbon, cardiogenetics, catalysts, cells, ceramics, challenges, chemengineering, chemistry, chemosensors, chemproc, children, chips, cimb, civileng, cleantechnol, climate, clinbioenerg, clinpract, clockssleep, cmd, cmtr, coasts, coatings, colloids, colorants, commodities, complications, compounds, computation, computers, condensedmatter, conservation, constrmater, cosmetics, covid, crops, cryo, cryptography, crystals, csmf, ctn, curroncol, cyber, dairy, data, ddc, dentistry, dermato, dermatopathology, designs, devices, diabetology, diagnostics, dietetics, digital, disabilities, diseases, diversity, dna, drones, dynamics, earth, ebj, ecm, ecologies, econometrics, economies, education, eesp, ejihpe, electricity, electrochem, electronicmat, electronics, encyclopedia, endocrines, energies, eng, engproc, ent, entomology, entropy, environments, epidemiologia, epigenomes, esa, est, famsci, fermentation, fibers, fintech, fire, fishes, fluids, foods, forecasting, forensicsci, forests, fossstud, foundations, fractalfract, fuels, future, futureinternet, futureparasites, futurepharmacol, futurephys, futuretransp, galaxies, games, gases, gastroent, gastrointestdisord, gastronomy, gels, genealogy, genes, geographies, geohazards, geomatics, geometry, geosciences, geotechnics, geriatrics, glacies, grasses, greenhealth, gucdd, hardware, hazardousmatters, healthcare, hearts, hemato, hematolrep, heritage, higheredu, highthroughput, histories, horticulturae, hospitals, humanities, humans, hydrobiology, hydrogen, hydrology, hygiene, idr, iic, ijerph, ijfs, ijgi, ijmd, ijms, ijns, ijpb, ijt, ijtm, ijtpp, ime, immuno, informatics, information, infrastructures, inorganics, insects, instruments, inventions, iot, j, jal, jcdd, jcm, jcp, jcs, jcto, jdad, jdb, jeta, jfb, jfmk, jimaging, jintelligence, jlpea, jmahp, jmmp, jmms, jmp, jmse, jne, jnt, jof, joitmc, joma, jop, jor, journalmedia, jox, jpbi, jpm, jrfm, jsan, jtaer, jvd, jzbg, kidney, kidneydial, kinasesphosphatases, knowledge, labmed, laboratories, land, languages, laws, life, lights, limnolrev, lipidology, liquids, literature, livers, logics, logistics, lubricants, lymphatics, machines, macromol, magnetism, magnetochemistry, make, marinedrugs, materials, materproc, mathematics, mca, measurements, medicina, medicines, medsci, membranes, merits, metabolites, metals, meteorology, methane, metrics, metrology, micro, microarrays, microbiolres, microelectronics, micromachines, microorganisms, microplastics, microwave, minerals, mining, mmphys, modelling, molbank, molecules, mps, msf, mti, multimedia, muscles, nanoenergyadv, nanomanufacturing, nanomaterials, ncrna, ndt, network, neuroglia, neurolint, neurosci, nitrogen, notspecified, nursrep, nutraceuticals, nutrients, obesities, oceans, ohbm, onco, oncopathology, optics, oral, organics, organoids, osteology, oxygen, parasites, parasitologia, particles, pathogens, pathophysiology, pediatrrep, pets, pharmaceuticals, pharmaceutics, pharmacoepidemiology, pharmacy, philosophies, photochem, photonics, phycology, physchem, physics, physiologia, plants, plasma, platforms, pollutants, polymers, polysaccharides, populations, poultry, powders, preprints, proceedings, processes, prosthesis, proteomes, psf, psych, psychiatryint, psychoactives, psycholint, publications, purification, quantumrep, quaternary, qubs, radiation, reactions, realestate, receptors, recycling, regeneration, religions, remotesensing, reports, reprodmed, resources, rheumato, risks, robotics, rsee, ruminants, safety, sci, scipharm, sclerosis, seeds, sensors, separations, sexes, signals, sinusitis, siuj, skins, smartcities, sna, societies, socsci, software, soilsystems, solar, solids, spectroscj, sports, standards, stats, std, stresses, surfaces, surgeries, suschem, sustainability, symmetry, synbio, systems, tae, targets, taxonomy, technologies, telecom, test, textiles, thalassrep, therapeutics, thermo, timespace, tomography, tourismhosp, toxics, toxins, transplantology, transportation, traumacare, traumas, tropicalmed, universe, urbansci, uro, vaccines, vehicles, venereology, vetsci, vibration, virtualworlds, viruses, vision, waste, water, wem, wevj, wild, wind, women, world, youth, zoonoticdis
 
 %---------
 % article
 %---------
-% The default type of manuscript is "article"
+% The default type of manuscript is "article", but can be replaced by:
+% abstract, addendum, article, benchmark, book, bookreview, briefcommunication, briefreport, casereport, changes, clinicopathologicalchallenge, comment, commentary, communication, conceptpaper, conferenceproceedings, correction, conferencereport, creative, datadescriptor, discussion, entry, expressionofconcern, extendedabstract, editorial, essay, erratum, fieldguide, hypothesis, interestingimages, letter, meetingreport, monograph, newbookreceived, obituary, opinion, proceedingpaper, projectreport, reply, retraction, review, perspective, protocol, shortnote, studyprotocol, supfile, systematicreview, technicalnote, viewpoint, guidelines, registeredreport, tutorial,  giantsinurology, urologyaroundtheworld
 % supfile = supplementary materials
 
 %----------
@@ -69,6 +70,9 @@
 %=================================================================
 % Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, float, amsmath, amssymb, lineno, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, colortbl, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, array, tabularx, pbox, ragged2e, tocloft, marginnote, marginfix, enotez, amsthm, natbib, hyperref, cleveref, scrextend, url, geometry, newfloat, caption, draftwatermark, seqsplit
 % cleveref: load \crefname definitions after \begin{document}
+\usepackage{makecell}
+\usepackage{rotating}
+
 
 %=================================================================
 % Please use the following mathematics environments: Theorem, Lemma, Corollary, Proposition, Characterization, Property, Problem, Example, ExamplesandDefinitions, Hypothesis, Remark, Definition, Notation, Assumption
@@ -76,10 +80,10 @@
 
 %=================================================================
 % Full title of the paper (Capitalized)
-\Title{Material exergy}
+\Title{The Exergy of Materials With Application to Societal Exergy Analysis}
 
 % MDPI internal command: Title for citation in the left column
-\TitleCitation{Material exergy}
+\TitleCitation{Title}
 
 % Author Orchid ID: enter ID or remove command
 \newcommand{\orcidauthorA}{0000-0000-0000-000X} % Add \orcidA{} behind the author's name
@@ -88,18 +92,19 @@
 \newcommand{\orcidauthorD}{0000-0002-3502-3371} % Add \orcidD{} behind the author's name
 
 % Authors, for the paper (add full first names)
-\Author{Erin Schuman $^{1,\dagger}$\orcidA{},
-        Sofie Schumerth $^{2,\dagger}$\orcidB{},
+% \Author{Erin Schuman $^{1,\dagger}$\orcidA{},
+%         Sofie Schumerth $^{2,\dagger}$\orcidB{},
+%         Matthew Kuperus Heun $^{3,}$*\orcidC{}, and
+%         Tania Sousa $^{4}$\orcidD{} }
+\Author{Erin Schuman $^{1}$\orcidA{},
+        Sofie Schumerth $^{2}$\orcidB{},
         Matthew Kuperus Heun $^{3,}$*\orcidC{}, and
         Tania Sousa $^{4}$\orcidD{} }
 
 %\longauthorlist{yes}
 
 % MDPI internal command: Authors, for metadata in PDF
-\AuthorNames{Erin Schuman,
-             Sofie Schumerth,
-             Matthew Kuperus Heun, and
-             Tania Sousa}
+\AuthorNames{Firstname Lastname, Firstname Lastname and Firstname Lastname}
 
 % MDPI internal command: Authors, for citation in the left column, only choose below one of them according to the journal style
 % If this is a Chicago style journal
@@ -113,35 +118,31 @@
 % If this is a ACS style journal (Except for the above Chicago and APA journals, all others are in the ACS format):
 % Lastname, F.; Lastname, F.; Lastname, F.
 \isAPAStyle{%
-       \AuthorCitation{Schuman, E., Schumerth, S., Heun, M.K., \& Sousa, T.}
+       \AuthorCitation{Lastname, F., Lastname, F., \& Lastname, F.}
          }{%
-\isChicagoStyle{%
-        \AuthorCitation{Schuman, Erin, Sofie Schumerth, Matthew Kuperus Heun, and Tania Sousa.}
+        \isChicagoStyle{%
+        \AuthorCitation{Lastname, Firstname, Firstname Lastname, and Firstname Lastname.}
         }{
-        \AuthorCitation{Schuman, E.; Schumerth, S.; Heun, M.K.; Sousa, T.}
+        \AuthorCitation{Lastname, F.; Lastname, F.; Lastname, F.}
         }
 }
 
 % Affiliations / Addresses (Add [1] after \address if there is only one affiliation.)
-% \address{%
-% $^{1}$ \quad Affiliation 1; e-mail@e-mail.com\\
-% $^{2}$ \quad Affiliation 2; e-mail@e-mail.com}
 \address{%
 $^{1}$ \quad Engineering Department, Calvin University, 3201 Burton St.\ SE, Grand Rapids, MI, USA, ees44@calvin.edu\\
 $^{2}$ \quad Engineering Department, Calvin University, 3201 Burton St.\ SE, Grand Rapids, MI, USA, sis2@calvin.edu\\
 $^{3}$ \quad Engineering Department, Calvin University, 3201 Burton St.\ SE, Grand Rapids, MI, USA, mkh2@calvin.edu;
              Sustainability Research Institute, School of Earth and Environment, University of Leeds, Leeds, UK;
              School for Public Leadership, Faculty of Economic and Management Science, Stellenbosch University, Stellenbosch, South Africa \\
-$^{4}$ \quad MARETEC—Marine, Environment and Technology Center, LARSyS, Instituto Superior T\'{e}cnico, Universidade de Lisboa, Avenida Rovisco Pais, 1, Lisboa, Portugal, taniasousa@tecnico.ulisboa.pt}
-
+$^{4}$ \quad MARETEC--Marine, Environment and Technology Center, LARSyS, Instituto Superior T\'{e}cnico, Universidade de Lisboa, Avenida Rovisco Pais, 1, Lisboa, Portugal, taniasousa@tecnico.ulisboa.pt}
 
 % Contact information of the corresponding author
 \corres{Corresponding author: mkh2@calvin.ed, +1 (616) 526-6663}
 
 % Current address and/or shared authorship
 % \firstnote{Current address: Affiliation.}  % Current address should not be the same as any items in the Affiliation section.
-\firstnote{These authors contributed equally to this work.}
-% The commands \secondnote{} till \eighthnote{} are available for further notes
+% \secondnote{These authors contributed equally to this work.}
+% The commands \thirdnote{} till \eighthnote{} are available for further notes
 
 %\simplesumm{} % Simple summary
 
@@ -158,28 +159,173 @@ $^{4}$ \quad MARETEC—Marine, Environment and Technology Center, LARSyS, Instit
 %\MSC{}
 %\JEL{}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Only for the journal Diversity
-%\LSID{\url{http://}}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Only for the journal Applied Sciences
-%\featuredapplication{Authors are encouraged to provide a concise description of the specific application or a potential application of the work. This section is not mandatory.}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Only for the journal Data
-%\dataset{DOI number or link to the deposited data set if the data set is published separately. If the data set shall be published as a supplement to this paper, this field will be filled by the journal editors. In this case, please submit the data set as a supplement.}
-%\datasetlicense{License under which the data set is made available (CC0, CC-BY, CC-BY-SA, CC-BY-NC, etc.)}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Only for the journal Encyclopedia
-%\encyclopediadef{For entry manuscripts only: please provide a brief overview of the entry title instead of an abstract.}
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+<<setup, echo=FALSE>>=
+library(openxlsx2)
+library(tibble)
+library(xtable)
+@
+
+
+<<Functions, echo=FALSE>>=
+# Type "?sprintf" at the console for details of fmt strings.
+read_named_cell <- function(cell_name,
+                            fmt = "%.2f",
+                            file = file.path("data", "Example.xlsx")) {
+  val_df <- openxlsx2::read_xlsx(file = file,
+                                 named_region = cell_name,
+                                 col_names = FALSE)
+  val <- val_df[[1]][[1]]
+  sprintf(fmt = fmt, val)
+}
+
+# digits is can be defined as a single value,
+# interpreted as digits for the entire matrix.
+# Or, specify as a vector:  c(overall, rownames, Col1, Col2, Col3, etc.)
+# Default is digits = 2.
+print_named_matrix <- function(matrix_name,
+                               latex_label,
+                               file = file.path("data", "Example.xlsx"),
+                               digits = 2,
+                               caption = NULL,
+                               size = "\\normalsize") {
+  # Read the matrix as a data frame
+  mat_df <- openxlsx2::read_xlsx(file = file,
+                                 named_region = matrix_name,
+                                 row_names = TRUE) |>
+  tibble::rownames_to_column(var = " ")
+
+  # Create an xtable from the matrix
+  xt <- xtable::xtable(mat_df,
+                       digits = digits,
+                       caption = caption,
+                       align = rep("c", ncol(mat_df) + 1),
+                       label = latex_label)
+  # Print the matrix as a xtable
+  print(xt,
+        include.rownames = FALSE,
+        # sanitize.colnames.function = identity,
+        rotate.colnames = TRUE,
+        hline.after = NULL,
+        floating.environment = "figure",
+        size = size,
+        table.placement = NULL,
+        format.args = list(big.mark = ",", decimal.mark = "."))
+}
+
+# Set a name in the Excel sheet for the numbers of the table only.
+# Set rownames in the rownames_latex argument.
+# Set column names and units in arguments (or accept defaults).
+print_statepoint_table <- function(statepoint_table_name,
+                                   latex_label,
+                                   rownames_latex,
+                                   file = file.path("data", "Example.xlsx"),
+                                   digits = 2,
+                                   caption = NULL,
+                                   size = "\\normalsize",
+                                   col_header_latex = c("$m_i$ \\\\ $\\mathrm{[kg_i]}$",
+                                                        "MW \\\\ $\\mathrm{[kg_i/mol_i]}$",
+                                                        "$N_i$ \\\\ $\\mathrm{[mol_i]}$",
+                                                        "$b_{ch,i}$ \\\\ $\\mathrm{[kJ_i/mol_i]}$",
+                                                        "$y_i$ \\\\ $\\mathrm{[mol_i/mol_m]}$",
+                                                        "$\\ln(y_i)$ \\\\ $\\mathrm{[-]}$",
+                                                        "$b_{c,i}$ \\\\ $\\mathrm{[kJ_i/mol_i]}$",
+                                                        "$b_i$ \\\\ $\\mathrm{[kJ_i/mol_i]}$",
+                                                        "$b_m$ \\\\ $\\mathrm{[kJ_i/mol_m]}$",
+                                                        "$B_m$ \\\\ $\\mathrm{[kJ_i]}$")) {
+
+  # Read the matrix as a data frame
+  table_df <- openxlsx2::read_xlsx(file = file.path("data", "Example.xlsx"),
+                                   named_region = "statepoint_table",
+                                   row_names = FALSE,
+                                   col_names = FALSE)
+  rownames(table_df) <- rownames_latex
+  colnames(table_df) <- paste0("\\makecell{", col_header_latex, "}")
+
+  xt <- xtable::xtable(table_df,
+                       digits = digits,
+                       caption = caption,
+                       label = latex_label)
+
+  print(xt,
+        include.rownames = TRUE,
+        sanitize.colnames.function = identity,
+        sanitize.rownames.function = identity,
+        rotate.colnames = FALSE,
+        size = size,
+        booktabs = TRUE,
+        hline.after = c(-1, 0, nrow(xt)-1, nrow(xt)),
+        table.placement = NULL,
+        caption.placement = "top",
+        format.args = list(big.mark = ",", decimal.mark = "."))
+}
+@
+
+
+
+<<ExampleValues, echo=FALSE>>=
+# Above a paragraph where you want to use
+# values read from a spreadsheet,
+# create an R chunk and
+# read values using read_named_cell().
+# This is the place to control the formatting of the number
+# with the fmt argument.
+ex1 <- read_named_cell("example1",
+                       file = file.path("data", "Example.xlsx"))
+ex2 <- read_named_cell("example2",
+                       fmt = "%e",
+                       file = file.path("data", "Example.xlsx"))
+@
+
+
+% Then use the value with the \Sexpr LaTeX command.
+The value of \texttt{example1} is \Sexpr{ex1}.
+
+The value of \texttt{example2} is \Sexpr{ex2}.
+
+
+
+You can also show a matrix as shown in Figure~\ref{fig:ExampleMatrix}.
+
+<<ExampleMatrix, echo=FALSE, results=tex>>=
+print_named_matrix(matrix_name = "Rmat",
+                   latex_label = "fig:ExampleMatrix",
+                   file = file.path("data", "Example.xlsx"),
+                   digits = c(0, 0, 1, 2, 3),
+                   caption = "Example resource matrix (\\textbf{R}).",
+                   size = "tiny")
+@
+
+
+
+You can also include a statepoint table as shown
+in Table~\ref{tab:ExampleStatepointTable}.
+The named range in the Excel file should cover only the numbers.
+Default column names that include units on a second line are provided
+by \verb+print_statepoint_table()+.
+Change as needed.
+Row names must be supplied in the call to the function.
+
+<<ExampleStatepointTable, echo=FALSE, results=tex>>=
+print_statepoint_table(statepoint_table_name = "statepoint_table",
+                       latex_label = "tab:ExampleStatepointTable",
+                       rownames_latex = c("$\\mathrm{Fe_2 O_3}$",
+                                          "$\\mathrm{Si O_2}$",
+                                          "CaO",
+                                          "C",
+                                          "Sum"),
+                       file = file.path("data", "Example.xlsx"),
+                       digits = c(0, 1, 3, 1, 2, 3, 3, 3, 2, 3, 1),
+                       caption = "Example statpoint table.",
+                       size = "tiny")
+@
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -187,17 +333,13 @@ $^{4}$ \quad MARETEC—Marine, Environment and Technology Center, LARSyS, Instit
 \label{sec:introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% The introduction should briefly place the study in a broad context and highlight why it is important. It should define the purpose of the work and its significance. The current state of the research field should be reviewed carefully and key publications cited. Please highlight controversial and diverging hypotheses when necessary. Finally, briefly mention the main aim of the work and highlight the principal conclusions. As far as possible, please keep the introduction comprehensible to scientists outside your particular field of research. Citing a journal paper \citep{ref-journal}.  Now citing a book reference \citep{ref-book1,ref-book2} or other reference types \citep{ref-unpublish,ref-url}. Please use the command \citep{ref-proceeding,ref-thesis} for the following MDPI journals, which use author--date citation: Administrative Sciences, Arts, Behavioral Sciences, Businesses, Econometrics, Economies, Education Sciences, European Journal of Investigation in Health, Psychology and Education, Games, Genealogy, Histories, Humanities, Humans, IJFS, Journal of Intelligence, Journalism and Media, JRFM, Languages, Laws, Literature, Psychology International, Publications, Religions, Risks, Social Sciences, Tourism and Hospitality, Youth.
-
-Our question:
+Our research question:
 
 How should integrated energy and material conversion chains
 be represented for societal exergy analysis?
 
+Contributions of this paper:
 
-Contributions:
-
-%
 \begin{enumerate}
 
   \item Demonstrate a consistent exergy analysis approach for ECCs and MCCs,
@@ -215,137 +357,84 @@ Contributions:
 \end{enumerate}
 
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Materials and Methods}
-\label{sec: materials and methods}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Materials and Methods should be described with sufficient details to allow others to replicate and build on published results. Please note that publication of your manuscript implicates that you must make all materials, data, computer code, and protocols associated with the publication available to readers. Please disclose at the submission stage any restrictions on the availability of materials or information. New methods and protocols should be described in detail while well-established methods can be briefly described and appropriately cited.
-%
-% Research manuscripts reporting large datasets that are deposited in a publicly avail-able database should specify where the data have been deposited and provide the relevant accession numbers. If the accession numbers have not yet been obtained at the time of submission, please state that they will be provided during review. They must be provided prior to publication.
-%
-% Interventionary studies involving animals or humans, and other studies require ethical approval must list the authority that provided approval and the corresponding ethical approval code.
-%
-% In this section, where applicable, authors are required to disclose details of how gen-erative artificial intelligence (GenAI) has been used in this paper (e.g., to generate text, data, or graphics, or to assist in study design, data collection, analysis, or interpretation). The use of GenAI for superficial text editing (e.g., grammar, spelling, punctuation, and formatting) does not need to be declared.
-%
-% \begin{quote}
-% This is an example of a quote.
-% \end{quote}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Methods and data}
+\label{sec:methods_and_data}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %++++++++++++++++++++++++++++++
-\subsection{Material Exergy Calculation}
-\label{ssec: material exergy calculation}
+\subsection{Material Exergy}
+\label{sec: material exergy}
 %++++++++++++++++++++++++++++++
+
+****
+I think much of this section needs to be revisited
+with our new understanding of how to calculate
+chemical exergy.
+---MKH
+****
 
 The exergy of a system ($B$) is the maximum amount of work
 that can be extracted
 by processes that take the system
 to equilibrium with the reference environment,
-defined by $T_{0}$, $P_{0}$, and a certain chemical composition.\\
+defined by $T_0$, $P_0$, and a certain chemical composition.
 
 Thus, the total exergy of a system ($B$)
 is the sum of the work of two reversible processes
 that bring the system
-(a) from $T$ and $P$ to
-$T_{0}$ and $P_{0}$
-(without changes in the chemical composition) and
-(b) from its chemical composition to
-to the reference chemical composition
-(while the system remains at $T_{0}$ and $P_{0}$).
+(a)~from $T$ and $P$ to
+    $T_0$ and $P_0$
+    (without changes in the chemical composition) and
+(b)~from its chemical composition to
+    to the reference chemical composition
+    (while the system remains at $T_0$ and $P_0$).
 
-
-Reference environments can include the Atmosphere,
-the Ocean, or the Earth's crust.
+Reference environments can include the atmosphere,
+the ocean, or the Earth's crust.
 For our purposes,
-the reference environments are at $T_{0}$ and $P_{0}$,
+the reference environments are at $T_0$ and $P_0$,
 and are characterized by a mixture of reference species.
+When calculating exergy for ambient conditions
+the thermo-mechanical exergy ($b_{th}$) is considered zero.
 
-Reference species are charcterized by partial pressure
-($P_{i} = P_{0} y_{i}$) in the Atmosphere,
-by concentrations ($C_{i}$) in the Ocean
-and by mole fraction ($y_{i}$)
+Reference species are characterized by partial pressure
+($P_i = P_0 y_i$) in the atmosphere,
+by concentrations ($C_i$) in the ocean
+and by mole fraction ($y_i$)
 in the Earth's crust.
 
-
-Natural resources have a positive material exergy ($b$)
-because they have a chemical composition
-that differentiates them from the Environment.
-Material exergy of a natural resource ($b_{i}$)
-is the work that would be needed
-to produce that substance with its structure,
-known as chemical exergy ($b_{ch,i}$),
-and the concentration in a reversible process ($b_{c,i}$),
-with respect to the reference environment.
 A natural resource is a mixture of compounds ($i$).
 If it is a mixture of gases,
 it is assumed to behave as an ideal mixture of gases.
 If it is a mixture of solid or liquid components,
 it is assumed to behave as an ideal solution.
 
-The exergy in the total process ($B_{mix}$) is the ambient temperature ($T_{0}$) multiplied by the change
-in entropy of the mixture from the Earth's crust to the current state ($S_{mix}$).
-
-\begin{equation}\label{eq:specific_exergy_of_mixture_definition1}
-  B_{mix} = T_{0}S_{mix} = -RT_{0}\sum_{i}{N_{i}{y_{i}}\ln{y_{i}}}
-\end{equation}
-
-The entropy of a mixture ($S$) is the negative gas constant ($R$)
-and number of mole of the mix ($N$)
-multiplied by the sum of the molar fraction
-and log of the fraction of moles per species ($y_i$$lny_i$).
-The number of moles in a mixture is determined by the mass composition of the stream and each components molecular weight which come from Fisher Scientific \citep{Fisher_2025}.
-
-\begin{equation}\label{eq:specific_entropy_of_mixture_definition}
-  S_{mix} = -RN_{mix}(y_{1}\ln{y_{1}} + y_{2}\ln{y_{2}} + y_{3}\ln{y_{3}} + \ldots)
-          = -RN_{mix}\sum_{i} y_{i}\ln{y_{i}}
-\end{equation}
-
-
-The total exergy of a mixture ($B_{mix}$) is the exergy per mole ($b_{mix}$)
-multiplied by the number of moles
-in the mixture ($N_{mix}$).
-
-\begin{equation}\label{eq:specific_exergy_of_mixture_definition2}
-  B_{mix} = {b_{mix}}{N_{mix}} = -RT_{0}\sum_{i}y_{i}\ln{y_{i}}
-\end{equation}
-
-Material exergy ($b$) is broken down into three components.
-The first term is thermomechanical exergy ($b_{th}$).
-The second term is chemical exergy ($b_{ch}$).
-The third term is concentration exergy ($b_{c}$).
+Natural resources have a positive material exergy ($b$)
+because they have a chemical composition
+that differentiates them from the Environment.
+Material exergy of a natural resource ($b_i$) is defined as
 
 \begin{equation}\label{eq:general_material_exergy_definition}
- b_{total} = b_{th} + b_{ch} + b_{c}
+  b_i = b_{ch} + b_c + b_{com}
 \end{equation}
 
-Here, we assume that the system is at
-$T_{0}$ and $P_{0}$;
-thus, thermomechanical exergy ($b_{th}$) is zero.
-Doing so enables focus on the chemical and concentration exergy
-($b_{ch}$ and $b_{c}$, also called material exergy).
+where $b_{ch}$ is the chemical exergy
+and $b_{c}$ is the concentration exergy,
+and $b_{com}$ is the comminution exergy
+according to \citet{Valero_2015}.
 
-The first component of molar intensive material exergy, $b_{1}$,
-is the sum of chemical exergies of each compound
-present in the mixture, $b_{ch,i,1}$.
-We calculate chemical exergy values ($b_{ch}$)
-from \citet[Table~9.1]{Valero_2015}.
-The second is the sum of concentration exergies of each compound
-present in the mixutre, $b_{c,i,1}$.
-The total exergy per mole ($b$) is equal to the sum of the chemical exergies ($b_{ch}$)
-and the concentration exergies ($b_{c,i}$) for each compound.
+%++++++++++++++++++++++++++++++
+\subsubsection{Chemical Exergy Calculation}
+\label{sssec: chemical exergy calculation}
+%++++++++++++++++++++++++++++++
 
-\begin{equation}\label{eq:specific_molar_intensive_exergy_definition}
-  b_{i,1} = \sum_{i}{b_{ch,i,1}} + \sum_{i}{b_{c,i,1}}
-\end{equation}
-
-
-% How are we defining the compound compared to the component number?
-
-Chemical ($b_{ch,i}$) and concentration ($b_{c,i}$) exergies are broken down
-by the element ($j$) in a compound ($i$)
-for a mixture.
+Chemical exergy ($b_{ch,i}$) is the minimum work needed to form a compound ($i$) or element ($j$).
+Concentration exergy ($b_{c,i}$) is the minimum work done to concentration a species
+from a pure substance to a different molar concentration ($y_i$).
+Comminution exergy ($b_{com}$) is the minimum work to change a species
+from a degraded reference environment to what is found in a mine.
+Comminution exergy is minimal and ignored at a material conversion chain level.
 
 The chemical exergy of each compound ($b_{ch,i}$) is dependent
 on whether it exists or not
@@ -358,68 +447,93 @@ that decomposes the pure compound at ambient temperature ($T_{0}$)
 into reference species ($i$) that are in equilibrium
 with the environment.
 
-The chemical exergy ($b_{ch}$) is the Gibbs energy ($\delta{G}$)
-plus the sum of chemical exergy ($b_{ch}$)
-multiplied by the number of moles
-in the mix ($n_{j,i}$) for each element ($j$)
-in the compound observed ($i$).
+The chemical exergy ($b_{ch}$) is
 
-The amount of work obtained
-in a reversible process is the Gibbs energy
-of formation ($\delta{G_{f}}$) for that process.
-This is the difference between the Gibbs energies
-of the input species and output species.
-$\delta{G_{f}}$ values come from \citep{Dean_1979}
-and \citep{Gibbs_formation}.
-
-\begin{equation}\label{eq:specific_chemical_exergy_definition}
+\begin{equation}\label{eq:chemical_exergy_definition}
   b_{ch,i} = \Delta{G_{f,i}} + \sum_{i}{n_{j,i}b_{ch,j}}
 \end{equation}
 
-The chemical exergy per mole ($b_{ch}$) is the molar fraction ($y$)
-of a species multiplied by the chemical exergy of that same species ($b_{ch}$).
+where Gibbs energy of formation ($\delta{G_f}$) is the minimum therymodynamic potential
+of a species reaching chemical equilibrium,
+$n_{j,i}$ is the number of moles of a compound ($i$) or element ($j$),
+and $b_{ch,j}$ is the chemical exergy of each element.
 
-\begin{equation}\label{eq:chemical_exergy_state_point1}
-  b_{ch,i} = y_{i}b_{ch,i}
+$\delta{G_{f}}$ values are taken from \citet{Dean_1979}
+and \citet{Gibbs_formation}.
+We calculate chemical exergy values ($b_{ch,j}$)
+following \citet[Table~9.1]{Valero_2015}.\\
+
+
+%++++++++++++++++++++++++++++++
+\subsubsection{Concentration Exergy Calculation}
+\label{sssec: concentration exergy calculation}
+%++++++++++++++++++++++++++++++
+
+Concentration exergy ($b_c$) is the the work required
+to change the molar fraction ($y$) of a species.
+The definition of concentration exergy is derived from the entropy of mixing.
+
+The entropy of a mixture ($S_{mix}$)
+is given by
+
+\begin{equation}\label{eq:specific_entropy_of_mixture_definition}
+  S_{mix} = -RN_{mix}(y_{1}\ln{y_{1}} + y_{2}\ln{y_{2}} + y_{3}\ln{y_{3}} + \ldots)
+          = -RN_{mix}\sum_{i} y_{i}\ln{y_{i}}
 \end{equation}
 
-The concentration of a species
-may change between statepoints.
-The number of moles of a species in each mixture ($n_{i,mix}$)
-determines the concentration of the species
-compared to the rest of the mixture.
-The original statepoint of concentration exergy ($b_{c,0}$) is the pure substance
-of an element ($j$) or compound ($i$).
+where $R$ is the universal gas constant,
+$N$ is the number of total moles in a mixture,
+and $y_i$ is the molar fraction of a species in a mixture.
+The number of moles in a mixture is determined by
+the mass composition of the stream and
+each component's molecular weight,
+which we take from \citet{Fisher_2025}.
 
-The concentration exergy for a species ($b_c,i$)
-at the current state
-equation uses the universal gas constant ($R$),
-ambient temperature ($T_0$),
-and molar fraction of a species, ($y_i$).
-The following two equations are in reference to \citet{Valero_2015}.
+The molar fraction of a species always refers back to the molar fraction
+of the species as a pure substance.
+The molar fraction of a pure substance ($y_{i,0}$) is equal to one
+because the number of total moles in a mixture
+is equivalent to the number of moles of the species.\\
 
-\begin{equation}\label{eq:specific_concentration_exergy_of_current_statepoint_definition}
-  b_{c,i} = -RT_{0}(\ln(y_{i}) - \ln(y_{i,0})
+
+\citet{Valero_2025} defines concentration exergy of a compound as
+
+\begin{equation}\label{eq:equation}
+  b_{c,i} = -RT_0(\ln(y_i) - \ln(y_{i,0})).
 \end{equation}
 
-The pure substance molar fraction ($y_{i,0}$) is always equal to one.
-Equation equation~\ref{eq:specific_concentration_exergy_of_current_statepoint_definition} becomes
+This equation is simplified to
 
-\begin{equation}\label{eq:specific_concentration_exergy_of_current_statepoint_definition}
-  b_{c,i} = -RT_{0}(\ln(y_{i}).
+\begin{equation}\label{eq:concentration_exergy_definition}
+  b_{c,i} = -RT_0(\ln(y_i))
 \end{equation}
 
+because the natural log of a pure substance's molar fraction is always zero.
 
-The material exergy at some statepoint, for example, the first statepoint, ($B_{1}$)
-is the sum of the chemical ($b_{ch,1}$) and concentration ($b_{c,1}$) exergies
-when individually multiplied
-by the number of moles ($n_{i,1}$)
-for each compound ($i$) in the mixture.
+
+%++++++++++++++++++++++++++++++
+\subsection{Material Exergy Calculation}
+\label{sec: material exergy calculation}
+%++++++++++++++++++++++++++++++
+
+With equations \ref{eq:concentration_exergy_definition}
+and \ref{eq:chemical_exergy_definition}
+the total material exergy of a compound ($i$) at a statepoint
+is defined as
+
+\begin{equation}\label{eq:specific_molar_intensive_exergy_definition}
+  b_{m,i,1} = y_{i,1}(\sum_{i}{b_{ch,i,1}}+\sum_{i}{b_{c,i,1}}).
+\end{equation}
+
+If there is a mixture of compounds or elements at a statepoint,
+then the material exergy
+is defined as
 
 \begin{equation}\label{eq:specific_exergy_of_current_statepoint_definition}
   B_{i,1} = \sum_{i}{n_{i,1}b_{ch,i,1}} + \sum_{i}{n_{i,1}b_{c,i,1}}
 \end{equation}
 
+where
 \begin{equation}\label{eq:simplified_material_exergy_of_current_statepoint_definition}
   b_{i,1} = b_{ch,i,1} + b_{c,i,1}
 \end{equation}
@@ -433,9 +547,7 @@ in a mixture.
   B_{i,1} = y_{i,1}b_{i,1}
 \end{equation}
 
-\begin{equation}\label{eq:specific_exergy_of_current_statepoint_mixture_definition}
-  B_{mix,i,1} = N_{mix,1}b_{i,1}
-\end{equation}
+
 
 The total exergy at a statepoint
 is the sum of the component's exergy.
@@ -448,63 +560,91 @@ The material exergy at each statepoint ($B_{mix}$) is calculated as shown.
 The results allow for further calculations
 of process efficiencies.
 
-% % begin Move the following paragraphs
-% When considering the mineral composition
-% of the Earth's crust,
-% a reference environment of Thanatia
-% or the Crepuscular Crust model is used.
-% In this model, the 294 most abundant mineral species
-% that make up the Earth's crust
-% are considered to be uniformly dispersed
-% and have even concentration throughout any portion
-% of the upper continental crust.
+\begin{equation}\label{eq:specific_exergy_of_current_statepoint_mixture_definition}
+  B_{mix,i,1} = N_{mix,1}b_{i,1}
+\end{equation}
+
+where $N_{mix,1}$ is the number of moles in a mixture at statepoint 1.
+
+
+% \begin{equation}\label{eq:specific_exergy_of_mixture_definition1}
+%   B_{mix} = T_0 S_{mix} = -R T_0 \sum_{i}{N_{i}{y_{i}} \ln{y_{i}}} \; ,
+% \end{equation}
+% %
+% where $T_0$ is the ambient temperature,
+% multiplied by the change
+% in entropy of the mixture from the Earth's crust to the current state ($S_{mix}$).
 %
-% According the Crepuscular Crust model,
-% natural resources have a positive material exergy
-% because they have a chemical composition that
-% differs from the composition they would have when
-% completely dispersed.
+
+
+
+The total exergy of a mixture is
+
+\begin{equation}\label{eq:specific_exergy_of_mixture_definition2}
+  B_{mix} = {b_{mix}}{N_{mix}} = -RT_{0}\sum_{i}y_{i}\ln{y_{i}}
+\end{equation}
+
+where $b_{mix}$ is the nonmolar intensive material exergy of a mixture.
+
+% Material exergy ($b$) is broken down into three components.
+% The first term is physical exergy ($b_{ph}$).
+% The second term is chemical exergy ($b_{ch}$).
+% The third term is concentration exergy ($b_{c}$).
 %
 %
-% Henceforth, the natural resource is assumed to be a mixture
-% of liquids or solids
-% and to behave as an ideal solution.
+%
+% Here, we assume that the system is at
+% $T_0$ and $P_0$;
+% thus, thermomechanical exergy ($b_{ph}$) is zero.
+% Doing so enables focus on chemical and concentration exergy
+% ($b_{ch}$ and $b_{c}$, also called material exergy).
 
 
-****
 
-Finally, I think we should have a diagram associated with this description.
-Maybe something like Figure 1 from Valero 2011.
----MKH
+% How are we defining the compound compared to the component number?
 
-****
+
+
+The material exergy at some statepoint, for example, the first statepoint, ($B_{1}$)
+is the sum of the chemical ($b_{ch,1}$) and concentration ($b_{c,1}$) exergies
+when individually multiplied
+by the number of moles ($n_{i,1}$)
+for each compound ($i$) in the mixture.
+
 
 
 
 %++++++++++++++++++++++++++++++
-\subsection{Energy Exergy Calculation}
-\label{ssec: energy exergy calculation}
+\subsection{The exergy of energy}
+\label{sec:exergy_of_energy}
 %++++++++++++++++++++++++++++++
 
 A material conversion chain
-is made of both material and energy inputs.
+uses both material and energy inputs.
 To change a mixture's composition,
 energy is used
 to concentrate certain components
 and remove unnecessary components.
 
-The total energy exergy ($X$)
-of a process
+The total exergy of energy ($X$)
+of a statepoints
 is determined by the type of energy utilized.
-A constant, denoted by ($\phi$),
+**** Let's be more concise here. ---MKH ****
+\st{A constant, denoted by ($\phi$),
 is multiplied by the energy input
-to calculate the exergy.
-The phi constant depends on the type of energy used.
-For example, natural gas has a phi constant of 1.04
-while coking coal has a constant of 1.05.
-Further information about the phi constants used
-may be found in Appendix [X].
-Phi constants and examples for certain fuels come from \citep{Kotas_1995}.
+to calculate the exergy.}
+Energy inputs are multiplied by an exergy-to-energy ratio ($\phi$)
+to obtain exergy inputs.
+The $\phi$ constant is a function of the type of energy used.
+For example, natural gas has $\phi = 1.04$
+while coking coal has $\phi = 1.05$.
+**** Be more concise. ---MKH ****
+\st{Further information about the phi constants used
+may be found in Appendix~X.
+Phi constants and examples for certain fuels come from} \citep{Kotas_1995}.
+We take $\phi$ values from \citet{Kotas_1995}.
+See Appendix~X.
+
 
 \begin{equation}\label{eq:energy_exergy_definition}
   X_{i} = \phi E_{i}
@@ -512,11 +652,16 @@ Phi constants and examples for certain fuels come from \citep{Kotas_1995}.
 
 The sum of energy exergy inputs is the total energy exergy
 included in a process.
+**** be more precise. ``input to a process?'' ---MKH ****
 
 \begin{equation}\label{eq:total_energy_exergy_definition}
   X = \sum{\phi E_{i}}
 \end{equation}
 
+****
+Does the ``i`` subscript above mean the same thing it meant earlier in the paper?
+---MKH
+****
 
 
 
@@ -545,7 +690,7 @@ in the context of a material conversion chain:
   at a statepoint
   to quantify how the material's concentration exergy upgraded
   due to energy inputs.
-  See figure Figure~\ref{fig: efficiencymethods}\\
+  See Figure~\ref{fig:efficiencymethods}.
 
   \begin{equation}\label{eq:Bejan Efficiency}
   \eta_{x} = \frac{N_i(b_{m,i,1} - b_{m,i,0})}{\sum{X_{in}}}
@@ -565,7 +710,7 @@ in the context of a material conversion chain:
 
   \item The Resource method focuses on the main product's exergy output
   compared to the total exergy input.
-  See figure Figure~\ref{fig: efficiencymethods}\\
+  See Figure~\ref{fig:efficiencymethods}.
 
   \begin{equation}\label{eq:Resource Efficiency}
   \eta_{x} = \frac{(B_{m,i,1})}{\sum{X_{in}}+\sum{B_{in}}}
@@ -580,11 +725,11 @@ in the context of a material conversion chain:
   The Resource method is helpful
   for calculating the efficiency
   for creating a specific mixture separated
-  from waste streams.\\
+  from waste streams.
 
   \item The Student method focuses on the total exergy output
   compared to the total exergy input.
-  See figure Figure~\ref{fig: efficiencymethods}\\
+  See figure Figure~\ref{fig:efficiencymethods}
 
   \begin{equation}\label{eq:Student Efficiency}
   \eta_{x} = \frac{\sum{B_{out}}}{\sum{X_{in}} + \sum{B_{in}}}
@@ -595,8 +740,6 @@ in the context of a material conversion chain:
   of an overall process.
 
 \end{itemize}
-
-
 
 
 %++++++++++++++++++++++++++++++
@@ -620,6 +763,7 @@ The PSUT framework is applied to conversion chains.
 Once the material and energy conversion chains are modelled,
 both chains may be converted to exergy chains.
 
+**** Redo the next two paragraphs as shown below. ---MKH ****
 Figure 1 from ~\citep{Aramendia_2022} is the Physical Supply Use Tables framework
 applied to energy, material, and exergy conversion chains in this paper.
 The main four matrices the conversion chains are applied to are the Resources, Make, Use, and Final demand matrices.
@@ -630,31 +774,47 @@ The Make matrix ($V$) is an industry-by-product matrix.
 The Use matrix ($U$) is a product-by-industry matrix.
 The Final demand matrix ($Y$) is a product-by-sector matrix.
 
+**** This is better. ****
+We apply the Physical Supply-Use Table (PSUT) framework
+from \citet[Figure~1]{Aramendia_2022}
+to material, energy, and exergy conversion chains developed in Section~\ref{sec:results}
+below.
+The PSUT framework comprises four matrices.
+The resource matrix (\textbf{R}) contains exogeneous inputs to a conversion chain.
+The use (\textbf{U}) and make (\textbf{V}) matrices
+describe the consumption and production of materials and energy by processes in conversion chains.
+The final demand matrix (\textbf{Y}) includes product consumption by economic sectors.
+(See \citet[Table~1]{Aramendia_2022}.)
 
 
 %++++++++++++++++++++++++++++++
 \subsection{Data}
-\label{ssec: data}
+\label{sec:data}
 %++++++++++++++++++++++++++++++
 
-The material conversioin chain is a partial example chain
+The material conversion chain is a partial example chain
 of a potential South African pig iron production process.
 Energy inputs information
 for extraction, hauling, and beneficiation processes
-is from the Energy and Environmental Profile of the U.S. Mining Industry
-\citep{Ore_2025}) and \citep{Uni_Cape_Town_2002}.
-Additional energy information comes from \citep{Jamison_2015}.
+is from the Energy and Environmental Profile of the U.S.\ Mining Industry
+\citet{Ore_2025} and the \citet{Uni_Cape_Town_2002}.
+Additional energy information comes from \citet{Jamison_2015}.
 
 Mass amounts and composition
 for each statepoint
 comes from various sources.
 The ore and coal compositions closely represent potential versions
 of a South African pig iron production process.
-Coal production compositions and energy inputs come from \citep{Matsuhashi_2012},
-\citep{Zhang_2019}, \citep{Kotas_1995}, and various webpages.
-Limestone production compositions and energy inputs come from \citet{Saidur_2011},
-\citep{Eriksson_2014}, and
-\citep{Satyendra_2013}.
+Coal production compositions and energy inputs are taken from
+\citet{Matsuhashi_2012},
+\citet{Zhang_2019},
+\citet{Kotas_1995}, and
+various webpages **** Need to cite the web pages. ****
+Limestone production compositions and energy inputs are taken from
+\citet{Saidur_2011},
+\citet{Eriksson_2014}, and
+\citet{Satyendra_2013}.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -673,6 +833,7 @@ additional matrices,
 and efficiencies
 for the material conversion chain
 can be found in Appendix [X].
+
 
 %++++++++++++++++++++++++++++++
 \subsection{Material Exergies}
@@ -787,27 +948,34 @@ and the Resource efficiency is **42**$\%$.
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
-\label{discussion}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\label{sec:discussion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Authors should discuss the results and how they can be interpreted from the perspective of previous studies and of the working hypotheses. The findings and their implications should be discussed in the broadest context possible. Future research directions may also be highlighted.
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Conclusions}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This section is not mandatory, but can be added to the manuscript if the discussion is unusually long or complex.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusion}
+\label{sec:conclusion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Patents}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 This section is not mandatory, but may be added if there are patents resulting from the work reported in this manuscript.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{6pt}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% optional
 %\supplementary{The following supporting information can be downloaded at:  \linksupplementary{s1}, Figure S1: title; Table S1: title; Video S1: title.}
@@ -840,7 +1008,7 @@ This section is not mandatory, but may be added if there are patents resulting f
 
 \funding{Please add: ``This research received no external funding'' or ``This research was funded by NAME OF FUNDER grant number XXX.'' and  and ``The APC was funded by XXX''. Check carefully that the details given are accurate and use the standard spelling of funding agency names at \url{https://search.crossref.org/funding}, any errors may affect your future funding.}
 
-\institutionalreview{In this section, you should add the Institutional Review Board Statement and approval number, if relevant to your study. You might choose to exclude this statement if the study did not require ethical approval. Please note that the Editorial Office might ask you for further information. Please add “The study was conducted in accordance with the Declaration of Helsinki, and approved by the Institutional Review Board (or Ethics Committee) of NAME OF INSTITUTE (protocol code XXX and date of approval).” for studies involving humans. OR “The animal study protocol was approved by the Institutional Review Board (or Ethics Committee) of NAME OF INSTITUTE (protocol code XXX and date of approval).” for studies involving animals. OR “Ethical review and approval were waived for this study due to REASON (please provide a detailed justification).” OR “Not applicable” for studies not involving humans or animals.}
+\institutionalreview{In this section, you should add the Institutional Review Board Statement and approval number, if relevant to your study. You might choose to exclude this statement if the study did not require ethical approval. Please note that the Editorial Office might ask you for further information. Please add ``The study was conducted in accordance with the Declaration of Helsinki, and approved by the Institutional Review Board (or Ethics Committee) of NAME OF INSTITUTE (protocol code XXX and date of approval).'' for studies involving humans. OR ``The animal study protocol was approved by the Institutional Review Board (or Ethics Committee) of NAME OF INSTITUTE (protocol code XXX and date of approval).'' for studies involving animals. OR ``Ethical review and approval were waived for this study due to REASON (please provide a detailed justification).'' OR ``Not applicable'' for studies not involving humans or animals.}
 
 \informedconsent{Any research article describing a study involving humans should contain this statement. Please add ``Informed consent was obtained from all subjects involved in the study.'' OR ``Patient consent was waived due to REASON (please provide a detailed justification).'' OR ``Not applicable'' for studies not involving humans. You might also choose to exclude this statement if the study did not involve humans.
 
@@ -858,9 +1026,9 @@ Written informed consent for publication must be obtained from participating pat
 %\guidelinesstandards{Please add a statement indicating which reporting guideline was used when drafting the report. For example, ``This manuscript was drafted against the XXX (the full name of reporting guidelines and citation) for XXX (type of research) research''. A complete list of reporting guidelines can be accessed via the equator network: \url{https://www.equator-network.org/}.}
 %
 %% Only for journal Nursing Reports
-%\useofartificialintelligence{Please describe in detail any and all uses of artificial intelligence (AI) or AI-assisted tools used in the preparation of the manuscript. This may include, but is not limited to, language translation, language editing and grammar, or generating text. Alternatively, please state that “AI or AI-assisted tools were not used in drafting any aspect of this manuscript”.}
+%\useofartificialintelligence{Please describe in detail any and all uses of artificial intelligence (AI) or AI-assisted tools used in the preparation of the manuscript. This may include, but is not limited to, language translation, language editing and grammar, or generating text. Alternatively, please state that ``AI or AI-assisted tools were not used in drafting any aspect of this manuscript''.}
 
-\acknowledgments{In this section you can acknowledge any support given which is not covered by the author contribution or funding sections. This may include administrative and technical support, or donations in kind (e.g., materials used for experiments). Where GenAI has been used for purposes such as generating text, data, or graphics, or for study design, data collection, analysis, or interpretation of data, please add “During the preparation of this manuscript/study, the author(s) used [tool name, version information] for the purposes of [description of use]. The authors have reviewed and edited the output and take full responsibility for the content of this publication.”}
+\acknowledgments{In this section you can acknowledge any support given which is not covered by the author contribution or funding sections. This may include administrative and technical support, or donations in kind (e.g., materials used for experiments). Where GenAI has been used for purposes such as generating text, data, or graphics, or for study design, data collection, analysis, or interpretation of data, please add ``During the preparation of this manuscript/study, the author(s) used [tool name, version information] for the purposes of [description of use]. The authors have reviewed and edited the output and take full responsibility for the content of this publication.''}
 
 \conflictsofinterest{Declare conflicts of interest or state ``The authors declare no conflicts of interest.'' Authors must identify and declare any personal circumstances or interest that may be perceived as inappropriately influencing the representation or interpretation of reported research results. Any role of the funders in the design of the study; in the collection, analyses or interpretation of data; in the writing of the manuscript; or in the decision to publish the results must be declared in this section. If there is no role, please state ``The funders had no role in the design of the study; in the collection, analyses, or interpretation of data; in the writing of the manuscript; or in the decision to publish the results''.}
 
@@ -916,126 +1084,17 @@ All appendix sections must be cited in the main text. In the appendices, Figures
 
 \reftitle{References}
 
-\bibliography{main}
 
-% Please provide either the correct journal abbreviation (e.g. according to the “List of Title Word Abbreviations” http://www.issn.org/services/online-services/access-to-the-ltwa/) or the full name of the journal.
+
+% Please provide either the correct journal abbreviation (e.g. according to the ``List of Title Word Abbreviations'' http://www.issn.org/services/online-services/access-to-the-ltwa/) or the full name of the journal.
 % Citations and References in Supplementary files are permitted provided that they also appear in the reference list here.
 
 %=====================================
 % References, variant A: external bibliography
 %=====================================
-% \documentclass[letterpaper,10pt]{article}
-% \usepackage{biblatex} %Imports biblatex package
-% \addbibresource{ReferencesUpdate.bib} %Import the bibliography file
+\bibliography{references}
 
-%=====================================
-% References, variant B: internal bibliography
-%=====================================
-%
-% % ACS format
-% \isAPAandChicago{}{%
-% \begin{thebibliography}{999}
-% % Reference 1
-% \bibitem[Author1(year)]{ref-journal}
-% Author~1, T. The title of the cited article. {\em Journal Abbreviation} {\bf 2008}, {\em 10}, 142--149.
-% % Reference 2
-% \bibitem[Author2(year)]{ref-book1}
-% Author~2, L. The title of the cited contribution. In {\em The Book Title}; Editor 1, F., Editor 2, A., Eds.; Publishing House: City, Country, 2007; pp. 32--58.
-% % Reference 3
-% \bibitem[Author1 and Author2 (year)]{ref-book2}
-% Author 1, A.; Author 2, B. \textit{Book Title}, 3rd ed.; Publisher: Publisher Location, Country, 2008; pp. 154--196.
-% % Reference 4
-% \bibitem[Author4(year)]{ref-unpublish}
-% Author 1, A.B.; Author 2, C. Title of Unpublished Work. \textit{Abbreviated Journal Name} year, \textit{phrase indicating stage of publication (submitted; accepted; in press)}.
-% % Reference 5
-% \bibitem[Author8(year)]{ref-url}
-% Title of Site. Available online: URL (accessed on Day Month Year).
-% % Reference 6
-% \bibitem[Author6(year)]{ref-proceeding}
-% Author 1, A.B.; Author 2, C.D.; Author 3, E.F. Title of presentation. In Proceedings of the Name of the Conference, Location of Conference, Country, Date of Conference (Day Month Year); Abstract Number (optional), Pagination (optional).
-% % Reference 7
-% \bibitem[Author7(year)]{ref-thesis}
-% Author 1, A.B. Title of Thesis. Level of Thesis, Degree-Granting University, Location of University, Date of Completion.
-% \end{thebibliography}
-% }
-%
-% % Chicago format (Used for journal: arts, genealogy, histories, humanities, jintelligence, laws, literature, religions, risks, socsci)
-% \isChicagoStyle{%
-% \begin{thebibliography}{999}
-% % Reference 1
-% \bibitem[Aranceta-Bartrina(1999a)]{ref-journal}
-% Aranceta-Bartrina, Javier. 1999a. Title of the cited article. \textit{Journal Title} 6: 100--10.
-% % Reference 2
-% \bibitem[Aranceta-Bartrina(1999b)]{ref-book1}
-% Aranceta-Bartrina, Javier. 1999b. Title of the chapter. In \textit{Book Title}, 2nd ed. Edited by Editor 1 and Editor 2. Publication place: Publisher, vol. 3, pp. 54–96.
-% % Reference 3
-% \bibitem[Baranwal and Munteanu {[1921]}(1955)]{ref-book2}
-% Baranwal, Ajay K., and Costea Munteanu. 1955. \textit{Book Title}. Publication place: Publisher, pp. 154--96. First published 1921 (op-tional).
-% % Reference 4
-% \bibitem[Berry and Smith(1999)]{ref-thesis}
-% Berry, Evan, and Amy M. Smith. 1999. Title of Thesis. Level of Thesis, Degree-Granting University, City, Country. Identifi-cation information (if available).
-% % Reference 5
-% \bibitem[Cojocaru et al.(1999)]{ref-unpublish}
-% Cojocaru, Ludmila, Dragos Constatin Sanda, and Eun Kyeong Yun. 1999. Title of Unpublished Work. \textit{Journal Title}, phrase indicating stage of publication.
-% % Reference 6
-% \bibitem[Driver et al.(2000)]{ref-proceeding}
-% Driver, John P., Steffen Rohrs, and Sean Meighoo. 2000. Title of Presentation. In \textit{Title of the Collected Work} (if available). Paper presented at Name of the Conference, Location of Conference, Date of Conference.
-% % Reference 7
-% \bibitem[Harwood(2008)]{ref-url}
-% Harwood, John. 2008. Title of the cited article. Available online: URL (accessed on Day Month Year).
-% \end{thebibliography}
-% }{}
-%
-% % APA format (Used for journal: admsci, behavsci, businesses, econometrics, economies, education, ejihpe, games, humans, ijfs, journalmedia, jrfm, languages, psycholint, publications, tourismhosp, youth)
-% \isAPAStyle{%
-% \begin{thebibliography}{999}
-% % Reference 1
-% \bibitem[\protect\citeauthoryear{Azikiwe \BBA\ Bello}{{2020a}}]{ref-journal}
-% Azikiwe, H., \& Bello, A. (2020a). Title of the cited article. \textit{Journal Title}, \textit{Volume}(Issue),
-% Firstpage--Lastpage/Article Number.
-% % Reference 2
-% \bibitem[\protect\citeauthoryear{Azikiwe \BBA\ Bello}{{2020b}}]{ref-book1}
-% Azikiwe, H., \& Bello, A. (2020b). \textit{Book title}. Publisher Name.
-% % Reference 3
-% \bibitem[Davison(1623/2019)]{ref-book2}
-% Davison, T. E. (2019). Title of the book chapter. In A. A. Editor (Ed.), \textit{Title of the book: Subtitle}
-% (pp. Firstpage--Lastpage). Publisher Name. (Original work published 1623) (Optional).
-% % Reference 4
-% \bibitem[Fistek et al.(2017)]{ref-proceeding}
-% Fistek, A., Jester, E., \& Sonnenberg, K. (2017, Month Day). Title of contribution [Type of contribution]. Conference Name, Conference City, Conference Country.
-% % Reference 5
-% \bibitem[Hutcheson(2012)]{ref-thesis}
-% Hutcheson, V. H. (2012). \textit{Title of the thesis} [XX Thesis, Name of Institution Awarding the Degree].
-% % Reference 6
-% \bibitem[Lippincott \& Poindexter(2019)]{ref-unpublish}
-% Lippincott, T., \& Poindexter, E. K. (2019). \textit{Title of the unpublished manuscript} [Unpublished manuscript/Manuscript in prepara-tion/Manuscript submitted for publication]. Department Name, Institution Name.
-% % Reference 7
-% \bibitem[Harwood(2008)]{ref-url}
-% Harwood, J. (2008). \textit{Title of the cited article}. Available online: URL (accessed on Day Month Year).
-% \end{thebibliography}
-% }{}
 
-% If authors have biography, please use the format below
-%\section*{Short Biography of Authors}
-%\bio
-%{\raisebox{-0.35cm}{\includegraphics[width=3.5cm,height=5.3cm,clip,keepaspectratio]{Definitions/author1.pdf}}}
-%{\textbf{Firstname Lastname} Biography of first author}
-%
-%\bio
-%{\raisebox{-0.35cm}{\includegraphics[width=3.5cm,height=5.3cm,clip,keepaspectratio]{Definitions/author2.jpg}}}
-%{\textbf{Firstname Lastname} Biography of second author}
-
-% For the MDPI journals use author-date citation, please follow the formatting guidelines on http://www.mdpi.com/authors/references
-% To cite two works by the same author: \citeauthor{ref-journal-1a} (\citeyear{ref-journal-1a}, \citeyear{ref-journal-1b}). This produces: Whittaker (1967, 1975)
-% To cite two works by the same author with specific pages: \citeauthor{ref-journal-3a} (\citeyear{ref-journal-3a}, p. 328; \citeyear{ref-journal-3b}, p.475). This produces: Wong (1999, p. 328; 2000, p. 475)
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% for journal Sci
-%\reviewreports{\\
-%Reviewer 1 comments and authors’ response\\
-%Reviewer 2 comments and authors’ response\\
-%Reviewer 3 comments and authors’ response
-%}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \PublishersNote{}
 %\isPreprints{}{% This command is only used for ``preprints''.
