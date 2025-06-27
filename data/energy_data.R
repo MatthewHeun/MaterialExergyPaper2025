@@ -37,7 +37,7 @@ psut_io_zaf_2013 <- PFUPipelineTools::pl_filter_collect("PSUTReAllChopAllDsAllGr
                                                         matrix_class = "matrix") |>
   dplyr::arrange(EnergyType) |>
   dplyr::mutate(
-    worksheet_names = paste0(Country, "-", Year, "-", EnergyType)
+    worksheet_names = paste(Country, Year, EnergyType, sep = "_")
   ) |>
   Recca::calc_io_mats()
 
@@ -47,34 +47,6 @@ psut_io_zaf_2013 |>
                             worksheet_names = "worksheet_names",
                             overwrite_file = TRUE)
 
-
-
-
-psut_io_zaf_2013 <- PFUPipelineTools::pl_filter_collect("PSUTReAllChopAllDsAllGrAll",
-                                                        Dataset == "CL-PFU IEA",
-                                                        Country == "ZAF",
-                                                        Year == 2013,
-                                                        LastStage == "Final",
-                                                        IncludesNEU == FALSE,
-                                                        ProductAggregation == "Despecified",
-                                                        IndustryAggregation == "Despecified",
-                                                        conn = conn,
-                                                        collect = TRUE,
-                                                        matrix_class = "matrix") |>
-  dplyr::arrange(EnergyType)
-
-psut_io_zaf_2013_path <- file.path("data", "psut_io_zaf_2013.xlsx")
-psut_io_zaf_2013 |>
-  Recca::write_ecc_to_excel(path = psut_io_zaf_2013_path,
-                            overwrite_file = TRUE)
-
-
-
-# Add tab names
-openxlsx2::wb_load(file = psut_io_zaf_2013_path) |>
-  openxlsx2::wb_set_sheet_names(old = 1, new = "E") |>
-  openxlsx2::wb_set_sheet_names(old = 2, new = "X") |>
-  openxlsx2::wb_save(file = psut_io_zaf_2013_path, overwrite = TRUE)
 
 #
 # Formulate Y_prime matrices.
@@ -125,18 +97,13 @@ ecc <- dplyr::left_join(psut_io_zaf_2013, mcc_energy_reqts, by = "EnergyType") |
     r_EIOU = r_EIOU_prime
   ) |>
   dplyr::select(Dataset, ValidFromVersion, ValidToVersion, Country, Method, EnergyType, LastStage,
-                IncludesNEU, Year, R, U, V, Y, U_EIOU, U_feed, r_EIOU, S_units)
+                IncludesNEU, Year, R, U, V, Y, U_EIOU, U_feed, r_EIOU, S_units,
+                worksheet_names)
 
 ecc |>
   Recca::write_ecc_to_excel(path = file.path("data", "energy_ecc.xlsx"),
+                            worksheet_names = "worksheet_names",
                             overwrite_file = TRUE)
-
-# Set the names of the tabs in the workbook
-
-
-
-
-
 
 # Disconnect from the Mexer database
 DBI::dbDisconnect(conn)
