@@ -46,6 +46,26 @@ psut_io_zaf_2013 |>
 
 
 
+psut_io_zaf_2013 <- PFUPipelineTools::pl_filter_collect("PSUTReAllChopAllDsAllGrAll",
+                                                        Dataset == "CL-PFU IEA",
+                                                        Country == "ZAF",
+                                                        Year == 2013,
+                                                        LastStage == "Final",
+                                                        IncludesNEU == FALSE,
+                                                        ProductAggregation == "Despecified",
+                                                        IndustryAggregation == "Despecified",
+                                                        conn = conn,
+                                                        collect = TRUE,
+                                                        matrix_class = "matrix") |>
+  dplyr::arrange(EnergyType)
+
+psut_io_zaf_2013_path <- file.path("data", "psut_io_zaf_2013.xlsx")
+psut_io_zaf_2013 |>
+  Recca::write_ecc_to_excel(path = psut_io_zaf_2013_path,
+                            overwrite_file = TRUE)
+
+
+
 # Add tab names
 openxlsx2::wb_load(file = psut_io_zaf_2013_path) |>
   openxlsx2::wb_set_sheet_names(old = 1, new = "E") |>
