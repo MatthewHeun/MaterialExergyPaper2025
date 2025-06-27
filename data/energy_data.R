@@ -36,11 +36,15 @@ psut_io_zaf_2013 <- PFUPipelineTools::pl_filter_collect("PSUTReAllChopAllDsAllGr
                                                         collect = TRUE,
                                                         matrix_class = "matrix") |>
   dplyr::arrange(EnergyType) |>
+  dplyr::mutate(
+    worksheet_names = paste0(Country, "-", Year, "-", EnergyType)
+  ) |>
   Recca::calc_io_mats()
 
 psut_io_zaf_2013_path <- file.path("data", "psut_io_zaf_2013.xlsx")
 psut_io_zaf_2013 |>
   Recca::write_ecc_to_excel(path = psut_io_zaf_2013_path,
+                            worksheet_names = "worksheet_names",
                             overwrite_file = TRUE)
 
 
