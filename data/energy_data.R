@@ -23,7 +23,7 @@ conn <- DBI::dbConnect(drv = RPostgres::Postgres(),
                        user = conn_params$user)
 on.exit(DBI::dbDisconnect(conn))
 
-# Read the data once
+# Read the ECC data once
 psut_io_zaf_2013 <- PFUPipelineTools::pl_filter_collect("PSUTReAllChopAllDsAllGrAll",
                                                         Dataset == "CL-PFU IEA",
                                                         Country == "ZAF",
@@ -41,22 +41,27 @@ psut_io_zaf_2013 <- PFUPipelineTools::pl_filter_collect("PSUTReAllChopAllDsAllGr
   ) |>
   Recca::calc_io_mats()
 
+# Disconnect from the Mexer database
+DBI::dbDisconnect(conn)
+
+
+# Save full ZAF data to an Excel file for inspection.
 psut_io_zaf_2013_path <- file.path("data", "psut_io_zaf_2013.xlsx")
 psut_io_zaf_2013 |>
   Recca::write_ecc_to_excel(path = psut_io_zaf_2013_path,
                             worksheet_names = "worksheet_names",
                             overwrite_file = TRUE)
 
-
 #
-# Formulate Y_prime matrices.
+# Formulate Y_prime matrices that describe
+# the MCC's energy requirements.
 #
 
-# Read energy and exergy requirements
-# from the material conversion chain spreadsheet.
-
+# Read ECC requirements
+# from the MCC spreadsheet.
 mcc_energy_reqts <- openxlsx2::read_xlsx(file = file.path("data", "Paper Examples 3.xlsx"),
                                          named_region = "mcc_energy_reqts") |>
+  # Use the TJ versions
   dplyr::select(EnergyCarrier, `E [TJ]`, `X [TJ]`) |>
   dplyr::rename(E = "E [TJ]", X = "X [TJ]", rownames = "EnergyCarrier") |>
   tidyr::pivot_longer(cols = c("E", "X"),
@@ -73,8 +78,9 @@ mcc_energy_reqts <- openxlsx2::read_xlsx(file = file.path("data", "Paper Example
 
 #
 # Build a new energy conversion chain that
-# supplies exactly the amount of energy
-# needed for the material conversion chain
+# supplies exactly the amount of energy (and exergy)
+# required for the material conversion chain
+#
 
 ecc <- dplyr::left_join(psut_io_zaf_2013, mcc_energy_reqts, by = "EnergyType") |>
   Recca::new_Y() |>
@@ -100,10 +106,43 @@ ecc <- dplyr::left_join(psut_io_zaf_2013, mcc_energy_reqts, by = "EnergyType") |
                 IncludesNEU, Year, R, U, V, Y, U_EIOU, U_feed, r_EIOU, S_units,
                 worksheet_names)
 
+# Save the ECC that supplies the MCC to an Excel file for inspection.
 ecc |>
   Recca::write_ecc_to_excel(path = file.path("data", "energy_ecc.xlsx"),
                             worksheet_names = "worksheet_names",
                             overwrite_file = TRUE)
 
-# Disconnect from the Mexer database
-DBI::dbDisconnect(conn)
+
+
+#
+# Read the MCC exergy matrices
+#
+
+
+
+
+#
+# Modify the ECC by removing the Y matrix
+#
+
+
+
+#
+# Modify the MCC by removing the "Supply [of X]"
+# rows from the R matrix.
+#
+
+
+
+
+
+#
+# Sum the ECC and MCC matrices
+#
+
+
+#
+# Write the combined energy and material
+# conversion chains
+# to an Excel file for inspection
+#
