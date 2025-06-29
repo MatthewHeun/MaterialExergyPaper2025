@@ -12,7 +12,7 @@
 #
 
 # Establish the connection to the Mexer database
-conn_params <- list(dbname = "MexerDB",
+conn_params <- list(dbname = "ScratchMDB",
                     user = "dbcreator",
                     host = "mexer.site",
                     port = 6432)
@@ -30,8 +30,8 @@ psut_io_zaf_2013 <- PFUPipelineTools::pl_filter_collect("PSUTReAllChopAllDsAllGr
                                                         Year == 2013,
                                                         LastStage == "Final",
                                                         IncludesNEU == FALSE,
-                                                        ProductAggregation == "Despecified",
-                                                        IndustryAggregation == "Despecified",
+                                                        ProductAggregation == "Specified",
+                                                        IndustryAggregation == "Specified",
                                                         conn = conn,
                                                         collect = TRUE,
                                                         matrix_class = "matrix") |>
