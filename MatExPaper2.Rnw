@@ -572,47 +572,29 @@ A material conversion chain
 uses both material and energy inputs.
 To change a mixture's composition,
 energy is used
-to concentrate certain components
-and remove unnecessary components.
+to concentrate and remove components.
 
-The total exergy of energy ($X$)
-of a statepoints
-is determined by the type of energy utilized.
-**** Let's be more concise here. ---MKH ****
-\st{A constant, denoted by ($\phi$),
+A constant, denoted by ($\phi$),
 is multiplied by the energy input
-to calculate the exergy.}
-Energy inputs are multiplied by an exergy-to-energy ratio ($\phi$)
-to obtain exergy inputs.
-The $\phi$ constant is a function of the type of energy used.
-For example, natural gas has $\phi = 1.04$
-while coking coal has $\phi = 1.05$.
-**** Be more concise. ---MKH ****
-\st{Further information about the phi constants used
-may be found in Appendix~X.
-Phi constants and examples for certain fuels come from} \citep{Kotas_1995}.
-We take $\phi$ values from \citet{Kotas_1995}.
-See Appendix~X.
-
+to calculate the exergy ($X$).
 
 \begin{equation}\label{eq:energy_exergy_definition}
-  X_{i} = \phi E_{i}
+  X_{i} = \phi E_i
+\end{equation}
+where $E_i$ is the energy of a species,
+such as natural gas.
+
+The exergy of energy used
+in a material conversion chain
+is calculated by
+
+\begin{equation}\label{eq:energy_exergy_definition}
+  X = \sum_i \phi_i E_i.
 \end{equation}
 
-The sum of energy exergy inputs is the total energy exergy
-included in a process.
-**** be more precise. ``input to a process?'' ---MKH ****
-
-\begin{equation}\label{eq:total_energy_exergy_definition}
-  X = \sum{\phi E_{i}}
-\end{equation}
-
-****
-Does the ``i`` subscript above mean the same thing it meant earlier in the paper?
----MKH
-****
-
-
+Further information about the phi constants used
+may be found in Appendix~X.
+Phi constants and examples for certain fuels come from \citet{Kotas_1995}.
 
 %++++++++++++++++++++++++++++++
 \subsection{Efficiency Methods}
