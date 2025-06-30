@@ -366,15 +366,10 @@ Contributions of this paper:
 
 %++++++++++++++++++++++++++++++
 \subsection{Material Exergy}
-\label{sec: material exergy}
+\label{sec:exergy_of_materials}
 %++++++++++++++++++++++++++++++
 
-****
-I think much of this section needs to be revisited
-with our new understanding of how to calculate
-chemical exergy.
----MKH
-****
+%describes matrix based upstream swim for energy supply
 
 The exergy of a system ($B$) is the maximum amount of work
 that can be extracted
@@ -394,12 +389,6 @@ that bring the system
 
 Reference environments can include the atmosphere,
 the ocean, or the Earth's crust.
-For our purposes,
-the reference environments are at $T_0$ and $P_0$,
-and are characterized by a mixture of reference species.
-When calculating exergy for ambient conditions
-the thermo-mechanical exergy ($b_{th}$) is considered zero.
-
 Reference species are characterized by partial pressure
 ($P_i = P_0 y_i$) in the atmosphere,
 by concentrations ($C_i$) in the ocean
@@ -412,36 +401,68 @@ it is assumed to behave as an ideal mixture of gases.
 If it is a mixture of solid or liquid components,
 it is assumed to behave as an ideal solution.
 
+
 Natural resources have a positive material exergy ($b$)
 because they have a chemical composition
 that differentiates them from the Environment.
-Material exergy of a natural resource ($b_i$) is defined as
-
-\begin{equation}\label{eq:general_material_exergy_definition}
-  b_i = b_{ch} + b_c + b_{com}
-\end{equation}
-
-where $b_{ch}$ is the chemical exergy
-and $b_{c}$ is the concentration exergy,
-and $b_{com}$ is the comminution exergy
-according to \citet{Valero_2015}.
-
-%++++++++++++++++++++++++++++++
-\subsubsection{Chemical Exergy Calculation}
-\label{sssec: chemical exergy calculation}
-%++++++++++++++++++++++++++++++
-
-Chemical exergy ($b_{ch,i}$) is the minimum work needed to form a compound ($i$) or element ($j$).
-Concentration exergy ($b_{c,i}$) is the minimum work done to concentration a species
-from a pure substance to a different molar concentration ($y_i$).
+Material exergy ($b$) is broken down into four components.
+The first term is physical exergy ($b_{ph}$).
+The second term is chemical exergy ($b_{ch}$).
+The third term is concentration exergy ($b_{c}$).
+The fourth term is comminution exergy ($b_{com}$).
 Comminution exergy ($b_{com}$) is the minimum work to change a species
 from a degraded reference environment to what is found in a mine.
 Comminution exergy is minimal and ignored at a material conversion chain level.
 
+Here, we assume that the system is at
+$T_0$ and $P_0$;
+thus, thermomechanical exergy ($b_{ph}$) is zero.
+Doing so enables focus on chemical and concentration exergy
+($b_{ch}$ and $b_{c}$, also called material exergy).
+Material exergy of a natural resource ($b_i$) is defined as
+
+\begin{equation}\label{eq:general_material_exergy_definition}
+  b_i = b_{ch,i} + b_{c,i}
+\end{equation}
+%
+according to \citet{Valero_2015}.
+
+With equations \ref{eq:concentration_exergy_definition}
+and \ref{eq:chemical_exergy_definition}
+the total material exergy of a compound ($i$) within a mixture ($m$)
+at a statepoint is defined as
+
+\begin{equation}\label{eq:specific_molar_intensive_exergy_definition}
+  b_{m,i,1} = y_{i,1}(\sum_{i}{b_{ch,i,1}}+\sum_{i}{b_{c,i,1}}) \; .
+\end{equation}
+
+The total exergy of a compound at a statepoint is
+
+\begin{equation}\label{eq:specific_exergy_of_current_statepoint_definition}
+  B_{m,i,1} = b_{m,i,1}N_{m,1}
+\end{equation}
+%
+where $N_{m,1}$ is the number of moles in a mixture at statepoint 1.
+
+If there is a mixture of compounds or elements at a statepoint,
+then the material exergy is defined as
+
+\begin{equation}\label{eq:total_exergy_of_current_statepoint_mixture_definition}
+  B_{m,1} = \sum{B_{m,i,1}} \; .
+\end{equation}
+
+%++++++++++++++++++++++++++++++
+\subsubsection{Chemical Exergy Calculation}
+\label{sssec:chemical_exergy}
+%++++++++++++++++++++++++++++++
+
+Chemical exergy ($b_{ch,i}$) is the minimum work needed
+to form a compound ($i$) or element ($j$).
+
 The chemical exergy of each compound ($b_{ch,i}$) is dependent
 on whether it exists or not
 in the reference environment.
-If compound ($i$) does not exist
+If the compound ($i$) does not exist
 in the reference environment,
 chemical exergy is the amount of work obtained
 in the reversible chemical reactions
@@ -449,12 +470,12 @@ that decomposes the pure compound at ambient temperature ($T_{0}$)
 into reference species ($i$) that are in equilibrium
 with the environment.
 
-The chemical exergy ($b_{ch}$) is
+Chemical exergy ($b_{ch}$) is given by
 
 \begin{equation}\label{eq:chemical_exergy_definition}
   b_{ch,i} = \Delta{G_{f,i}} + \sum_{i}{n_{j,i}b_{ch,j}}
 \end{equation}
-
+%
 where Gibbs energy of formation ($\delta{G_f}$) is the minimum therymodynamic potential
 of a species reaching chemical equilibrium,
 $n_{j,i}$ is the number of moles of a compound ($i$) or element ($j$),
@@ -468,100 +489,49 @@ following \citet[Table~9.1]{Valero_2015}.\\
 
 %++++++++++++++++++++++++++++++
 \subsubsection{Concentration Exergy Calculation}
-\label{sssec: concentration exergy calculation}
+\label{sssec:concentration_exergy}
 %++++++++++++++++++++++++++++++
 
-Concentration exergy ($b_c$) is the the work required
-to change the molar fraction ($y$) of a species.
+Concentration exergy ($b_c$) is the the minimum work required
+to concentrate a species
+from a pure substance to the molar concentration
+at a statepoint.
 The definition of concentration exergy is derived from the entropy of mixing.
 
-The entropy of a mixture ($S_m$)
-is given by
+The entropy of a mixture ($S_m$) is given by
 
 \begin{equation}\label{eq:specific_entropy_of_mixture_definition}
   S_m = -RN_m(y_{1}\ln{y_{1}} + y_{2}\ln{y_{2}} + y_{3}\ln{y_{3}} + \ldots)
           = -RN_m\sum_{i} y_{i}\ln{y_{i}}
 \end{equation}
-
+%
 where $R$ is the universal gas constant,
 $N_m$ is the number of total moles in a mixture,
 and $y_i$ is the molar fraction of a species in a mixture.
 The number of moles in a mixture is determined by
 the mass composition of the stream and
-each component's molecular weight,
+each components molecular weight,
 which we take from \citet{Fisher_2025}.
 
 The molar fraction of a species always refers back to the molar fraction
 of the species as a pure substance.
 The molar fraction of a pure substance ($y_{i,0}$) is equal to one
 because the number of total moles in a mixture
-is equivalent to the number of moles of the species.\\
+is equivalent to the moles of the species.\\
 
-
-\citet{Valero_2025} defines concentration exergy of a compound as
+\citet{Valero_2015} define concentration exergy of a compound as
 
 \begin{equation}\label{eq:equation}
-  b_{c,i} = -RT_0(\ln(y_i) - \ln(y_{i,0})).
+  b_{c,i} = -RT_0(\ln(y_i) - \ln(y_{i,0})) \; .
 \end{equation}
-
+%
 This equation is simplified to
 
 \begin{equation}\label{eq:concentration_exergy_definition}
   b_{c,i} = -RT_0(\ln(y_i))
 \end{equation}
-
+%
 because the natural log of a pure substance's molar fraction is always zero.
-
-
-%++++++++++++++++++++++++++++++
-\subsection{Material Exergy Calculation}
-\label{sec: material exergy calculation}
-%++++++++++++++++++++++++++++++
-
-With equations \ref{eq:concentration_exergy_definition}
-and \ref{eq:chemical_exergy_definition}
-the total material exergy of a compound ($i$) within a mixture ($m$)
-at a statepoint is defined as
-
-\begin{equation}\label{eq:specific_molar_intensive_exergy_definition}
-  b_{m,i,1} = y_{i,1}(\sum_{i}{b_{ch,i,1}}+\sum_{i}{b_{c,i,1}}).
-\end{equation}
-
-The total exergy of a compound at a statepoint is
-
-\begin{equation}\label{eq:specific_exergy_of_current_statepoint_definition}
-  B_{m,i,1} = b_{m,i,1}N_{m,1}.
-\end{equation}
-
-where $N_{m,1}$ is the number of moles in a mixture at statepoint 1.
-
-If there is a mixture of compounds or elements at a statepoint,
-then the material exergy
-is defined as
-
-\begin{equation}\label{eq:total_exergy_of_current_statepoint_mixture_definition}
-  B_{m,1} = \sum{B_{m,i,1}}
-\end{equation}
-
-
-% Material exergy ($b$) is broken down into three components.
-% The first term is physical exergy ($b_{ph}$).
-% The second term is chemical exergy ($b_{ch}$).
-% The third term is concentration exergy ($b_{c}$).
-%
-%
-%
-% Here, we assume that the system is at
-% $T_0$ and $P_0$;
-% thus, thermomechanical exergy ($b_{ph}$) is zero.
-% Doing so enables focus on chemical and concentration exergy
-% ($b_{ch}$ and $b_{c}$, also called material exergy).
-
-
-
-% How are we defining the compound compared to the component number?
-
-
 
 
 
@@ -582,7 +552,7 @@ The exergy of energy is calculated by
   X_i = \phi E_i \; ,
 \end{equation}
 %
-where $\phi$ is...
+where $\phi$ is the exergy to energy ratio,
 $E_i$ is the energy of species $i$,
 e.g.\ natural gas.
 
@@ -592,7 +562,7 @@ in a material conversion chain
 is given by
 
 \begin{equation}\label{eq:energy_exergy_definition}
-  X = \sum_i \phi_i E_i \, .
+  X = \sum_i \phi_i E_i \; .
 \end{equation}
 
 We obtain $\phi$ values from \citet{Kotas_1995}.
@@ -600,13 +570,15 @@ See Appendix~\ref{sec:appendix_phi}.
 
 %++++++++++++++++++++++++++++++
 \subsection{Efficiency Methods}
-\label{ssec: efficiency_methods_and_calculations}
+\label{ssec:efficiency_methods}
 %++++++++++++++++++++++++++++++
 
-Efficiencies for a process may be calculated
-in various ways.
-Each efficiency calculation provides specific information
-about a process.
+A processes' efficiency
+in a material conversion chain
+varies depending on what information is desired.
+We suggest three methods for calculating efficiencies
+based on exergy upgrades, focus on a product,
+and focus on whole streams.
 
 \begin{figure}
   \centering
@@ -628,15 +600,16 @@ in the context of a material conversion chain:
   \begin{equation}\label{eq:Bejan Efficiency}
   \eta_{x} = \frac{N_i(b_{m,i,1} - b_{m,i,0})}{\sum{X_{in}}}
   \end{equation}
+  %
+  where $\eta_{x}$ is the efficiency of a process.
 
   In the case of the blast furnace,
-  the Bejan method uses the material exergy ($b_{m,i}$)
+  the Bejan method uses the material exergy ($b_{m,Fe_2 O_3}$)
   of hematite ore
   and compares it to the material exergy
   at the next statepoint.
-  The energy exergy input, to the blast furnace,
-  is the work it takes to concentrate the hematite ore
-  to pig iron.
+  The energy exergy input is the work it takes
+  to concentrate the hematite ore to pig iron.
   The Bejan method is helpful
   for calculating the efficiency
   of concentrating a specific element or compound.
@@ -650,14 +623,12 @@ in the context of a material conversion chain:
   \end{equation}
 
   The Resource method uses the total material exergy ($B$) of the desired output,
-  such as pig iron,
   and the total material exergy
-  of all material and energy streams
-  as the input.
+  of all input streams.
 
-  The Resource method is helpful
-  for calculating the efficiency
-  for creating a specific mixture separated
+  The Resource method quantifies
+  how efficiently a process
+  can separate one material
   from waste streams.
 
   \item The Student method focuses on the total exergy output
@@ -684,30 +655,18 @@ The energy and material conversion chains are used
 to understand how masses and energy are applied to processes.
 The outputs of materials and energy end up
 in specific sectors of the economy.
-Physical Supply Use Tables (PSUTs) matrices
+Physical Supply Use Table (PSUT) matrices
 show which products, industries, and sectors
 materials and energy interact with.
 
 Benefits of the PSUT framework include quantification of product flows,
 final demand for energy and material products tracked to primary resources,
-and end-use efficiencies for material, energy, and exergy.
+and end-use efficiency for material, energy, and exergy.
 
 The PSUT framework is applied to conversion chains.
-Once the material and energy conversion chains are modelled,
+Once the material and energy conversion chains are modeled,
 both chains may be converted to exergy chains.
 
-**** Redo the next two paragraphs as shown below. ---MKH ****
-Figure 1 from ~\citep{Aramendia_2022} is the Physical Supply Use Tables framework
-applied to energy, material, and exergy conversion chains in this paper.
-The main four matrices the conversion chains are applied to are the Resources, Make, Use, and Final demand matrices.
-Table 1 from ~\citep{Aramendia_2022} explains the rows and columns for each matrix.
-
-The Resource matrix ($R$) is an exogenous resource-by-resource matrix.
-The Make matrix ($V$) is an industry-by-product matrix.
-The Use matrix ($U$) is a product-by-industry matrix.
-The Final demand matrix ($Y$) is a product-by-sector matrix.
-
-**** This is better. ****
 We apply the Physical Supply-Use Table (PSUT) framework
 from \citet[Figure~1]{Aramendia_2022}
 to material, energy, and exergy conversion chains developed in Section~\ref{sec:results}
@@ -748,7 +707,8 @@ Limestone production compositions and energy inputs are taken from
 \citet{Eriksson_2014}, and
 \citet{Satyendra_2013}.
 
-
+%subsections for materials data
+%subsections for energy data
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
