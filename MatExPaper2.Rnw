@@ -334,6 +334,9 @@ print_statepoint_table(statepoint_table_name = "statepoint_table",
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 ***Need to discuss exergy is a way to perform consistent analysis of both material and energy***
+Exergy analysis:
+-converts mass and energy into work used in a process
+-have consistent analysis of material and energy
 
 Our research question:
 
@@ -375,7 +378,7 @@ The exergy of a system ($B$) is the maximum amount of work
 that can be extracted
 by processes that take the system
 to equilibrium with the reference environment,
-defined by $T_0$, $P_0$, and a certain chemical composition.
+defined by ambient temperature ($T_0$), ambient pressure ($P_0$), and a certain chemical composition.
 
 Thus, the total exergy of a system ($B$)
 is the sum of the work of two reversible processes
@@ -427,14 +430,15 @@ Material exergy of a natural resource ($b_i$) is defined as
 %
 according to \citet{Valero_2015}.
 
-With equations \ref{eq:concentration_exergy_definition}
-and \ref{eq:chemical_exergy_definition}
-the total material exergy of a compound ($i$) within a mixture ($m$)
+The total material exergy of a compound within a mixture
 at a statepoint is defined as
 
 \begin{equation}\label{eq:specific_molar_intensive_exergy_definition}
-  b_{m,i,1} = y_{i,1}(\sum_{i}{b_{ch,i,1}}+\sum_{i}{b_{c,i,1}}) \; .
+  b_{m,i,1} = y_{i,1}(\sum_{i}{b_{ch,i,1}}+\sum_{i}{b_{c,i,1}})
 \end{equation}
+%
+where ($m$) represents a mixture
+and ($1$) is the statepoint (this number varies depending on the statepoint).
 
 The total exergy of a compound at a statepoint is
 
@@ -460,17 +464,17 @@ Chemical exergy ($b_{ch,i}$) is the minimum work needed
 to form a compound ($i$) or element ($j$).
 
 The chemical exergy of each compound ($b_{ch,i}$) is dependent
-on whether it exists or not
-in the reference environment.
+on whether it exists
+in the reference environment or not.
 If the compound ($i$) does not exist
 in the reference environment,
-chemical exergy is the amount of work obtained
+then the chemical exergy is the amount of work obtained
 in the reversible chemical reactions
-that decomposes the pure compound at ambient temperature ($T_{0}$)
-into reference species ($i$) that are in equilibrium
+that decompose the pure compound
+to the compound ($i$) in equilibrium
 with the environment.
 
-Chemical exergy ($b_{ch}$) is given by
+Chemical exergy of a compound ($b_{ch,i,j}$) is given by
 
 \begin{equation}\label{eq:chemical_exergy_definition}
   b_{ch,i} = \Delta{G_{f,i}} + \sum_{i}{n_{j,i}b_{ch,j}}
@@ -507,19 +511,19 @@ The entropy of a mixture ($S_m$) is given by
 %
 where $R$ is the universal gas constant,
 $N_m$ is the number of total moles in a mixture,
-and $y_i$ is the molar fraction of a species in a mixture.
+and $y_i$ is the molar fraction of a species.
 The number of moles in a mixture is determined by
 the mass composition of the stream and
 each components molecular weight,
 which we take from \citet{Fisher_2025}.
 
-The molar fraction of a species always refers back to the molar fraction
-of the species as a pure substance.
+The molar fraction of a species always refers back to the species
+as a pure substance.
 The molar fraction of a pure substance ($y_{i,0}$) is equal to one
 because the number of total moles in a mixture
-is equivalent to the moles of the species.\\
+is equivalent to the total moles of the species.\\
 
-\citet{Valero_2015} define concentration exergy of a compound as
+\citet{Valero_2015} define concentration exergy of a compound ($b_{c,i}$) as
 
 \begin{equation}\label{eq:equation}
   b_{c,i} = -RT_0(\ln(y_i) - \ln(y_{i,0})) \; .
@@ -573,12 +577,10 @@ See Appendix~\ref{sec:appendix_phi}.
 \label{ssec:efficiency_methods}
 %++++++++++++++++++++++++++++++
 
-A processes' efficiency
-in a material conversion chain
-varies depending on what information is desired.
-We suggest three methods for calculating efficiencies
-based on exergy upgrades, focus on a product,
-and focus on whole streams.
+Various efficiencies are calculated
+for a material conversion chain
+depending on what information is desired.
+
 
 \begin{figure}
   \centering
@@ -587,44 +589,28 @@ and focus on whole streams.
   \label{fig:efficiencymethods}
 \end{figure}
 
-The following three efficiency calculation methods apply
-in the context of a material conversion chain:
+
+We suggest three methods for calculating efficiencies
+based on exergy upgrades, focus on a product,
+and focus on whole streams.
 
 \begin{itemize}
-  \item The Bejan method focuses on the main product
-  at a statepoint
-  to quantify how the material's concentration exergy upgraded
-  due to energy inputs.
+  \item The Bejan method expresses
+  how much energy is necessary
+  to concentrate a specific element or compound.
   See Figure~\ref{fig:efficiencymethods}.
-
+  We define Bejan efficiency as
   \begin{equation}\label{eq:Bejan Efficiency}
-  \eta_{x} = \frac{N_i(b_{m,i,1} - b_{m,i,0})}{\sum{X_{in}}}
+  \eta_{Bejan} = \frac{N_i(b_{m,i,1} - b_{m,i,0})}{\sum{X_{in}}} \; .
   \end{equation}
-  %
-  where $\eta_{x}$ is the efficiency of a process.
 
-  In the case of the blast furnace,
-  the Bejan method uses the material exergy ($b_{m,Fe_2 O_3}$)
-  of hematite ore
-  and compares it to the material exergy
-  at the next statepoint.
-  The energy exergy input is the work it takes
-  to concentrate the hematite ore to pig iron.
-  The Bejan method is helpful
-  for calculating the efficiency
-  of concentrating a specific element or compound.
-
-  \item The Resource method focuses on the main product's exergy output
+  \item The Resource method focuses on the main product stream's exergy output
   compared to the total exergy input.
   See Figure~\ref{fig:efficiencymethods}.
-
+  The Resource efficiency is defined as
   \begin{equation}\label{eq:Resource Efficiency}
-  \eta_{x} = \frac{(B_{m,i,1})}{\sum{X_{in}}+\sum{B_{in}}}
+  \eta_{Resource} = \frac{(B_{m,i,1})}{\sum{X_{in}}+\sum{B_{in}}} \; .
   \end{equation}
-
-  The Resource method uses the total material exergy ($B$) of the desired output,
-  and the total material exergy
-  of all input streams.
 
   The Resource method quantifies
   how efficiently a process
@@ -634,9 +620,9 @@ in the context of a material conversion chain:
   \item The Student method focuses on the total exergy output
   compared to the total exergy input.
   See figure Figure~\ref{fig:efficiencymethods}
-
+  We define the Student efficiency as
   \begin{equation}\label{eq:Student Efficiency}
-  \eta_{x} = \frac{\sum{B_{out}}}{\sum{X_{in}} + \sum{B_{in}}}
+  \eta_{Students} = \frac{\sum{B_{out}}}{\sum{X_{in}} + \sum{B_{in}}} \; .
   \end{equation}
 
   The Student method is helpful
@@ -648,7 +634,7 @@ in the context of a material conversion chain:
 
 %++++++++++++++++++++++++++++++
 \subsection{PSUT Matrix Structure}
-\label{ssec: psut matrices}
+\label{ssec:psut_matrix}
 %++++++++++++++++++++++++++++++
 
 The energy and material conversion chains are used
@@ -684,6 +670,10 @@ The final demand matrix (\textbf{Y}) includes product consumption by economic se
 \label{sec:data}
 %++++++++++++++++++++++++++++++
 
+%++++++++++++++++++++++++++++++
+\subsubsection{Energy Data}
+\label{sssec:energy_data}
+%++++++++++++++++++++++++++++++
 The material conversion chain is a partial example chain
 of a potential South African pig iron production process.
 Energy inputs information
@@ -692,6 +682,11 @@ is from the Energy and Environmental Profile of the U.S.\ Mining Industry
 \citet{Ore_2025} and the \citet{Uni_Cape_Town_2002}.
 Additional energy information comes from \citet{Jamison_2015}.
 
+
+%++++++++++++++++++++++++++++++
+\subsubsection{Material Data}
+\label{sssec:material_data}
+%++++++++++++++++++++++++++++++
 Mass amounts and composition
 for each statepoint
 comes from various sources.
@@ -707,8 +702,6 @@ Limestone production compositions and energy inputs are taken from
 \citet{Eriksson_2014}, and
 \citet{Satyendra_2013}.
 
-%subsections for materials data
-%subsections for energy data
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
