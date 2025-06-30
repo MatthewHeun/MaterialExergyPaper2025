@@ -7,3 +7,9 @@ date: "26 June 2025"
 - [ ] Rotary kiln efficiencies should be higher 
 - [ ] Coke oven efficiencies should be lower 
 - [ ] Tidy up arrows 
+- [ ] MCC B RUVY nonzero energy balances
+- [ ] Name regions in MCC B RUVY R_B
+- [ ] Name regions in MCC m RUVY R_m
+- [ ] Add U_feed, U_EIOU matrices (same structure as **U**) for material and energy
+- [ ] Add r_EIOU matrix (ratio of EIOU to U, same structure as U, zero matrix)
+- [ ] Add S_units matrix (rows of energy carriers, same as rows of U matrix, column is units w/ entry as 1)

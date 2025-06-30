@@ -333,6 +333,8 @@ print_statepoint_table(statepoint_table_name = "statepoint_table",
 \label{sec:introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+***Need to discuss exergy is a way to perform consistent analysis of both material and energy***
+
 Our research question:
 
 How should integrated energy and material conversion chains
@@ -574,27 +576,27 @@ To change a mixture's composition,
 energy is used
 to concentrate and remove components.
 
-A constant, denoted by ($\phi$),
-is multiplied by the energy input
-to calculate the exergy ($X$).
+The exergy of energy is calculated by
 
 \begin{equation}\label{eq:energy_exergy_definition}
-  X_{i} = \phi E_i
+  X_i = \phi E_i \; ,
 \end{equation}
-where $E_i$ is the energy of a species,
-such as natural gas.
+%
+where $\phi$ is...
+$E_i$ is the energy of species $i$,
+e.g.\ natural gas.
 
-The exergy of energy used
+The total exergy of energy
+at any statepoint
 in a material conversion chain
-is calculated by
+is given by
 
 \begin{equation}\label{eq:energy_exergy_definition}
-  X = \sum_i \phi_i E_i.
+  X = \sum_i \phi_i E_i \, .
 \end{equation}
 
-Further information about the phi constants used
-may be found in Appendix~X.
-Phi constants and examples for certain fuels come from \citet{Kotas_1995}.
+We obtain $\phi$ values from \citet{Kotas_1995}.
+See Appendix~\ref{sec:appendix_phi}.
 
 %++++++++++++++++++++++++++++++
 \subsection{Efficiency Methods}
@@ -987,12 +989,12 @@ LD & Linear dichroism
 \appendixtitles{no} % Leave argument "no" if all appendix headings stay EMPTY (then no dot is printed after "Appendix A"). If the appendix sections contain a heading then change the argument to "yes".
 \appendixstart
 \appendix
-\section[\appendixname~\thesection]{}
+\section[\appendixname~\thesection]{Nomenclature}
 \subsection[\appendixname~\thesubsection]{}
 The appendix is an optional section that can contain details and data supplemental to the main text---for example, explanations of experimental details that would disrupt the flow of the main text but nonetheless remain crucial to understanding and reproducing the research shown; figures of replicates for experiments of which representative data are shown in the main text can be added here if brief, or as Supplementary Data. Mathematical proofs of results not central to the paper can be added as an appendix.
 
 \begin{table}[H]
-\caption{Nomenclature tabl.\label{tab5}}
+\caption{Nomenclature table\label{tab:nomenclature}}
 %\newcolumntype{C}{>{\centering\arraybackslash}X}
 \begin{tabularx}{\textwidth}{CCC}
 \toprule
@@ -1019,6 +1021,11 @@ $B$               & molar intensive exergy [kJ]\\
 
 \section[\appendixname~\thesection]{}
 All appendix sections must be cited in the main text. In the appendices, Figures, Tables, etc. should be labeled, starting with ``A''---e.g., Figure A1, Figure A2, etc.
+
+\section[\appendixname~\thesection]{Exergy to energy ratios, $\phi$}
+\label{sec:appendix_phi}
+***Fill this in***
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\isPreprints{}{% This command is only used for ``preprints''.
