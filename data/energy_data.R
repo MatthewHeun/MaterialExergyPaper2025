@@ -24,17 +24,17 @@ conn <- DBI::dbConnect(drv = RPostgres::Postgres(),
 on.exit(DBI::dbDisconnect(conn))
 
 # Read the ECC data once
-psut_io_zaf_2013 <- PFUPipelineTools::pl_filter_collect("PSUTReAllChopAllDsAllGrAll",
-                                                        Dataset == "CL-PFU IEA",
-                                                        Country == "ZAF",
-                                                        Year == 2013,
-                                                        LastStage == "Final",
-                                                        IncludesNEU == FALSE,
-                                                        ProductAggregation == "Specified",
-                                                        IndustryAggregation == "Specified",
-                                                        conn = conn,
-                                                        collect = TRUE,
-                                                        matrix_class = "matrix") |>
+zaf_2013_ecc <- PFUPipelineTools::pl_filter_collect("PSUTReAllChopAllDsAllGrAll",
+                                                    Dataset == "CL-PFU IEA",
+                                                    Country == "ZAF",
+                                                    Year == 2013,
+                                                    LastStage == "Final",
+                                                    IncludesNEU == FALSE,
+                                                    ProductAggregation == "Specified",
+                                                    IndustryAggregation == "Specified",
+                                                    conn = conn,
+                                                    collect = TRUE,
+                                                    matrix_class = "matrix") |>
   dplyr::arrange(EnergyType) |>
   dplyr::mutate(
     worksheet_names = paste(Country, Year, EnergyType, sep = "_")
@@ -46,9 +46,9 @@ DBI::dbDisconnect(conn)
 
 
 # Save full ZAF data to an Excel file for inspection.
-psut_io_zaf_2013_path <- file.path("data", "psut_io_zaf_2013.xlsx")
-psut_io_zaf_2013 |>
-  Recca::write_ecc_to_excel(path = psut_io_zaf_2013_path,
+zaf_2013_ecc_path <- file.path("data", "zaf_2013_ecc.xlsx")
+zaf_2013_ecc |>
+  Recca::write_ecc_to_excel(path = zaf_2013_ecc_path,
                             worksheet_names = "worksheet_names",
                             overwrite_file = TRUE)
 
@@ -59,7 +59,7 @@ psut_io_zaf_2013 |>
 
 # Read ECC requirements
 # from the MCC spreadsheet.
-mcc_energy_reqts <- openxlsx2::read_xlsx(file = file.path("data", "Paper Examples 3.xlsx"),
+mcc_energy_reqts <- openxlsx2::read_xlsx(file = file.path("data", "Paper Examples 4.xlsx"),
                                          named_region = "mcc_energy_reqts") |>
   # Use the TJ versions
   dplyr::select(EnergyCarrier, `E [TJ]`, `X [TJ]`) |>
@@ -82,9 +82,9 @@ mcc_energy_reqts <- openxlsx2::read_xlsx(file = file.path("data", "Paper Example
 # required for the material conversion chain
 #
 
-ecc_supply <- dplyr::left_join(psut_io_zaf_2013,
-                               mcc_energy_reqts,
-                               by = "EnergyType") |>
+ecc_supply_to_mcc <- dplyr::left_join(zaf_2013_ecc,
+                                      mcc_energy_reqts,
+                                      by = "EnergyType") |>
   Recca::new_Y() |>
   dplyr::mutate(
     R = NULL,
@@ -116,11 +116,15 @@ ecc_supply <- dplyr::left_join(psut_io_zaf_2013,
     V = matsbyname::hadamardproduct_byname(V, 1e9),
     Y = matsbyname::hadamardproduct_byname(Y, 1e9),
     S_units = matsbyname::setcolnames_byname(S_units, colnames = "kJ")
+  ) |>
+  dplyr::rename(
+    R_X = R, U_X = U, U_feed_X = U_feed, U_eiou_X = U_EIOU,
+    r_EIOU_X = r_EIOU, V_X = V, Y_X = Y, S_units_X = S_units
   )
 
 # Save the ECC that supplies the MCC to an Excel file for inspection.
-ecc_supply |>
-  Recca::write_ecc_to_excel(path = file.path("data", "ecc_supply.xlsx"),
+ecc_supply_to_mcc |>
+  Recca::write_ecc_to_excel(path = file.path("data", "ecc_supply_to_mcc.xlsx"),
                             worksheet_names = "worksheet_names",
                             overwrite_file = TRUE)
 
@@ -129,6 +133,36 @@ ecc_supply |>
 #
 # Read the MCC exergy matrices
 #
+
+mcc_ruvy_wb <- openxlsx2::wb_load(file = file.path("data", "Paper Examples 4.xlsx"))
+mcc_regions <- openxlsx2::wb_get_named_regions(wb = mcc_ruvy_wb)
+
+
+mcc <- sapply(X = c("R_B", "U_B", "U_feed_B", "U_eiou_B",
+                    "r_eiou_B", "V_B", "Y_B", "S_units_B"),
+              FUN = function(this_matrix_name) {
+                df <- openxlsx2::read_xlsx(file = file.path("data",
+                                                            "Paper Examples 4.xlsx"),
+                                           named_region = this_matrix_name,
+                                           row_names = TRUE)
+                # Convert all NA values to 0
+                df[is.na(df)] <- 0
+                this_matrix <- df |>
+                  # Convert the data frame to a matrix
+                  as.matrix() |>
+                  # Then to a Matrix
+                  Matrix::Matrix(sparse = TRUE)
+                # Bundle in a vector for easier conversion to a tibble
+                c(this_matrix)
+              },
+              simplify = FALSE,
+              USE.NAMES = TRUE) |>
+  tibble::as_tibble_row() |>
+  # Add EnergyType column
+  dplyr::mutate(
+    EnergyType = "B"
+  )
+
 
 
 
