@@ -82,7 +82,9 @@ mcc_energy_reqts <- openxlsx2::read_xlsx(file = file.path("data", "Paper Example
 # required for the material conversion chain
 #
 
-ecc <- dplyr::left_join(psut_io_zaf_2013, mcc_energy_reqts, by = "EnergyType") |>
+ecc_supply <- dplyr::left_join(psut_io_zaf_2013,
+                               mcc_energy_reqts,
+                               by = "EnergyType") |>
   Recca::new_Y() |>
   dplyr::mutate(
     R = NULL,
@@ -104,11 +106,21 @@ ecc <- dplyr::left_join(psut_io_zaf_2013, mcc_energy_reqts, by = "EnergyType") |
   ) |>
   dplyr::select(Dataset, ValidFromVersion, ValidToVersion, Country, Method, EnergyType, LastStage,
                 IncludesNEU, Year, R, U, V, Y, U_EIOU, U_feed, r_EIOU, S_units,
-                worksheet_names)
+                worksheet_names) |>
+  dplyr::mutate(
+    # Convert to kJ everywhere
+    R = matsbyname::hadamardproduct_byname(R, 1e9),
+    U = matsbyname::hadamardproduct_byname(U, 1e9),
+    U_feed = matsbyname::hadamardproduct_byname(U_feed, 1e9),
+    U_EIOU = matsbyname::hadamardproduct_byname(U_EIOU, 1e9),
+    V = matsbyname::hadamardproduct_byname(V, 1e9),
+    Y = matsbyname::hadamardproduct_byname(Y, 1e9),
+    S_units = matsbyname::setcolnames_byname(S_units, colnames = "kJ")
+  )
 
 # Save the ECC that supplies the MCC to an Excel file for inspection.
-ecc |>
-  Recca::write_ecc_to_excel(path = file.path("data", "energy_ecc.xlsx"),
+ecc_supply |>
+  Recca::write_ecc_to_excel(path = file.path("data", "ecc_supply.xlsx"),
                             worksheet_names = "worksheet_names",
                             overwrite_file = TRUE)
 
