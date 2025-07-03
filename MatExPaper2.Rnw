@@ -562,8 +562,10 @@ Simplifying \ref{eq:concentration_exergy} with $y_i,0 = 1$ and $\ln(y_{i,0})$ gi
 %
 because the natural log of a pure substance's molar fraction is always zero.
 Concentration exergy is always negative
-because the environment does work
-to concentrate a species.
+because the pure substance
+in the reference environment
+becomes less concentrated
+at any statepoint.
 
 %++++++++++++++++++++++++++++++
 \subsubsection{Elements ($j$)}
