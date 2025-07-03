@@ -495,12 +495,8 @@ See \citet[p.276]{Valero_2015}.
 The chemical exergy of a compound ($b_{ch,i}$) is the minimum work needed
 to form that compound.
 
-The chemical exergy of each compound is dependent on whether it exists
-in the reference environment or not.
-The reference environment for chemical exergy,
-within a material conversion chain,
-is standard temperature and pressure.
-
+The chemical potential of a species is equal
+in the reference environment and statepoint.
 If the compound ($i$) does not exist
 in the reference environment,
 then the chemical exergy is the amount of work obtained
@@ -520,7 +516,7 @@ and Gibbs energy of formation ($\Delta{G_f}$) is the minimum therymodynamic pote
 of a species reaching chemical equilibrium (in units of $kJ_i/mol_i$).
 
 $\Delta{G_{f}}$ values are taken from \citet{Dean_1979}
-and \citet{Gibbs_formation}.
+and \citep{Gibbs_formation}.
 
 
 %++++++++++++++++++++++++++++++
@@ -532,6 +528,7 @@ The concentration exergy of a compound ($b_{c,i}$) is the the minimum work requi
 to concentrate a species
 from a pure substance to the molar concentration
 at a statepoint.
+
 The definition of concentration exergy is derived from the entropy of mixing.
 
 The entropy of a mixture ($S_m$) is given by
@@ -544,7 +541,7 @@ The entropy of a mixture ($S_m$) is given by
 where $S_m$ is in units of $kJ/mol_m~K$
 and $R$ is the universal gas constant (in units of $kJ/mol_i~K$).
 
-The molar fraction of a species always refers back to the species
+The molar fraction of a species refers back to the species
 as a pure substance.
 The molar fraction of a pure substance ($y_{i,0}$) is equal to one
 because the number of total moles in a mixture
@@ -553,16 +550,20 @@ is equivalent to the total moles of the species.\\
 \citet{Valero_2015} define concentration exergy of a compound ($b_{c,i}$) as
 
 \begin{equation}\label{eq:concentration_exergy}
-  b_{c,i} = -RT_0(\ln(y_i) - \ln(y_{i,0})) \; .
+  b_{c,i} = RT_0(\ln(y_i) - \ln(y_{i,0})) \; .
 \end{equation}
 %
+
 Simplifying \ref{eq:concentration_exergy} with $y_i,0 = 1$ and $\ln(y_{i,0})$ gives
 
 \begin{equation}\label{eq:concentration_exergy_definition}
-  b_{c,i} = -RT_0(\ln(y_i))
+  b_{c,i} = RT_0(\ln(y_i))
 \end{equation}
 %
 because the natural log of a pure substance's molar fraction is always zero.
+Concentration exergy is always negative
+because the environment does work
+to concentrate a species.
 
 %++++++++++++++++++++++++++++++
 \subsubsection{Elements ($j$)}
@@ -573,8 +574,8 @@ based on the Crepuscular Earth Model
 from \citet[Table~9.1]{Valero_2015}.
 
 The moles of an element within a compound ($n_{j,i}$),
-when multiplied by the chemical exergy of the element,
-is added to the Gibbs free energy
+when multiplied by the chemical exergy of the element ($b_{ch,j}$),
+is added to the Gibbs free energy ($\Delta{G_f}$)
 in \ref{eq:chemical_exergy_definition}.
 
 % %++++++++++++++++++++++++++++++
