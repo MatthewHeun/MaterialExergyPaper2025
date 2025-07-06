@@ -59,7 +59,7 @@ zaf_2013_ecc |>
 
 # Read ECC requirements
 # from the MCC spreadsheet.
-mcc_energy_reqts <- openxlsx2::read_xlsx(file = file.path("data", "Paper Examples 4.xlsx"),
+mcc_energy_reqts <- openxlsx2::read_xlsx(file = file.path("data", "Paper Examples.xlsx"),
                                          named_region = "mcc_energy_reqts") |>
   # Use the TJ versions
   dplyr::select(EnergyCarrier, `E [TJ]`, `X [TJ]`) |>
