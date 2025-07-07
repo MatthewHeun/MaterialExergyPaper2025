@@ -395,6 +395,7 @@ of product and materials.
 \midrule
 $k$					    & Statepoint \\
 $m$					    & mixture of compounds and elements\\
+                & material\\
 $i$             & compound\\
 $j$             & element\\
 
@@ -413,14 +414,17 @@ by processes that take the material
 to equilibrium with the reference environment,
 defined by its temperature ($T_0$), pressure ($P_0$), and chemical composition.
 Thus, the total exergy of a material ($B$)
-is the sum of the work of two reversible processes
+is the sum of the work of four reversible processes
 that bring the system
 (a)~from $T$ and $P$ to
     $T_0$ and $P_0$
-    (without changes in the chemical composition) and
+    (without changes in the chemical composition)
 (b)~from its chemical composition to
     to the reference chemical composition
-    (while the system remains at $T_0$ and $P_0$).
+    (while the system remains at $T_0$ and $P_0$)
+(c)~from its concentration to pure state
+(d)~from its dispersed state to cohesive state.
+***maybe we move switch the next two paragraphs?***
 Reference environments can include the atmosphere,
 the ocean, or the Earth's crust.
 Species in reference environments are characterized
@@ -480,7 +484,7 @@ of a compound in a mixture ($mol_i/mol_m$).
 Molar intensive material exergy ($b_i$) is defined as
 
 \begin{equation}\label{eq:general_material_exergy_definition}
-  b_i = b_{ch,i} + b_{c,i}
+  b_i = b_{ch,i} + b_{c,i} \; ,
 \end{equation}
 %
 where $b_{ch,i}$ is the chemical exergy of a compound (in units of $kJ_i/mol_i$)
@@ -492,28 +496,34 @@ See \citet[p.276]{Valero_2015}.
 \label{ssec:chemical_exergy}
 %++++++++++++++++++++++++++++++
 
-The chemical exergy of a compound ($b_{ch,i}$) is the minimum work needed
-to form that compound.
-
-The chemical potential of a species is equal
-in the reference environment and statepoint.
+% The chemical exergy of a compound ($b_{ch,i}$) is the minimum work needed
+% to form that compound.
+%
+% The chemical potential of a species is equal
+% in the reference environment and statepoint.
 If the compound ($i$) does not exist
 in the reference environment,
 then the chemical exergy is the amount of work obtained
 in the reversible chemical reactions
 that decompose the pure compound
-to the compound ($i$) in equilibrium
+to the set of compounds ($i$) in equilibrium
 with the environment.
+This process can be decomposed into two steps:
+(1) decomposition of the compound into elements in their standard states and
+(2) conversion of the elements in their environmental stable forms.
+The reversible work that is done on the environment associated
+with the first process is the Gibbs energy of formation
+while the reversible works that are done on the environment associated
+with second step are the chemical exergies of those elements.
 
 The chemical exergy of a compound ($b_{ch,i}$) is given by
 
 \begin{equation}\label{eq:chemical_exergy_definition}
-  b_{ch,i} = \Delta{G_{f,i}} + \sum_{i}{n_{j}b_{ch,j}}
+  b_{ch,i} = \Delta{G_{f,i}} + \sum_{i}{n_{j}b_{ch,j}} \; ,
 \end{equation}
 %
 where $b_{ch,i}$ is in units of $kJ_i/mol_i$
-and Gibbs energy of formation ($\Delta{G_f}$) is the minimum therymodynamic potential
-of a species reaching chemical equilibrium (in units of $kJ_i/mol_i$).
+and Gibbs energy of formation ($\Delta{G_f}$) is in units of $kJ_i/mol_i$.
 
 $\Delta{G_{f}}$ values are taken from \citet{Dean_1979}
 and \citep{Gibbs_formation}.
@@ -524,29 +534,41 @@ and \citep{Gibbs_formation}.
 \label{sssec:concentration_exergy}
 %++++++++++++++++++++++++++++++
 
-The concentration exergy of a compound ($b_{c,i}$) is the the minimum work required
-to concentrate a species
-from a pure substance to the molar concentration
-at a statepoint.
+The concentration exergy of a mixture ($b_{c,m}$) is the the minimum work required
+to separate the mixture into pure compounds.
 
 The definition of concentration exergy is derived from the entropy of mixing.
-
-The entropy of a mixture ($S_m$) is given by
+The entropy of a mixture ($\Delta{S_m}$) is the increase in entropy
+that occurs when different substances are mixed reversibly and isothermally.
+The entropy of a mixture ($\Delta{S_m}$) is given by
 
 \begin{equation}\label{eq:specific_entropy_of_mixture_definition}
-  S_m = -RN_m(y_{1}\ln{y_{1}} + y_{2}\ln{y_{2}} + y_{3}\ln{y_{3}} + \ldots)
-          = -RN_m\sum_{i} y_{i}\ln{y_{i}}
+  \Delta{S_m} = -RN_m(y_{1}\ln{y_{1}} + y_{2}\ln{y_{2}} + y_{3}\ln{y_{3}} + \ldots)
+          = -RN_m\sum_{i} y_{i}\ln{y_{i}} \; ,
 \end{equation}
 %
-where $S_m$ is in units of $kJ/mol_m~K$
+where $\Delta{S_m}$ is in units of $kJ/mol_m~K$
 and $R$ is the universal gas constant (in units of $kJ/mol_i~K$).
 
 The molar fraction of a species refers back to the species
 as a pure substance.
 The molar fraction of a pure substance ($y_{i,0}$) is equal to one
 because the number of total moles in a mixture
-is equivalent to the total moles of the species.\\
+is equivalent to the total moles of the species.
+The minimum work required to separate a mixture reversibly
+at constant temperature and pressure is given by
+\begin{equation}\label{eq:work}
+    W_{min} = -T_0\Delta{S_m}
+            = RT_0 N_m \sum_{i}(y_i\ln{y_i}) \; ,
+\end{equation}
+%
+where $W_{min}$ is in units of $kJ/mol_m$.
+The work term is negative
+because the environment puts work
+into the mixture.\\
 
+The concentration exergy of a compound (as defined above)
+is the reversible work needed to concentrate it to the pure state.
 \citet{Valero_2015} define concentration exergy of a compound ($b_{c,i}$) as
 
 \begin{equation}\label{eq:concentration_exergy}
@@ -756,7 +778,7 @@ in \ref{eq:chemical_exergy_definition}.
 \subsection{The exergy of energy}
 \label{sec:exergy_of_energy}
 %++++++++++++++++++++++++++++++
-
+% Tania: I think we should do it as before -  we should estimate exergy of energy as we did for materials whenever this is possible. When it is not (gibbs energy of formation not available) - we should do it like this.
 A material conversion chain
 uses both material and energy inputs.
 To change a mixture's composition,
@@ -770,7 +792,8 @@ The exergy of energy is calculated by
 \end{equation}
 %
 where $\phi_i$ is the exergy to energy ratio and
-$E_i$ is the energy of compound (in units of $kJ$),
+$E_i$ is the lower heating value of a compound multiplied
+by the mass (in units of $kJ$),
 e.g.\ natural gas.
 
 The total exergy of energy
@@ -823,8 +846,7 @@ and focus on whole streams. (See Figure 2.)
 
   The ***Resource*** method quantifies
   how efficiently a process
-  can separate one material
-  from waste streams.
+  can produce the desired output.
 
   \item The ***Student*** method focuses on the total exergy output
   compared to the total exergy input.
@@ -851,7 +873,7 @@ and focus on whole streams. (See Figure 2.)
 \label{sssec:energy_data}
 %++++++++++++++++++++++++++++++
 The material conversion chain is a partial example chain
-of a potential South African pig iron production process.
+of a South African pig iron production process.
 Energy inputs information
 for extraction, hauling, and beneficiation processes
 is from the Energy and Environmental Profile of the U.S.\ Mining Industry
