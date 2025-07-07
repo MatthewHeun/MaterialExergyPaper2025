@@ -372,10 +372,10 @@ Contributions of this paper:
 \subsection{Hierarchy of States Analysis}
 \label{sec:hierarchy_of_things?}
 %++++++++++++++++++++++++++++++
-To analysis material conversion chains,
+To analyze material conversion chains,
 we suggest a hierarchy of levels.
-The hierarchy needed for our analysis proceeds as follows:
-(1)~statepoint, a defined input or output of a process,
+The hierarchy for our analysis is:
+(1)~statepoint, a material stream that is an input or output of a process,
 (2)~mixture, a combination of compounds and/or elements
 that exist at a statepoint,
 (3)~compound, and
@@ -390,14 +390,14 @@ of products and materials.
 \label{sec:hierarchy_nomenclature}
 %++++++++++++++++++++++++++++++
 
-\begin{table}[H]
+\begin{table}
 \caption{Hierarchy Nomenclature table\label{tab:nomenclature}}
 %\newcolumntype{C}{>{\centering\arraybackslash}X}
 \begin{tabularx}{\textwidth}{CCC}
 \toprule
 \textbf{Symbol}	& \textbf{Description}\\
 \midrule
-$k$					    & Statepoint \\
+$k$					    & statepoint \\
 $m$					    & mixture \\
 $i$             & compound \\
 $j$             & element \\
@@ -410,10 +410,11 @@ $j$             & element \\
 \subsection{Material Exergy}
 \label{sec:exergy_of_materials}
 %++++++++++++++++++++++++++++++
-
-The exergy of a material ($B$) is the minimum amount of work
+Material exergy is the exergy of a mixture of compounds
+that exist at a statepoint ($B_k$).
+Material exergy is the minimum amount of work
 that could be extracted
-by processes that take the material
+by a process that takes the mixture
 to equilibrium with the reference environment,
 defined by its temperature ($T_0$), pressure ($P_0$), and chemical composition.
 Thus, the total exergy of a material ($B$)
@@ -426,21 +427,21 @@ that bring the system
     to the reference chemical composition
     (while the system remains at $T_0$ and $P_0$)
 (c)~from its concentration to pure state
-(d)~from its dispersed state to cohesive state.\\
+(d)~from its dispersed state to cohesive state.
 
-Natural resources have a positive material exergy ($b$) (in units of $kJ/mol$)
+Natural resources have a positive material exergy ($b$) (in units of kJ/mol)
 because they have a chemical composition
-that differentiates them from their Environment.
+different from their Environment.
 Material exergy is comprised of four components:
 physical exergy ($b_{ph}$),
 chemical exergy ($b_{ch}$),
-concentration exergy ($b_{c}$),
+concentration exergy ($b_c$),
 and comminution exergy ($b_{com}$).
 Comminution exergy is minimal and ignored for a material conversion chain analysis
-\citep[p.280]{Valero_2015}.
+\citep[p.~280]{Valero_2015}.
 Here, we assume that the material is at
 $T_0$ and $P_0$;
-thus, physical exergy ($b_{ph}$) is zero.\\
+thus, physical exergy ($b_{ph}$) is zero.
 
 Reference environments can include the atmosphere,
 the ocean, or the Earth's crust.
@@ -450,7 +451,7 @@ by concentrations ($C_i$) in the ocean,
 and by mole fraction ($y_i$)
 in the Earth's crust.
 We take reference environments
-from \citet[Table~11.1-11.7]{Valero_2015}.\\
+from \citet[Table~11.1-11.7]{Valero_2015}.
 
 %++++++++++++++++++++++++++++++
 \subsection{Mixture ($m$)}
@@ -462,9 +463,9 @@ The total material exergy of a mixture ($B_m$) at a statepoint is
    B_m = N_m b_m \; ,
  \end{equation}
 %
-where $B_m$ is in units of $kJ_m$,
-$N_m$ is the amount of the mixture (in units of $mol_m$),
-and $b_m$ is the molar intensive material exergy of the mixture (in units of $kJ_m/mol_m$).
+where $B_m$ is in units of $\mathrm{kJ_m}$,
+$N_m$ is the amount of the mixture (in units of $\mathrm{mol_m}$),
+and $b_m$ is the molar intensive material exergy of the mixture (in units of $\mathrm{kJ_m/mol_m}$).
 
 The material exergy of a mixture may be account for each species with
 
@@ -473,11 +474,11 @@ The material exergy of a mixture may be account for each species with
        = N_m\sum_i{{y_i}{b_i}} \; ,
 \end{equation}
 %
-where $N_i$ ($mol_i$) is the number of moles of a compound
+where $N_i$ ($\mathrm{mol_i}$) is the number of moles of a compound
 $b_i$ is the molar intensive material exergy
-of a compound ($kJ_i/mol_i$),
+of a compound ($\mathrm{kJ_i/mol_i}$),
 and $y_i$ is the mole fraction
-of a compound in a mixture ($mol_i/mol_m$).
+of a compound in a mixture ($\mathrm{mol_i/mol_m}$).
 
 %++++++++++++++++++++++++++++++
 \subsection{Compound ($i$)}
@@ -490,9 +491,9 @@ Molar intensive material exergy ($b_i$) is defined as
   b_i = b_{ch,i} + b_{c,i} \; ,
 \end{equation}
 %
-where $b_{ch,i}$ is the chemical exergy of a compound (in units of $kJ_i/mol_i$)
-and $b_{c,i}$ is the concentration exergy of a compound (in units of $kJ_i/mol_i$).
-See \citet[p.276]{Valero_2015}.
+where $b_{ch,i}$ is the chemical exergy of a compound (in units of $\mathrm{kJ_i/mol_i}$)
+and $b_{c,i}$ is the concentration exergy of a compound (in units of $\mathrm{kJ_i/mol_i}$).
+See \citet[p.~276]{Valero_2015}.
 
 %++++++++++++++++++++++++++++++
 \subsubsection{Chemical exergy($b_{ch}$)}
@@ -504,13 +505,14 @@ See \citet[p.276]{Valero_2015}.
 %
 % The chemical potential of a species is equal
 % in the reference environment and statepoint.
+***need a parapgraph on chemical exergy for species in ref. envir***
 If the compound ($i$) does not exist
 in the reference environment,
 then the chemical exergy is the amount of work obtained
 in the reversible chemical reactions
 that decompose the pure compound
-to the set of compounds ($i$) in equilibrium
-with the environment.
+to the set of compounds
+in equilibrium with the environment.
 This process can be decomposed into two steps:
 (1) decomposition of the compound into elements in their standard states and
 (2) conversion of the elements in their environmental stable forms.
@@ -525,8 +527,8 @@ The chemical exergy of a compound ($b_{ch,i}$) is given by
   b_{ch,i} = \Delta{G_{f,i}} + \sum_{i}{n_{j}b_{ch,j}} \; ,
 \end{equation}
 %
-where $b_{ch,i}$ is in units of $kJ_i/mol_i$
-and Gibbs energy of formation ($\Delta{G_f}$) is in units of $kJ_i/mol_i$.
+where $b_{ch,i}$ is in units of $\mathrm{kJ_i/mol_i}$
+and Gibbs energy of formation ($\Delta{G_f}$) is in units of $\mathrm{kJ_i/mol_i}$.
 
 $\Delta{G_{f}}$ values are taken from \citet{Dean_1979}
 and \citep{Gibbs_formation}.
@@ -550,8 +552,8 @@ The entropy of a mixture ($\Delta{S_m}$) is given by
           = -RN_m\sum_{i} y_{i}\ln{y_{i}} \; ,
 \end{equation}
 %
-where $\Delta{S_m}$ is in units of $kJ/mol_m~K$
-and $R$ is the universal gas constant (in units of $kJ/mol_i~K$).
+where $\Delta{S_m}$ is in units of $\mathrm{kJ/mol_m \cdot K}$
+and $R$ is the universal gas constant (in units of $\mathrm{kJ/mol \cdot K}$).
 
 The molar fraction of a species refers back to the species
 as a pure substance.
@@ -565,10 +567,10 @@ at constant temperature and pressure is given by
             = RT_0 N_m \sum_{i}(y_i\ln{y_i}) \; ,
 \end{equation}
 %
-where $W_{min}$ is in units of $kJ/mol_m$.
+where $W_{min}$ is in units of $\mathrm{kJ/mol_m}$.
 The work term is negative
 because the environment puts work
-into the mixture.\\
+into the mixture.
 
 The concentration exergy of a compound (as defined above)
 is the reversible work needed to concentrate it to the pure state.
@@ -605,177 +607,6 @@ when multiplied by the chemical exergy of the element ($b_{ch,j}$),
 is added to the Gibbs free energy ($\Delta{G_f}$)
 in \ref{eq:chemical_exergy_definition}.
 
-% %++++++++++++++++++++++++++++++
-% \subsection{Material Exergy Organ Donor}
-% \label{sec:exergy_of_materials_adios}
-% %++++++++++++++++++++++++++++++
-%
-% %describes matrix based upstream swim for energy supply
-%
-% The exergy of a system ($B$) is the maximum amount of work
-% that can be extracted
-% by processes that take the system
-% to equilibrium with the reference environment,
-% defined by ambient temperature ($T_0$), ambient pressure ($P_0$), and a certain chemical composition.
-%
-% Thus, the total exergy of a system ($B$)
-% is the sum of the work of two reversible processes
-% that bring the system
-% (a)~from $T$ and $P$ to
-%     $T_0$ and $P_0$
-%     (without changes in the chemical composition) and
-% (b)~from its chemical composition to
-%     to the reference chemical composition
-%     (while the system remains at $T_0$ and $P_0$).
-%
-% Reference environments can include the atmosphere,
-% the ocean, or the Earth's crust.
-% Reference species are characterized by partial pressure
-% ($P_i = P_0 y_i$) in the atmosphere,
-% by concentrations ($C_i$) in the ocean
-% and by mole fraction ($y_i$)
-% in the Earth's crust.
-%
-% A natural resource is a mixture of compounds ($i$).
-% If it is a mixture of gases,
-% it is assumed to behave as an ideal mixture of gases.
-% If it is a mixture of solid or liquid components,
-% it is assumed to behave as an ideal solution.
-%
-%
-% Natural resources have a positive material exergy ($b$)
-% because they have a chemical composition
-% that differentiates them from the Environment.
-% Material exergy ($b$) is broken down into four components.
-% The first term is physical exergy ($b_{ph}$).
-% The second term is chemical exergy ($b_{ch}$).
-% The third term is concentration exergy ($b_{c}$).
-% The fourth term is comminution exergy ($b_{com}$).
-% Comminution exergy ($b_{com}$) is the minimum work to change a species
-% from a degraded reference environment to what is found in a mine.
-% Comminution exergy is minimal and ignored at a material conversion chain level.
-%
-% Here, we assume that the system is at
-% $T_0$ and $P_0$;
-% thus, thermomechanical exergy ($b_{ph}$) is zero.
-% Doing so enables focus on chemical and concentration exergy
-% ($b_{ch}$ and $b_{c}$, also called material exergy).
-% Material exergy of a natural resource ($b_i$) is defined as
-%
-% \begin{equation}\label{eq:general_material_exergy_definition}
-%   b_i = b_{ch,i} + b_{c,i}
-% \end{equation}
-% %
-% according to \citet{Valero_2015}.
-%
-% The total material exergy of a compound within a mixture
-% at a statepoint is defined as
-%
-% \begin{equation}\label{eq:specific_molar_intensive_exergy_definition}
-%   b_{m,i,1} = y_{i,1}(\sum_{i}{b_{ch,i,1}}+\sum_{i}{b_{c,i,1}})
-% \end{equation}
-% %
-% where ($m$) represents a mixture
-% and ($1$) is the statepoint (this number varies depending on the statepoint).
-%
-% The total exergy of a compound at a statepoint is
-%
-% \begin{equation}\label{eq:specific_exergy_of_current_statepoint_definition}
-%   B_{m,i,1} = b_{m,i,1}N_{m,1}
-% \end{equation}
-% %
-% where $N_{m,1}$ is the number of moles in a mixture at statepoint 1.
-%
-% If there is a mixture of compounds or elements at a statepoint,
-% then the material exergy is defined as
-%
-% \begin{equation}\label{eq:total_exergy_of_current_statepoint_mixture_definition}
-%   B_{m,1} = \sum{B_{m,i,1}} \; .
-% \end{equation}
-%
-% %++++++++++++++++++++++++++++++
-% \subsubsection{Chemical Exergy Calculation}
-% \label{sssec:chemical_exergy}
-% %++++++++++++++++++++++++++++++
-%
-% Chemical exergy ($b_{ch,i}$) is the minimum work needed
-% to form a compound ($i$) or element ($j$).
-%
-% The chemical exergy of each compound ($b_{ch,i}$) is dependent
-% on whether it exists
-% in the reference environment or not.
-% If the compound ($i$) does not exist
-% in the reference environment,
-% then the chemical exergy is the amount of work obtained
-% in the reversible chemical reactions
-% that decompose the pure compound
-% to the compound ($i$) in equilibrium
-% with the environment.
-%
-% Chemical exergy of a compound ($b_{ch,i,j}$) is given by
-%
-% \begin{equation}\label{eq:chemical_exergy_definition}
-%   b_{ch,i} = \Delta{G_{f,i}} + \sum_{i}{n_{j,i}b_{ch,j}}
-% \end{equation}
-% %
-% where Gibbs energy of formation ($\delta{G_f}$) is the minimum therymodynamic potential
-% of a species reaching chemical equilibrium,
-% $n_{j,i}$ is the number of moles of a compound ($i$) or element ($j$),
-% and $b_{ch,j}$ is the chemical exergy of each element.
-%
-% $\delta{G_{f}}$ values are taken from \citet{Dean_1979}
-% and \citet{Gibbs_formation}.
-% We calculate chemical exergy values ($b_{ch,j}$)
-% following \citet[Table~9.1]{Valero_2015}.\\
-%
-%
-% %++++++++++++++++++++++++++++++
-% \subsubsection{Concentration Exergy Calculation}
-% \label{sssec:concentration_exergy}
-% %++++++++++++++++++++++++++++++
-%
-% Concentration exergy ($b_c$) is the the minimum work required
-% to concentrate a species
-% from a pure substance to the molar concentration
-% at a statepoint.
-% The definition of concentration exergy is derived from the entropy of mixing.
-%
-% The entropy of a mixture ($S_m$) is given by
-%
-% \begin{equation}\label{eq:specific_entropy_of_mixture_definition}
-%   S_m = -RN_m(y_{1}\ln{y_{1}} + y_{2}\ln{y_{2}} + y_{3}\ln{y_{3}} + \ldots)
-%           = -RN_m\sum_{i} y_{i}\ln{y_{i}}
-% \end{equation}
-% %
-% where $R$ is the universal gas constant,
-% $N_m$ is the number of total moles in a mixture,
-% and $y_i$ is the molar fraction of a species.
-% The number of moles in a mixture is determined by
-% the mass composition of the stream and
-% each components molecular weight,
-% which we take from \citet{Fisher_2025}.
-%
-% The molar fraction of a species always refers back to the species
-% as a pure substance.
-% The molar fraction of a pure substance ($y_{i,0}$) is equal to one
-% because the number of total moles in a mixture
-% is equivalent to the total moles of the species.\\
-%
-% \citet{Valero_2015} define concentration exergy of a compound ($b_{c,i}$) as
-%
-% \begin{equation}\label{eq:equation}
-%   b_{c,i} = -RT_0(\ln(y_i) - \ln(y_{i,0})) \; .
-% \end{equation}
-% %
-% This equation is simplified to
-%
-% \begin{equation}\label{eq:concentration_exergy_definition}
-%   b_{c,i} = -RT_0(\ln(y_i))
-% \end{equation}
-% %
-% because the natural log of a pure substance's molar fraction is always zero.
-%
-
 
 %++++++++++++++++++++++++++++++
 \subsection{The exergy of energy}
@@ -796,7 +627,7 @@ The exergy of energy is calculated by
 %
 where $\phi_i$ is the exergy to energy ratio and
 $E_i$ is the lower heating value of a compound multiplied
-by the mass (in units of $kJ$),
+by the mass (in units of kJ),
 e.g.\ natural gas.
 
 The total exergy of energy
@@ -808,7 +639,7 @@ is given by
   X = \sum_i \phi_i E_i \; .
 \end{equation}
 %
-We obtain $\phi_i$ values from \citet{Kotas_1995}.
+We obtain $\phi_i$ values from \citet[app.~C]{Kotas_1995}.
 See Appendix~\ref{sec:appendix_phi}.
 
 %++++++++++++++++++++++++++++++
@@ -839,7 +670,7 @@ and focus on whole streams. (See Figure 2.)
   \begin{equation}\label{eq:Bejan Efficiency}
   \eta_{Bejan} = \frac{N_i(b_{m,i,1} - b_{m,i,0})}{\sum{X_{in}}} \; .
   \end{equation}
-  where $b_{m,i,1}$ is the exergy of a compound in a mixture at statepoint 1 (in units of $kJ_i/mol_i$).
+  where $b_{m,i,1}$ is the exergy of a compound in a mixture at statepoint 1 (in units of $\mathrm{kJ_i/mol_i}$).
   \item The ***Resource*** method focuses on the main product stream's exergy output
   compared to the total exergy input.
   The ***Resource*** efficiency is defined as
