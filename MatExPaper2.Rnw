@@ -375,9 +375,13 @@ Contributions of this paper:
 To analysis material conversion chains,
 we suggest a hierarchy of levels.
 The hierarchy needed for our analysis proceeds as follows:
-statepoint, mixture, compound, and element.
+(1)~statepoint, a defined input or output of a process,
+(2)~mixture, a combination of compounds and/or elements
+that exist at a statepoint,
+(3)~compound, and
+(4)~element.
 This prioritization enables later incorporation
-of product and materials.
+of products and materials.
 
 ***add example order of subscripts***
 
@@ -394,10 +398,9 @@ of product and materials.
 \textbf{Symbol}	& \textbf{Description}\\
 \midrule
 $k$					    & Statepoint \\
-$m$					    & mixture of compounds and elements\\
-                & material\\
-$i$             & compound\\
-$j$             & element\\
+$m$					    & mixture \\
+$i$             & compound \\
+$j$             & element \\
 
 \bottomrule
 \end{tabularx}
@@ -423,17 +426,7 @@ that bring the system
     to the reference chemical composition
     (while the system remains at $T_0$ and $P_0$)
 (c)~from its concentration to pure state
-(d)~from its dispersed state to cohesive state.
-***maybe we move switch the next two paragraphs?***
-Reference environments can include the atmosphere,
-the ocean, or the Earth's crust.
-Species in reference environments are characterized
-by partial pressure ($P_i = P_0 y_i$) in the atmosphere,
-by concentrations ($C_i$) in the ocean,
-and by mole fraction ($y_i$)
-in the Earth's crust.
-We take reference environments
-from \citet[Table~11.1-11.7]{Valero_2015}.\\
+(d)~from its dispersed state to cohesive state.\\
 
 Natural resources have a positive material exergy ($b$) (in units of $kJ/mol$)
 because they have a chemical composition
@@ -447,7 +440,17 @@ Comminution exergy is minimal and ignored for a material conversion chain analys
 \citep[p.280]{Valero_2015}.
 Here, we assume that the material is at
 $T_0$ and $P_0$;
-thus, physical exergy ($b_{ph}$) is zero.
+thus, physical exergy ($b_{ph}$) is zero.\\
+
+Reference environments can include the atmosphere,
+the ocean, or the Earth's crust.
+Species in reference environments are characterized
+by partial pressure ($P_i = P_0 y_i$) in the atmosphere,
+by concentrations ($C_i$) in the ocean,
+and by mole fraction ($y_i$)
+in the Earth's crust.
+We take reference environments
+from \citet[Table~11.1-11.7]{Valero_2015}.\\
 
 %++++++++++++++++++++++++++++++
 \subsection{Mixture ($m$)}
