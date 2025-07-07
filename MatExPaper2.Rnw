@@ -530,8 +530,8 @@ The chemical exergy of a compound ($b_{ch,i}$) is given by
 where $b_{ch,i}$ is in units of $\mathrm{kJ_i/mol_i}$
 and Gibbs energy of formation ($\Delta{G_f}$) is in units of $\mathrm{kJ_i/mol_i}$.
 
-$\Delta{G_{f}}$ values are taken from \citet{Dean_1979}
-and \citep{Gibbs_formation}.
+$\Delta{G_{f}}$ values are taken from \citet[p.9.4-9.94]{Dean_1979}
+and \citep[Table~2]{Gibbs_formation}.
 
 
 %++++++++++++++++++++++++++++++
@@ -601,6 +601,8 @@ at any statepoint.
 The chemical exergy of elements ($b_{ch,j}$) is standardized
 based on the Crepuscular Earth Model
 from \citet[Table~9.1]{Valero_2015}.
+The authors also created a website
+that has chemical exergy values \citet{Valero_2018}
 
 The moles of an element within a compound ($n_{j,i}$),
 when multiplied by the chemical exergy of the element ($b_{ch,j}$),
@@ -709,12 +711,18 @@ and focus on whole streams. (See Figure 2.)
 The material conversion chain is a partial example chain
 of a South African pig iron production process.
 Energy inputs information
-for extraction, hauling, and beneficiation processes
+for extraction and beneficiation processes
 is from the Energy and Environmental Profile of the U.S.\ Mining Industry
-\citet{Ore_2025} and the \citet{Uni_Cape_Town_2002}.
-Additional energy information comes from \citet{Jamison_2015}.
+\citet[Table~4.3\textendash4, 9.2\textendash3, 2.7]{Ore_2025} and \citet[Table~A3.4]{Jamison_2015}.
+Information for iron ore hauling is
+from \citet[Table~8]{Uni_Cape_Town_2002}.
+The energy inputs to the coke oven and coke oven gas treatment
+are from \citet[Fig.~3]{Carmona_2019}
+and \citet{COG_treatment_2025}.
+
 
 ***Add section on CL-PFU database***
+
 %++++++++++++++++++++++++++++++
 \subsection{PSUT Matrix Structure}
 \label{ssec:psut_matrix}
@@ -756,10 +764,11 @@ for each statepoint
 comes from various sources.
 The ore and coal compositions closely represent potential versions
 of a South African pig iron production process.
-Coal production compositions and energy inputs are taken from
-\citet{Matsuhashi_2012},
-\citet{Zhang_2019},
-\citet{Kotas_1995}, and
+Coal production compositions are taken from
+\citet{Matsuhashi_2012}
+and \citet[Table~4]{Zhang_2019}
+The exergy of coal is calculated using formulas
+in \citet[Appx.~C3]{Kotas_1995}.
 various webpages **** Need to cite the web pages. ****
 Limestone production compositions and energy inputs are taken from
 \citet{Saidur_2011},
