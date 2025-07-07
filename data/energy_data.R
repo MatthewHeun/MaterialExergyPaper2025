@@ -135,40 +135,6 @@ ecc_supply_to_mcc_long <- ecc_supply_to_mcc |>
 # These are in kJ and material exergy (B).
 #
 
-# This old code has been replaced
-# by Recca::read_ecc_from_excel()!!!!!!!!!!!!
-# This code can be deleted after a while.
-# ---MKH, 6 July 2025
-
-# mcc_ruvy_wb <- openxlsx2::wb_load(file = file.path("data", "Paper Examples 4.xlsx"))
-# mcc_regions <- openxlsx2::wb_get_named_regions(wb = mcc_ruvy_wb)
-#
-#
-# mcc <- sapply(X = c("R_B", "U_B", "U_feed_B", "U_eiou_B",
-#                     "r_eiou_B", "V_B", "Y_B", "S_units_B"),
-#               FUN = function(this_matrix_name) {
-#                 df <- openxlsx2::read_xlsx(file = file.path("data",
-#                                                             "Paper Examples 4.xlsx"),
-#                                            named_region = this_matrix_name,
-#                                            row_names = TRUE)
-#                 # Convert all NA values to 0
-#                 df[is.na(df)] <- 0
-#                 this_matrix <- df |>
-#                   # Convert the data frame to a matrix
-#                   as.matrix() |>
-#                   # Then to a Matrix
-#                   Matrix::Matrix(sparse = TRUE)
-#                 # Bundle in a vector for easier conversion to a tibble
-#                 c(this_matrix)
-#               },
-#               simplify = FALSE,
-#               USE.NAMES = TRUE) |>
-#   tibble::as_tibble_row() |>
-#   # Add EnergyType column
-#   dplyr::mutate(
-#     EnergyType = "B"
-#   )
-
 mcc_mats <- file.path("data", "Paper Examples.xlsx") |>
   Recca::read_ecc_from_excel(worksheets = "MCC_B_RUVY_matrices_mat_level")
 
