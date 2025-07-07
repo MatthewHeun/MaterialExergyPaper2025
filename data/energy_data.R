@@ -1,6 +1,3 @@
-# This script downloads energy (E) and exergy (X)
-# data from the CL-PFU database
-# for South Africa in 2013.
 # Then, it creates Y_prime matrices from the
 # energy and exergy required to convert 1 ton
 # of iron ore to pig iron
@@ -8,48 +5,26 @@
 
 
 #
-# Read information from the Mexer database.
+# Read information downloaded from the Mexer database.
+# See the file download_data.R.
 #
 
-# Establish the connection to the Mexer database
-conn_params <- list(dbname = "ScratchMDB",
-                    user = "dbcreator",
-                    host = "mexer.site",
-                    port = 6432)
-conn <- DBI::dbConnect(drv = RPostgres::Postgres(),
-                       dbname = conn_params$dbname,
-                       host = conn_params$host,
-                       port = conn_params$port,
-                       user = conn_params$user)
-on.exit(DBI::dbDisconnect(conn))
-
-# Read the ECC data once
-zaf_2013_ecc <- PFUPipelineTools::pl_filter_collect("PSUTReAllChopAllDsAllGrAll",
-                                                    Dataset == "CL-PFU IEA",
-                                                    Country == "ZAF",
-                                                    Year == 2013,
-                                                    LastStage == "Final",
-                                                    IncludesNEU == FALSE,
-                                                    ProductAggregation == "Specified",
-                                                    IndustryAggregation == "Specified",
-                                                    conn = conn,
-                                                    collect = TRUE,
-                                                    matrix_class = "matrix") |>
+zaf_2013_ecc <- file.path("data", "zaf_2013_ecc.rds") |>
+  readRDS() |>
   dplyr::arrange(EnergyType) |>
   dplyr::mutate(
-    worksheet_names = paste(Country, Year, EnergyType, sep = "_")
+    WorksheetNames = paste(Country, Year, EnergyType, sep = "_")
   ) |>
   Recca::calc_io_mats()
 
-# Disconnect from the Mexer database
-DBI::dbDisconnect(conn)
+#
+# Save full ZAF data to an Excel file for later inspection.
+#
 
-
-# Save full ZAF data to an Excel file for inspection.
 zaf_2013_ecc_path <- file.path("data", "zaf_2013_ecc.xlsx")
 zaf_2013_ecc |>
   Recca::write_ecc_to_excel(path = zaf_2013_ecc_path,
-                            worksheet_names = "worksheet_names",
+                            worksheet_names = "WorksheetNames",
                             overwrite_file = TRUE)
 
 #
@@ -59,7 +34,8 @@ zaf_2013_ecc |>
 
 # Read ECC requirements
 # from the MCC spreadsheet.
-mcc_energy_reqts <- openxlsx2::read_xlsx(file = file.path("data", "Paper Examples.xlsx"),
+mcc_energy_reqts <- openxlsx2::read_xlsx(file = file.path("data",
+                                                          "Paper Examples.xlsx"),
                                          named_region = "mcc_energy_reqts") |>
   # Use the TJ versions
   dplyr::select(EnergyCarrier, `E [TJ]`, `X [TJ]`) |>
@@ -85,6 +61,9 @@ mcc_energy_reqts <- openxlsx2::read_xlsx(file = file.path("data", "Paper Example
 ecc_supply_to_mcc <- dplyr::left_join(zaf_2013_ecc,
                                       mcc_energy_reqts,
                                       by = "EnergyType") |>
+  # At this point, delete the energy row.
+  # We don't use it.
+  dplyr::filter(EnergyType == "X") |>
   Recca::new_Y() |>
   dplyr::mutate(
     R = NULL,
@@ -105,10 +84,10 @@ ecc_supply_to_mcc <- dplyr::left_join(zaf_2013_ecc,
     r_EIOU = r_EIOU_prime
   ) |>
   dplyr::select(Dataset, ValidFromVersion, ValidToVersion, Country, Method, EnergyType, LastStage,
-                IncludesNEU, Year, R, U, V, Y, U_EIOU, U_feed, r_EIOU, S_units,
-                worksheet_names) |>
+                IncludesNEU, Year, R, U, V, Y, U_feed, U_EIOU, r_EIOU, S_units,
+                WorksheetNames) |>
   dplyr::mutate(
-    # Convert to kJ everywhere
+    # Convert from TJ to kJ everywhere
     R = matsbyname::hadamardproduct_byname(R, 1e9),
     U = matsbyname::hadamardproduct_byname(U, 1e9),
     U_feed = matsbyname::hadamardproduct_byname(U_feed, 1e9),
@@ -116,75 +95,115 @@ ecc_supply_to_mcc <- dplyr::left_join(zaf_2013_ecc,
     V = matsbyname::hadamardproduct_byname(V, 1e9),
     Y = matsbyname::hadamardproduct_byname(Y, 1e9),
     S_units = matsbyname::setcolnames_byname(S_units, colnames = "kJ")
-  ) |>
-  dplyr::rename(
-    R_X = R, U_X = U, U_feed_X = U_feed, U_eiou_X = U_EIOU,
-    r_EIOU_X = r_EIOU, V_X = V, Y_X = Y, S_units_X = S_units
   )
 
 # Save the ECC that supplies the MCC to an Excel file for inspection.
 ecc_supply_to_mcc |>
   Recca::write_ecc_to_excel(path = file.path("data", "ecc_supply_to_mcc.xlsx"),
-                            worksheet_names = "worksheet_names",
+                            worksheet_names = "WorksheetNames",
                             overwrite_file = TRUE)
 
 
-
 #
-# Read the MCC exergy matrices
+# Modify the ECC by removing the Y matrix and
+# preparing for summation.
 #
 
-mcc_ruvy_wb <- openxlsx2::wb_load(file = file.path("data", "Paper Examples 4.xlsx"))
-mcc_regions <- openxlsx2::wb_get_named_regions(wb = mcc_ruvy_wb)
-
-
-mcc <- sapply(X = c("R_B", "U_B", "U_feed_B", "U_eiou_B",
-                    "r_eiou_B", "V_B", "Y_B", "S_units_B"),
-              FUN = function(this_matrix_name) {
-                df <- openxlsx2::read_xlsx(file = file.path("data",
-                                                            "Paper Examples 4.xlsx"),
-                                           named_region = this_matrix_name,
-                                           row_names = TRUE)
-                # Convert all NA values to 0
-                df[is.na(df)] <- 0
-                this_matrix <- df |>
-                  # Convert the data frame to a matrix
-                  as.matrix() |>
-                  # Then to a Matrix
-                  Matrix::Matrix(sparse = TRUE)
-                # Bundle in a vector for easier conversion to a tibble
-                c(this_matrix)
-              },
-              simplify = FALSE,
-              USE.NAMES = TRUE) |>
-  tibble::as_tibble_row() |>
-  # Add EnergyType column
+ecc_supply_to_mcc_long <- ecc_supply_to_mcc |>
   dplyr::mutate(
-    EnergyType = "B"
-  )
-
-
-
+    WorksheetNames = NULL,
+    Y = NULL,
+    Dataset = NULL,
+    ValidFromVersion = NULL,
+    ValidToVersion = NULL,
+    Country = NULL,
+    Method = NULL,
+    EnergyType = NULL,
+    LastStage = NULL,
+    IncludesNEU = NULL,
+    Year = NULL
+  ) |>
+  tidyr::pivot_longer(cols = c("R", "U", "V",
+                               "U_feed", "U_EIOU", "r_EIOU",
+                               "S_units"),
+                      names_to = "matnames",
+                      values_to = "X")
 
 
 #
-# Modify the ECC by removing the Y matrix
+# Read the MCC exergy matrices.
+# These are in kJ and material exergy (B).
 #
 
+# This old code has been replaced
+# by Recca::read_ecc_from_excel()!!!!!!!!!!!!
+# This code can be deleted after a while.
+# ---MKH, 6 July 2025
+
+# mcc_ruvy_wb <- openxlsx2::wb_load(file = file.path("data", "Paper Examples 4.xlsx"))
+# mcc_regions <- openxlsx2::wb_get_named_regions(wb = mcc_ruvy_wb)
+#
+#
+# mcc <- sapply(X = c("R_B", "U_B", "U_feed_B", "U_eiou_B",
+#                     "r_eiou_B", "V_B", "Y_B", "S_units_B"),
+#               FUN = function(this_matrix_name) {
+#                 df <- openxlsx2::read_xlsx(file = file.path("data",
+#                                                             "Paper Examples 4.xlsx"),
+#                                            named_region = this_matrix_name,
+#                                            row_names = TRUE)
+#                 # Convert all NA values to 0
+#                 df[is.na(df)] <- 0
+#                 this_matrix <- df |>
+#                   # Convert the data frame to a matrix
+#                   as.matrix() |>
+#                   # Then to a Matrix
+#                   Matrix::Matrix(sparse = TRUE)
+#                 # Bundle in a vector for easier conversion to a tibble
+#                 c(this_matrix)
+#               },
+#               simplify = FALSE,
+#               USE.NAMES = TRUE) |>
+#   tibble::as_tibble_row() |>
+#   # Add EnergyType column
+#   dplyr::mutate(
+#     EnergyType = "B"
+#   )
+
+mcc_mats <- file.path("data", "Paper Examples.xlsx") |>
+  Recca::read_ecc_from_excel(worksheets = "MCC_B_RUVY_matrices_mat_level")
 
 
 #
 # Modify the MCC by removing the "Supply [of X]"
-# rows from the R matrix.
+# rows from the R matrix and prepare for summation.
 #
 
-
-
+mcc_mats_long <- mcc_mats |>
+  dplyr::mutate(
+    WorksheetNames = NULL,
+    R = matsbyname::select_rows_byname(.data[["R"]], remove_pattern = "^Supply")
+  ) |>
+  tidyr::pivot_longer(cols = c("R", "U", "V", "Y",
+                               "U_feed", "U_EIOU", "r_EIOU",
+                               "S_units"),
+                      names_to = "matnames",
+                      values_to = "B")
 
 
 #
 # Sum the ECC and MCC matrices
 #
+
+bx_mats <- dplyr::left_join(mcc_mats_long,
+                            ecc_supply_to_mcc_long,
+                            by = "matnames") |>
+  dplyr::mutate(
+    BX = matsbyname::sum_byname(.data[["B"]], .data[["X"]])
+  ) |>
+  tidyr::pivot_longer(cols = c("B", "X", "BX"),
+                      names_to = "EnergyType",
+                      values_to = "matvals") |>
+  tidyr::pivot_wider(names_from = "matnames", values_from = "matvals")
 
 
 #
@@ -192,3 +211,8 @@ mcc <- sapply(X = c("R_B", "U_B", "U_feed_B", "U_eiou_B",
 # conversion chains
 # to an Excel file for inspection
 #
+
+bx_mats |>
+  Recca::write_ecc_to_excel(path = file.path("data", "BX.xlsx"),
+                            worksheet_names = "EnergyType",
+                            overwrite_file = TRUE)
