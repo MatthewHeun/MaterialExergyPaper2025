@@ -141,13 +141,19 @@ mcc_mats <- file.path("data", "Paper Examples.xlsx") |>
 
 #
 # Modify the MCC by removing the "Supply [of X]"
-# rows from the R matrix and prepare for summation.
+# rows from the R matrix and removing
+# the [from Supply] suffix from rows in the U matrix to
+# prepare for summation.
 #
 
 mcc_mats_long <- mcc_mats |>
   dplyr::mutate(
     WorksheetNames = NULL,
-    R = matsbyname::select_rows_byname(.data[["R"]], remove_pattern = "^Supply")
+    R = matsbyname::select_rows_byname(.data[["R"]], remove_pattern = "^Supply"),
+    # U = matsbyname::setrownames_byname(
+    #   RCLabels::modify_label_pieces(matsbyname::getrownames_byname(.data[["U"]]),
+    #                                 piece = "from", mod_map = c(Supply = ""), )
+    # )
   ) |>
   tidyr::pivot_longer(cols = c("R", "U", "V", "Y",
                                "U_feed", "U_EIOU", "r_EIOU",
