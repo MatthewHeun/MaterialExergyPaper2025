@@ -670,33 +670,43 @@ and focus on whole streams. (See Figure 2.)
   to concentrate a specific element or compound.
   We define ***Bejan*** efficiency as
   \begin{equation}\label{eq:Bejan Efficiency}
-  \eta_{Bejan} = \frac{N_i(b_{m,i,1} - b_{m,i,0})}{\sum{X_{in}}} \; .
+    \eta_{Bejan} = \frac{N_i(b_{m,i,1} - b_{m,i,0})}{\sum{X_{in}}} \; .
   \end{equation}
   where $b_{m,i,1}$ is the exergy of a compound in a mixture at statepoint 1 (in units of $\mathrm{kJ_i/mol_i}$).
   \item The ***Resource*** method focuses on the main product stream's exergy output
   compared to the total exergy input.
-  The ***Resource*** efficiency is defined as
+  The ***Resource*** efficiency is
   \begin{equation}\label{eq:Resource Efficiency}
-  \eta_{Resource} = \frac{(B_{m,i,1})}{\sum{X_{in}}+\sum{B_{in}}} \; .
+    \eta_{Resource} = \frac{(B_{m,i,1})}{\sum{X_{in}}+\sum{B_{in}}} \; ,
   \end{equation}
-
+  from \citet[eq.~2.44][p.~32]{Dincer_2007}.
   The ***Resource*** method quantifies
   how efficiently a process
   can produce the desired output.
 
-  \item The ***Student*** method focuses on the total exergy output
+  \item The ***Rational efficiency*** method focuses on the total exergy output
   compared to the total exergy input.
-  We define the ***Student*** efficiency as
-  \begin{equation}\label{eq:Student Efficiency}
-  \eta_{Students} = \frac{\sum{B_{out}}}{\sum{X_{in}} + \sum{B_{in}}} \; .
+  \citet[eq.~2.45][p.~32]{Dincer_2007} defines ***Rational efficiency*** efficiency as
+  \begin{equation}\label{eq:Rational efficiency}
+    \eta_{Rational} = \frac{\sum{B_{out}}}{\sum{X_{in}} + \sum{B_{in}}} \; .
   \end{equation}
 
-  The ***Student*** method is helpful
+  The ***Rational efficiency*** method is helpful
   for quick efficiency calculations
   of an overall process.
 
 \end{itemize}
 
+For our purpose, the previous efficiencies
+apply to one process
+in a material conversion chain.
+Larger scale efficiencies
+are given by
+\begin{equation}\label{eq:Task efficiency}
+  \eta_{Task} = \frac{\sum{B_{in,min,theoretical}}}{\sum{B_{in,actual}}} \; .
+\end{equation}
+%
+See \citet[eq.~2.46][p.~32]{Dincer_2007}.
 
 
 %++++++++++++++++++++++++++++++
