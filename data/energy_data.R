@@ -154,8 +154,9 @@ mcc_mats_long <- mcc_mats |>
       regex_pattern = " [from Supply]",
       replacement = "",
       fixed = TRUE),
-    U = matsbyname::setrownames_byname(.data[["U"]],
-                                       rownames = .data[["new_U_rownames"]])
+    # U = matsbyname::setrownames_byname(.data[["U"]],
+    #                                    rownames = .data[["new_U_rownames"]]),
+    # new_U_rownames = NULL
   ) |>
   tidyr::pivot_longer(cols = c("R", "U", "V", "Y",
                                "U_feed", "U_EIOU", "r_EIOU",
