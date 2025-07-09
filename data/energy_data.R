@@ -11,7 +11,6 @@
 
 zaf_2013_ecc <- file.path("data", "zaf_2013_ecc.rds") |>
   readRDS() |>
-  dplyr::arrange(EnergyType) |>
   dplyr::mutate(
     WorksheetNames = paste(Country, Year, EnergyType, sep = "_")
   ) |>
@@ -34,13 +33,13 @@ zaf_2013_ecc |>
 
 # Read ECC requirements
 # from the MCC spreadsheet.
+# These energy requirements are in TJ.
 mcc_energy_reqts <- openxlsx2::read_xlsx(file = file.path("data",
                                                           "Paper Examples.xlsx"),
                                          named_region = "mcc_energy_reqts") |>
-  # Use the TJ versions
-  dplyr::select(EnergyCarrier, `E [TJ]`, `X [TJ]`) |>
-  dplyr::rename(E = "E [TJ]", X = "X [TJ]", rownames = "EnergyCarrier") |>
-  tidyr::pivot_longer(cols = c("E", "X"),
+  dplyr::select(-`X [kJ]`) |>
+  dplyr::rename(X = "X [TJ]", rownames = "EnergyCarrier") |>
+  tidyr::pivot_longer(cols = "X",
                       names_to = "EnergyType",
                       values_to = "matvals") |>
   dplyr::mutate(
@@ -55,15 +54,13 @@ mcc_energy_reqts <- openxlsx2::read_xlsx(file = file.path("data",
 #
 # Build a new energy conversion chain that
 # supplies exactly the amount of energy (and exergy)
-# required for the material conversion chain
+# required for the material conversion chain.
+# This ECC is in TJ.
 #
 
 ecc_supply_to_mcc <- dplyr::left_join(zaf_2013_ecc,
                                       mcc_energy_reqts,
                                       by = "EnergyType") |>
-  # At this point, delete the energy row.
-  # We don't use it.
-  dplyr::filter(EnergyType == "X") |>
   Recca::new_Y() |>
   dplyr::mutate(
     R = NULL,
@@ -98,6 +95,7 @@ ecc_supply_to_mcc <- dplyr::left_join(zaf_2013_ecc,
   )
 
 # Save the ECC that supplies the MCC to an Excel file for inspection.
+# This ECC is in TJ.
 ecc_supply_to_mcc |>
   Recca::write_ecc_to_excel(path = file.path("data", "ecc_supply_to_mcc.xlsx"),
                             worksheet_names = "WorksheetNames",
@@ -142,18 +140,22 @@ mcc_mats <- file.path("data", "Paper Examples.xlsx") |>
 #
 # Modify the MCC by removing the "Supply [of X]"
 # rows from the R matrix and removing
-# the [from Supply] suffix from rows in the U matrix to
-# prepare for summation.
+# the [from Supply] suffix from row and column names
+# in other matrices to prepare for summation.
 #
 
 mcc_mats_long <- mcc_mats |>
   dplyr::mutate(
     WorksheetNames = NULL,
     R = matsbyname::select_rows_byname(.data[["R"]], remove_pattern = "^Supply"),
-    # U = matsbyname::setrownames_byname(
-    #   RCLabels::modify_label_pieces(matsbyname::getrownames_byname(.data[["U"]]),
-    #                                 piece = "from", mod_map = c(Supply = ""), )
-    # )
+    # Remove " [from Supply]" from the various matrices
+    new_U_rownames = RCLabels::replace_by_pattern(
+      labels = matsbyname::getrownames_byname(.data[["U"]]),
+      regex_pattern = " [from Supply]",
+      replacement = "",
+      fixed = TRUE),
+    U = matsbyname::setrownames_byname(.data[["U"]],
+                                       rownames = .data[["new_U_rownames"]])
   ) |>
   tidyr::pivot_longer(cols = c("R", "U", "V", "Y",
                                "U_feed", "U_EIOU", "r_EIOU",

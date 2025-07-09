@@ -23,6 +23,7 @@ on.exit(DBI::dbDisconnect(conn))
 zaf_2013_ecc <- PFUPipelineTools::pl_filter_collect("PSUTReAllChopAllDsAllGrAll",
                                                     Dataset == "CL-PFU IEA",
                                                     Country == "ZAF",
+                                                    EnergyType == "X",
                                                     Year == 2013,
                                                     LastStage == "Final",
                                                     IncludesNEU == FALSE,
