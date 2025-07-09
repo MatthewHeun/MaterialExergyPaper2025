@@ -645,7 +645,7 @@ is given by
   X = \sum_i \phi_i E_i \; .
 \end{equation}
 %
-We obtain $\phi_i$ values from \citet[app.~C]{Kotas_1995}.
+We obtain $\phi_i$ values from \citet[appx.~C]{Kotas_1995}.
 See Appendix~\ref{sec:appendix_phi}.
 
 %++++++++++++++++++++++++++++++
