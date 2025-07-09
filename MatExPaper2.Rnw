@@ -621,7 +621,11 @@ To change a mixture's composition,
 energy is used
 to concentrate and remove components.
 
-The exergy of energy is calculated by
+Energy inputs we treat as materials
+when the Gibbs energy of formation
+is available.
+If the Gibbs energy of formation is not available,
+then the exergy of energy is calculated by
 
 \begin{equation}\label{eq:energy_exergy_definition}
   X_i = \phi_i E_i \; ,
@@ -870,8 +874,8 @@ in Table~\ref{tab2} is **9**~MJ.
 
 
 %++++++++++++++++++++++++++++++
-\subsection{Efficiencies }
-\label{ssec: efficiency}
+\subsection{Efficiencies}
+\label{ssec:efficiency}
 %++++++++++++++++++++++++++++++
 
 Three efficiency calculation methods,
@@ -1060,9 +1064,29 @@ All appendix sections must be cited in the main text. In the appendices, Figures
 
 \section[\appendixname~\thesection]{Exergy to energy ratios, $\phi$}
 \label{sec:appendix_phi}
-***Fill this in***
+Phi constants are the energy to exergy ratio of fuels.
+A table of phi constants are given by \citet[Table~C.1]{Kotas_1995}.
 
+Fuels such as fuel oil, diesel, and gasoline
+do not have consistent chemical compositions.
+\citet[Appx.C][Eqn.C.3,6]{Kotas_1995} provides equations
+to calculate the phi constant for these fuels.
+Dry solid fuels have a phi constant given by
 
+\begin{equation}\label{eq:phi_solid}
+  \phi_{dry} = 1.0437 + 0.1882\frac{h}{c} + 0.0610\frac{o}{n} + 0.0404\frac{n}{c} \; ,
+\end{equation}
+%
+where $h$, $c$, $n$, and $o$ are mass fractions of hydrogen, carbon, nitrogen, and oxygen
+(in units of kg/kg).
+
+Liquid fuels have a phi constant given by
+
+\begin{equation}\label{eq:phi_liquid}
+  \phi = 1.0401 + 0.1728\frac{h}{c} + 0.0432\frac{o}{c} + 0.2169\frac{s}{c}(1-2.0628\frac{h}{c}) \; ,
+\end{equation}
+%
+where $s$ is the mass fraction of sulfur (in units of kg/kg).
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\isPreprints{}{% This command is only used for ``preprints''.
 \begin{adjustwidth}{-\extralength}{0cm}
