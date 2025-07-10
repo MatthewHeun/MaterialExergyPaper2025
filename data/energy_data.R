@@ -103,8 +103,8 @@ ecc_supply_to_mcc |>
 
 
 #
-# Modify the ECC by removing the Y matrix and
-# preparing for summation.
+# Modify the ECC by removing the Y matrix
+# in preparation for summation with the MCC.
 #
 
 ecc_supply_to_mcc_long <- ecc_supply_to_mcc |>
@@ -147,22 +147,22 @@ mcc_mats <- file.path("data", "Paper Examples.xlsx") |>
 mcc_mats_long <- mcc_mats |>
   dplyr::mutate(
     WorksheetNames = NULL,
-    R = matsbyname::select_rows_byname(.data[["R"]], remove_pattern = "^Supply"),
-    # Remove " [from Supply]" from the various matrices
-    new_U_rownames = RCLabels::replace_by_pattern(
-      labels = matsbyname::getrownames_byname(.data[["U"]]),
-      regex_pattern = " [from Supply]",
-      replacement = "",
-      fixed = TRUE),
-    # U = matsbyname::setrownames_byname(.data[["U"]],
-    #                                    rownames = .data[["new_U_rownames"]]),
-    # new_U_rownames = NULL
+    R = matsbyname::select_rows_byname(.data[["R"]], remove_pattern = "^Supply")
   ) |>
   tidyr::pivot_longer(cols = c("R", "U", "V", "Y",
                                "U_feed", "U_EIOU", "r_EIOU",
                                "S_units"),
                       names_to = "matnames",
-                      values_to = "B")
+                      values_to = "B") |>
+  # Rename Product margins by removing " [from Supply]",
+  # thereby preparing for summation.
+  dplyr::mutate(
+    B = .data[["B"]] |>
+      matsbyname::rename_via_pattern_byname(margin = "Product",
+                                            regexp_pattern = " [from Supply]",
+                                            replacement = "",
+                                            fixed = TRUE)
+  )
 
 
 #
@@ -191,3 +191,27 @@ bx_mats |>
   Recca::write_ecc_to_excel(path = file.path("data", "BX.xlsx"),
                             worksheet_names = "EnergyType",
                             overwrite_file = TRUE)
+
+#
+# Double-check energy balances and
+# calculate rational efficiencies
+#
+
+efficiencies <- bx_mats |>
+  dplyr::filter(EnergyType == "BX") |>
+  Recca::verify_SUT_energy_balance() |>
+  Recca::calc_eta_i()
+
+
+#
+# Calculate efficiencies
+#
+
+eta_i_mat <- efficiencies$eta_i[[1]] |>
+  as.matrix()
+eta_i_df <- eta_i_mat |>
+  as.data.frame(eta_i_mat, row.names = NULL) |>
+  tibble::rownames_to_column(var = "machine")
+eta_i_path <- file.path("data", "eta_i.xlsx")
+eta_i_df |>
+  openxlsx2::write_xlsx(file = eta_i_path, overwrite = TRUE)
