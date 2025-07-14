@@ -71,6 +71,7 @@
 % Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, float, amsmath, amssymb, lineno, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, colortbl, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, array, tabularx, pbox, ragged2e, tocloft, marginnote, marginfix, enotez, amsthm, natbib, hyperref, cleveref, scrextend, url, geometry, newfloat, caption, draftwatermark, seqsplit
 % cleveref: load \crefname definitions after \begin{document}
 \usepackage{makecell}
+\usepackage{mhchem}
 \usepackage{rotating}
 
 
@@ -332,7 +333,7 @@ print_statepoint_table(statepoint_table_name = "statepoint_table",
 \section{Introduction}
 \label{sec:introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+HEUN
 ***Need to discuss exergy is a way to perform consistent analysis of both material and energy***
 Exergy analysis:
 -converts mass and energy into work used in a process
@@ -735,7 +736,7 @@ are from \citet[Fig.~3]{Carmona_2019}
 and \citet{COG_treatment_2025}.
 
 
-***Add section on CL-PFU database***
+***HEUN Add section on CL-PFU database***
 
 %++++++++++++++++++++++++++++++
 \subsection{PSUT Matrix Structure}
@@ -768,6 +769,8 @@ The use (\textbf{U}) and make (\textbf{V}) matrices
 describe the consumption and production of materials and energy by processes in conversion chains.
 The final demand matrix (\textbf{Y}) includes product consumption by economic sectors.
 (See \citet[Table~1]{Aramendia_2022}.)
+
+***HEUN UCC approach description. Write after figures are ready***
 
 %++++++++++++++++++++++++++++++
 \subsubsection{Material Data}
