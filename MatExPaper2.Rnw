@@ -578,17 +578,17 @@ is the reversible work needed to concentrate it to the pure state.
 \citet{Valero_2015} define concentration exergy of a compound ($b_{c,i}$) as
 
 \begin{equation}\label{eq:concentration_exergy}
-  b_{c,i} = RT_0(\ln(y_i) - \ln(y_{i,0})) \; .
+  b_{c,i} = RT_0[\ln(y_i) - \ln(y_{i,0})] \; .
 \end{equation}
 %
 
-Simplifying \ref{eq:concentration_exergy} with $y_i,0 = 1$ and $\ln(y_{i,0})$ gives
+Simplifying Equation (\ref{eq:concentration_exergy})
+with $y_{i,0} = 1$ gives
 
 \begin{equation}\label{eq:concentration_exergy_definition}
-  b_{c,i} = RT_0(\ln(y_i))
+  b_{c,i} = R T_0 \ln(y_i) \, .
 \end{equation}
 %
-because the natural log of a pure substance's molar fraction is always zero.
 Concentration exergy is always negative
 because the pure substance
 in the reference environment
@@ -646,7 +646,7 @@ is given by
   X = \sum_i \phi_i E_i \; .
 \end{equation}
 %
-We obtain $\phi_i$ values from \citet[appx.~C]{Kotas_1995}.
+We obtain $\phi$ values from \citet[Appendix~C]{Kotas_1995}.
 See Appendix~\ref{sec:appendix_phi}.
 
 %++++++++++++++++++++++++++++++
