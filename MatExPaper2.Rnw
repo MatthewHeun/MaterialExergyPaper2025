@@ -1033,7 +1033,7 @@ LD & Linear dichroism
 \subsection[\appendixname~\thesubsection]{}
 The appendix is an optional section that can contain details and data supplemental to the main text---for example, explanations of experimental details that would disrupt the flow of the main text but nonetheless remain crucial to understanding and reproducing the research shown; figures of replicates for experiments of which representative data are shown in the main text can be added here if brief, or as Supplementary Data. Mathematical proofs of results not central to the paper can be added as an appendix.
 
-\begin{table}[H]
+\begin{table}
 \caption{Nomenclature table\label{tab:nomenclature}}
 %\newcolumntype{C}{>{\centering\arraybackslash}X}
 \begin{tabularx}{\textwidth}{CCC}
@@ -1055,15 +1055,22 @@ $S_m$             & entropy of mixing [kJ/mol-K]\\
 $R$               & universal gas constant [kJ/mol-K]\\
 $N$               & number of moles [mol]\\
 $B$               & molar intensive exergy [kJ]\\
+$X$               & energy exergy [kJ]\\
+$E$               & energy [kJ]\\
+$\phi$            & exergy to energy ratio [kJ/kJ]\\
+$\eta$            & efficiency [kJ/kJ]\\
+$W_{min}$         & minimum work [kJ]\\
+
 \bottomrule
 \end{tabularx}
 \end{table}
 
 \section[\appendixname~\thesection]{}
 All appendix sections must be cited in the main text. In the appendices, Figures, Tables, etc. should be labeled, starting with ``A''---e.g., Figure A1, Figure A2, etc.
-
+%=====================================
 \section[\appendixname~\thesection]{Exergy to energy ratios, $\phi$}
 \label{sec:appendix_phi}
+%=====================================
 Phi constants are the energy to exergy ratio of fuels.
 A table of phi constants are given by \citet[Table~C.1]{Kotas_1995}.
 
@@ -1087,6 +1094,39 @@ Liquid fuels have a phi constant given by
 \end{equation}
 %
 where $s$ is the mass fraction of sulfur (in units of kg/kg).
+
+
+%=====================================
+\section[\appendixname~\thesection]{Chemical Formulas for MCC}
+\label{sec:chem_formulas}
+%=====================================
+Processes within the material conversion chain
+cause chemical change.
+The following sections give
+the chemical formulas
+for certain processes.
+
+%=====================================
+\subsection[\appendixname~\thesection]{Rotary Kiln}
+\label{ssec:rotary_kiln}
+%=====================================
+
+%=====================================
+\subsection[\appendixname~\thesection]{Coke Oven}
+\label{ssec:coke_oven}
+%=====================================
+
+%=====================================
+\subsection[\appendixname~\thesection]{Blast Furnace}
+\label{ssec:blast_furnace}
+%=====================================
+
+%=====================================
+\subsection[\appendixname~\thesection]{Fuel Combustion}
+\label{ssec:fuel_combustion}
+%=====================================
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\isPreprints{}{% This command is only used for ``preprints''.
 \begin{adjustwidth}{-\extralength}{0cm}
