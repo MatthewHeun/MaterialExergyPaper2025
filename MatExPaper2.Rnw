@@ -382,7 +382,7 @@ Contributions of this paper:
 
 %------------------------------
 \subsubsection{Material Data}
-\label{sssec:material_data}
+\label{sec:material_data}
 %------------------------------
 
 Mass amounts and composition
@@ -404,7 +404,7 @@ Limestone production compositions and energy inputs are taken from
 
 %------------------------------
 \subsubsection{Material conversion chain energy requirements}
-\label{sssec:energy_data}
+\label{sec:energy_data}
 %------------------------------
 
 The example material conversion chain is a partial example chain
@@ -456,39 +456,33 @@ one of the countries in the CL-PFU database.
 %++++++++++++++++++++++++++++++
 
 %------------------------------
-\subsubsection{Hierarchy of States Analysis}
-\label{sec:hierarchy_of_things?}
+\subsubsection{Material hierarchy}
+\label{sec:material_hierarchy}
 %------------------------------
 
 To analyze material conversion chains,
-we suggest a hierarchy of levels.
-The hierarchy for our analysis is:
-(1)~statepoint, a material stream that is an input or output of a process,
-(2)~mixture, a combination of compounds and/or elements
+we employ a hierarchy for our analysis.
+Our hierarchy is:
+(a)~statepoint, a material stream that is an input or output of a process,
+(b)~mixture, a combination of compounds and/or elements
 that exist at a statepoint,
-(3)~compound, and
-(4)~element.
-This prioritization enables later incorporation
-of products and materials.
+(c)~compound, and
+(d)~element.
+This ordering enables later incorporation of
+components (a configuration of mixtures) and
+products (an assembly of components)
+between mixture and statepoint in our hierarchy.
 
-***add example order of subscripts***
-
-
-%------------------------------
-\subsubsection{Nomenclature for Hierarchy}
-\label{sec:hierarchy_nomenclature}
-%------------------------------
-
-At any statepoint,
-the materials may be described
-as a mixure of compounds,
-and the compounds as an arrangement of elements,
-thereby forming a hierarchy.
-For this paper, we adopt the hierarchy
-and subscript symbols shown
-in Table~\ref{tab:hierarchy_nomenclature}.
+With this approach,
+the material at any statepoint
+may be described as a mixture of compounds,
+and the compounds an arrangement of elements.
+For this paper, we adopt subscript symbols for the hierarchy
+as shown in Table~\ref{tab:hierarchy_nomenclature}.
 For example, $B_{m,k}$ gives the material exergy ($B$)
 of a mixture (subscript $m$) at statepoint $k$.
+Our choice of $j$ (for elements) and $i$ (for compounds)
+follows \citet{Valero_2015}.
 
 \begin{table}
 \caption{Hierarchy nomenclature.}
@@ -500,14 +494,15 @@ Subscript	& Meaning \\
 $k$					    & statepoint \\
 $m$					    & mixture \\
 $i$             & compound \\
-$j$             & element \\
+$j$             & elements \\
 \bottomrule
 \end{tabularx}
 \label{tab:hierarchy_nomenclature}
 \end{table}
 
+
 %------------------------------
-\subsubsection{Material Exergy}
+\subsubsection{The exergy of materials}
 \label{sec:exergy_of_materials}
 %------------------------------
 
@@ -530,7 +525,7 @@ that bring the system
 (c)~from its concentration to pure state
 (d)~from its dispersed state to cohesive state.
 
-Natural resources have a positive material exergy ($b$) (in units of kJ/mol)
+Natural resources have a positive material exergy ($b$ in kJ/mol)
 because they have a chemical composition
 different from their Environment.
 Material exergy is comprised of four components:
@@ -555,10 +550,10 @@ We take reference environments
 from \citet[Table~11.1-11.7]{Valero_2015}.
 
 
-%------------------------------
-\subsubsection{Mixture ($m$)}
+%..............................
+\paragraph{Mixture ($m$)}
 \label{sec:exergy_of_mixtures}
-%------------------------------
+%..............................
 
 The total material exergy of a mixture ($B_m$) at a statepoint is
 
@@ -584,10 +579,10 @@ and $y_i$ is the mole fraction
 of a compound in a mixture ($\mathrm{mol_i/mol_m}$).
 
 
-%------------------------------
-\subsubsection{Compound ($i$)}
+%..............................
+\paragraph{Compound ($i$)}
 \label{sec:exergy_of_compounds}
-%------------------------------
+%..............................
 
 Molar intensive material exergy ($b_i$) is defined as
 
@@ -600,10 +595,10 @@ and $b_{c,i}$ is the concentration exergy of a compound (in units of $\mathrm{kJ
 See \citet[p.~276]{Valero_2015}.
 
 
-%------------------------------
-\subsubsection{Chemical exergy($b_{ch}$)}
+%..............................
+\paragraph{Chemical exergy($b_{ch}$)}
 \label{ssec:chemical_exergy}
-%------------------------------
+%..............................
 
 % The chemical exergy of a compound ($b_{ch,i}$) is the minimum work needed
 % to form that compound.
@@ -639,10 +634,10 @@ $\Delta{G_{f}}$ values are taken from \citet[p.9.4-9.94]{Dean_1979}
 and \citep[Table~2]{Gibbs_formation}.
 
 
-%------------------------------
-\subsubsection{Concentration Exergy ($b_c$)}
+%..............................
+\paragraph{Concentration Exergy ($b_c$)}
 \label{sssec:concentration_exergy}
-%------------------------------
+%..............................
 
 The concentration exergy of a mixture ($b_{c,m}$) is the the minimum work required
 to separate the mixture into pure compounds.
@@ -699,10 +694,11 @@ in the reference environment
 becomes less concentrated
 at any statepoint.
 
-%------------------------------
-\subsubsection{Elements ($j$)}
+
+%..............................
+\paragraph{Elements ($j$)}
 \label{sssec:elements}
-%------------------------------
+%..............................
 
 The chemical exergy of elements ($b_{ch,j}$) is standardized
 based on the Crepuscular Earth Model
@@ -755,18 +751,94 @@ is given by
 We obtain $\phi$ values from \citet[Appendix~C]{Kotas_1995}.
 See Appendix~\ref{sec:appendix_phi}.
 
+
 %------------------------------
-\subsubsection{Efficiency Methods}
+\subsubsection{PSUT framework and $\mat{RUVY}$ matrices}
+\label{sec:psut_framework}
+%------------------------------
+
+The native data format for the CL-PFU database~\citep{Brockway:2024ab} is
+the $\mat{RUVY}$ matrices of the
+Physical Supply-Use Table (PSUT) framework~\citep{Heun:2018,Aramendia_2022}.
+To date, the PSUT framework has been applied
+to energy conversion chains~\cite{Heun:2019aa,Aramendia:2024ac};
+this paper represents its first application
+to unified material and energy conversion chain analysis.
+
+One benefit of the PSUT framework
+is that it provides natural structure for data in
+material ($M$ in mass units),
+energy ($E$ in energy units), and
+exergy ($B$ for material and $X$ for energy in exergy units)
+conversion chains
+developed in Section~\ref{sec:results}
+below.
+The four matrices of the PSUT framework are
+the resource matrix ($\mat{R}$) which contains exogeneous inputs to a conversion chain,
+the use ($\mat{U}$) and make ($\mat{V}$) matrices which
+describe the consumption and production of materials and energy
+by processes in conversion chains, and
+the final demand matrix ($\mat{Y}$) which describes consumption
+of materials and energy by economic sectors.
+(See \citet[Figure~1]{Aramendia_2022}.)
+
+
+%------------------------------
+\subsubsection{Material and energy conversion chains}
+\label{sec:conversion_chains}
+%------------------------------
+
+To illustrate application of the exergy of materials
+to societal exergy analysis,
+we develop several material and energy conversion chains
+using the the $\mat{RUVY}$ matrices of the PSUT framework.
+First, we develop
+two versions of the example material conversion chain:
+(a) A mass-only material conversion chain (MCC) that contains
+    mass flows from extraction through a blast furnace
+    to the Iron and steel industry
+    (Section~\ref{sec:material_data})
+    and
+(b) an exergy version of the MCC (BCC) wherein material exergies
+    are calculated according to Section~\ref{sec:exergy_of_materials}.
+In addition, we develop two versions of the
+energy conversion chain to supply the MCC's energy requirements:
+(c) an energy conversion chain (ECC) extracted from the CL-PFU database
+    (Section~\ref{sec:energy_data} and~\ref{sec:ecc_for_mcc})
+    and
+(d) an exergy version of the ECC (XCC), also
+    extracted from the CL-PFU database.
+Finally, we develop
+(e) a unified conversion chain (BXCC) which
+    brings the exergy of materials and energy together,
+    as described below.
+The basis for all material and energy conversion chains is
+1000~kg of iron ore.
+
+
+%------------------------------
+\subsubsection{Creating the unified conversion chain (BXCC)}
+\label{sec:creating_bxcc}
+%------------------------------
+
+***HEUN UCC approach description. Write after figures are ready***
+
+
+
+%------------------------------
+\subsubsection{Process efficiencies}
 \label{ssec:efficiency_methods}
 %------------------------------
 
-Several efficiencies can be  calculated
-for processes in a material conversion chain.
-***Change figure***
+Given a unified conversion chain (BXCC),
+several efficiencies can be calculated
+for processes therein.
+
 \begin{figure}
   \centering
   \includegraphics[width=0.8\linewidth]{images/efficiency_methods.pdf}
-  \caption{Three efficiency methods used for energy and material exergy conversion chains.}
+  \caption{Three efficiency methods used for energy and material exergy conversion chains.
+           ***Change figure***}
   \label{fig:efficiencymethods}
 \end{figure}
 
@@ -817,45 +889,8 @@ are given by
   \eta_{Task} = \frac{\sum{B_{in,min,theoretical}}}{\sum{B_{in,actual}}} \; .
 \end{equation}
 %
-See \citet[eq.~2.46][p.~32]{Dincer_2007}.
+See \citet[Equation~2.46, p.~32]{Dincer_2007}.
 
-
-%------------------------------
-\subsubsection{PSUT framework and $\mat{RUVY}$ matrices}
-\label{sec:psut_framework}
-%------------------------------
-
-The native data format for the CL-PFU databse is
-the $\mat{RUVY}$ matrices of the PSUT framework~\citep{Heun:2018,Aramendia_2022}.
-To date, the PSUT framework has been applied
-to energy conversion chains~\cite{Heun:2019aa,Aramendia:2024ac};
-this paper represents its first application
-to a material conversion chain.
-
-A benefit of the Physical Supply-Use Table (PSUT) framework
-is that it provides natural structure for data in
-material ($M$ in mass units),
-energy ($E$ in energy units), and
-exergy ($B$ for material and $X$ for energy in exergy units)
-conversion chains
-developed in Section~\ref{sec:results}
-below.
-The four matrices of the PSUT framework are
-the resource matrix ($\mat{R}$) which contains exogeneous inputs to a conversion chain,
-the use ($\mat{U}$) and make ($\mat{V}$) matrices which
-describe the consumption and production of materials and energy
-by processes in conversion chains, and
-the final demand matrix ($\mat{Y}$) which describes consumption
-of materials and energy by economic sectors.
-(See \citet[Figure~1]{Aramendia_2022}.)
-
-
-%------------------------------
-\subsubsection{Creating the Unified Conversion Chain (BXCC)}
-\label{sec:creating_bxcc}
-%------------------------------
-
-***HEUN UCC approach description. Write after figures are ready***
 
 
 
