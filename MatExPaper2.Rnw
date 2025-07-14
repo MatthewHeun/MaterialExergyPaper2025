@@ -830,9 +830,12 @@ The basis for all material and energy conversion chains is
 \label{ssec:efficiency_methods}
 %------------------------------
 
-Given a unified conversion chain (BXCC),
-several efficiencies can be calculated
-for processes therein.
+**** Change to matrix equations where possible. ****
+
+We illustrate the application of material exergy to
+societal exergy analysis with the PSUT framework
+by calculating process efficiencies
+throughout the unified conversion chain (BXCC).
 
 \begin{figure}
   \centering
@@ -890,10 +893,6 @@ are given by
 \end{equation}
 %
 See \citet[Equation~2.46, p.~32]{Dincer_2007}.
-
-
-
-
 
 
 
