@@ -917,7 +917,7 @@ An entire exergy accounting,
 additional matrices,
 and efficiencies
 for the material conversion chain
-can be found in Appendix [X].
+can be found in Appendix~\ref{sec:MCC_exergy}.
 
 
 %++++++++++++++++++++++++++++++
@@ -931,7 +931,7 @@ contains 25 material statepoints,
 11 energy statepoints,
 and 12 processes.
 Example tables for the statepoints exergies
-can be found in Appendix [X].\\
+can be found in Appendix~\ref{ssec:statepoint_exergy_ex}.\\
 
 Equations [X] to [X] are the basis for material exergy accounting
 along the material conversion chain.
@@ -1271,7 +1271,16 @@ Fuel oil complete combustion:
 \reftitle{References}
 
 
+%=====================================
+\section[\appendixname~\thesection]{MCC exergy calculations}
+\label{sec:MCC_exergy}
+%=====================================
 
+
+%=====================================
+\subsection[\appendixname~\thesection]{Statepoint exergy example}
+\label{ssec:statepoint_exergy_ex}
+%=====================================
 % Please provide either the correct journal abbreviation (e.g. according to the ``List of Title Word Abbreviations'' http://www.issn.org/services/online-services/access-to-the-ltwa/) or the full name of the journal.
 % Citations and References in Supplementary files are permitted provided that they also appear in the reference list here.
 
