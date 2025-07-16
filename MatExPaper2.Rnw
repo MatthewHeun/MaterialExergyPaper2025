@@ -507,7 +507,7 @@ $j$             & element \\
 
 Material exergy is the exergy of a mixture of compounds
 that exist at a statepoint ($B_k$).
-Material exergy is the minimum amount of work
+Material exergy is the maximum amount of work
 that could be extracted
 by a process that takes the mixture
 to equilibrium with the reference environment,
@@ -518,11 +518,13 @@ that bring the system
 (a)~from $T$ and $P$ to
     $T_0$ and $P_0$
     (without changes in the chemical composition)
-(b)~from its chemical composition to
-    to the reference chemical composition
+(b)~from its chemical composition
+    to the reference chemical composition****ex****
     (while the system remains at $T_0$ and $P_0$)
-(c)~from its concentration to pure state
+(c)~from its concentration at the statepoint to pure **state**
 (d)~from its dispersed state to cohesive state.
+%processes a through d have exergy associated
+%Ex. T and P, concentration, dispersion (mine), compound that changes
 
 Natural resources have a positive material exergy ($b$ in kJ/mol)
 because they have a chemical composition
@@ -556,7 +558,7 @@ from \citet[Table~11.1-11.7]{Valero_2015}.
 
 The total material exergy of a mixture ($B_m$) at a statepoint is
 
-\begin{equation}\label{eq:specific_exergy_of_current_statepoint_definition}
+\begin{equation}\label{eq:exergy_mixture}
    B_m = N_m b_m \; ,
  \end{equation}
 %
@@ -566,7 +568,7 @@ and $b_m$ is the molar intensive material exergy of the mixture (in units of $\m
 
 The material exergy of a mixture may be account for each species with
 
-\begin{equation}\label{eq:total_exergy_of_current_statepoint_mixture_definition}
+\begin{equation}\label{eq:total_exergy_mixture}
    B_m = \sum_i{{N_i}{b_i}}
        = N_m\sum_i{{y_i}{b_i}} \; ,
 \end{equation}
@@ -1222,7 +1224,7 @@ for certain processes.
 \subsection[\appendixname~\thesection]{Rotary Kiln}
 \label{ssec:rotary_kiln}
 %=====================================
-
+**Make eq.***
 \ce{1CaCO3 + MgCO3 -> 1CaO + 2CO2 + 1MgO}
 
 %=====================================
