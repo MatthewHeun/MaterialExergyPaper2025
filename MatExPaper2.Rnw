@@ -395,7 +395,6 @@ Coal production compositions are taken from
 and \citet[Table~4]{Zhang_2019}
 The exergy of coal is calculated using formulas
 in \citet[Appx.~C3]{Kotas_1995}.
-various webpages **** Need to cite the web pages. ****
 Limestone production compositions and energy inputs are taken from
 \citet{Saidur_2011},
 \citet{Eriksson_2014}, and
@@ -494,7 +493,7 @@ Subscript	& Meaning \\
 $k$					    & statepoint \\
 $m$					    & mixture \\
 $i$             & compound \\
-$j$             & elements \\
+$j$             & element \\
 \bottomrule
 \end{tabularx}
 \label{tab:hierarchy_nomenclature}
@@ -605,7 +604,13 @@ See \citet[p.~276]{Valero_2015}.
 %
 % The chemical potential of a species is equal
 % in the reference environment and statepoint.
-***need a parapgraph on chemical exergy for species in ref. envir***
+The chemical exergy of a compound ($b_{ch,i}$)
+that exist in the reference environment
+is the potential amount of work obtainable
+by decomposing the compound
+to compounds and elements
+in their environmental stable forms.
+
 If the compound ($i$) does not exist
 in the reference environment,
 then the chemical exergy is the amount of work obtained
@@ -858,7 +863,8 @@ and focus on whole streams. (See Figure 2.)
   \begin{equation}\label{eq:Bejan Efficiency}
     \eta_{Bejan} = \frac{N_i(b_{m,i,1} - b_{m,i,0})}{\sum{X_{in}}} \; .
   \end{equation}
-  where $b_{m,i,1}$ is the exergy of a compound in a mixture at statepoint 1 (in units of $\mathrm{kJ_i/mol_i}$).
+  where $b_{m,i,1}$ is the exergy of a compound in a mixture at statepoint 1 (in units of $\mathrm{kJ_i/mol_i}$)
+  and $X_{in}$ is the exergy of all fuel streams, including electricity (in units of $\mathrm{kJ}$).
   \item The ***Resource*** method focuses on the main product stream's exergy output
   compared to the total exergy input.
   The ***Resource*** efficiency is
