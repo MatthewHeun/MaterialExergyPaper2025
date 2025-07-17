@@ -1011,6 +1011,13 @@ The efficiencies of iron ore processes,
 in Table~\ref{fig:Process Efficiencies for iron, limestone, and coal ore.},
 are lower than the limestone and coal efficiencies.
 
+% print_named_matrix(matrix_name = "Efficiencies__Tables_for_Paper",
+%                    latex_label = "tab:Tables for Paper",
+%                    file = file.path("data", "Paper Examples.xlsx"),
+%                    digits = c(3, 3, 3),
+%                    caption = "Table of Efficiencies (\\textbf{R}).",
+%                    size = "tiny")
+
 The iron ore extraction Students efficiency is **54**$\%$
 and the Product efficiency is **45**$\%$.
 The limestone and coal extraction efficiencies range
