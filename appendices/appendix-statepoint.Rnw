@@ -1,0 +1,9 @@
+% !Rnw root = ../MatExPaper2.Rnw
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[\appendixname~\thesection]{Statepoint exergy example}
+\label{ssec:statepoint_exergy_ex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Use this file for the statepoint exergy example.

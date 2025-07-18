@@ -1,0 +1,79 @@
+% !Rnw root = ../MatExPaper2.Rnw
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[\appendixname~\thesection]{Chemical Formulas for MCC}
+\label{sec:chem_formulas}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Processes within the material conversion chain
+cause chemical change.
+The following sections give
+the chemical formulas
+for certain processes.
+
+
+%++++++++++++++++++++++++++++++
+\subsection[\appendixname~\thesection]{Rotary Kiln}
+\label{ssec:rotary_kiln}
+%++++++++++++++++++++++++++++++
+
+**Make eq.***
+\begin{equation}\label{eq:Kiln_chemeqn}
+  \ce{1CaCO3 + MgCO3 -> 1CaO + 2CO2 + 1MgO} \; .
+\end{equation}
+
+
+%++++++++++++++++++++++++++++++
+\subsection[\appendixname~\thesection]{Coke Oven}
+\label{ssec:coke_oven}
+%++++++++++++++++++++++++++++++
+
+Coal becomes coke oven gas and coke.
+\begin{equation}\label{eq:Coke_oven_chemeqn}
+  \ce{C_c H_h N_n O_o -> C + H2 + C2H4 + CO + CO2 + N2 + CH4} \; .
+\end{equation}
+
+The coke oven gas is treated to create methane (\ce{CH_4}).
+\begin{equation}\label{eq:Coke_oven_chemeqn}
+  \ce{H2 + C2H4 + CO + CO2 + N2 + CH4 -> H2 + CH4 + O2 + N2} \; .
+\end{equation}
+
+
+%++++++++++++++++++++++++++++++
+\subsection[\appendixname~\thesection]{Blast Furnace}
+\label{ssec:blast_furnace}
+%++++++++++++++++++++++++++++++
+
+\begin{equation}\label{eq:Bf_chemeqn}
+  \ce{1.5C + 1.5O2 -> 1.5CO2 + 5.64N2}
+  \ce{1.5CO2 + 1.5C -> 3CO}
+  \ce{1Fe2O3 + 3CO -> 2Fe + 3CO2}
+  \ce{1CaO + 1SiO2 -> 1CaSiO3} \; .
+\end{equation}
+
+
+%++++++++++++++++++++++++++++++
+\subsection[\appendixname~\thesection]{Fuel Combustion}
+\label{ssec:fuel_combustion}
+%++++++++++++++++++++++++++++++
+
+Methane complete combustion:
+\begin{equation}\label{eq:Methane_complete_chemeqn}
+  \ce{1CH4 + 2(O2 + 3.76N2) -> 1CO2 + 2H2O + 7.52N2} \; .
+\end{equation}
+
+Diesel complete combustion:
+\begin{equation}\label{eq:Methane_complete_chemeqn}
+  \ce{1C_12 H_23 + 17.75(O2 + 3.76N2) -> 12CO2 + 11.5H2O + 66.74N2} \; .
+\end{equation}
+
+Gasoline complete combustion:
+\begin{equation}\label{eq:Methane_complete_chemeqn}
+  \ce{1C8 H_18 + 12.5(O2 + 3.76N2) -> 8CO2 + 9H2O + 47N2} \; .
+\end{equation}
+
+
+Fuel oil complete combustion:
+\begin{equation}\label{eq:Methane_complete_chemeqn}
+  \ce{C_10 H_20 + 15(O2 + 3.76N2) -> 10CO2 + 10H2O + 56.4N2} \; .
+\end{equation}

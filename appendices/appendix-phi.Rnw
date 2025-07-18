@@ -1,0 +1,32 @@
+% !Rnw root = ../MatExPaper2.Rnw
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[\appendixname~\thesection]{Exergy to energy ratios, $\phi$}
+\label{sec:appendix_phi}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The exergy-to-energy ratio is given by $\phi$.
+A table of $\phi$ constants are given by \citet[Table~C.1]{Kotas_1995}.
+
+Fuels such as fuel oil, diesel, and gasoline
+do not have consistent chemical compositions.
+\citet[Appendix~C, Equation~C.3,6]{Kotas_1995} provides equations
+to calculate the $\phi$ values for these fuels.
+The value of $\phi$ for dry solid fuels is given by
+
+\begin{equation}\label{eq:phi_solid}
+\phi_{dry} = 1.0437 + 0.1882\frac{h}{c} + 0.0610\frac{o}{n} + 0.0404\frac{n}{c} \, ,
+\end{equation}
+%
+where $h$, $c$, $n$, and $o$ are mass fractions
+of hydrogen, carbon, nitrogen, and oxygen
+(in units of kg/kg).
+
+The value of $\phi$ for liquid fuels is given by
+
+\begin{equation}\label{eq:phi_liquid}
+\phi = 1.0401 + 0.1728\frac{h}{c} + 0.0432\frac{o}{c} + 0.2169\frac{s}{c}(1-2.0628\frac{h}{c}) \, ,
+\end{equation}
+%
+where $s$ is the mass fraction of sulfur (in units of kg/kg).
