@@ -1,0 +1,14 @@
+% !Rnw root = ../MatExPaper2.Rnw
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[\appendixname~\thesection]{MCC exergy calculations}
+\label{sec:MCC_exergy}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Use this file for the exergy calculations appendix.
+
+****
+What is the difference between this appendix
+and the Statepoint exergy example appendix? ---MKH
+****

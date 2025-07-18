@@ -1107,16 +1107,16 @@ All appendix sections must be cited in the main text. In the appendices, Figures
 \SweaveInput{appendices/appendix-chemistry.Rnw}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \SweaveInput{appendices/appendix-statepoint.Rnw}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
-%=====================================
-\section[\appendixname~\thesection]{MCC exergy calculations}
-\label{sec:MCC_exergy}
-%=====================================
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\SweaveInput{appendices/appendix-exergy-calcs.Rnw}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
@@ -1126,6 +1126,10 @@ All appendix sections must be cited in the main text. In the appendices, Figures
 \begin{adjustwidth}{-\extralength}{0cm}
 %} % If the paper is ``preprints'', please uncomment this parenthesis.
 %\printendnotes[custom] % Un-comment to print a list of endnotes
+
+
+
+
 
 \reftitle{References}
 
