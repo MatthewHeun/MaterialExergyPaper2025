@@ -229,13 +229,11 @@ Row names must be supplied in the call to the function.
 <<ExampleStatepointTable, echo=FALSE, results=tex>>=
 print_statepoint_table(statepoint_table_name = "statepoint_table",
                        latex_label = "tab:ExampleStatepointTable",
-                       rownames_latex = c("$\\mathrm{Fe_2 O_3}$",
-                                          "$\\mathrm{Si O_2}$",
-                                          "CaO",
-                                          "C",
+                       rownames_latex = c("$\\ce{CaCO3}$",
+                                          "$\\ce{MgCO3}$",
                                           "Sum"),
                        file = file.path("data", "Example.xlsx"),
-                       digits = c(0, 1, 3, 1, 2, 3, 3, 3, 2, 3, 1),
+                       digits = c(0, 1, 2, 3, 2, 1, 2, 3, 3, 3, 3, 3, 1),
                        caption = "Example statepoint table.",
                        size = "tiny")
 @
@@ -900,6 +898,20 @@ in Table~\ref{tab2} is **9**~MJ.
 \subsection{Efficiencies}
 \label{ssec:efficiency}
 %++++++++++++++++++++++++++++++
+
+
+
+
+% Commented for now.
+% After the efficiencies table is working
+% in the Excel file again, we can test again.
+% ---MKH, 18 July 2025
+% <<EfficienciesTable, echo=FALSE, results=tex>>=
+% print_efficiencies_table(efficiencies_table_name = "Efficiencies__Tables_for_Paper",
+%                          latex_label = "tab:efficiencies",
+%                          caption = "Efficiencies table.")
+% @
+
 
 Three efficiency calculation methods,
 shown in Figure~\ref{fig:efficiencymethods},

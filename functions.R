@@ -1,3 +1,4 @@
+
 # Type "?sprintf" at the console for details of fmt strings.
 read_named_cell <- function(cell_name,
                             fmt = "%.2f",
@@ -48,29 +49,31 @@ print_named_matrix <- function(matrix_name,
 # Set column names and units in arguments (or accept defaults).
 print_statepoint_table <- function(statepoint_table_name,
                                    latex_label,
-                                   rownames_latex,
-                                   file = file.path("data", "Example.xlsx"),
+                                   file = file.path("data", "Paper Examples.xlsx"),
                                    digits = 2,
                                    caption = NULL,
-                                   size = "\\normalsize",
-                                   col_header_latex = c("$m_i$ \\\\ $\\mathrm{[kg_i]}$",
-                                                        "MW \\\\ $\\mathrm{[kg_i/mol_i]}$",
-                                                        "$N_i$ \\\\ $\\mathrm{[mol_i]}$",
-                                                        "$b_{ch,i}$ \\\\ $\\mathrm{[kJ_i/mol_i]}$",
-                                                        "$y_i$ \\\\ $\\mathrm{[mol_i/mol_m]}$",
-                                                        "$\\ln(y_i)$ \\\\ $\\mathrm{[-]}$",
-                                                        "$b_{c,i}$ \\\\ $\\mathrm{[kJ_i/mol_i]}$",
-                                                        "$b_i$ \\\\ $\\mathrm{[kJ_i/mol_i]}$",
-                                                        "$b_m$ \\\\ $\\mathrm{[kJ_i/mol_m]}$",
-                                                        "$B_m$ \\\\ $\\mathrm{[kJ_i]}$")) {
+                                   size = "normalsize",
+                                   rownames_latex,
+                                   colnames_latex = c("$m_i$ \\\\ $\\mathrm{[kg_i]}$",
+                                                      "$x_i$ \\\\ $\\mathrm{[kg_i/kg_m]}$",
+                                                      "$MW_i$ \\\\ $\\mathrm{[kg_i/mol_i]}$",
+                                                      "$N_i$ \\\\ $\\mathrm{[mol_i]}$",
+                                                      "$h_i$ \\\\ $\\mathrm{[kJ_i/kg_i]}$",
+                                                      "$b_{ch,i}$ \\\\ $\\mathrm{[kJ_i/mol_i]}$",
+                                                      "$y_i$ \\\\ $\\mathrm{[mol_i/mol_m]}$",
+                                                      "$\\ln(y_i)$ \\\\ $\\mathrm{[-]}$",
+                                                      "$b_{c,i}$ \\\\ $\\mathrm{[kJ_i/mol_i]}$",
+                                                      "$b_i$ \\\\ $\\mathrm{[kJ_i/mol_i]}$",
+                                                      "$b_m$ \\\\ $\\mathrm{[kJ_i/mol_m]}$",
+                                                      "$B_m$ \\\\ $\\mathrm{[kJ_i]}$")) {
 
   # Read the matrix as a data frame
-  table_df <- openxlsx2::read_xlsx(file = file.path("data", "Example.xlsx"),
-                                   named_region = "statepoint_table",
+  table_df <- openxlsx2::read_xlsx(file = file,
+                                   named_region = statepoint_table_name,
                                    row_names = FALSE,
                                    col_names = FALSE)
   rownames(table_df) <- rownames_latex
-  colnames(table_df) <- paste0("\\makecell{", col_header_latex, "}")
+  colnames(table_df) <- paste0("\\makecell{", colnames_latex, "}")
 
   xt <- xtable::xtable(table_df,
                        digits = digits,
@@ -85,6 +88,36 @@ print_statepoint_table <- function(statepoint_table_name,
         size = size,
         booktabs = TRUE,
         hline.after = c(-1, 0, nrow(xt)-1, nrow(xt)),
+        table.placement = NULL,
+        caption.placement = "top",
+        format.args = list(big.mark = ",", decimal.mark = "."))
+}
+
+
+print_efficiencies_table <- function(efficiencies_table_name,
+                                     latex_label,
+                                     file = file.path("data", "Paper Examples.xlsx"),
+                                     digits = 2,
+                                     caption = NULL,
+                                     size = "normalsize") {
+
+  table_df <- openxlsx2::read_xlsx(file = file,
+                                   named_region = efficiencies_table_name,
+                                   row_names = TRUE,
+                                   col_names = TRUE)
+
+  xt <- xtable::xtable(table_df,
+                       digits = digits,
+                       caption = caption,
+                       label = latex_label)
+  print(xt,
+        include.rownames = TRUE,
+        sanitize.colnames.function = identity,
+        sanitize.rownames.function = identity,
+        rotate.colnames = FALSE,
+        size = size,
+        booktabs = TRUE,
+        # hline.after = c(-1, 0, nrow(xt)-1, nrow(xt)),
         table.placement = NULL,
         caption.placement = "top",
         format.args = list(big.mark = ",", decimal.mark = "."))
