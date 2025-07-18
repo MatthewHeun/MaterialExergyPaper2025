@@ -94,6 +94,7 @@ print_statepoint_table <- function(statepoint_table_name,
 }
 
 
+# Read the efficiencies table and print it into the paper
 print_efficiencies_table <- function(efficiencies_table_name,
                                      latex_label,
                                      file = file.path("data", "Paper Examples.xlsx"),
