@@ -895,6 +895,13 @@ in Table~\ref{tab2} is **9**~MJ.
 
 
 
+Table~\ref{tab:limestone_statepoint} shows details of material
+exergy calculations for limestone,
+a mixture of
+calcium carbonate ($\ce{CaCO3}$)
+and
+magnesium carbonate ($\ce{MgCO3}$),
+at the inlet to the rotary kiln.
 
 <<LimestoneStatepointTable, echo=FALSE, results=tex>>=
 print_statepoint_table(statepoint_table_name = "Statepoint_limestone_into_kiln",
@@ -903,24 +910,10 @@ print_statepoint_table(statepoint_table_name = "Statepoint_limestone_into_kiln",
                                           "$\\ce{MgCO3}$",
                                           "Sum"),
                        digits = c(0, 1, 2, 3, 2, 1, 2, 3, 3, 3, 3, 3, 1),
-                       caption = "Limestone statepoint table.",
+                       caption = "Material exergy details for limestone
+                                  at the inlet to the rotary kiln.",
                        size = "tiny")
 @
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 %++++++++++++++++++++++++++++++
