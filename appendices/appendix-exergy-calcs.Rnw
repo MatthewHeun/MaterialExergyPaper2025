@@ -10,5 +10,6 @@ Use this file for the exergy calculations appendix.
 
 ****
 What is the difference between this appendix
-and the Statepoint exergy example appendix? ---MKH
+and the Statepoint exergy example appendix?
+---MKH
 ****
