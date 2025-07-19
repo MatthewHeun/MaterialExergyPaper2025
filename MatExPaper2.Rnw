@@ -366,7 +366,7 @@ Coal, natural gas, and coke oven gas are used by the coke oven.
 Gasoline, fuel oil, and diesel are consumed by
 (**** add consumers of gasoline, fuel oil, and diesel ---MKH ****).
 
-Information on energy requirements for
+Information on the direct energy requirements for
 extraction and beneficiation processes
 were taken from the Energy and Environmental Profile of the U.S.\ Mining Industry
 \citet[Tables~4.3-4, 9.2-3, and 2.7]{Ore_2025}
@@ -383,16 +383,25 @@ Energy inputs to the coke oven and coke oven gas treatment
 were taken from \citet[Fig.~3]{Carmona_2019}
 and \citet[Table~XXXX or p.~XXXX?]{COG_treatment_2025}.
 
+Note that most energy inputs to the exmaple MCC
+can also be considered as material inputs, including
+coal, gasoline, diesel, natural gas, and coke oven gas.
+We treat all energy inputs to the example MCC
+to be materials,
+the exception being electricity
+which we consider to be massless.
+
 
 %------------------------------
 \subsubsection{Energy conversion chain to supply energy requirements}
 \label{sec:ecc_for_mcc}
 %------------------------------
 
-The energy requirements for the material conversion chain (MCC)
+The direct energy requirements for the material conversion chain (MCC)
 are supplied by an energy conversion chain (ECC)
 that starts at energy extraction and delivers
 electricity, natural gas, gasoline, fuel oil, and diesel
+**** is this the full list? ---MKH ****
 to material conversion processes.
 Data for the energy conversion chain is obtained from the
 Country-Level Primary-Final-Useful (CL-PFU) database,
@@ -411,19 +420,23 @@ one of the countries in the CL-PFU database.
 \label{sec:methods}
 %++++++++++++++++++++++++++++++
 
+The methods used to create he example MCC are given below.
+We begin by discussing the material hierarchy
+that organizes information at any statepoint.
+
 %------------------------------
 \subsubsection{Material hierarchy}
 \label{sec:material_hierarchy}
 %------------------------------
 
-To analyze material conversion chains,
-we employ a hierarchy for our analysis.
-Our hierarchy is:
+To analyze each statepoint of the example MCC,
+we employ a material hierarchy, namely
 (a)~statepoint, a material stream that is an input or output of a process,
 (b)~mixture, a combination of compounds and/or elements
 that exist at a statepoint,
 (c)~compound, and
 (d)~element.
+**** Convert the above list to a 2-column table? ---MKH ****
 This ordering enables later incorporation of
 components (a configuration of mixtures) and
 products (an assembly of components)
@@ -442,7 +455,6 @@ follows \citet{Valero_2015}.
 
 \begin{table}
 \caption{Hierarchy nomenclature.}
-%\newcolumntype{C}{>{\centering\arraybackslash}X}
 \begin{tabularx}{\textwidth}{CCC}
 \toprule
 Subscript	& Meaning \\
@@ -462,7 +474,7 @@ $j$             & element \\
 \label{sec:exergy_of_materials}
 %------------------------------
 
-Material exergy is the exergy of a mixture of compounds
+Material exergy ($B$) is the exergy of a mixture of compounds
 that exist at a statepoint ($B_k$).
 Material exergy is the maximum amount of work
 that could be extracted
@@ -479,33 +491,40 @@ that bring the system
     to the reference chemical composition****ex****
     (while the system remains at $T_0$ and $P_0$)
 (c)~from its concentration at the statepoint to pure **state**
-(d)~from its dispersed state to cohesive state.
+(d)~from a dispersed state to its cohesive state.
 %processes a through d have exergy associated
 %Ex. T and P, concentration, dispersion (mine), compound that changes
 
+Material exergy is comprised of four components:
+(a)~physical exergy ($b_{ph}$),
+(b)~chemical exergy ($b_{ch}$),
+(c)~concentration exergy ($b_c$),
+(d)~and comminution exergy ($b_{com}$),
+each corresponding to the reversible processes above.
+**** Convert to a table? ---MKH ****
+We assume that all statepoints in the example MCC
+are at $T_0$ and $P_0$;
+thus, physical exergy ($b_{ph}$) is zero.
+(The exception is Appendix~\ref{sec:MCC_exergy},
+which for illustration purposes assumes
+material temperature to be different from $T_0$.)
 Natural resources have a positive material exergy ($b$ in kJ/mol)
 because they have a chemical composition
 different from their Environment.
-Material exergy is comprised of four components:
-physical exergy ($b_{ph}$),
-chemical exergy ($b_{ch}$),
-concentration exergy ($b_c$),
-and comminution exergy ($b_{com}$).
 Comminution exergy is minimal and ignored for a material conversion chain analysis
 \citep[p.~280]{Valero_2015}.
-Here, we assume that the material is at
-$T_0$ and $P_0$;
-thus, physical exergy ($b_{ph}$) is zero.
+(The exception, again, is Appendix~\ref{sec:MCC_exergy},
+which for illustration purposes
+demonstrates communition exergy calculations.)
 
 Reference environments can include the atmosphere,
 the ocean, or the Earth's crust.
 Species in reference environments are characterized
-by partial pressure ($P_i = P_0 y_i$) in the atmosphere,
+by partial pressure ($P_i = y_i P_0$) in the atmosphere,
 by concentrations ($C_i$) in the ocean,
-and by mole fraction ($y_i$)
-in the Earth's crust.
+and by mole fraction ($y_i$) in the Earth's crust.
 We take reference environments
-from \citet[Table~11.1-11.7]{Valero_2015}.
+from \citet[Tables~11.1--11.7]{Valero_2015}.
 
 
 %..............................
@@ -516,25 +535,29 @@ from \citet[Table~11.1-11.7]{Valero_2015}.
 The total material exergy of a mixture ($B_m$) at a statepoint is
 
 \begin{equation}\label{eq:exergy_mixture}
-   B_m = N_m b_m \; ,
+   B_m = N_m b_m \, ,
  \end{equation}
 %
 where $B_m$ is in units of $\mathrm{kJ_m}$,
-$N_m$ is the amount of the mixture (in units of $\mathrm{mol_m}$),
-and $b_m$ is the molar intensive material exergy of the mixture (in units of $\mathrm{kJ_m/mol_m}$).
+$N_m$ is the amount of the mixture
+(in units of $\mathrm{mol_m}$),
+and $b_m$ is the molar intensive material exergy of the mixture
+(in units of $\mathrm{kJ_m/mol_m}$).
 
-The material exergy of a mixture may be account for each species with
+The material exergy of a mixture may be accounted for each species with
 
 \begin{equation}\label{eq:total_exergy_mixture}
    B_m = \sum_i{{N_i}{b_i}}
-       = N_m\sum_i{{y_i}{b_i}} \; ,
+       = N_m\sum_i{{y_i}{b_i}} \, ,
 \end{equation}
 %
-where $N_i$ ($\mathrm{mol_i}$) is the number of moles of a compound
+where $N_i$ is the number of moles of compound $i$
+(in $\mathrm{mol_i}$),
 $b_i$ is the molar intensive material exergy
-of a compound ($\mathrm{kJ_i/mol_i}$),
+of compound $i$ (in $\mathrm{kJ_i/mol_i}$),
 and $y_i$ is the mole fraction
-of a compound in a mixture ($\mathrm{mol_i/mol_m}$).
+of compound $i$ in its mixture
+(in $\mathrm{mol_i/mol_m}$).
 
 
 %..............................
@@ -542,16 +565,21 @@ of a compound in a mixture ($\mathrm{mol_i/mol_m}$).
 \label{sec:exergy_of_compounds}
 %..............................
 
-Molar intensive material exergy ($b_i$) is defined as
+Molar intensive material exergy
+of compound $i$ ($b_i$) is defined as
 
 \begin{equation}\label{eq:general_material_exergy_definition}
-  b_i = b_{ch,i} + b_{c,i} \; ,
+  b_i = b_{ph,i} + b_{ch,i} + b_{c,i} + b_{com,i} \, ,
 \end{equation}
 %
-where $b_{ch,i}$ is the chemical exergy of a compound (in units of $\mathrm{kJ_i/mol_i}$)
+where $b_{ch,i}$ is the chemical exergy of a compound (in $\mathrm{kJ_i/mol_i}$)
 and $b_{c,i}$ is the concentration exergy of a compound (in units of $\mathrm{kJ_i/mol_i}$).
-See \citet[p.~276]{Valero_2015}.
-
+(See \citet[p.~276]{Valero_2015}.)
+As discussed above,
+physical exergy ($b_{ch,i}$) is zero for all statepoints in the example MCC,
+because all statepoints are assumed to be at $T_0$ and $P_0$.
+Comminution exergy is assumed small and neglected.
+(See Appendix~\ref{sec:MCC_exergy} for confirmation of this assumption.)
 
 %..............................
 \paragraph{Chemical exergy($b_{ch}$)}
