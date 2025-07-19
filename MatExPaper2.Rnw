@@ -274,11 +274,44 @@ Contributions of this paper:
 
 \end{enumerate}
 
+The remainder of this paper is organized as follows:
+Section~\ref{sec:data_and_meethods} documents data sources and methods.
+Section~\ref{sec:results} shows selected results
+of applying methods to data.
+Section~\ref{sec:discussion} discusses the results, and
+Section~\ref{sec:conclusion} concludes.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Methods and data}
-\label{sec:methods_and_data}
+\section{Data and methods}
+\label{sec:data_and_meethods}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Our method for demonstrating
+a consistent approach
+for societal exergy analysis along
+unified conversion chains (MCCs and ECCs)
+is to elucidate mathematical expressions
+and example calculations in full detail.
+The mathematical expressions are shown in
+Section~\ref{sec:exergy_of_materials} below.
+We apply that approach to a unified
+material and energy conversion chain,
+following material from natural resource extraction
+to pig iron production.
+Data for the example MCC,
+whose basis is 1000~kg of iron ore,
+are discussed in Section~\ref{sec:data} below.
+Finally, we demonstrate interactions between
+material and energy conversion chains by developing
+Physical Supply-Use Table (PSUT) matrices that are
+amenable to existing energy conversion chain datasets.
+The process for assembling the PSUT matrices
+is discussed in Section~\ref{sec:psut_framework} below.
+
+We begin by discussing data sources
+for the example MCC
+developed in this paper.
 
 
 %++++++++++++++++++++++++++++++
@@ -292,20 +325,21 @@ Contributions of this paper:
 \label{sec:material_data}
 %------------------------------
 
-Mass amounts and composition
-for each statepoint
-comes from various sources.
-The ore and coal compositions closely represent potential versions
-of a South African pig iron production process.
-Coal production compositions are taken from
-\citet{Matsuhashi_2012}
-and \citet[Table~4]{Zhang_2019}
-The exergy of coal is calculated using formulas
-in \citet[Appx.~C3]{Kotas_1995}.
+Mass ratios and composition
+for each statepoint in the example MCC
+come from various sources.
+Iron ore and coal compositions are representative
+of pig iron production in South Africa.
+Coal composition is provided by
+\citet[Table~XXXX or p.~XXXX?]{Matsuhashi_2012}
+and \citet[Table~4]{Zhang_2019}.
+The exergy of coal is calculated as shown in
+\citet[Equation~C.3]{Kotas_1995}.
 Limestone production compositions and energy inputs are taken from
 \citet{Saidur_2011},
 \citet{Eriksson_2014}, and
 \citet{Satyendra_2013}.
+**** Do we have page numbers or table numbers for the previous citations? ---MKH ****
 
 
 %------------------------------
@@ -313,25 +347,41 @@ Limestone production compositions and energy inputs are taken from
 \label{sec:energy_data}
 %------------------------------
 
-The example material conversion chain is a partial example chain
-of a South African pig iron production process.
-****
-Yet our energy input data are from the U.S.
-Is that a problem.
-We probably need to explain. ---MKH
-****
+Processes in the example MCC include
+extraction, hauling, and beneficiaion
+of iron ore, limestone, and coal;
+a rotary kiln to convert limestone into quicklime;
+a coke oven to produce both anthracite
+and coke oven gas from beneficiated coal;
+coke oven gas treatment and distribution;
+and a blast furnace to make pig iron.
+All of the processes in the example MCC
+require energy inputs.
+
+For example, limestone and coal beneficiation processes
+use electricity for grinders and separating machines
+such as centrifuges, screens, and flotation separators
+(**** are those the right names? ---MKH ****).
+Coal, natural gas, and coke oven gas are used by the coke oven.
+Gasoline, fuel oil, and diesel are consumed by
+(**** add consumers of gasoline, fuel oil, and diesel ---MKH ****).
+
 Information on energy requirements for
 extraction and beneficiation processes
-of the example
-material conversion chain
-was taken from the Energy and Environmental Profile of the U.S.\ Mining Industry
-\citet[Table~4.3\textendash4, 9.2\textendash3, 2.7]{Ore_2025} and \citet[Table~A3.4]{Jamison_2015}.
+were taken from the Energy and Environmental Profile of the U.S.\ Mining Industry
+\citet[Tables~4.3-4, 9.2-3, and 2.7]{Ore_2025}
+****
+Is the previous table numbering correct?
+Table 4.3-4 feels a bit weird to me.
+---MKH
+****
+and \citet[Table~A3.4]{Jamison_2015}.
 Information for energy requirements of
 iron ore hauling was obtained from
-from \citet[Table~8]{Uni_Cape_Town_2002}.
+the \citet[Table~8]{Uni_Cape_Town_2002}.
 Energy inputs to the coke oven and coke oven gas treatment
 were taken from \citet[Fig.~3]{Carmona_2019}
-and \citet{COG_treatment_2025}.
+and \citet[Table~XXXX or p.~XXXX?]{COG_treatment_2025}.
 
 
 %------------------------------
