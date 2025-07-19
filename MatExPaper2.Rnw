@@ -847,7 +847,7 @@ Finally, we develop
 **** Change to matrix equations where possible. ****
 
 We illustrate the application of material exergy to
-societal exergy analysis with the PSUT framework
+societal exergy analysis within the PSUT framework
 by calculating process efficiencies
 throughout the unified conversion chain (BXCC).
 
@@ -856,13 +856,14 @@ throughout the unified conversion chain (BXCC).
   \includegraphics[width=0.8\linewidth]{images/efficiency_methods.pdf}
   \caption{Three efficiency methods used for energy and material exergy conversion chains.
            ***Change figure***}
-  \label{fig:efficiencymethods}
+  \label{fig:efficiency_methods}
 \end{figure}
 
 %
 We suggest three methods for calculating efficiencies
 based on exergy upgrades, focus on a product,
-and focus on whole streams. (See Figure 2.)
+and focus on whole streams.
+(See Figure~\ref{fig:efficiency_methods}.)
 
 \begin{itemize}
   \item The ***Bejan*** method expresses
