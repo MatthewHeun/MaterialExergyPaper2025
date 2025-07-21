@@ -893,6 +893,8 @@ and focus on whole streams.
     \eta_{Rational} = \frac{\sum{B_{out}}}{\sum{X_{in}} + \sum{B_{in}}} \, .
   \end{equation}
 
+  **** Should we sum over $k$ in the above equation? ****
+
   The ***Rational efficiency*** method is helpful
   for quick efficiency calculations
   of an overall process.
