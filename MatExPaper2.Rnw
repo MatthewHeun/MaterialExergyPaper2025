@@ -888,7 +888,7 @@ and focus on whole streams.
 
   \item The ***Rational efficiency*** method focuses on the total exergy output
   compared to the total exergy input.
-  \citet[eq.~2.45][p.~32]{Dincer_2007} define ***Rational efficiency*** efficiency as
+  \citet[Equation~(2.45), p.~32]{Dincer_2007} define ***Rational efficiency*** efficiency as
   \begin{equation}\label{eq:Rational efficiency}
     \eta_{Rational} = \frac{\sum{B_{out}}}{\sum{X_{in}} + \sum{B_{in}}} \, .
   \end{equation}
@@ -908,7 +908,7 @@ are given by
   \eta_{Task} = \frac{\sum{B_{in,min,theoretical}}}{\sum{B_{in,actual}}} \, .
 \end{equation}
 %
-See \citet[Equation~2.46, p.~32]{Dincer_2007}.
+See \citet[Equation~(2.46), p.~32]{Dincer_2007}.
 
 
 
