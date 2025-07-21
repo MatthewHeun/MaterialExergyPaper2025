@@ -881,7 +881,7 @@ and focus on whole streams.
   \begin{equation}\label{eq:Resource Efficiency}
     \eta_{Resource} = \frac{(B_{m,i,1})}{\sum{X_{in}}+\sum{B_{in}}} \, ,
   \end{equation}
-  from \citet[eq.~2.44][p.~32]{Dincer_2007}.
+  from \citet[Equation~(2.44), p.~32]{Dincer_2007}.
   The ***Resource*** method quantifies
   how efficiently a process
   can produce the desired output.
