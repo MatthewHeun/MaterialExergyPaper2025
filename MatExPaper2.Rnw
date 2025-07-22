@@ -251,6 +251,9 @@ Exergy analysis:
 -converts mass and energy into work used in a process
 -have consistent analysis of material and energy
 
+A reference to cite: \citet{Liu:2013ab}.
+
+
 Our research question:
 
 How should integrated energy and material conversion chains
