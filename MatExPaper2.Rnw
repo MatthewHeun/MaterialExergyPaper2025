@@ -98,10 +98,6 @@
 
 
 % Authors, for the paper (add full first names)
-% \Author{Erin Schuman $^{1,\dagger}$\orcidA{},
-%         Sofie Schumerth $^{2,\dagger}$\orcidB{},
-%         Matthew Kuperus Heun $^{3,}$*\orcidC{}, and
-%         Tania Sousa $^{4}$\orcidD{} }
 \Author{Erin Schuman $^{1}$\orcidA{},
         Sofie Schumerth $^{2}$\orcidB{},
         Matthew Kuperus Heun $^{3,}$*\orcidC{}, and
