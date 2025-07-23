@@ -387,7 +387,8 @@ the Exergy Economics community
 have assembled energy conversion chains (ECCs)
 at the societal level
 in both energy and exergy quantifications
-going as far back as 1800~\cite{Steenwyk:2022ww,Pinto:2023aa,Brockway:2024ab}.
+going as far back
+as 1800~\cite{Steenwyk:2022ww,Pinto:2023aa,Brockway:2024ab}.
 Data for these ECCs are organized
 in physical supply-use tables (matrices)
 that describe the movement of energy through society
@@ -397,7 +398,8 @@ at the world and societal levels
 in mass terms,
 but not in exergy terms~\citet{Liu:2013ab} **** more citations ****.
 The unified exergy analysis of material and energy has been
-applied to the analysis and design of chemical and energy plants ****.
+applied to the analysis and design of chemical~\cite{Michalakakis_2021a}
+and energy plants~\cite{Bejan:1996}.
 However, to date,
 unified exergy analysis of material and energy
 has not been applied at the societal level.
