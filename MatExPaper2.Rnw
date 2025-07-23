@@ -415,14 +415,17 @@ come from various sources.
 Iron ore and coal compositions are representative
 of pig iron production in South Africa.
 Coal composition is provided by
-\citet[Table~XXXX or p.~XXXX?]{Matsuhashi_2012}
+\citet[Table~3]{Matsuhashi_2012}
 and \citet[Table~4]{Zhang_2019}.
 The exergy of coal is calculated as shown in
 \citet[Equation~C.3]{Kotas_1995}.
-Limestone production compositions and energy inputs are taken from
-\citet{Saidur_2011},
-\citet{Eriksson_2014}, and
-\citet{Satyendra_2013}.
+Coke oven outputs have compositions given by
+\citet[Table~2,5,8,and 9]{Kolling_1977}, \citet{Apicella_2017}, and \citet[Table~2]{Satyendra_2_2013}.
+The coke oven mass balance is modeled from
+\citet[Figure~4]{Ergul_2024}.
+
+***Limestone production compositions and energy inputs are taken from
+\citet{Saidur_2011} and \citet{Satyendra_2013}.*** REDO
 **** Do we have page numbers or table numbers for the previous citations? ---MKH ****
 
 
@@ -444,11 +447,11 @@ require energy inputs.
 
 For example, limestone and coal beneficiation processes
 use electricity for grinders and separating machines
-such as centrifuges, screens, and flotation separators
-(**** are those the right names? ---MKH ****).
-Coal, natural gas, and coke oven gas are used by the coke oven.
+such as crushers, screens, and pelletizers.
+Coal and natural gas are used by the coke oven.
 Gasoline, fuel oil, and diesel are consumed by
-(**** add consumers of gasoline, fuel oil, and diesel ---MKH ****).
+iron, limestone, and coal ore extraction
+and the blast furnace.
 
 Information on the direct energy requirements for
 extraction and beneficiation processes
@@ -458,6 +461,7 @@ were taken from the Energy and Environmental Profile of the U.S.\ Mining Industr
 Is the previous table numbering correct?
 Table 4.3-4 feels a bit weird to me.
 ---MKH
+It's the chapter title and then table.
 ****
 and \citet[Table~A3.4]{Jamison_2015}.
 Information for energy requirements of
@@ -465,7 +469,7 @@ iron ore hauling was obtained from
 the \citet[Table~8]{Uni_Cape_Town_2002}.
 Energy inputs to the coke oven and coke oven gas treatment
 were taken from \citet[Fig.~3]{Carmona_2019}
-and \citet[Table~XXXX or p.~XXXX?]{COG_treatment_2025}.
+and \citet{COG_treatment_2025}. ***just on main website so no table associated***
 
 Note that most energy inputs to the exmaple MCC
 can also be considered as material inputs, including
@@ -485,7 +489,6 @@ The direct energy requirements for the material conversion chain (MCC)
 are supplied by an energy conversion chain (ECC)
 that starts at energy extraction and delivers
 electricity, natural gas, gasoline, fuel oil, and diesel
-**** is this the full list? ---MKH ****
 to material conversion processes.
 Data for the energy conversion chain is obtained from the
 Country-Level Primary-Final-Useful (CL-PFU) database,
@@ -504,7 +507,7 @@ one of the countries in the CL-PFU database.
 \label{sec:methods}
 %++++++++++++++++++++++++++++++
 
-The methods used to create he example MCC are given below.
+The methods used to create the example MCC are given below.
 We begin by discussing the material hierarchy
 that organizes information at any statepoint.
 
@@ -515,12 +518,22 @@ that organizes information at any statepoint.
 
 To analyze each statepoint of the example MCC,
 we employ a material hierarchy, namely
-(a)~statepoint, a material stream that is an input or output of a process,
-(b)~mixture, a combination of compounds and/or elements
-that exist at a statepoint,
-(c)~compound, and
-(d)~element.
-**** Convert the above list to a 2-column table? ---MKH ****
+
+\begin{table}
+\caption{Material Hierarchy}
+\begin{tabularx}{\textwidth}{CCC}
+\toprule
+Name and Subscript	& Meaning \\
+\midrule
+statepoint ($k$)					    &  a material stream that is an input or output of a process\\
+mixture ($m$)					        & a combination of compounds and/or elements that exist at a statepoint\\
+compound ($i$)                & a combination of elements \\
+element ($j$)                 & a combination of atoms \\
+\bottomrule
+\end{tabularx}
+\label{tab:material_hierarchy}
+\end{table}
+
 This ordering enables later incorporation of
 components (a configuration of mixtures) and
 products (an assembly of components)
@@ -537,20 +550,20 @@ of a mixture (subscript $m$) at statepoint $k$.
 Our choice of $j$ (for elements) and $i$ (for compounds)
 follows \citet{Valero_2015}.
 
-\begin{table}
-\caption{Hierarchy nomenclature.}
-\begin{tabularx}{\textwidth}{CCC}
-\toprule
-Subscript	& Meaning \\
-\midrule
-$k$					    & statepoint \\
-$m$					    & mixture \\
-$i$             & compound \\
-$j$             & element \\
-\bottomrule
-\end{tabularx}
-\label{tab:hierarchy_nomenclature}
-\end{table}
+% \begin{table}
+% \caption{Hierarchy nomenclature.}
+% \begin{tabularx}{\textwidth}{CCC}
+% \toprule
+% Subscript	& Meaning \\
+% \midrule
+% $k$					    & statepoint \\
+% $m$					    & mixture \\
+% $i$             & compound \\
+% $j$             & element \\
+% \bottomrule
+% \end{tabularx}
+% \label{tab:hierarchy_nomenclature}
+% \end{table}
 
 
 %------------------------------
@@ -586,6 +599,25 @@ Material exergy is comprised of four components:
 (d)~and comminution exergy ($b_{com}$),
 each corresponding to the reversible processes above.
 **** Convert to a table? ---MKH ****
+
+\begin{table}
+\caption{Material exergy}
+\begin{tabularx}{\textwidth}{CCC}
+\toprule
+Name and Subscript	& Meaning \\
+\midrule
+physical exergy ($b_{ph}$)					    & from $T$ and $P$ to $T_0$ and $P_0$(without changes in the chemical composition)\\
+
+chemical exergy ($b_{ch}$)					    & from its chemical composition to the reference chemical composition****ex**** (while the system remains at $T_0$ and $P_0$)\\
+
+concentration exergy ($b_c$)            & from its concentration at the statepoint to be fully concentrated \\
+
+comminution exergy ($b_{com}$)          & from a dispersed state to cohesive state \\
+\bottomrule
+\end{tabularx}
+\label{tab:material_exergy}
+\end{table}
+
 We assume that all statepoints in the example MCC
 are at $T_0$ and $P_0$;
 thus, physical exergy ($b_{ph}$) is zero.
@@ -681,13 +713,8 @@ the molar intensive material exergy of a compound is given by
 \label{ssec:chemical_exergy}
 %..............................
 
-% The chemical exergy of a compound ($b_{ch,i}$) is the minimum work needed
-% to form that compound.
-%
-% The chemical potential of a species is equal
-% in the reference environment and statepoint.
 The chemical exergy of a compound ($b_{ch,i}$)
-that exists in the reference environment
+existing in the reference environment
 is the potential amount of work obtainable
 by decomposing the compound
 to compounds and elements
@@ -699,13 +726,18 @@ in the reversible chemical reactions
 that decompose the pure compound
 to the set of compounds
 in equilibrium with the environment.
+% This process can be decomposed into two steps:
+% (1) decomposition of the compound into elements in their standard states and
+% (2) conversion of the elements in their environmentally stable forms.
+
 This process can be decomposed into two steps:
-(1) decomposition of the compound into elements in their standard states and
-(2) conversion of the elements in their environmentally stable forms.
-The reversible work that is done on the environment associated
-with the first process is the Gibbs energy of formation
-while the reversible works that are done on the environment associated
-with second step are the chemical exergies of those elements.
+(1) decomposition of compound in the environment to its most stable form of compounds and elements
+(2) formation of a compound from stable compounds and elements
+The reversible work produced from the first process
+is the chemical exergy of the compound.
+The reversible work associated with the second process
+is the Gibbs energy of formation.
+
 ****
 Hmmm. The wording here is confusing.
 It sounds like chemical exergy is a component of chemical exergy.
@@ -718,15 +750,13 @@ The chemical exergy of a compound ($b_{ch,i}$) is given by
   b_{ch,i} = \Delta{G_{f,i}} + \sum_{i}{n_{j}b_{ch,j}} \, ,
 \end{equation}
 %
-where $b_{ch,i}$ is in units of $\mathrm{kJ_i/mol_i}$
+where $b_{ch,i}$ is in units of $\mathrm{kJ_i/mol_i}$,
+$n_j$ is the number of moles of an element (in units of $\mathrm{mol_i}$),
 and Gibbs energy of formation ($\Delta{G_f}$) is in units of $\mathrm{kJ_i/mol_i}$.
-****
-Need to define $n$ here.
----MKH
-****
 
-$\Delta{G_{f}}$ values are taken from \citet[pp.~9.4--9.94]{Dean_1979}
-and \citet[Table~2]{Gibbs_formation}.
+$\Delta{G_{f}}$ values are taken from \citet[pp.~9.4--9.94]{Dean_1979},
+\citet[Table~2]{Gibbs_formation},
+and \citet[Appendix~II~B]{Tro_2006}.
 
 
 %..............................
