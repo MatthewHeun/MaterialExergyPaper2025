@@ -846,20 +846,21 @@ When the Gibbs energy of formation is not available
 we calculate the exergy of solid fuels by
 
 \begin{equation}\label{eq.energy_exergy_fuels}
-  E_i = [LHV_i + w h_{fg}]\phi_i + 9417s
+  \varepsilon_i = [LHV_i + w h_{fg}]\phi_i + 9417s
 \end{equation}
-where $E_i$ is the exergy of energy (in units of $\mathrm{kJ}$),
+where $\varepsilon_i$ is the exergy of the fuel (in units of $\mathrm{kJ}$),
 $LHV_i$ is the lower heating value of a material (in units of $\mathrm{kJ/kg}$),
 $w$ is the fuel's mass fraction of moisture (in units of $\mathrm{kg/kg}$),
 $h_{fg}$ is the enthalpy of evaporation of \ce{H2O} (in units of $\mathrm{kJ/kg}$),
 $\phi_i$ is the ratio of exergy to energy (in units of $\mathrm{kJ/kJ}$),
 the constant, 9417, is the difference in sulphurs exergy and lower heating value (in units of $\mathrm{kJ/kg}$),
 and $s$ is the mass fraction of sulphur in the fuel (in units of $\mathrm{kg/kg}$).
+See \citet[Eq.~C.5a]{Kotas_1995}.
 
 We obtain \ref{eq.energy_exergy_fuels}
 and $\phi$ values from \citet[Appendix~C]{Kotas_1995}.
 (See Appendix~\ref{sec:appendix_phi}
-for solid, liquid, and gaseous fuel exergy equations.)
+for solid and liquid fuel exergy equations.)
 
 
 All other energy sources in the example MCC are electricity.
@@ -985,7 +986,7 @@ and focus on whole streams.
   to concentrate a specific element or compound.
   We define ***Bejan*** efficiency as
   \begin{equation}\label{eq:Bejan Efficiency}
-    \eta_{Bejan} = \frac{N_i(b_{m,i,1} - b_{m,i,0})}{\sum{X_{in}}} \, .
+    \eta_{Bejan} = \frac{N_i(b_{k,m,i} - b_{k-1,m,i})}{\sum{X_{k,in}}} \, .
   \end{equation}
   where $b_{m,i,1}$ is the exergy of a compound in a mixture at statepoint 1 (in units of $\mathrm{kJ_i/mol_i}$)
   and $X_{in}$ is the exergy of all fuel streams, including electricity (in units of $\mathrm{kJ}$).
@@ -993,7 +994,7 @@ and focus on whole streams.
   compared to the total exergy input.
   The ***Resource*** efficiency is
   \begin{equation}\label{eq:Resource Efficiency}
-    \eta_{Resource} = \frac{(B_{m,i,1})}{\sum{X_{in}}+\sum{B_{in}}} \, ,
+    \eta_{Resource} = \frac{(B_{m,i,1})}{\sum{X_{k,in}}+\sum{B_{k,in}}} \, ,
   \end{equation}
   from \citet[Equation~(2.44), p.~32]{Dincer_2007}.
   The ***Resource*** method quantifies
@@ -1004,7 +1005,7 @@ and focus on whole streams.
   compared to the total exergy input.
   \citet[Equation~(2.45), p.~32]{Dincer_2007} define ***Rational efficiency*** efficiency as
   \begin{equation}\label{eq:Rational efficiency}
-    \eta_{Rational} = \frac{\sum{B_{out}}}{\sum{X_{in}} + \sum{B_{in}}} \, .
+    \eta_{Rational} = \frac{\sum{B_{k,out}}}{\sum{X_{k,in}} + \sum{B_{k,in}}} \, .
   \end{equation}
 
   **** Should we sum over $k$ in the above equation? ****
@@ -1341,7 +1342,11 @@ $E$               & energy [kJ]\\
 $\phi$            & exergy to energy ratio [kJ/kJ]\\
 $\eta$            & efficiency [kJ/kJ]\\
 $W_{min}$         & minimum work [kJ]\\
-
+$\varepsilon$     & exergy of a fuel [kJ]\\
+$LHV$             & lower heating value [kJ/kg]\\
+$w$               & mass fraction of moisture in a fuel [kg/kg]\\
+$h_{fg}$          & enthalpy of evaporation of \ce{H2O} [kJ/kg]\\
+$s$               & mass fraction of sulphur in a fuel [kg/kg]\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -1349,6 +1354,7 @@ $W_{min}$         & minimum work [kJ]\\
 \section[\appendixname~\thesection]{}
 All appendix sections must be cited in the main text. In the appendices, Figures, Tables, etc. should be labeled, starting with ``A''---e.g., Figure A1, Figure A2, etc.
 
+See \citet[Eq.~C.5a]{Kotas_1995}.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \SweaveInput{appendices/appendix-phi.Rnw}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
