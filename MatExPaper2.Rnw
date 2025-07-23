@@ -826,20 +826,6 @@ at any statepoint.
 The chemical exergy of elements ($b_{ch,j}$) is standardized
 based on the Crepuscular Earth Model
 from \citet[Table~9.1]{Valero_2015}.
-Values for $b_{ch,j}$ are available at \citet{Valero_2018}
-****
-Citation is not working
----MKH
-****.
-
-****
-Do we need the following sentence?
----MKH
-****
-The moles of an element within a compound ($n_{j,i}$),
-when multiplied by the chemical exergy of the element ($b_{ch,j}$),
-is added to the Gibbs free energy ($\Delta{G_f}$)
-in Equation~(\ref{eq:chemical_exergy_definition}).
 
 
 %------------------------------
@@ -856,17 +842,34 @@ when the Gibbs energy of formation
 ($\Delta{G_{f}}$)
 is available.
 When the Gibbs energy of formation is not available
-(such as for coal and ****),
-we calculate the exergy of energy by
+(such as for coal and fuel oil),
+we calculate the exergy of solid fuels by
 
-\begin{equation}\label{eq:energy_exergy_definition}
+\begin{equation}\label{eq.energy_exergy_fuels}
+  E_i = [LHV_i + w h_{fg}]\phi_i + 9417s
+\end{equation}
+where $E_i$ is the exergy of energy (in units of $\mathrm{kJ}$),
+$LHV_i$ is the lower heating value of a material (in units of $\mathrm{kJ/kg}$),
+$w$ is the fuel's mass fraction of moisture (in units of $\mathrm{kg/kg}$),
+$h_{fg}$ is the enthalpy of evaporation of \ce{H2O} (in units of $\mathrm{kJ/kg}$),
+$\phi_i$ is the ratio of exergy to energy (in units of $\mathrm{kJ/kJ}$),
+the constant, 9417, is the difference in sulphurs exergy and lower heating value (in units of $\mathrm{kJ/kg}$),
+and $s$ is the mass fraction of sulphur in the fuel (in units of $\mathrm{kg/kg}$).
+
+We obtain \ref{eq.energy_exergy_fuels}
+and $\phi$ values from \citet[Appendix~C]{Kotas_1995}.
+(See Appendix~\ref{sec:appendix_phi}
+for solid, liquid, and gaseous fuel exergy equations.)
+
+
+All other energy sources in the example MCC are electricity.
+The exergy of electricity is given by
+\begin{equation}\label{eq:electricity_exergy_definition}
   X_i = \phi_i E_i \, ,
 \end{equation}
 %
-where $\phi_i$ is the exergy to energy ratio and
-$E_i$ is the lower heating value of compound $i$.
-We obtain $\phi$ values from \citet[Appendix~C]{Kotas_1995}.
-(See Appendix~\ref{sec:appendix_phi}.)
+where $\phi_i$ is always equal to one.
+
 The total exergy of energy
 at any statepoint
 in a material conversion chain
@@ -876,10 +879,7 @@ is given by
   X = \sum_i \phi_i E_i \, .
 \end{equation}
 %
-****
-Is that right? What about when we treat as a material?
----MKH
-****
+
 
 
 %------------------------------
