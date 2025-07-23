@@ -245,6 +245,57 @@ print_statepoint_table(statepoint_table_name = "statepoint_table",
 \section{Introduction}
 \label{sec:introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The study of material and material processing
+is growing in importance at the societal level
+for several reasons.
+First, the energy transition will also be a materials transition
+as the world moves to
+renewable energy sources which require
+electrified end uses and
+energy storage systems.
+Second, continued economic growth will mean increasing
+ore extraction and toxic effluents
+from mining and processing of critical minerals
+such as manganese and rare earth metals.
+Third, declining ore quality will require
+increased energy consumption
+(and \ce{CO2} emissions)
+to extract and process raw materials.
+Fourth, industrial processing of extracted raw materials
+and assembly into products, vehicles, roads, and buildings
+requires energy consumption and leads to
+toxic effluents and \ce{CO2} emissions.
+
+Extracted raw materials are converted
+to infrastructure and products via
+\emph{material conversion chains} (MCCs).
+Although all processes in societal material conversion chains
+consume energy,
+some processes exhibit high energy- and carbon-intensity,
+such as
+concrete production,
+steel-making,
+aluminum smelting, and
+****.
+These high-intensity processes are characterized
+by consumption of energy for the purpose of
+upgrading material quality.
+Aggregate and limestone are combined into cement
+with the aid of heat from fossil fuel combustion.
+Iron ore is upgraded to iron and steel
+with the aid of heat from coal combustion.
+Bauxite is upgraded to aluminum via
+electrolysis.
+In all cases, energy is downgraded
+for the purpose of upgrading the material.
+
+The best way to
+
+
+
+Benefits
+
 HEUN
 ***Need to discuss exergy is a way to perform consistent analysis of both material and energy***
 Exergy analysis:
