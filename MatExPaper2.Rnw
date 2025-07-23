@@ -242,52 +242,86 @@ print_statepoint_table(statepoint_table_name = "statepoint_table",
 \label{sec:introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The study of material and material processing
+The study of raw material extraction and processing
 is growing in importance at the societal level
-for several reasons.
-First, the energy transition will also be a materials transition
-as the world moves to
-renewable energy sources which require
-electrified end uses and
-energy storage systems.
-Second, continued economic growth will mean increasing
-ore extraction and toxic effluents
-from mining and processing of critical minerals
-such as manganese and rare earth metals.
-Third, declining ore quality will require
+for at least three interconnected reasons.
+The first reason is related to \emph{climate change}.
+The drive to reduce \ce{CO2} emissions
+is leading to adoption of
+renewable generation technolgies,
+electrified end uses, and
+energy storage.
+Furthermore, declining ore quality can lead to
 increased energy consumption
 (and \ce{CO2} emissions)
 to extract and process raw materials.
-Fourth, industrial processing of extracted raw materials
-and assembly into products, vehicles, roads, and buildings
-requires energy consumption and leads to
-toxic effluents and \ce{CO2} emissions.
+These changes require increasing levels of material extraction,
+especially for copper ore and rare earth minerals.
+In short, the energy transition will also be a materials transition.
+
+Second,
+continued \emph{economic growth} means increasing
+ore extraction and toxic effluents
+from mining and processing of minerals
+such as iron ore, bauxite, manganese, and rare earth metals
+to support fabrication of products and
+construction of roads, buildings, and other infrastructure.
+Expanded mining and processing of materials within the economy
+requires growing energy consumption
+and \ce{CO2} emissions associated with those activities.
+
+Third, and in response to the first two reasons,
+many countries maintain lists of \emph{critical materials}
+of importance, especially, to energy technologies.
+Many critical materials have supply chains
+whose disruption would threaten
+economic or national security.
+Materials on critical lists receive added scrutiny
+from governments and researchers.
 
 Extracted raw materials are converted
 to infrastructure and products via
+supply chains that we call
 \emph{material conversion chains} (MCCs).
 Although all processes in societal material conversion chains
 consume energy,
 some processes exhibit high energy- and carbon-intensity,
 such as
-concrete production,
 steel-making,
+concrete production,
 aluminum smelting, and
-****.
+chemical manufacturing.
 These high-intensity processes are characterized
 by consumption of energy for the purpose of
 upgrading material quality.
-Aggregate and limestone are combined into cement
-with the aid of heat from fossil fuel combustion.
 Iron ore is upgraded to iron and steel
 with the aid of heat from coal combustion.
+Aggregate and limestone are combined into cement
+with the aid of heat from fossil fuel combustion.
 Bauxite is upgraded to aluminum via
 electrolysis.
-In all cases, energy is downgraded
-for the purpose of upgrading the material.
+Industrial chemicals are produced using
+heat and from methane combustion.
+In all cases, the quality of material is upgraded
+(e.g., from ore to steel)
+while the quality of energy is downgraded
+(e.g., from coal to heat).
+We trade energy quality for material quality
+at many points in our economies.
 
-The best way to
+One way to address concerns about critical materials
+is to increase the efficiency of their use.
+``Efficiency'' is usually quantified by
+material output (in mass units) per unit of energy input
+(in energy units).
+For example, tonnes of steel produced per MJ of coal consumed.
+Strictly speaking, such efficiencies are \emph{efficacies},
+as they are not unitless.
+To obtain a true, unitless efficiency for such processes,
+both outputs and inputs may be quantified
+in exergy terms.
 
+Exergy is ...
 
 
 Benefits
