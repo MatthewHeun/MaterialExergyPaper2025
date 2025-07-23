@@ -30,12 +30,12 @@ for certain processes.
 
 Coal becomes coke oven gas and coke.
 \begin{equation}\label{eq:Coke_oven_chemeqn}
-  \ce{C_c H_h N_n O_o -> C + H2 + C2H4 + CO + CO2 + N2 + CH4} \; .
+  \ce{C_c H_h N_n O_o -> C + H2 + C2H4 + CO + CO2 + N2 + CH4} \, .
 \end{equation}
 
 The coke oven gas is treated to create methane (\ce{CH_4}).
 \begin{equation}\label{eq:Coke_oven_chemeqn}
-  \ce{H2 + C2H4 + CO + CO2 + N2 + CH4 -> H2 + CH4 + O2 + N2} \; .
+  \ce{H2 + C2H4 + CO + CO2 + N2 + CH4 -> H2 + CH4 + O2 + N2} \, .
 \end{equation}
 
 
