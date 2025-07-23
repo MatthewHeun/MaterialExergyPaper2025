@@ -356,67 +356,38 @@ going as far back as 1800.
 Data for these ECCs are organized
 in physical supply-use tables (matrices)
 that describe the movement of energy through society
-via processing stages.
-
-The unified analysis of material and energy exergy has been
-applied to the analysis and design of chemical and energy plants.
+via processing stages ****.
+Others have developed databases of material flows
+at the world and societal levels
+in mass terms,
+but not in exergy terms~\citet{Liu:2013ab} **** more citations ****.
+The unified exergy analysis of material and energy has been
+applied to the analysis and design of chemical and energy plants ****.
 However, to date,
-unified analyses have not been applied at the societal level.
+unified exergy analysis of material and energy
+has not been applied at the societal level.
 All of which raises the question answered by this paper:
-\emph{how should integrated energy and material conversion chains
-be represented for unified material and energy exergy analysis
+\emph{how should unified energy and material conversion chains
+be represented for unified exergy analysis of material and energy
 at the societal level?}
+The answer to that question can inform future efforts
+to develop unified material and energy conversion chains
+quantified as exergy.
 
-
-applied to analyses
-of plants.
-
-
-
-
-
-These ECCs are
-In fact, two efforts in the exergy economics community
-are preparing
-
-at the societal level h
-the exergy of energy has been
-
-This approach to combined
-
-
-
-
-
-
-Benefits
-
-HEUN
-***Need to discuss exergy is a way to perform consistent analysis of both material and energy***
-Exergy analysis:
--converts mass and energy into work used in a process
--have consistent analysis of material and energy
-
-A reference to cite: \citet{Liu:2013ab}.
-
-
-Our research question:
-
-How should integrated energy and material conversion chains
-be represented for societal exergy analysis?
-
-Contributions of this paper:
+Our approach to answering the question
+yields three contributions to the literature.
+For the first time, we
 
 \begin{enumerate}
 
-  \item Demonstrate a consistent exergy analysis approach for ECCs and MCCs,
-        including physical, chemical, and concentration exergies.
+  \item demonstrate a consistent exergy analysis approach for ECCs and MCCs,
+        including physical, chemical, and concentration exergies;
 
-  \item Apply the exergy analysis approach to a MCC
-        from extraction (iron ore, coking coal, limestone)
-        to pig iron.
+  \item apply the exergy analysis approach to an example MCC
+        from extraction of iron ore, coking coal, and limestone
+        to the production of pig iron; and
 
-  \item Demonstrate the interaction
+  \item demonstrate the interaction
         between energy and material conversion chains
         using PSUT matrices
         amenable to existing energy conversion chain datasets.
