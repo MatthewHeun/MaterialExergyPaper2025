@@ -277,8 +277,8 @@ that are important, especially, for renewable energy technologies.
 Many critical materials have supply chains
 whose disruption would threaten
 economic or national security.
-Materials on critical lists receive added scrutiny
-from governments and researchers.
+Materials on critical lists focus the attention of
+governments and researchers.
 
 
 %++++++++++++++++++++++++++++++
@@ -500,7 +500,9 @@ and \citet[Table~4]{Zhang_2019}.
 The exergy of coal is calculated as shown in
 \citet[Equation~C.3]{Kotas_1995}.
 Coke oven outputs have compositions given by
-\citet[Table~2,5,8,and 9]{Kolling_1977}, \citet{Apicella_2017}, and \citet[Table~2]{Satyendra_2_2013}.
+\citet[Tables~2, 5, 8, and 9]{Kolling_1977},
+\citet{Apicella_2017}, and
+\citet[Table~2]{Satyendra_2_2013}.
 The coke oven mass balance is modeled from
 \citet[Figure~4]{Ergul_2024}.
 
@@ -925,18 +927,20 @@ When the Gibbs energy of formation is not available
 (such as for coal and fuel oil),
 we calculate the exergy of solid fuels by
 
-\begin{equation}\label{eq.energy_exergy_fuels}
+\begin{equation}\label{eq:energy_exergy_fuels}
   E_i = [LHV_i + w h_{fg}]\phi_i + 9417s
 \end{equation}
+%
 where $E_i$ is the exergy of energy (in units of $\mathrm{kJ}$),
 $LHV_i$ is the lower heating value of a material (in units of $\mathrm{kJ/kg}$),
 $w$ is the fuel's mass fraction of moisture (in units of $\mathrm{kg/kg}$),
 $h_{fg}$ is the enthalpy of evaporation of \ce{H2O} (in units of $\mathrm{kJ/kg}$),
 $\phi_i$ is the ratio of exergy to energy (in units of $\mathrm{kJ/kJ}$),
-the constant, 9417, is the difference in sulphurs exergy and lower heating value (in units of $\mathrm{kJ/kg}$),
-and $s$ is the mass fraction of sulphur in the fuel (in units of $\mathrm{kg/kg}$).
+the constant, 9417 **** needs units ---MKH ****,
+is the difference in sulfur's exergy and lower heating value (in units of $\mathrm{kJ/kg}$),
+and $s$ is the mass fraction of sulfur in the fuel (in units of $\mathrm{kg/kg}$).
 
-We obtain \ref{eq.energy_exergy_fuels}
+We obtain \ref{eq:energy_exergy_fuels}
 and $\phi$ values from \citet[Appendix~C]{Kotas_1995}.
 (See Appendix~\ref{sec:appendix_phi}
 for solid, liquid, and gaseous fuel exergy equations.)
@@ -944,6 +948,7 @@ for solid, liquid, and gaseous fuel exergy equations.)
 
 All other energy sources in the example MCC are electricity.
 The exergy of electricity is given by
+
 \begin{equation}\label{eq:electricity_exergy_definition}
   X_i = \phi_i E_i \, ,
 \end{equation}
@@ -958,8 +963,6 @@ is given by
 \begin{equation}\label{eq:energy_exergy_definition}
   X = \sum_i \phi_i E_i \, .
 \end{equation}
-%
-
 
 
 %------------------------------
