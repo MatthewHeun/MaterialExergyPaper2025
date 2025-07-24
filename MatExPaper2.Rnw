@@ -273,8 +273,9 @@ and \ce{CO2} emissions associated with those activities.
 
 Third, and in response to the above reasons,
 many countries maintain lists of \emph{critical materials}
-that are important, especially, for renewable energy technologies.
-Many critical materials have supply chains
+that are important, especially but not exclusively,
+for renewable energy technologies~\cite{European-Commission:2020ui,Bauer:2023aa}.
+Many critical materials are produced by supply chains
 whose disruption would threaten
 economic or national security.
 Materials on critical lists focus the attention of
@@ -819,6 +820,12 @@ The reversible work produced from the first process
 is the chemical exergy of the compound.
 The reversible work associated with the second process
 is the Gibbs energy of formation.
+
+****
+Perhaps we can cite this paper:
+\citet{Michalakakis_2021}.
+---MKH
+****
 
 ****
 Hmmm. The wording here is confusing.
