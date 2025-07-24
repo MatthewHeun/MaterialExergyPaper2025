@@ -242,7 +242,7 @@ print_statepoint_table(statepoint_table_name = "statepoint_table",
 \label{sec:introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The study of raw material extraction and processing
+The study of raw material extraction and processing~\cite{Schandl:2024aa}
 is growing in importance at the societal level
 for at least three interconnected reasons.
 The first reason is related to \emph{climate change}.
