@@ -397,7 +397,7 @@ via processing stages~\cite{Heun:2018,Aramendia:2022tv}.
 Others have developed databases of material flows
 at the world and societal levels
 in mass terms,
-but not in exergy terms~\citet{Liu:2013ab} **** more citations ****.
+but not in exergy terms~\cite{Liu:2013ab} **** more citations ****.
 The unified exergy analysis of material and energy has been
 applied to the analysis and design of chemical~\cite{Michalakakis_2021a}
 and energy plants~\cite{Bejan:1996}.
@@ -426,7 +426,7 @@ For the first time, we
 \begin{enumerate}
 
   \item demonstrate a consistent exergy analysis approach for ECCs and MCCs,
-        including physical, chemical, and concentration exergies;
+        including physical, chemical, concentration, and comminution exergies;
 
   \item apply the exergy analysis approach to an example MCC
         from extraction of iron ore, coking coal, and limestone
@@ -495,12 +495,10 @@ for each statepoint in the example MCC
 come from various sources.
 Iron ore and coal compositions are representative
 of pig iron production in South Africa.
-Coal composition is provided by
-\citet[Table~3]{Matsuhashi_2012}
-and \citet[Table~4]{Zhang_2019}.
 The exergy of coal is calculated as shown in
 \citet[Equation~C.3]{Kotas_1995}.
-Coke oven outputs have compositions given by
+Coal composition is determined by
+the coke oven output compositions, given by
 \citet[Tables~2, 5, 8, and 9]{Kolling_1977},
 \citet{Apicella_2017}, and
 \citet[Table~2]{Satyendra_2_2013}.
@@ -663,27 +661,6 @@ to equilibrium with the reference environment,
 defined by its temperature ($T_0$), pressure ($P_0$), and chemical composition.
 Thus, the total exergy of a material ($B$)
 is the sum of the work of four reversible processes.
-% that bring the system
-% (a)~from $T$ and $P$ to
-%     $T_0$ and $P_0$
-%     (without changes in the chemical composition)
-% (b)~from its chemical composition
-%     to the reference chemical composition****ex****
-%     (while the system remains at $T_0$ and $P_0$)
-% (c)~from its concentration at the statepoint to pure **state**
-% (d)~from a dispersed state to its cohesive state.
-% %processes a through d have exergy associated
-% %Ex. T and P, concentration, dispersion (mine), compound that changes
-%
-% % Material exergy is comprised of four components:
-% % (a)~physical exergy ($b_{ph}$),
-% % (b)~chemical exergy ($b_{ch}$),
-% % (c)~concentration exergy ($b_c$),
-% % (d)~and comminution exergy ($b_{com}$),
-% % each corresponding to the reversible processes above.
-
-
-**** Convert to a table? ---MKH ****
 
 \begin{table}
 \footnotesize
@@ -701,28 +678,6 @@ comminution exergy & ($b_{com}$) & Dispersed state & Cohesive state & NA\\
 \label{tab:material_exergy}
 \end{table}
 
-
-
-
-
-% \begin{table}
-% \caption{Material exergy}
-% \begin{tabularx}{\textwidth}{CCCCC}
-% \footnotesize
-% \toprule
-% Name & Subscript & From & To & Constraint \\
-% \midrule
-% physical exergy   & ($b_{ph}$)	& $T$ and $P$  & $T_0$ and $P_0$  & without changes in the chemical composition\\
-%
-% chemical exergy   & ($b_{ch}$)	& Chemical composition & Reference chemical composition & while the system remains at $T_0$ and $P_0$\\
-%
-% concentration exergy & ($b_c$)  & Concentration at the statepoint & Entirely concentrated & NA\\
-%
-% comminution exergy & ($b_{com}$) & Dispersed state & Cohesive state & NA\\
-% \bottomrule
-% \end{tabularx}
-% \label{tab:material_exergy}
-% \end{table}
 
 We assume that all statepoints in the example MCC
 are at $T_0$ and $P_0$;
