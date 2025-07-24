@@ -684,10 +684,10 @@ is the sum of the work of four reversible processes.
 
 
 **** Convert to a table? ---MKH ****
-***footnotesize***
 
 \begin{table}
-\caption{Material exergy}
+\footnotesize
+\caption{Components of material exergy.}
 \begin{tabularx}{\textwidth}{C C C C C}
 \toprule
 Name & Subscript & From & To & Constraint \\
