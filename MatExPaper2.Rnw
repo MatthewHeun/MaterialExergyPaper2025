@@ -380,13 +380,13 @@ and action taken to improve processes.
 
 
 %++++++++++++++++++++++++++++++
-\subsection{Energy conversion chains (ECCs)}
-\label{sec:eccs}
+\subsection{ECC datasets}
+\label{sec:ecc_datasets}
 %++++++++++++++++++++++++++++++
 
 In recent years,
 the Exergy Economics community~\citep{exergy_economics_website}
-have assembled energy conversion chains (ECCs)
+have assembled datasets of energy conversion chains (ECCs)
 at the societal level
 in both energy and exergy quantifications
 going as far back
@@ -394,7 +394,7 @@ as 1800~\cite{Steenwyk:2022ww,Pinto:2023aa,Brockway:2024ab}.
 Data for these ECCs are organized
 in physical supply-use tables (matrices)
 that describe the movement of energy through society
-via processing stages~\cite{Heun:2018,Aramendia:2022tv}.
+via energy transformation processes~\cite{Heun:2018,Aramendia:2022tv}.
 
 
 %++++++++++++++++++++++++++++++
@@ -416,9 +416,9 @@ has not been applied at the societal level.
 All of which raises the question answered by this paper:
 \emph{how should unified energy and material conversion chains
 be represented for unified exergy analysis of material and energy
-at the societal level?}
-The answer to that question will inform future efforts
-to develop unified material and energy conversion chains
+conversion chains at the societal level?}
+The answer to this question will inform future efforts
+to develop datasets of unified material and energy conversion chains
 quantified as exergy at the societal level.
 
 Our approach to answering the question
