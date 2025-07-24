@@ -242,7 +242,7 @@ print_statepoint_table(statepoint_table_name = "statepoint_table",
 \label{sec:introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The study of raw material extraction and processing
+The study of raw material extraction and processing~\cite{Schandl:2024aa}
 is growing in importance at the societal level
 for at least three interconnected reasons.
 The first reason is related to \emph{climate change}.
@@ -257,7 +257,8 @@ increased energy consumption
 to extract and process raw materials.
 These changes require increasing levels of material extraction,
 especially for copper ore and rare earth minerals.
-In short, the energy transition will also be a materials transition.
+In short, the energy transition will also be a materials transition,
+and depletion of resources may become a long-term concern.
 
 Second,
 continued \emph{economic growth} means increasing
@@ -270,17 +271,24 @@ Expanded mining and processing of materials within the economy
 requires growing energy consumption
 and \ce{CO2} emissions associated with those activities.
 
-Third, and in response to the first two reasons,
+Third, and in response to the above reasons,
 many countries maintain lists of \emph{critical materials}
-of importance, especially, to energy technologies.
-Many critical materials have supply chains
+that are important, especially but not exclusively,
+for renewable energy technologies~\cite{European-Commission:2020ui,Bauer:2023aa}.
+Many critical materials are produced by supply chains
 whose disruption would threaten
 economic or national security.
-Materials on critical lists receive added scrutiny
-from governments and researchers.
+Materials on critical lists focus the attention of
+governments and researchers.
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Material and energy conversion chains (MCCs and ECCs)}
+\label{sec:mccs_eccs}
+%++++++++++++++++++++++++++++++
 
 Extracted raw materials are converted
-to infrastructure and products via
+to products and infrastructure via
 supply chains that we call
 \emph{material conversion chains} (MCCs).
 Although all processes in societal material conversion chains
@@ -291,15 +299,25 @@ steel-making,
 concrete production,
 aluminum smelting, and
 chemical manufacturing.
-These high-intensity processes are characterized
-by consumption of energy for the purpose of
+
+The energy for these processes is delivered
+via energy conversion chains (ECCs) that
+describe the extraction and conversion of energy
+throughout the economy.
+An example ECC follows coal from extraction
+through beneficiation to consumption
+in the iron and steel sector.
+
+High-intensity processes like
+steel-making
+consume energy for the purpose of
 upgrading material quality.
-Iron ore is upgraded to iron and steel
+Iron ore is upgraded to pig iron and later steel
 with the aid of heat from coal combustion.
 Aggregate and limestone are combined into cement
 with the aid of heat from fossil fuel combustion.
 Bauxite is upgraded to aluminum via
-electrolysis.
+electricity for electrolysis.
 Industrial chemicals are produced using
 heat and from methane combustion.
 In all cases, the quality of material is upgraded
@@ -309,22 +327,34 @@ while the quality of energy is downgraded
 We trade energy quality for material quality
 at many points in our economies.
 
+
+%++++++++++++++++++++++++++++++
+\subsection{The exergy of materials and energy}
+\label{sec:exergy}
+%++++++++++++++++++++++++++++++
+
 One way to address concerns about critical materials
 in high-intensity processes
-is to increase the efficiency of the processes.
+is to increase the efficiency of the energy-consuming
+material processing stages.
 ``Efficiency'' is usually quantified by
 material output (in mass units) per
 unit of energy input (in energy units),
 e.g.\ tonnes of iron produced per MJ of coal consumed
-or tonnes of cement produced per MJ of heat consumed,
-two efficiencies that are not comparable.
+or tonnes of cement produced per MJ of heat consumed.
 Strictly speaking, such efficiencies are \emph{efficacies},
 because they are not unitless.
-To obtain a true, unitless efficiency for such processes,
-both outputs and inputs may be quantified
-in exergy terms.
+Because two different products are involved,
+the above two efficacies are not comparable
+in the thermodynamic sense.
+To obtain a unitless and comparable
+efficiency for such processes,
+both outputs and inputs must be quantified
+in the same meaningful units;
+both inputs and outputs
+can be quantified as exergy.
 
-Exergy is a work quantification of energy and materials,
+Exergy is a work quantification of materials and energy,
 therefore expressed in energy units.
 For materials, exergy is defined as the maximum work
 that could be obtained from thermodynamic processes that bring
@@ -332,40 +362,55 @@ a material into equilibrium with its surroundings.
 For energy, exergy is defined as the maximum work
 that could be obtained from thermodynamic processes that bring
 the energy into equilibrium with its surroundings.
-With both materials and energy expressed as exergy,
+With both materials and energy quantified as exergy,
 thermodynamically meaningful, unitless efficiencies
 can be calculated for intensive processes that
 trade the exergy of energy for the exergy of materials.
 For example, the pig iron output of a blast furnace
-can be quantified in exergy units instead of mass units, thereby
+can be quantified as exergy instead of mass, thereby
 enabling calculation of an exergy efficiency
-in units of kJ (pig iron)/kJ (coal).
+in units of kJ (of pig iron)/kJ (of coal).
 
 Quantifying materials and energy as exergy enables calculation
 of comparable efficiencies of all processes in societal MCCs.
 With such efficiencies available,
-inefficiency hot-spots can be identified
-and actions taken to improve the processes.
+hot-spots of inefficiency can be identified
+and action taken to improve the processes.
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Energy conversion chains (ECCs)}
+\label{sec:eccs}
+%++++++++++++++++++++++++++++++
 
 In recent years,
 the Exergy Economics community
 have assembled energy conversion chains (ECCs)
 at the societal level
 in both energy and exergy quantifications
-going as far back as 1800.
+going as far back
+as 1800~\cite{Steenwyk:2022ww,Pinto:2023aa,Brockway:2024ab}.
 Data for these ECCs are organized
 in physical supply-use tables (matrices)
 that describe the movement of energy through society
-via processing stages ****.
+via processing stages~\cite{Heun:2018,Aramendia:2022tv}.
 Others have developed databases of material flows
 at the world and societal levels
 in mass terms,
 but not in exergy terms~\citet{Liu:2013ab} **** more citations ****.
 The unified exergy analysis of material and energy has been
-applied to the analysis and design of chemical and energy plants ****.
+applied to the analysis and design of chemical~\cite{Michalakakis_2021a}
+and energy plants~\cite{Bejan:1996}.
 However, to date,
 unified exergy analysis of material and energy
 has not been applied at the societal level.
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Question and structure}
+\label{sec:question_structure}
+%++++++++++++++++++++++++++++++
+
 All of which raises the question answered by this paper:
 \emph{how should unified energy and material conversion chains
 be represented for unified exergy analysis of material and energy
@@ -456,7 +501,9 @@ and \citet[Table~4]{Zhang_2019}.
 The exergy of coal is calculated as shown in
 \citet[Equation~C.3]{Kotas_1995}.
 Coke oven outputs have compositions given by
-\citet[Table~2,5,8,and 9]{Kolling_1977}, \citet{Apicella_2017}, and \citet[Table~2]{Satyendra_2_2013}.
+\citet[Tables~2, 5, 8, and 9]{Kolling_1977},
+\citet{Apicella_2017}, and
+\citet[Table~2]{Satyendra_2_2013}.
 The coke oven mass balance is modeled from
 \citet[Figure~4]{Ergul_2024}.
 
@@ -561,7 +608,7 @@ we employ a material hierarchy, namely
 \toprule
 Name & Subscript & Definition \\
 \midrule
-statepoint & ($k$)		&  a material stream that is an input or output of a process\\
+statepoint & ($k$)		& a material stream that is an input or output of a process\\
 mixture    & ($m$)		& a combination of compounds and/or elements that exist at a statepoint\\
 compound   & ($i$)    & a combination of elements \\
 element    & ($j$)    & a combination of atoms \\
@@ -638,6 +685,26 @@ is the sum of the work of four reversible processes.
 
 **** Convert to a table? ---MKH ****
 ***footnotesize***
+
+\begin{table}
+\caption{Material exergy}
+\begin{tabularx}{\textwidth}{C C C C C}
+\toprule
+Name & Subscript & From & To & Constraint \\
+\midrule
+physical exergy & ($b_{ph}$) & $T$ and $P$ & $T_0$ and $P_0$ & without changes in the chemical composition \\
+chemical exergy   & ($b_{ch}$)	& Chemical composition & Reference chemical composition & while the system remains at $T_0$ and $P_0$\\
+concentration exergy & ($b_c$)  & Concentration at the statepoint & Entirely concentrated & NA\\
+comminution exergy & ($b_{com}$) & Dispersed state & Cohesive state & NA\\
+\bottomrule
+\end{tabularx}
+\label{tab:material_exergy}
+\end{table}
+
+
+
+
+
 % \begin{table}
 % \caption{Material exergy}
 % \begin{tabularx}{\textwidth}{CCCCC}
@@ -774,6 +841,12 @@ The reversible work produced from the first process
 is the chemical exergy of the compound.
 
 ****
+Perhaps we can cite this paper:
+\citet{Michalakakis_2021}.
+---MKH
+****
+
+****
 Hmmm. The wording here is confusing.
 It sounds like chemical exergy is a component of chemical exergy.
 ---MKH
@@ -880,19 +953,22 @@ When the Gibbs energy of formation is not available
 (such as for coal and fuel oil),
 we calculate the exergy of solid fuels by
 
-\begin{equation}\label{eq.energy_exergy_fuels}
+
+\begin{equation}\label{eq:energy_exergy_fuels}
   \varepsilon_i = [LHV_i + w h_{fg}]\phi_i + 9417s
 \end{equation}
-where $\varepsilon_i$ is the exergy of the fuel (in units of $\mathrm{kJ}$),
+%
+where $\varepsilon_i$ is the exergy of energy (in units of $\mathrm{kJ}$),
 $LHV_i$ is the lower heating value of a material (in units of $\mathrm{kJ/kg}$),
 $w$ is the fuel's mass fraction of moisture (in units of $\mathrm{kg/kg}$),
 $h_{fg}$ is the enthalpy of evaporation of \ce{H2O} (in units of $\mathrm{kJ/kg}$),
 $\phi_i$ is the ratio of exergy to energy (in units of $\mathrm{kJ/kJ}$),
-the constant, 9417, is the difference in sulphurs exergy and lower heating value (in units of $\mathrm{kJ/kg}$),
-and $s$ is the mass fraction of sulphur in the fuel (in units of $\mathrm{kg/kg}$).
+the constant, 9417, is the difference in sulfur's exergy and lower heating value (in units of $\mathrm{kJ/kg}$),**** needs units ---MKH ****,
+and $s$ is the mass fraction of sulfur in the fuel (in units of $\mathrm{kg/kg}$).
 See \citet[Eq.~C.5a]{Kotas_1995}.
 
-We obtain \ref{eq.energy_exergy_fuels}
+
+We obtain \ref{eq:energy_exergy_fuels}
 and $\phi$ values from \citet[Appendix~C]{Kotas_1995}.
 (See Appendix~\ref{sec:appendix_phi}
 for solid and liquid fuel exergy equations.)
@@ -900,6 +976,7 @@ for solid and liquid fuel exergy equations.)
 
 All other energy sources in the example MCC are electricity.
 The exergy of electricity is given by
+
 \begin{equation}\label{eq:electricity_exergy_definition}
   X_i = \phi_i E_i \, ,
 \end{equation}
@@ -914,8 +991,6 @@ is given by
 \begin{equation}\label{eq:energy_exergy_definition}
   X = \sum_i \phi_i E_i \, .
 \end{equation}
-%
-
 
 
 %------------------------------
@@ -925,7 +1000,7 @@ is given by
 
 The native data format for the CL-PFU database~\citep{Brockway:2024ab} is
 the $\mat{RUVY}$ matrices of the
-Physical Supply-Use Table (PSUT) framework~\citep{Heun:2018,Aramendia_2022}.
+Physical Supply-Use Table (PSUT) framework~\citep{Heun:2018,Aramendia:2022tv}.
 To date, the PSUT framework has been applied
 to energy conversion chains~\cite{Heun:2019aa,Aramendia:2024ac};
 this paper represents its first application
@@ -946,7 +1021,7 @@ describe the consumption and production of materials and energy
 by processes in conversion chains, and
 the final demand matrix ($\mat{Y}$) which describes consumption
 of materials and energy by economic sectors.
-(See \citet[Figure~1]{Aramendia_2022}.)
+(See \citet[Figure~1]{Aramendia:2022tv}.)
 
 
 %------------------------------
