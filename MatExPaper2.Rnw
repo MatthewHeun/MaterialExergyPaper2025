@@ -511,6 +511,11 @@ The coke oven mass balance is modeled from
 **** Do we have page numbers or table numbers for the previous citations? ---MKH ****
 
 
+Ricardo's thesis citation:
+\citet{Pinto:2018aa}
+
+
+
 %------------------------------
 \subsubsection{Material conversion chain energy requirements}
 \label{sec:energy_data}
@@ -1211,15 +1216,11 @@ print_statepoint_table(statepoint_table_name = "Statepoint_limestone_into_kiln",
 
 
 
-% Commented for now.
-% After the efficiencies table is working
-% in the Excel file again, we can test again.
-% ---MKH, 18 July 2025
-% <<EfficienciesTable, echo=FALSE, results=tex>>=
-% print_efficiencies_table(efficiencies_table_name = "Efficiencies__Tables_for_Paper",
-%                          latex_label = "tab:efficiencies",
-%                          caption = "Efficiencies table.")
-% @
+<<EfficienciesTable, echo=FALSE, results=tex>>=
+print_efficiencies_table(efficiencies_table_name = "Efficiencies__Tables_for_Paper",
+                         latex_label = "tab:efficiencies",
+                         caption = "Efficiencies table.")
+@
 
 
 Three efficiency calculation methods,
