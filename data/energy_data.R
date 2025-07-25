@@ -71,7 +71,7 @@ Y_rownames_supply <- mcc_energy_reqts$Y_prime[[1]] |>
   rownames()
 Y_colnames_supply <- c("Iron and steel", "Mining and quarrying")
 
-zaf_2013_ecc_supply <- zaf_2013_ecc |>
+ecc_supply_to_mcc <- zaf_2013_ecc |>
   Recca::calc_io_mats() |>
   dplyr::mutate(
     # Isolate only the rows we need
@@ -162,7 +162,14 @@ ecc_supply_to_mcc_long <- ecc_supply_to_mcc |>
                                "U_feed", "U_EIOU", "r_EIOU",
                                "S_units"),
                       names_to = "matnames",
-                      values_to = "X")
+                      values_to = "X") |>
+  # There are several near-zero but not zero values
+  # in these matrices.
+  # Eliminate small values.
+  dplyr::mutate(
+    X = matsbyname::clean_byname(.data[["X"]], tol = 1e-8)
+  )
+
 
 
 #
