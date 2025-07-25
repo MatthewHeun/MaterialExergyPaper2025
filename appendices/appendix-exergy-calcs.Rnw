@@ -6,6 +6,96 @@
 \label{sec:MCC_exergy}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+<<ExampleValues, echo=FALSE>>=
+cp_CaCO3 <- read_named_cell("cp_CaCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+cp_MgCO3 <- read_named_cell("Mg_CaCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+
+deltah_CaCO3 <- read_named_cell("deltah_CaCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+deltah_MgCO3 <- read_named_cell("deltah_MgCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+
+T_kiln <- read_named_cell("T_kiln"
+                       file = file.path("data", "Paper Examples.xlsx"))
+T_0 <- read_named_cell("T_0"
+                       file = file.path("data", "Paper Examples.xlsx"))
+
+deltas_CaCO3 <- read_named_cell("deltas_CaCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+deltas_MgCO3 <- read_named_cell("deltas_MgCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+
+b_ph_MgCO3 <- read_named_cell("b_ph_MgCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+b_ph_CaCO3 <- read_named_cell("b_ph_CaCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+
+deltaG_CaCO3 <- read_named_cell("deltaG_CaCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+deltaG_MgCO3 <- read_named_cell("deltaG_MgCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+
+b_ch_Ca <- read_named_cell("b_ch_Ca",
+                       file = file.path("data", "Paper Examples.xlsx"))
+b_ch_C <- read_named_cell("b_ch_C",
+                       file = file.path("data", "Paper Examples.xlsx"))
+b_ch_O2 <- read_named_cell("b_ch_O2",
+                       file = file.path("data", "Paper Examples.xlsx"))
+b_ch_Mg <- read_named_cell("b_ch_Mg",
+                       file = file.path("data", "Paper Examples.xlsx"))
+b_ch_MgCO3 <- read_named_cell("b_ch_MgCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+b_ch_CaCO3 <- read_named_cell("b_ch_CaCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+
+MW_CaCO3 <- read_named_cell("MW_CaCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+MW_MgCO3 <- read_named_cell("MW_CaCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+Limestone_for_BF <- read_named_cell("Limestone_for_BF",
+                       file = file.path("data", "Paper Examples.xlsx"))
+MgCO3_in_Limestone <- read_named_cell("MgCO3_in_Limestone",
+                       file = file.path("data", "Paper Examples.xlsx"))
+mol_CaCO3 <- read_named_cell("mol_CaCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+mol_MgCO3 <- read_named_cell("mol_MgCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+mol_limestone <- read_named_cell("mol_limestone",
+                       file = file.path("data", "Paper Examples.xlsx"))
+y_CaCO3 <- read_named_cell("y_CaCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+y_MgCO3 <- read_named_cell("y_MgCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+RT0 <- read_named_cell("RT0",
+                       file = file.path("data", "Paper Examples.xlsx"))
+lny_CaCO3 <- read_named_cell("lny_CaCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+lny_MgCO3 <- read_named_cell("lny_MgCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+b_c_CaCO3 <- read_named_cell("b_c_CaCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+b_c_MgCO3 <- read_named_cell("b_c_MgCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+
+Fr <- read_named_cell("Fr",
+                       file = file.path("data", "Paper Examples.xlsx"))
+dM_CaCO3 <- read_named_cell("dM_CaCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+dM_MgCO3 <- read_named_cell("dM_MgCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+b_com_CaCO3 <- read_named_cell("b_com_CaCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+b_com_MgCO3 <- read_named_cell("b_com_MgCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+
+b_CaCO3
+b_MgCO3
+@
+
+
+
 In the \ref{sec:exergy_of_materials} section of this paper,
 four reversible processes are used
 to describe each component of material exergy.
@@ -38,7 +128,7 @@ where $c_{p,i}$ is the specific heat capacity of a compound
 (in units of $\mathrm{kJ_i/mol_iK}$).
 
 An estimate for the entropy of a compound is
-\begin{equation}\label{enthropy}
+\begin{equation}\label{entropy}
   \Delta{s_i} = c_{p,i}\ln{\frac{T_k}{T_0}} \, .
 \end{equation}
 %
@@ -50,13 +140,18 @@ and changes to *T* in the kiln.
 
 The enthalpy and entropy of $\ce{CaCO3}$ at the statepoint is h and s,
 but *h* $\mathrm{kJ_i/mol_i}$ and *s* $\mathrm{kJ_i/mol_iK}$ in the kiln.
-The enthalpy and entropy of $\ce{MgCO3}$ at the statepoint is *h* and *s*,
-but *h* $\mathrm{kJ_i/mol_i}$ and *s* $\mathrm{kJ_i/mol_iK}$ in the kiln.
+
 
 Using Eqn. \ref{eq:physical_exergy}, $b_{ph,\ce{CaCO3}}$ is ***
 and $b_{ph,\ce{MgCO3}}$ is ***
 
-Chemical exergy ($b_ch$) is determined by Eqn. \ref{eq:chemical_exergy_definition}.
+Chemical exergy ($b_ch$) is determined by
+****HEUN write $b_{ch}$ with same Eqn. number as before***
+Eqn. \ref{eq:chemical_exergy_definition}.
 $b_{ch,\ce{CaCO3}} =$ *$\Delta{G_f,i}$.
 
 
+\Sexpr{cp_CaCO3}
+
+The enthalpy and entropy of $\ce{MgCO3}$ at the statepoint is *h* and *s*,
+but *h* $\mathrm{kJ_i/mol_i}$ and *s* $\mathrm{kJ_i/mol_iK}$ in the kiln.
