@@ -344,11 +344,11 @@ e.g.\ tonnes of iron produced per MJ of coal consumed
 or tonnes of cement produced per MJ of heat consumed.
 Strictly speaking, such efficiencies are \emph{efficacies},
 because they are not unitless.
-Because two different materials are involved (iron and cement),
-the above two efficacies are not comparable
-in the thermodynamic sense.
-To obtain a unitless and comparable
-efficiency for such processes,
+The above two efficacies (iron and cement production)
+are not comparable in the thermodynamic sense,
+because two different materials are involved.
+To obtain unitless and comparable
+efficiencies for such processes,
 both outputs and inputs must be quantified
 in the same meaningful units.
 One approach is to quantify
