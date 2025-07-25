@@ -1222,7 +1222,8 @@ calculated via Equation~(****).
 print_efficiencies_table(efficiencies_table_name = "Efficiencies__Tables_for_Paper",
                          latex_label = "tab:process_efficiencies",
                          digits = 3,
-                         caption = "Process efficiencies in example material conversion chain. All values in \\%.",
+                         caption = paste("Process efficiencies in example material conversion chain.",
+                                         "All values in \\%."),
                          convert_to_perc = TRUE,
                          size = "footnotesize")
 @
