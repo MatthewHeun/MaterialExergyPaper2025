@@ -1215,11 +1215,15 @@ print_statepoint_table(statepoint_table_name = "Statepoint_limestone_into_kiln",
 
 
 
+Table~\ref{tab:process_efficiencies} shows process efficiencies
+calculated via Equation~(****).
 
 <<EfficienciesTable, echo=FALSE, results=tex>>=
 print_efficiencies_table(efficiencies_table_name = "Efficiencies__Tables_for_Paper",
-                         latex_label = "tab:efficiencies",
-                         caption = "Efficiencies table.")
+                         latex_label = "tab:process_efficiencies",
+                         digits = 3,
+                         caption = "Process efficiencies in example material conversion chain.",
+                         convert_to_perc = TRUE)
 @
 
 
