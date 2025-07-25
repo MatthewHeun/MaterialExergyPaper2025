@@ -13,9 +13,7 @@ zaf_2013_ecc <- file.path("data", "zaf_2013_ecc.rds") |>
   readRDS() |>
   dplyr::mutate(
     WorksheetNames = paste(Country, Year, EnergyType, sep = "_")
-  ) |>
-  Recca::calc_io_mats()
-
+  )
 #
 # Save full ZAF data to an Excel file for later inspection.
 #
@@ -27,13 +25,10 @@ zaf_2013_ecc |>
                             overwrite_file = TRUE)
 
 #
-# Formulate Y_prime matrices that describe
-# the MCC's energy requirements.
+# Read ECC requirements from the MCC spreadsheet.
+# These energy requirements are in TJ.
 #
 
-# Read ECC requirements
-# from the MCC spreadsheet.
-# These energy requirements are in TJ.
 mcc_energy_reqts <- openxlsx2::read_xlsx(file = file.path("data",
                                                           "Paper Examples.xlsx"),
                                          named_region = "mcc_energy_reqts") |>
@@ -48,37 +43,79 @@ mcc_energy_reqts <- openxlsx2::read_xlsx(file = file.path("data",
     coltypes = "Industry"
   ) |>
   dplyr::group_by(EnergyType) |>
+  # Formulate interms of a Y_prime matrix that we need to satisfy.
   matsindf::collapse_to_matrices() |>
   dplyr::rename(Y_prime = "matvals")
 
+
 #
-# Build a new energy conversion chain that
-# supplies exactly the amount of energy (and exergy)
-# required for the material conversion chain.
+# Calculate an ECC that contains only the energy carriers
+# we need to supply the MCC.
 # This ECC is in TJ.
+# Note that many pieces of the ECC are covered by our MCC,
+# so we trim those out to focus only on the rows and columns
+# of interest for supplying the MCC
+# before calculating the input-output matrices.
+# The pieces we need are the ECC to supply
+# are identified by row and column names of the Y matrix.
+# The row names of interest are the energy carriers needed
+# by the MCC.
+# These row names come from the row names of the Y_prime matrix
+# in the mcc_energy_reqts matrix.
+# The column names of interest are the two sectors
+# involved in the MCC:
+# the Iron and steel and Mining and quarrying sectors
 #
 
-ecc_supply_to_mcc <- dplyr::left_join(zaf_2013_ecc,
-                                      mcc_energy_reqts,
-                                      by = "EnergyType") |>
+Y_rownames_supply <- mcc_energy_reqts$Y_prime[[1]] |>
+  rownames()
+Y_colnames_supply <- c("Iron and steel", "Mining and quarrying")
+
+zaf_2013_ecc_supply <- zaf_2013_ecc |>
+  Recca::calc_io_mats() |>
+  dplyr::mutate(
+    # Isolate only the rows we need
+    Y_prime = matsbyname::select_rows_byname(
+      .data[["Y"]],
+      retain_pattern = RCLabels::make_or_pattern(Y_rownames_supply)
+    ),
+    # Isolate only the columns we need
+    Y_prime = matsbyname::select_cols_byname(
+      .data[["Y_prime"]],
+      retain_pattern = RCLabels::make_or_pattern(Y_colnames_supply)
+    )
+  ) |>
+  # Calculate _prime, etc matrices that supply only those
+  # energy carriers and sectors we need.
   Recca::new_Y() |>
   dplyr::mutate(
-    R = NULL,
-    U = NULL,
-    V = NULL,
-    Y = NULL,
-    U_EIOU = NULL,
-    U_feed = NULL,
-    r_EIOU = NULL
+    R = NULL, U = NULL, V = NULL, Y = NULL, U_feed = NULL, U_EIOU = NULL, r_EIOU = NULL
   ) |>
   dplyr::rename(
-    R = R_prime,
-    U = U_prime,
-    V = V_prime,
-    Y = Y_prime,
-    U_EIOU = U_EIOU_prime,
-    U_feed = U_feed_prime,
-    r_EIOU = r_EIOU_prime
+    R = R_prime, U = U_prime, V = V_prime, Y = Y_prime,
+    U_feed = U_feed_prime, U_EIOU = U_EIOU_prime, r_EIOU = r_EIOU_prime
+  ) |>
+  dplyr::mutate(
+    # Create a new Y matrix that has just an Iron and steel sector
+    # that is the sum of the Iron and steel and Mining and quarying sectors.
+    # For now, call it the y vector.
+    y = .data[["Y"]] |>
+      matsbyname::rowsums_byname(colname = "Iron and steel"),
+    # Delete the existing Y matrix.
+    Y = NULL
+  ) |>
+  # Rename the y vector to be Y, the new Y matrix.
+  dplyr::rename(Y = y) |>
+  # Now add the Y_prime matrix from mcc_energy_reqts
+  dplyr::left_join(mcc_energy_reqts, by = "EnergyType") |>
+  Recca::new_Y() |>
+  dplyr::mutate(
+    R = NULL, U = NULL, V = NULL, Y = NULL,
+    U_EIOU = NULL, U_feed = NULL, r_EIOU = NULL
+  ) |>
+  dplyr::rename(
+    R = R_prime, U = U_prime, V = V_prime, Y = Y_prime,
+    U_EIOU = U_EIOU_prime, U_feed = U_feed_prime, r_EIOU = r_EIOU_prime
   ) |>
   dplyr::select(Dataset, ValidFromVersion, ValidToVersion, Country, Method, EnergyType, LastStage,
                 IncludesNEU, Year, R, U, V, Y, U_feed, U_EIOU, r_EIOU, S_units,
