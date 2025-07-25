@@ -8,8 +8,10 @@
 
 <<ExampleValues, echo=FALSE>>=
 cp_CaCO3 <- read_named_cell("cp_CaCO3",
+                       fmt = "%.5f",
                        file = file.path("data", "Paper Examples.xlsx"))
-cp_MgCO3 <- read_named_cell("Mg_CaCO3",
+cp_MgCO3 <- read_named_cell("cp_MgCO3",
+                       fmt = "%.5f",
                        file = file.path("data", "Paper Examples.xlsx"))
 
 deltah_CaCO3 <- read_named_cell("deltah_CaCO3",
@@ -17,9 +19,9 @@ deltah_CaCO3 <- read_named_cell("deltah_CaCO3",
 deltah_MgCO3 <- read_named_cell("deltah_MgCO3",
                        file = file.path("data", "Paper Examples.xlsx"))
 
-T_kiln <- read_named_cell("T_kiln"
+T_kiln <- read_named_cell("T_kiln",
                        file = file.path("data", "Paper Examples.xlsx"))
-T_0 <- read_named_cell("T_0"
+T_0 <- read_named_cell("T_0",
                        file = file.path("data", "Paper Examples.xlsx"))
 
 deltas_CaCO3 <- read_named_cell("deltas_CaCO3",
@@ -89,13 +91,19 @@ b_com_CaCO3 <- read_named_cell("b_com_CaCO3",
                        file = file.path("data", "Paper Examples.xlsx"))
 b_com_MgCO3 <- read_named_cell("b_com_MgCO3",
                        file = file.path("data", "Paper Examples.xlsx"))
+com_constant <- read_named_cell("com_constant",
+                       file = file.path("data", "Paper Examples.xlsx"))
 
-b_CaCO3
-b_MgCO3
+b_CaCO3 <- read_named_cell("b_CaCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+b_MgCO3 <- read_named_cell("b_MgCO3",
+                       file = file.path("data", "Paper Examples.xlsx"))
+b_tot_limestone<- read_named_cell("b_tot_limestone",
+                       file = file.path("data", "Paper Examples.xlsx"))
 @
 
 
-
+\Sexpr{cp_CaCO3}
 In the \ref{sec:exergy_of_materials} section of this paper,
 four reversible processes are used
 to describe each component of material exergy.
@@ -136,7 +144,7 @@ where $T_k$ is the temperature at a statepoint
 (in units of K).
 
 The temperature of limestone at the rotary kiln is ambient
-and changes to *T* in the kiln.
+and changes to T in the kiln.
 
 The enthalpy and entropy of $\ce{CaCO3}$ at the statepoint is h and s,
 but *h* $\mathrm{kJ_i/mol_i}$ and *s* $\mathrm{kJ_i/mol_iK}$ in the kiln.
@@ -151,7 +159,7 @@ Eqn. \ref{eq:chemical_exergy_definition}.
 $b_{ch,\ce{CaCO3}} =$ *$\Delta{G_f,i}$.
 
 
-\Sexpr{cp_CaCO3}
+
 
 The enthalpy and entropy of $\ce{MgCO3}$ at the statepoint is *h* and *s*,
 but *h* $\mathrm{kJ_i/mol_i}$ and *s* $\mathrm{kJ_i/mol_iK}$ in the kiln.
