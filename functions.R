@@ -100,12 +100,18 @@ print_efficiencies_table <- function(efficiencies_table_name,
                                      file = file.path("data", "Paper Examples.xlsx"),
                                      digits = 2,
                                      caption = NULL,
-                                     size = "normalsize") {
+                                     size = "normalsize",
+                                     convert_to_perc = FALSE) {
 
   table_df <- openxlsx2::read_xlsx(file = file,
                                    named_region = efficiencies_table_name,
                                    row_names = TRUE,
-                                   col_names = TRUE)
+                                   col_names = TRUE) |>
+    # Make sure all columns are numeric
+    dplyr::mutate(dplyr::across(tidyselect::everything(), as.numeric))
+  if (convert_to_perc) {
+    table_df <- table_df * 100
+  }
 
   xt <- xtable::xtable(table_df,
                        digits = digits,
