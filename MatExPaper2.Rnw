@@ -344,11 +344,11 @@ e.g.\ tonnes of iron produced per MJ of coal consumed
 or tonnes of cement produced per MJ of heat consumed.
 Strictly speaking, such efficiencies are \emph{efficacies},
 because they are not unitless.
-The above two efficacies (iron and cement production)
-are not comparable in the thermodynamic sense,
-because two different materials are involved.
-To obtain unitless and comparable
-efficiencies for such processes,
+Because two different materials are involved (iron and cement),
+the above two efficacies are not comparable
+in the thermodynamic sense.
+To obtain a unitless and comparable
+efficiency for such processes,
 both outputs and inputs must be quantified
 in the same meaningful units.
 One approach is to quantify
@@ -509,11 +509,6 @@ The coke oven mass balance is modeled from
 ***Limestone production compositions and energy inputs are taken from
 \citet{Saidur_2011} and \citet{Satyendra_2013}.*** REDO
 **** Do we have page numbers or table numbers for the previous citations? ---MKH ****
-
-
-Ricardo's thesis citation:
-\citet{Pinto:2018aa}
-
 
 
 %------------------------------
@@ -1216,11 +1211,15 @@ print_statepoint_table(statepoint_table_name = "Statepoint_limestone_into_kiln",
 
 
 
-<<EfficienciesTable, echo=FALSE, results=tex>>=
-print_efficiencies_table(efficiencies_table_name = "Efficiencies__Tables_for_Paper",
-                         latex_label = "tab:efficiencies",
-                         caption = "Efficiencies table.")
-@
+% Commented for now.
+% After the efficiencies table is working
+% in the Excel file again, we can test again.
+% ---MKH, 18 July 2025
+% <<EfficienciesTable, echo=FALSE, results=tex>>=
+% print_efficiencies_table(efficiencies_table_name = "Efficiencies__Tables_for_Paper",
+%                          latex_label = "tab:efficiencies",
+%                          caption = "Efficiencies table.")
+% @
 
 
 Three efficiency calculation methods,
