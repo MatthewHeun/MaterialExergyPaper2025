@@ -6,10 +6,57 @@
 \label{sec:MCC_exergy}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Use this file for the exergy calculations appendix.
+In the \ref{sec:exergy_of_materials} section of this paper,
+four reversible processes are used
+to describe each component of material exergy.
 
-****
-What is the difference between this appendix
-and the Statepoint exergy example appendix?
----MKH
-****
+To demonstrate material exergy component calculations,
+the values given by \ref{tab:limestone_statepoint}
+are used to determine the exergy of limestone
+entering a rotary kiln.
+Limestone consistes of $\ce{CaCO3}$ and $\ce{MgCO3}$
+for this example.
+
+Physical exergy is given by
+\begin{equation}\label{eq:physical_exergy}
+  b_{ph,i} = \Delta{h_{k,i}} - T_0\Delta{s_{k,i}}
+\end{equation}
+%
+where $\Delta{h_{k,i}}$ is the change in enthalpy of a compound
+from a temperature or pressure at a statepoint to another
+(in units of $\mathrm{kJ_i/mol_i}$)
+and $\Delta{s_{k,i}}$ is the change in entropy of a compound
+from a temperature or pressure at a statepoint to another
+(in units of $\mathrm{kJ_i/mol_iK}$).
+
+An estimate for the enthalpy of a compound is
+\begin{equation}\label{enthalpy}
+  \Delta{h_i} = c_{p,i}\Delta{T}
+\end{equation}
+%
+where $c_{p,i}$ is the specific heat capacity of a compound
+(in units of $\mathrm{kJ_i/mol_iK}$).
+
+An estimate for the entropy of a compound is
+\begin{equation}\label{enthropy}
+  \Delta{s_i} = c_{p,i}\ln{\frac{T_k}{T_0}} \, .
+\end{equation}
+%
+where $T_k$ is the temperature at a statepoint
+(in units of K).
+
+The temperature of limestone at the rotary kiln is ambient
+and changes to *T* in the kiln.
+
+The enthalpy and entropy of $\ce{CaCO3}$ at the statepoint is h and s,
+but *h* $\mathrm{kJ_i/mol_i}$ and *s* $\mathrm{kJ_i/mol_iK}$ in the kiln.
+The enthalpy and entropy of $\ce{MgCO3}$ at the statepoint is *h* and *s*,
+but *h* $\mathrm{kJ_i/mol_i}$ and *s* $\mathrm{kJ_i/mol_iK}$ in the kiln.
+
+Using Eqn. \ref{eq:physical_exergy}, $b_{ph,\ce{CaCO3}}$ is ***
+and $b_{ph,\ce{MgCO3}}$ is ***
+
+Chemical exergy ($b_ch$) is determined by Eqn. \ref{eq:chemical_exergy_definition}.
+$b_{ch,\ce{CaCO3}} =$ *$\Delta{G_f,i}$.
+
+

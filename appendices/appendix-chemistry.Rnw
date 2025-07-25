@@ -17,7 +17,7 @@ for certain processes.
 \label{ssec:rotary_kiln}
 %++++++++++++++++++++++++++++++
 
-**Make eq.***
+
 \begin{equation}\label{eq:Kiln_chemeqn}
   \ce{1CaCO3 + MgCO3 -> 1CaO + 2CO2 + 1MgO} \; .
 \end{equation}
