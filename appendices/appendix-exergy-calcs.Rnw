@@ -155,8 +155,20 @@ and $b_{ph,\ce{MgCO3}}$ is ***
 
 Chemical exergy ($b_ch$) is determined by
 ****HEUN write $b_{ch}$ with same Eqn. number as before***
+
+****
+See below.
+---MKH
+****
+
 Eqn. \ref{eq:chemical_exergy_definition}.
-$b_{ch,\ce{CaCO3}} =$ *$\Delta{G_f,i}$.
+
+
+\begin{equation}
+  b_{ch,\ce{CaCO3}} = \Delta{G_f,i} \, . \tag{\ref{eq:chemical_exergy_definition}}
+\end{equation}
+%
+
 
 
 
