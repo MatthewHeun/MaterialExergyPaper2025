@@ -397,21 +397,23 @@ that describe the movement of energy through society
 via energy transformation processes~\cite{Heun:2018,Aramendia:2022tv}.
 
 
-%++++++++++++++++++++++++++++++
-\subsection{Question and structure}
-\label{sec:question_structure}
-%++++++++++++++++++++++++++++++
-
 Others have developed databases of material flows
 at the world and societal levels
-in mass terms,
-but not in exergy terms~\cite{Liu:2013ab} **** more citations ****.
+in mass terms, but not in exergy
+terms~\cite{Liu:2013ab,Cao:2017aa,Plank:2022aa,Wiedenhofer:2024aa,UN-IRP:aa}.
 The unified exergy analysis of material and energy has been
 applied to the analysis and design of chemical~\cite{Michalakakis_2021a}
 and energy plants~\cite{Bejan:1996}.
 However, to date,
 unified exergy analysis of material and energy
 has not been applied at the societal level.
+
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Question and structure}
+\label{sec:question_structure}
+%++++++++++++++++++++++++++++++
 
 All of which raises the question answered by this paper:
 \emph{how should unified energy and material conversion chains
