@@ -419,14 +419,25 @@ which increased from approximately 0.42 to 0.61~pkm/MJ.
 At the societal level,
 there are also examples of a unified
 exergy analysis of material and energy.
-Wall and coauthors
-% (1994 G. Wall, E. Sciubba & V. Naso, "Exergy use in the Italian society", ENERGY, Vol. 19, No. 12, pp. 1267-1274, 1990 G. Wall, "Exergy Conversion in the Japanese Society", ENERGY, Vol. 15, No. 5, pp. 435-444 ) applied a unified exergy-based analysis to assess resource use in Japan (1985) and Italy (1990), tracing flows from primary inputs to end-use applications. In both cases, the studies reveal low overall exergy efficiencies—around 21% for Japan and 23% for Italy—highlighting substantial losses across the conversion chain.  Carmona et al. (https://www.sciencedirect.com/science/article/pii/S0921344920305425) quantified global resource flows and stocks from 1900 to 2010, from extraction to end-use. During this period, primary exergy use increased from 115 to 903 EJ/year, while useful exergy rose from 9 to 148 EJ/year, with 47% embedded in material goods by 2010. Resource conversion efficiency improved from 8% to 16%.
-
-
-However, to date,
-unified exergy analysis of material and energy
-has not been applied at the societal level.
-
+Wall and coauthors~\citep{Wall:1987,Wall:1994,Wall:1990aa}
+applied a unified exergy-based analysis to assess resource use
+in Sweden, Japan, and Italy,
+tracing flows from primary inputs to end-use applications.
+In those cases, the studies reveal
+low overall exergy efficiencies
+(around
+20\% for Sweden,
+21\% for Japan, and
+23\% for Italy) and
+highlight substantial losses across
+the material and energy conversion chains.
+\citet{Carmona:2021aa} quantified global resource flows and stocks
+from 1900 to 2010, from extraction to end-use.
+During this period,
+primary exergy use increased from 115 to 903~EJ/year,
+while useful exergy rose from 9 to 148~EJ/year,
+with 47\% embedded in material goods by 2010.
+Resource conversion efficiency improved from 8\% to 16\%.
 
 
 %++++++++++++++++++++++++++++++
@@ -559,20 +570,14 @@ and the blast furnace.
 Information on the direct energy requirements for
 extraction and beneficiation processes
 were taken from the Energy and Environmental Profile of the U.S.\ Mining Industry
-\citet[Tables~4.3-4, 9.2-3, and 2.7]{Ore_2025}
-****
-Is the previous table numbering correct?
-Table 4.3-4 feels a bit weird to me.
----MKH
-It's the chapter title and then table.
-****
-and \citet[Table~A3.4]{Jamison_2015}.
+\citet[Tables~4.3-4, 9.2-3, and 2.7]{Ore_2025} and
+\citet[Table~A3.4]{Jamison_2015}.
 Information for energy requirements of
 iron ore hauling was obtained from
 the \citet[Table~8]{Uni_Cape_Town_2002}.
 Energy inputs to the coke oven and coke oven gas treatment
-were taken from \citet[Fig.~3]{Carmona_2019}
-and \citet{COG_treatment_2025}. ***just on main website so no table associated***
+were taken from \citet[Fig.~3]{Carmona:2019aa}
+and \citet{COG_treatment_2025}.
 
 Note that most energy inputs to the exmaple MCC
 can also be considered as material inputs, including
