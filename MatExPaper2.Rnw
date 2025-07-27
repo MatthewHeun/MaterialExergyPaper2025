@@ -400,10 +400,29 @@ via energy transformation processes~\cite{Heun:2018,Aramendia:2022tv}.
 Others have developed databases of material flows
 at the world and societal levels
 in mass terms, but not in exergy
-terms~\cite{Liu:2013ab,Cao:2017aa,Plank:2022aa,Wiedenhofer:2024aa,UN-IRP:aa}.
+terms~\citep{Liu:2013ab,Cao:2017aa,Plank:2022aa,Wiedenhofer:2024aa,UN-IRP:aa}.
 The unified exergy analysis of material and energy has been
-applied to the analysis and design of chemical~\cite{Michalakakis_2021a}
-and energy plants~\cite{Bejan:1996}.
+applied to the analysis and design of
+chemical~\citep{Michalakakis_2021a},
+steel~\citep{Hernandez:2017aa,Carmona:2019aa},
+cement~\citep{Morgado:2024aa}, and
+energy plants~\cite{Bejan:1996}
+to quantify resource efficiency and exergy destruction.
+At the sectoral level,
+a unified exergy analysis of materials and energy
+has been applied to the UK transport sector~\citep{Rodrigues:2022aa}.
+Covering the period from 1960--2015,
+the study quantifies resource productivity
+by tracking improvements in passenger-kilometres per megajoule (pkm/MJ),
+which increased from approximately 0.42 to 0.61~pkm/MJ.
+
+At the societal level,
+there are also examples of a unified
+exergy analysis of material and energy.
+Wall and coauthors
+% (1994 G. Wall, E. Sciubba & V. Naso, "Exergy use in the Italian society", ENERGY, Vol. 19, No. 12, pp. 1267-1274, 1990 G. Wall, "Exergy Conversion in the Japanese Society", ENERGY, Vol. 15, No. 5, pp. 435-444 ) applied a unified exergy-based analysis to assess resource use in Japan (1985) and Italy (1990), tracing flows from primary inputs to end-use applications. In both cases, the studies reveal low overall exergy efficiencies—around 21% for Japan and 23% for Italy—highlighting substantial losses across the conversion chain.  Carmona et al. (https://www.sciencedirect.com/science/article/pii/S0921344920305425) quantified global resource flows and stocks from 1900 to 2010, from extraction to end-use. During this period, primary exergy use increased from 115 to 903 EJ/year, while useful exergy rose from 9 to 148 EJ/year, with 47% embedded in material goods by 2010. Resource conversion efficiency improved from 8% to 16%.
+
+
 However, to date,
 unified exergy analysis of material and energy
 has not been applied at the societal level.
