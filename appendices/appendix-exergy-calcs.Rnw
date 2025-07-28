@@ -164,18 +164,19 @@ and changes to \Sexpr{T_kiln} K in the kiln.
 
 The change in enthalpy of $\ce{CaCO3}$ is
 \begin{equation}\label{eq:deltah_CaCO3}
-\Sexpr{deltah_CaCO3} [kJ/mol] = \Sexpr{cp_CaCO3}[kJ/mol\cdot~K]\cdot~(\Sexpr{T_kiln}-\Sexpr{T_0})[K] \, ,
+\Sexpr{deltah_CaCO3} \mathrm{kJ/mol} = \Sexpr{cp_CaCO3}\mathrm{kJ/mol\cdot~K}(\Sexpr{T_kiln}-\Sexpr{T_0})\mathrm{K} \, ,
 \end{equation}
 %
-and the change in entropy is
+where $cp_{\ce{CaCO3}}$ is given by \citet{NIST_2025}
+The change in entropy is
 \begin{equation}\label{eq:deltas_CaCO3}
-\Sexpr{deltas_CaCO3} [kJ/mol\cdot~K] = \Sexpr{cp_CaCO3}[kJ/mol\cdot~K]\ln{\frac{\Sexpr{T_kiln}[K]}{\Sexpr{T_0}[K]}} \, .
+\Sexpr{deltas_CaCO3} [kJ/mol\cdot~K] = \Sexpr{cp_CaCO3}[kJ/mol\cdot~K]\ln{\frac{\Sexpr{T_kiln}\mathrm{K}}{\Sexpr{T_0}\mathrm{K}}} \, .
 \end{equation}
 
 Therefore, the physical exergy of calcium carbonate ($\ce{CaCO3}$) is
 
 \begin{equation}\label{eq:b_ph_CaCO3}
-\Sexpr{b_ph_CaCO3}[kJ/mol] = \Sexpr{deltah_CaCO3}[kJ/mol] - (\Sexpr{T_0}[K] \cdot~\Sexpr{deltas_CaCO3}[kJ/mol\cdot~K]) \, .
+\Sexpr{b_ph_CaCO3}\mathrm{kJ/mol} = \Sexpr{deltah_CaCO3}\mathrm{kJ/mol} - (\Sexpr{T_0}\mathrm{K}) (\Sexpr{deltas_CaCO3}\mathrm{kJ/mol\cdot~K}) \, .
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -193,15 +194,17 @@ Eqn. \ref{eq:chemical_exergy_definition}
 is used to define chemical exergy.
 
 \begin{equation}
-  b_{ch,i} = \Delta{G_f,i} + \sum_{i}{n_{j}b_{ch,j}} \, . \tag{\ref{eq:chemical_exergy_definition}}
+  b_{ch,i} = \Delta{G_{f,i}} + \sum_{i}{n_{j}b_{ch,j}} \, . \tag{\ref{eq:chemical_exergy_definition}}
 \end{equation}
 %
 For $\ce{CaCO3}$ the chemical exergy is
-\begin{equation}\label{b_ch_CaCO3}
-  \Sexpr{b_ch_CaCO3}[kJ/mol] = \Sexpr{deltaG_CaCO3}[kJ/mol] + ((1 [\frac{mol_{\ce{Ca}}}{mol_{\ce{CaCO3}}}]\cdot~\Sexpr{b_ch_Ca}[kJ/mol])+(1[\frac{mol_{\ce{C}}}{mol_{\ce{CaCO3}}}]\cdot~\Sexpr{b_ch_C}[kJ/mol])
-  +(\frac{3}{2}[\frac{mol_{\ce{O2}}}{mol_{\ce{CaCO3}}}]\cdot~\Sexpr{b_ch_O2}[kJ/mol])) \, .
-\end{equation}
-***How do I wrap this to fit on the page?**-EES
+\begin{align}
+  b_{ch,\ce{CaCO3}} = \Sexpr{deltaG_MgCO3}\mathrm{kJ/mol}  &+ ((1 \left(\frac{\mathrm{mol_{\ce{Ca}}}}{\mathrm{mol_{\ce{CaCO3}}}}\right))\Sexpr{b_ch_Ca}\mathrm{kJ/mol})\notag\\
+                                                          &+((1 \left(\frac{\mathrm{mol_{\ce{C}}}}{\mathrm{mol_{\ce{CaCO3}}}}\right))\Sexpr{b_ch_C}\mathrm{kJ/mol}\notag\\
+                                                          &+((\frac{3}{2} \left(\frac{\mathrm{mol_{\ce{O2}}}}{\mathrm{mol_{\ce{CaCO3}}}}\right))\Sexpr{b_ch_O2}\mathrm{kJ/mol}\notag\\
+                    = \Sexpr{b_ch_MgCO3}\mathrm{kJ/mol} \, . \notag
+\end{align}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -275,7 +278,7 @@ The comminution exergy for $\ce{CaCO3}$ is
 $d_M$ for $\ce{CaCO3}$ is from \citet[Tab.6]{Archbold_1956}.
 % when d_M << d_{\Theta}
 
-
+***add cp citations***
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{\texorpdfstring{Material exergy of $\ce{MgCO3}$}{Material exergy of MgCO3}}
 \label{sec:b_MgCO3}
@@ -288,13 +291,15 @@ can be applied to $\ce{MgCO3}$ as follows:
   \item With equations \ref{eq:physical_exergy}, \ref{eq:enthalpy}, and \ref{eq:entropy},
         the physical exergy of $\ce{MgCO3}$ ($b_{ph,MgCO_3}$)
         is determined by the change in enthalpy:
-        \begin{equation}\label{eq:deltah_MgCO3}
-          \Sexpr{deltah_MgCO3}[kJ/mol] = \Sexpr{cp_MgCO3}[kJ/mol\cdot~K](\Sexpr{T_kiln}-\Sexpr{T_0})[K] \, ,
-        \end{equation}
+        \begin{align}
+        % \begin{equation}\label{eq:deltah_MgCO3}
+          b_{ph,\ce{MgCO3}} &= \Sexpr{cp_MgCO3}[kJ/mol\cdot~K](\Sexpr{T_kiln}-\Sexpr{T_0})[K] \\
+                            &= \Sexpr{deltah_MgCO3}[kJ/mol] \, ,
+        \end{align}
         %
         minus the change in entropy:
         \begin{equation}\label{deltas_MgC03}
-          \Sexpr{deltas_MgCO3}[kJ/mol\cdot~K] = \Sexpr{cp_MgCO3}[kJ/mol\cdot~K] \ln(\frac{\Sexpr{T_kiln}[K]}{\Sexpr{T_0}[K]}) \, ,
+          \Sexpr{deltas_MgCO3} \, \mathrm{kJ/mol\cdot~K} = \Sexpr{cp_MgCO3}[kJ/mol\cdot~K] \ln\left(\frac{\Sexpr{T_kiln}[K]}{\Sexpr{T_0}[K]}\right) \, ,
         \end{equation}
         %
         when entropy is multiplied by the ambient temperature:
@@ -304,19 +309,22 @@ can be applied to $\ce{MgCO3}$ as follows:
         %
 
   \item The chemical exergy of $\ce{MgCO3}$ ($b_{ch,MgCO_3}$) is calculated with Eqn. \ref{eq:chemical_exergy_definition}.
-        \begin{equation}\label{eq:b_ch_MgCO3}
-          \Sexpr{b_ch_MgCO3}[kJ/mol] = \Sexpr{deltaG_MgCO3}[kJ/mol] + ((1 [\frac{mol_{\ce{Mg}}}{mol_{\ce{MgCO3}}}]\cdot~\Sexpr{b_ch_Mg}[kJ/mol])
-          +(1[\frac{mol_{\ce{C}}}{mol_{\ce{MgCO3}}}]\cdot~\Sexpr{b_ch_C}[kJ/mol])
-          +(\frac{3}{2}[\frac{mol_{\ce{O2}}}{mol_{\ce{MgCO3}}}]\cdot~\Sexpr{b_ch_O2}[kJ/mol])) \, .
-        \end{equation}
+        \begin{align}
+        % \begin{equation}\label{eq:b_ch_MgCO3}
+              b_{ch,\ce{MgCO3}} = \Delta{G_{f,\ce{MgCO3}}}                     &+ \sum_{j}{n_{j}b_{ch,j}} \tag{\ref{eq:chemical_exergy_definition}}\\
+                                = \Sexpr{deltaG_MgCO3}\mathrm{kJ/mol}         &+ ((1 \left(\frac{\mathrm{mol_{\ce{Mg}}}}{\mathrm{mol_{\ce{MgCO3}}}}\right))\Sexpr{b_ch_Mg}\mathrm{kJ/mol})\notag\\
+                                                                              &+((1 \left(\frac{\mathrm{mol_{\ce{C}}}}{\mathrm{mol_{\ce{MgCO3}}}}\right))\Sexpr{b_ch_C}\mathrm{kJ/mol}\notag\\
+                                                                              &+((\frac{3}{2} \left(\frac{\mathrm{mol_{\ce{O2}}}}{\mathrm{mol_{\ce{MgCO3}}}}\right))\Sexpr{b_ch_O2}\mathrm{kJ/mol}\notag\\
+                                = \Sexpr{b_ch_MgCO3}\mathrm{kJ/mol} \, . \notag
+        \end{align}
 
   \item The concentration exergy of $\ce{MgCO3}$ ($b_{c,MgCO_3}$) is given by Eqn. \ref{eq:concentration_exergy_definition}
         where the molar fraction ($y_{MgCO_3}$) is from \ref{tab:limestone_statepoint}.
         \begin{equation}\label{eq:b_c_MgCO3}
-          \Sexpr{b_c_MgCO3}[kJ/mol] = \Sexpr{RT0}[kJ/mol]\cdot~\ln(\Sexpr{y_MgCO3}[\frac{mol_{\ce{MgCO3}}}{mol_{limestone}}]) \, .
+          \Sexpr{b_c_MgCO3}[kJ/mol] = \Sexpr{RT0}[kJ/mol] \ln(\Sexpr{y_MgCO3}[\frac{mol_{\ce{MgCO3}}}{mol_{limestone}}]) \, .
         \end{equation}
 
-  \item
+  \item Comminution exergy
 \end{itemize}
 
 
