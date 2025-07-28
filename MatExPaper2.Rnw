@@ -1360,6 +1360,13 @@ and the Resource efficiency is **42**$\%$.
 \label{ssec: psut matrices results}
 %++++++++++++++++++++++++++++++
 
+<<UMatrix, echo=FALSE, results=tex>>=
+print_named_matrix(matrix_name = "U__MCC_B_RUVY_matrices_mat_level",
+                   latex_label = "fig:u_example_mat",
+                   digits = 2,
+                   caption = "Example use (U) matrix.",
+                   size = "tiny")
+@
 
 
 
