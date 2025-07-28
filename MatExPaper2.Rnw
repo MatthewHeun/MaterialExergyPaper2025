@@ -473,8 +473,8 @@ to unified exergy analysis of material and energy conversion chains.
 All of which raises the question answered by this paper:
 \emph{how should unified energy and material conversion chains
 that extend to products with process-level detail
-be represented for unified exergy analysis of material and energy
-conversion chains at the societal level?}
+be represented for unified exergy analysis of materials and energy
+at the societal level?}
 The answer to this question will inform future efforts
 to develop datasets for unified exergy analysis of
 material and energy conversion chains
