@@ -2,7 +2,7 @@
 # Type "?sprintf" at the console for details of fmt strings.
 read_named_cell <- function(cell_name,
                             unit = NULL,
-                            mathrm = FALSE,
+                            mathrm = TRUE,
                             fmt = "%.2f",
                             file = file.path("data", "Paper Examples.xlsx")) {
   val_df <- openxlsx2::read_xlsx(file = file,
