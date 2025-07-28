@@ -1,14 +1,25 @@
 
 # Type "?sprintf" at the console for details of fmt strings.
 read_named_cell <- function(cell_name,
+                            unit = NULL,
+                            mathrm = FALSE,
                             fmt = "%.2f",
-                            file = file.path("data", "Example.xlsx")) {
+                            file = file.path("data", "Paper Examples.xlsx")) {
   val_df <- openxlsx2::read_xlsx(file = file,
                                  named_region = cell_name,
                                  col_names = FALSE)
   val <- val_df[[1]][[1]]
-  sprintf(fmt = fmt, val)
+  out <- sprintf(fmt = fmt, val)
+  if (!is.null(unit)) {
+    if (mathrm) {
+      unit <- paste0("\\\\mathrm{", unit, "}")
+    }
+    out <- paste0(out, "~", unit)
+  }
+  return(out)
 }
+
+
 
 # digits is can be defined as a single value,
 # interpreted as digits for the entire matrix.

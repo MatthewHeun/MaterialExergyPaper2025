@@ -7,9 +7,22 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 <<ExampleValues, echo=FALSE>>=
+
+# Old version still works, but you need to manually supply the unit.
+# cp_CaCO3 <- read_named_cell("cp_CaCO3",
+#                        fmt = "%.5f",
+#                        file = file.path("data", "Paper Examples.xlsx"))
+
+
+# New version.
 cp_CaCO3 <- read_named_cell("cp_CaCO3",
-                       fmt = "%.5f",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "kJ/kg\\\\!\\\\cdot\\\\!K",
+                            mathrm = TRUE,
+                            fmt = "%.5f")
+
+
+
+
 cp_MgCO3 <- read_named_cell("cp_MgCO3",
                        fmt = "%.5f",
                        file = file.path("data", "Paper Examples.xlsx"))
