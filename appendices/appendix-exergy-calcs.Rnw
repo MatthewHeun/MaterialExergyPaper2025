@@ -102,8 +102,6 @@ b_tot_limestone<- read_named_cell("b_tot_limestone",
                        file = file.path("data", "Paper Examples.xlsx"))
 @
 
-
-\Sexpr{cp_CaCO3}
 In the \ref{sec:exergy_of_materials} section of this paper,
 four reversible processes are used
 to describe each component of material exergy.
@@ -112,9 +110,12 @@ To demonstrate material exergy component calculations,
 the values given by \ref{tab:limestone_statepoint}
 are used to determine the exergy of limestone
 entering a rotary kiln.
-Limestone consistes of $\ce{CaCO3}$ and $\ce{MgCO3}$
-for this example.
+The mixture consists of $\ce{CaCO3}$ and $\ce{MgCO3}$.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\texorpdfstring{Physical exergy of $\ce{CaCO3}$}{Physical exergy of CaCO3}}
+\label{sec:b_ph_CaCO3}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Physical exergy is given by
 \begin{equation}\label{eq:physical_exergy}
   b_{ph,i} = \Delta{h_{k,i}} - T_0\Delta{s_{k,i}}
@@ -144,34 +145,128 @@ where $T_k$ is the temperature at a statepoint
 (in units of K).
 
 The temperature of limestone at the rotary kiln is ambient
-and changes to T in the kiln.
+and changes to \Sexpr{T_kiln} K in the kiln.
 
-The enthalpy and entropy of $\ce{CaCO3}$ at the statepoint is h and s,
-but *h* $\mathrm{kJ_i/mol_i}$ and *s* $\mathrm{kJ_i/mol_iK}$ in the kiln.
-
-
-Using Eqn. \ref{eq:physical_exergy}, $b_{ph,\ce{CaCO3}}$ is ***
-and $b_{ph,\ce{MgCO3}}$ is ***
-
-Chemical exergy ($b_ch$) is determined by
-****HEUN write $b_{ch}$ with same Eqn. number as before***
-
-****
-See below.
----MKH
-****
-
-Eqn. \ref{eq:chemical_exergy_definition}.
-
-
-\begin{equation}
-  b_{ch,\ce{CaCO3}} = \Delta{G_f,i} \, . \tag{\ref{eq:chemical_exergy_definition}}
+The change in enthalpy of $\ce{CaCO3}$ is
+\begin{equation}\label{eq:deltah_CaCO3}
+\Sexpr{deltah_CaCO3} [kJ/mol] = \Sexpr{cp_CaCO3}[kJ/mol\cdot~K]\cdot~(\Sexpr{T_kiln}-\Sexpr{T_0})[K] \, ,
 \end{equation}
 %
+and the change in entropy is
+\begin{equation}\label{eq:deltas_CaCO3}
+\Sexpr{deltas_CaCO3} [kJ/mol\cdot~K] = \Sexpr{cp_CaCO3}[kJ/mol\cdot~K]\ln{\frac{\Sexpr{T_kiln}[K]}{\Sexpr{T_0}[K]}} \, .
+\end{equation}
+
+Therefore, the physical exergy of calcium carbonate ($\ce{CaCO3}$) is
+
+\begin{equation}\label{eq:b_ph_CaCO3}
+\Sexpr{b_ph_CaCO3}[kJ/mol] = \Sexpr{deltah_CaCO3}[kJ/mol] - (\Sexpr{T_0}[K] \cdot~\Sexpr{deltas_CaCO3}[kJ/mol\cdot~K]) \, .
+\end{equation}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\texorpdfstring{Chemical exergy of $\ce{CaCO3}$}{Chemical exergy of CaCO3}}
+\label{sec:b_ch_CaCO3}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Unlike physical exergy,
+chemical exergy is independent of temperature and pressure.
+Chemical exergy is notable when a process changes
+the chemical composition of a mixture.
+
+In \ref{ssec:chemical_exergy},
+Eqn. \ref{eq:chemical_exergy_definition}
+is used to define chemical exergy.
+
+\begin{equation}
+  b_{ch,i} = \Delta{G_f,i} + \sum_{i}{n_{j}b_{ch,j}} \, . \tag{\ref{eq:chemical_exergy_definition}}
+\end{equation}
+%
+For $\ce{CaCO3}$ the chemical exergy is
+\begin{equation}\label{b_ch_CaCO3}
+  \Sexpr{b_ch_CaCO3}[kJ/mol] = \Sexpr{deltaG_CaCO3}[kJ/mol] + ((1 [\frac{mol \ce{Ca}}{mol \ce{CaCO3}}]\cdot~\Sexpr{b_ch_Ca}[kJ/mol])+(1[\frac{mol \ce{C}}{mol \ce{CaCO3}}]\cdot~\Sexpr{b_ch_C}[kJ/mol])
+  +(\frac{3}{2}[\frac{mol \ce{O2}}{mol \ce{CaCO3}}]\cdot~\Sexpr{b_ch_O2}[kJ/mol])) \, .
+\end{equation}
+***How do I wrap this to fit on the page?**-EES
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\texorpdfstring{Concentration exergy of $\ce{CaCO3}$}{Concentration exergy of CaCO3}}
+\label{sec:b_c_CaCO3}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+In \ref{sssec:concentration_exergy},
+Eqn. \ref{eq:concentration_exergy_definition}
+is used to define concentration exergy.
+
+\begin{equation}
+  b_{c,i} = R T_0 \ln(y_i) \, . \tag{\ref{eq:concentration_exergy_definition}}
+\end{equation}
+%
+The value for ($y_{\ce{CaCO3}}$) is
+obtained from \ref{tab:limestone_statepoint}
+which represents the molar fraction
+of $\ce{CaCO3}$ in the limestone mixture.
+If mass fractions are known instead,
+then convert the mass fraction ($x_i$)
+to molar fractions ($y_i$)
+with the molecular weight of each compound ($MW_i$).
+
+\begin{equation}\label{b_c_CaCO3}
+  \Sexpr{b_c_CaCO3} [kJ/mol] = \Sexpr{RT0}[kJ/mol] \cdot~\ln(\Sexpr{y_CaCO3}[mol \ce{CaCO3}/ mol_{limestone}]) \, .
+\end{equation}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\texorpdfstring{Comminution exergy of $\ce{CaCO3}$}{Comminution exergy of CaCO3}}
+\label{sec:b_com_CaCO3}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Comminution exergy ($b_{com}$) is defined by \citet[p.279]{Valero_2015} as,
+" the minimum energy required to bind solids from a given dispersed state
+to a more cohesive one ".
+The work required increases
+as the solid's particles decrease.
+
+We calculate comminution exergy using \citet[Eqn.9.31]{Valero_2015}:
+
+\begin{equation}\label{eq:comminution_exergy}
+  b_{com} = \Delta{A_v}\cdot~\frac{\gamma}{\rho}
+          = 6F_r\cdot~[\frac{1}{d_M} - \frac{1}{d_{\Theta}}]
+          \approx \frac{6F_r}{d_M} \, ,
+\end{equation}
+%
+where $\Delta{A_v}$ is undefined, but assumed to be the change in surface are (in units of $\mathrm{m^3}$),
+$\gamma$ is the surface energy (in units of $\mathrm{\frac{J}{m^{-2}}}$),
+$\rho$ is the solids density (in units of $\mathrm{\frac{g}{cm^3}}$),
+the constant 6 has units of $\mathrm{\frac{J}{m^2}}$,
+$F_r$ is the surface roughness factor (unitless),
+$d_M$ is the geometrical mean size (in units of $\mathrm{m}$),
+and $d_{\Theta}$ is " the size of the barerock composing Thantia " (in units of $\mathrm{m}$)
+~\citet[p.279]{Valero_2015}.
+%
+For certain materials,
+$\rho$, $F_r$, and $\gamma$
+are given by
+\citet[Tab. D.2, D.3, and D.4]{Valero_2015}.
+%
+$F_r$ for limstone is \Sexpr{Fr}
+~\citet[Tab.D.4]{Valero_2015}.
+%
+The comminution exergy for $\ce{CaCO3}$ is
+\begin{equation}\label{eq:comminution_exergy_CaCO3}
+  \Sexpr{b_com_CaCO3}[kJ/mol] = \frac{6[J/m^2](\Sexpr{Fr})}{\Sexpr{dM_CaCO3}[m]} (0.001[m^3/kg]) (0.001[kJ/J]) \, .
+\end{equation}
+%
+$d_M$ for $\ce{CaCO3}$ is from \citet[Tab.6]{Archbold_1956}.
+% when d_M << d_{\Theta}
 
 
 
 
 
-The enthalpy and entropy of $\ce{MgCO3}$ at the statepoint is *h* and *s*,
-but *h* $\mathrm{kJ_i/mol_i}$ and *s* $\mathrm{kJ_i/mol_iK}$ in the kiln.
+
+
+
+
+
+
