@@ -242,11 +242,11 @@ print_statepoint_table(statepoint_table_name = "statepoint_table",
 \label{sec:introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The study of raw material extraction and processing~\cite{Schandl:2024aa}
+The study of raw material extraction and processing
 is growing in importance at the societal level
-for at least three interconnected reasons.
+for at least three interconnected reasons~\cite{Schandl:2024aa}.
 The first reason is related to \emph{climate change}.
-The drive to reduce \ce{CO2} emissions
+The drive to reduce \ce{CO2} and other greenhouse gas emissions
 is leading to adoption of
 renewable generation technolgies,
 electrified end uses, and
@@ -258,11 +258,11 @@ to extract and process raw materials.
 These changes require increasing levels of material extraction,
 especially for copper ore and rare earth minerals.
 In short, the energy transition will also be a materials transition,
-and depletion of resources may become a long-term concern.
+and depletion of key resources may become a long-term concern.
 
 Second,
-continued \emph{economic growth} means increasing
-ore extraction and toxic effluents
+continued \emph{economic growth} implies increasing rates of
+ore extraction and toxic outflows
 from mining and processing of minerals
 such as iron ore, bauxite, manganese, and rare earth metals
 to support fabrication of products and
@@ -291,7 +291,7 @@ Extracted raw materials are converted
 to products and infrastructure via
 supply chains that we call
 \emph{material conversion chains} (MCCs).
-Although all processes in societal material conversion chains
+Although all processes in societal MCCs
 consume energy,
 some processes exhibit high energy- and carbon-intensity,
 such as
@@ -302,10 +302,10 @@ chemical manufacturing.
 
 The energy for these processes is delivered
 via energy conversion chains (ECCs) that
-describe the extraction and conversion of energy
+describe the extraction and conversion of energy carriers
 throughout the economy.
 An example ECC follows coal from extraction
-through beneficiation and finally to consumption
+through beneficiation and finally to dissipation as heat
 in the iron and steel sector.
 
 High-intensity processes like
@@ -324,7 +324,7 @@ In all cases, the quality of material is upgraded
 (e.g., from ore to steel)
 while the quality of energy is downgraded
 (e.g., from coal to heat).
-We trade energy quality for material quality
+Societies trade energy quality for material quality
 at many points in the economy.
 
 
@@ -341,10 +341,10 @@ processing stages.
 material output (in mass units) per
 unit of energy input (in energy units),
 e.g.\ tonnes of iron produced per MJ of coal consumed
-or tonnes of cement produced per MJ of heat consumed.
+or tonnes of cement produced per MJ of heat generated.
 Strictly speaking, such efficiencies are \emph{efficacies},
 because they are not unitless.
-Because two different materials are involved (iron and cement),
+Because different materials are involved (iron and cement),
 the above two efficacies are not comparable
 in the thermodynamic sense.
 To obtain a unitless and comparable
@@ -355,53 +355,59 @@ One approach is to quantify
 both inputs and outputs as exergy.
 
 Exergy is a work quantification of materials and energy.
-Because it is a work quantification,
-exergy is expressed in energy units (joules).
+Because exergy is a work quantification,
+it is expressed in energy units (joules).
 For materials, exergy is defined as the maximum work
 that could be obtained from thermodynamic processes that bring
 a material into equilibrium with its surroundings.
 For energy, exergy is defined as the maximum work
 that could be obtained from thermodynamic processes that bring
 the energy into equilibrium with its surroundings.
-With both materials and energy quantified as exergy,
+With both materials and energy quantified as exergy
+(in work units, joules),
 thermodynamically meaningful, unitless efficiencies
 can be calculated for intensive processes that
 trade the exergy of energy for the exergy of materials.
 For example, the pig iron output of a blast furnace
 can be quantified as exergy instead of mass, thereby
-enabling calculation of an exergy efficiency
-in units of kJ (of pig iron) per kJ (of coal).
+enabling calculation of a unitless exergy efficiency
+in joules (of pig iron) per joule (of coal).
 
 Quantifying materials and energy as exergy enables calculation
 of comparable efficiencies of all processes in societal MCCs.
 With such efficiencies available,
 hot-spots of inefficiency can be identified
-and action taken to improve processes.
+and actions taken to improve process efficiencies.
 
 
 %++++++++++++++++++++++++++++++
-\subsection{ECC datasets}
-\label{sec:ecc_datasets}
+\subsection{Previous exergy analyses of materials and energy}
+\label{sec:prior_work}
 %++++++++++++++++++++++++++++++
+
+****
+References here from the Valeros.
+End by discussing the types of exergy.
+****
 
 In recent years,
-the Exergy Economics community~\citep{exergy_economics_website}
+researchers have developed databases of material flows in MCCs
+at the world and societal levels.
+These MCCs are in mass terms, not in exergy
+terms~\citep{Liu:2013ab,Cao:2017aa,Plank:2022aa,Wiedenhofer:2024aa,UN-IRP:aa}.
+
+The Exergy Economics community~\citep{exergy_economics_website}
 have assembled datasets of energy conversion chains (ECCs)
 at the societal level
 in both energy and exergy quantifications
 going as far back
-as 1800~\cite{Steenwyk:2022ww,Pinto:2023aa,Brockway:2024ab}.
+as 1800~\cite{Steenwyk:2022ww,Pinto:2023aa,Heun:2024aa,Brockway:2024ab}.
 Data for these ECCs are organized
-in physical supply-use tables (matrices)
+in physical supply-use table (PSUT) matrices
 that describe the movement of energy through society
 via energy transformation processes~\cite{Heun:2018,Aramendia:2022tv}.
 
-
-Others have developed databases of material flows
-at the world and societal levels
-in mass terms, but not in exergy
-terms~\citep{Liu:2013ab,Cao:2017aa,Plank:2022aa,Wiedenhofer:2024aa,UN-IRP:aa}.
-The unified exergy analysis of material and energy has been
+The unified exergy analysis of materials and energy has been
 applied to the analysis and design of
 chemical~\citep{Michalakakis_2021a},
 steel~\citep{Hernandez:2017aa,Carmona:2019aa},
@@ -414,17 +420,17 @@ has been applied to the UK transport sector~\citep{Rodrigues:2022aa}.
 Covering the period from 1960--2015,
 the study quantifies resource productivity
 by tracking improvements in passenger-kilometres per megajoule (pkm/MJ),
-which increased from approximately 0.42 to 0.61~pkm/MJ.
+which increased from approximately 0.42 to 0.61~pkm/MJ
+across the period of study.
 
 At the societal level,
-there are also examples of a unified
-exergy analysis of material and energy.
+there are several examples of
+unified exergy analysis of materials and energy.
 Wall and coauthors~\citep{Wall:1987,Wall:1994,Wall:1990aa}
 applied a unified exergy-based analysis to assess resource use
 in Sweden, Japan, and Italy,
 tracing flows from primary inputs to end-use applications.
-In those cases, the studies reveal
-low overall exergy efficiencies
+The studies reveal low overall exergy efficiencies
 (around
 20\% for Sweden,
 21\% for Japan, and
@@ -439,6 +445,25 @@ while useful exergy rose from 9 to 148~EJ/year,
 with 47\% embedded in material goods by 2010.
 Resource conversion efficiency improved from 8\% to 16\%.
 
+Previous unified exergy analyses of materials and energy
+at the societal level have lacked process-level detail
+in characterizing material and energy transformations.
+****
+Do any of these studies extend to products?
+If not, we can say that studies will in the future
+and we will then need concentration exergy
+to characterize the complexity of those products.
+Can we do a calculation to show that complex products
+have a lot of concentration exergy?
+****
+And to our knowledge, no previous studies at the societal level
+include the concentration exergy ($b_{c}$)
+of inputs and outputs
+of material and energy transformations.
+Furthermore, no previous studies have
+demonstrated application of the PSUT framework
+to unified exergy analysis of material and energy conversion chains.
+
 
 %++++++++++++++++++++++++++++++
 \subsection{Question and structure}
@@ -447,27 +472,29 @@ Resource conversion efficiency improved from 8\% to 16\%.
 
 All of which raises the question answered by this paper:
 \emph{how should unified energy and material conversion chains
+that extend to products with process-level detail
 be represented for unified exergy analysis of material and energy
 conversion chains at the societal level?}
 The answer to this question will inform future efforts
-to develop datasets of unified material and energy conversion chains
-quantified as exergy at the societal level.
+to develop datasets for unified exergy analysis of
+material and energy conversion chains
+with process-level detail at the societal level.
 
 Our approach to answering the question
-yields three contributions to the literature.
+builds upon and improves previous efforts and
+provides three contributions to the literature.
 For the first time, we
 
 \begin{enumerate}
 
   \item demonstrate a consistent exergy analysis approach for ECCs and MCCs,
-        including physical, chemical, concentration, and comminution exergies;
+        including chemical and concentration exergies;
 
   \item perform exergy analysis with an example MCC
         (production of pig iron) using PSUT matrices; and
 
   \item demonstrate the interaction
-        between energy and material conversion chains
-        using PSUT matrices
+        between MCCs and ECCs using PSUT matrices
         amenable to existing energy conversion chain datasets.
 
 \end{enumerate}
