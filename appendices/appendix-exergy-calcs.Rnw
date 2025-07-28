@@ -84,8 +84,10 @@ b_c_MgCO3 <- read_named_cell("b_c_MgCO3",
 Fr <- read_named_cell("Fr",
                        file = file.path("data", "Paper Examples.xlsx"))
 dM_CaCO3 <- read_named_cell("dM_CaCO3",
+                       fmt = "%.6f",
                        file = file.path("data", "Paper Examples.xlsx"))
 dM_MgCO3 <- read_named_cell("dM_MgCO3",
+                       fmt = "%.6f",
                        file = file.path("data", "Paper Examples.xlsx"))
 b_com_CaCO3 <- read_named_cell("b_com_CaCO3",
                        file = file.path("data", "Paper Examples.xlsx"))
@@ -129,7 +131,7 @@ from a temperature or pressure at a statepoint to another
 (in units of $\mathrm{kJ_i/mol_iK}$).
 
 An estimate for the enthalpy of a compound is
-\begin{equation}\label{enthalpy}
+\begin{equation}\label{eq:enthalpy}
   \Delta{h_i} = c_{p,i}\Delta{T}
 \end{equation}
 %
@@ -137,7 +139,7 @@ where $c_{p,i}$ is the specific heat capacity of a compound
 (in units of $\mathrm{kJ_i/mol_iK}$).
 
 An estimate for the entropy of a compound is
-\begin{equation}\label{entropy}
+\begin{equation}\label{eq:entropy}
   \Delta{s_i} = c_{p,i}\ln{\frac{T_k}{T_0}} \, .
 \end{equation}
 %
@@ -183,8 +185,8 @@ is used to define chemical exergy.
 %
 For $\ce{CaCO3}$ the chemical exergy is
 \begin{equation}\label{b_ch_CaCO3}
-  \Sexpr{b_ch_CaCO3}[kJ/mol] = \Sexpr{deltaG_CaCO3}[kJ/mol] + ((1 [\frac{mol \ce{Ca}}{mol \ce{CaCO3}}]\cdot~\Sexpr{b_ch_Ca}[kJ/mol])+(1[\frac{mol \ce{C}}{mol \ce{CaCO3}}]\cdot~\Sexpr{b_ch_C}[kJ/mol])
-  +(\frac{3}{2}[\frac{mol \ce{O2}}{mol \ce{CaCO3}}]\cdot~\Sexpr{b_ch_O2}[kJ/mol])) \, .
+  \Sexpr{b_ch_CaCO3}[kJ/mol] = \Sexpr{deltaG_CaCO3}[kJ/mol] + ((1 [\frac{mol_{\ce{Ca}}}{mol_{\ce{CaCO3}}}]\cdot~\Sexpr{b_ch_Ca}[kJ/mol])+(1[\frac{mol_{\ce{C}}}{mol_{\ce{CaCO3}}}]\cdot~\Sexpr{b_ch_C}[kJ/mol])
+  +(\frac{3}{2}[\frac{mol_{\ce{O2}}}{mol_{\ce{CaCO3}}}]\cdot~\Sexpr{b_ch_O2}[kJ/mol])) \, .
 \end{equation}
 ***How do I wrap this to fit on the page?**-EES
 
@@ -212,7 +214,7 @@ to molar fractions ($y_i$)
 with the molecular weight of each compound ($MW_i$).
 
 \begin{equation}\label{b_c_CaCO3}
-  \Sexpr{b_c_CaCO3} [kJ/mol] = \Sexpr{RT0}[kJ/mol] \cdot~\ln(\Sexpr{y_CaCO3}[mol \ce{CaCO3}/ mol_{limestone}]) \, .
+  \Sexpr{b_c_CaCO3} [kJ/mol] = \Sexpr{RT0}[kJ/mol] \cdot~\ln(\Sexpr{y_CaCO3}[\frac{mol_{\ce{CaCO3}}}{mol_{limestone}}]) \, .
 \end{equation}
 
 
@@ -259,6 +261,54 @@ The comminution exergy for $\ce{CaCO3}$ is
 %
 $d_M$ for $\ce{CaCO3}$ is from \citet[Tab.6]{Archbold_1956}.
 % when d_M << d_{\Theta}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{\texorpdfstring{Material exergy of $\ce{MgCO3}$}{Material exergy of MgCO3}}
+\label{sec:b_MgCO3}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+The second compound in limestone is magnesium carbonate ($\ce{MgCO3}$).
+The same equations used to calculate the exergy of $\ce{CaCO3}$
+can be applied to $\ce{MgCO3}$ as follows:
+
+\begin{itemize}
+  \item With equations \ref{eq:physical_exergy}, \ref{eq:enthalpy}, and \ref{eq:entropy},
+        the physical exergy of $\ce{MgCO3}$ ($b_{ph,MgCO_3}$)
+        is determined by the change in enthalpy:
+        \begin{equation}\label{eq:deltah_MgCO3}
+          \Sexpr{deltah_MgCO3}[kJ/mol] = \Sexpr{cp_MgCO3}[kJ/mol\cdot~K](\Sexpr{T_kiln}-\Sexpr{T_0})[K] \, ,
+        \end{equation}
+        %
+        minus the change in entropy:
+        \begin{equation}\label{deltas_MgC03}
+          \Sexpr{deltas_MgCO3}[kJ/mol\cdot~K] = \Sexpr{cp_MgCO3}[kJ/mol\cdot~K] \ln(\frac{\Sexpr{T_kiln}[K]}{\Sexpr{T_0}[K]}) \, ,
+        \end{equation}
+        %
+        when entropy is multiplied by the ambient temperature:
+        \begin{equation}\label{eq:b_ph_MgCO3}
+          \Sexpr{b_ph_MgCO3}[kJ/mol] = \Sexpr{deltah_MgCO3}[kJ/mol] - \Sexpr{T_0}[K](\Sexpr{deltas_MgCO3}[kJ/mol\cdot~K]) \, .
+        \end{equation}
+        %
+
+  \item The chemical exergy of $\ce{MgCO3}$ ($b_{ch,MgCO_3}$) is calculated with Eqn. \ref{eq:chemical_exergy_definition}.
+        \begin{equation}\label{eq:b_ch_MgCO3}
+          \Sexpr{b_ch_MgCO3}[kJ/mol] = \Sexpr{deltaG_MgCO3}[kJ/mol] + ((1 [\frac{mol_{\ce{Mg}}}{mol_{\ce{MgCO3}}}]\cdot~\Sexpr{b_ch_Mg}[kJ/mol])
+          +(1[\frac{mol_{\ce{C}}}{mol_{\ce{MgCO3}}}]\cdot~\Sexpr{b_ch_C}[kJ/mol])
+          +(\frac{3}{2}[\frac{mol_{\ce{O2}}}{mol_{\ce{MgCO3}}}]\cdot~\Sexpr{b_ch_O2}[kJ/mol])) \, .
+        \end{equation}
+
+  \item The concentration exergy of $\ce{MgCO3}$ ($b_{c,MgCO_3}$) is given by Eqn. \ref{eq:concentration_exergy_definition}
+        where the molar fraction ($y_{MgCO_3}$) is from \ref{tab:limestone_statepoint}.
+        \begin{equation}\label{eq:b_c_MgCO3}
+          \Sexpr{b_c_MgCO3}[kJ/mol] = \Sexpr{RT0}[kJ/mol]\cdot~\ln(\Sexpr{y_MgCO3}[\frac{mol_{\ce{MgCO3}}}{mol_{limestone}}]) \, .
+        \end{equation}
+
+  \item
+\end{itemize}
+
+
+
+
 
 
 
