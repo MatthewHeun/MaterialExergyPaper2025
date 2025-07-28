@@ -1309,16 +1309,6 @@ Table~\ref{tab:process_efficiencies} shows process efficiencies
 calculated via Equation~(****).
 
 
-% Commented for now.
-% After the efficiencies table is working
-% in the Excel file again, we can test again.
-% ---MKH, 18 July 2025
-% <<EfficienciesTable, echo=FALSE, results=tex>>=
-% print_efficiencies_table(efficiencies_table_name = "Efficiencies__Tables_for_Paper",
-%                          latex_label = "tab:efficiencies",
-%                          caption = "Efficiencies table.")
-% @
-
 <<EfficienciesTable, echo=FALSE, results=tex>>=
 print_efficiencies_table(efficiencies_table_name = "Efficiencies__Tables_for_Paper",
                          latex_label = "tab:process_efficiencies",
@@ -1360,11 +1350,21 @@ and the Resource efficiency is **42**$\%$.
 \label{ssec: psut matrices results}
 %++++++++++++++++++++++++++++++
 
+Figure~\ref{fig:u_example_mat} shows the use ($\mat{U}$)
+matrix for the example unified material and energy conversion chain.
+
+****
+I'm not sure this is right.
+Should we rather print the BXCC $\mat{U}$ matrix?
+We would need to get it from the R code.
+---MKH
+****
+
 <<UMatrix, echo=FALSE, results=tex>>=
 print_named_matrix(matrix_name = "U__MCC_B_RUVY_matrices_mat_level",
                    latex_label = "fig:u_example_mat",
                    digits = 2,
-                   caption = "Example use (U) matrix.",
+                   caption = "Use ($\\mat{U}$) matrix for the example unified material and energy converstion chain. All values are exergies in kJ.",
                    size = "tiny")
 @
 
