@@ -679,7 +679,7 @@ the material at any statepoint
 may be described as a mixture of compounds,
 and the compounds an arrangement of elements.
 For this paper, we adopt subscript symbols for the hierarchy
-as shown in Table~\ref{tab:hierarchy_nomenclature}.
+as shown in Table~\ref{tab:material_hierarchy}.
 For example, $B_{m,k}$ gives the material exergy ($B$)
 of a mixture (subscript $m$) at statepoint $k$.
 Our choice of $j$ (for elements) and $i$ (for compounds)
@@ -996,14 +996,13 @@ The total exergy of energy
 at any statepoint
 in a material conversion chain
 is given by
-
 \begin{equation}\label{eq:energy_exergy_definition}
-  X = \sum_i \phi_i E_i \, .
+  X_i = \sum_i{\phi_i E_i} \, .
 \end{equation}
 
 
 %------------------------------
-\subsubsection{PSUT framework and $\mat{RUVY}$ matrices}
+\subsubsection{\texorpdfstring{PSUT framework and $\mat{RUVY}$ matrices}{PSUT framework and RUVY matrices}}
 \label{sec:psut_framework}
 %------------------------------
 
@@ -1216,8 +1215,8 @@ of the mixture.
 
 
 The total material exergy of solid inputs ($B_{m,i}$)
-in Table~\ref{tab1} is **7072**~MJ.
-The material exergy in Figure~\ref{fig1}
+in Table~\ref{tab:Solid Blast Furnace Inputs} is **7072**~MJ.
+% The material exergy in Figure~\ref{fig1}
 of hematite ore is **76**~MJ.
 
 \begin{table}
@@ -1231,7 +1230,7 @@ of hematite ore is **76**~MJ.
 \end{table}
 
 The total material exergy of air
-in Table~\ref{tab2} is **9**~MJ.
+in Table~\ref{tab:Gaseous Blast Furnace Inputs} is **9**~MJ.
 
 
 
@@ -1289,31 +1288,20 @@ print_efficiencies_table(efficiencies_table_name = "Efficiencies__Tables_for_Pap
 
 
 
-Three efficiency calculation methods,
-shown in Figure~\ref{fig:efficiencymethods},
-were applied to processing steps
-in the material conversion chain.
-%
-% \begin{table}
-% %\begin{adjustwidth}{-\extralength}{0cm}
-%   \centering
-%   \caption{Various efficiency calculations at each process in pig iron production.}
-%   \label{fig:Process Efficiencies for iron, limestone, and coal ore.}
-%   \includegraphics[width=0.8\textwidth]{images/efficiency_tables.pdf}
-% %\end{adjustwidth}
-%
-% \end{table}
+% Three efficiency calculation methods,
+% shown in Figure~\ref{fig:efficiencymethods},
+% were applied to processing steps
+% in the material conversion chain.
 
 The efficiencies of iron ore processes,
-in Table~\ref{fig:Process Efficiencies for iron, limestone, and coal ore.},
+in Table~\ref{tab:process_efficiencies},
 are lower than the limestone and coal efficiencies.
-
 
 The iron ore extraction Students efficiency is **54**$\%$
 and the Product efficiency is **45**$\%$.
 The limestone and coal extraction efficiencies range
 from **78** to **99**$\%$.
-Refer to Table~\ref{fig:Process Efficiencies for iron, limestone, and coal ore.}
+Refer to Table~\ref{tab:process_efficiencies}
 to see similar results
 for hauling efficiencies.\\
 The mixer and blast furnace efficiencies
