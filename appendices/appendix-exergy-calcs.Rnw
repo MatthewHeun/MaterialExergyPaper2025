@@ -16,21 +16,22 @@
 
 # New version.
 cp_CaCO3 <- read_named_cell("cp_CaCO3",
-                            unit = "kJ/kg\\\\!\\\\cdot\\\\!K",
-                            mathrm = TRUE,
+                            unit = "kJ/mol\\\\!\\\\cdot\\\\!K",
                             fmt = "%.5f")
 
 
-
-
 cp_MgCO3 <- read_named_cell("cp_MgCO3",
-                       fmt = "%.5f",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "kJ/mol\\\\!\\\\cdot\\\\!K",
+                            fmt = "%.5f")
+
 
 deltah_CaCO3 <- read_named_cell("deltah_CaCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "kJ/mol",
+                            fmt = "%.5f")
+
 deltah_MgCO3 <- read_named_cell("deltah_MgCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "kJ/mol",
+                            fmt = "%.5f")
 
 T_kiln <- read_named_cell("T_kiln",
                        file = file.path("data", "Paper Examples.xlsx"))
@@ -38,83 +39,114 @@ T_0 <- read_named_cell("T_0",
                        file = file.path("data", "Paper Examples.xlsx"))
 
 deltas_CaCO3 <- read_named_cell("deltas_CaCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "kJ/mol\\\\!\\\\cdot\\\\!K",
+                            fmt = "%.5f")
 deltas_MgCO3 <- read_named_cell("deltas_MgCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "kJ/mol\\\\!\\\\cdot\\\\!K",
+                            fmt = "%.5f")
 
 b_ph_MgCO3 <- read_named_cell("b_ph_MgCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "kJ/mol",
+                            fmt = "%.5f")
+
 b_ph_CaCO3 <- read_named_cell("b_ph_CaCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "kJ/mol",
+                            fmt = "%.5f")
 
 deltaG_CaCO3 <- read_named_cell("deltaG_CaCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "kJ/mol",
+                            fmt = "%.5f")
+
 deltaG_MgCO3 <- read_named_cell("deltaG_MgCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "kJ/mol",
+                            fmt = "%.5f")
 
 b_ch_Ca <- read_named_cell("b_ch_Ca",
-                       file = file.path("data", "Paper Examples.xlsx"))
-b_ch_C <- read_named_cell("b_ch_C",
-                       file = file.path("data", "Paper Examples.xlsx"))
-b_ch_O2 <- read_named_cell("b_ch_O2",
-                       file = file.path("data", "Paper Examples.xlsx"))
-b_ch_Mg <- read_named_cell("b_ch_Mg",
-                       file = file.path("data", "Paper Examples.xlsx"))
-b_ch_MgCO3 <- read_named_cell("b_ch_MgCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
-b_ch_CaCO3 <- read_named_cell("b_ch_CaCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "kJ/mol",
+                            fmt = "%.5f")
 
-MW_CaCO3 <- read_named_cell("MW_CaCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
-MW_MgCO3 <- read_named_cell("MW_CaCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
-Limestone_for_BF <- read_named_cell("Limestone_for_BF",
-                       file = file.path("data", "Paper Examples.xlsx"))
-MgCO3_in_Limestone <- read_named_cell("MgCO3_in_Limestone",
-                       file = file.path("data", "Paper Examples.xlsx"))
-mol_CaCO3 <- read_named_cell("mol_CaCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
-mol_MgCO3 <- read_named_cell("mol_MgCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
-mol_limestone <- read_named_cell("mol_limestone",
-                       file = file.path("data", "Paper Examples.xlsx"))
+b_ch_C <- read_named_cell("b_ch_C",
+                            unit = "kJ/mol",
+                            fmt = "%.5f")
+b_ch_O2 <- read_named_cell("b_ch_O2",
+                            unit = "kJ/mol",
+                            fmt = "%.5f")
+b_ch_Mg <- read_named_cell("b_ch_Mg",
+                            unit = "kJ/mol",
+                            fmt = "%.5f")
+b_ch_MgCO3 <- read_named_cell("b_ch_MgCO3",
+                            unit = "kJ/mol",
+                            fmt = "%.5f")
+b_ch_CaCO3 <- read_named_cell("b_ch_CaCO3",
+                            unit = "kJ/mol",
+                            fmt = "%.5f")
+
+# MW_CaCO3 <- read_named_cell("MW_CaCO3",
+#                             unit = "kg/mol",
+#                             fmt = "%.5f")
+# MW_MgCO3 <- read_named_cell("MW_CaCO3",
+#                             unit = "kg/mol",
+#                             fmt = "%.5f")
+# Limestone_for_BF <- read_named_cell("Limestone_for_BF",
+#                             unit = "kg",
+#                             fmt = "%.5f")
+# MgCO3_in_Limestone <- read_named_cell("MgCO3_in_Limestone",
+#                        file = file.path("data", "Paper Examples.xlsx"))
+# mol_CaCO3 <- read_named_cell("mol_CaCO3",
+#                        file = file.path("data", "Paper Examples.xlsx"))
+# mol_MgCO3 <- read_named_cell("mol_MgCO3",
+#                        file = file.path("data", "Paper Examples.xlsx"))
+# mol_limestone <- read_named_cell("mol_limestone",
+#                        file = file.path("data", "Paper Examples.xlsx"))
 y_CaCO3 <- read_named_cell("y_CaCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "mol_{CaCO_3}/mol_{limestone}",
+                            fmt = "%.5f")
 y_MgCO3 <- read_named_cell("y_MgCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "mol_{MgCO_3}/mol_{limestone}",
+                            fmt = "%.5f")
 RT0 <- read_named_cell("RT0",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "kJ/mol",
+                            fmt = "%.5f")
 lny_CaCO3 <- read_named_cell("lny_CaCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "mol_{CaCO_3}}/mol_{limestone}",
+                            fmt = "%.5f")
 lny_MgCO3 <- read_named_cell("lny_MgCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "mol_{MgCO_3}/mol_{limestone}",
+                            fmt = "%.5f")
 b_c_CaCO3 <- read_named_cell("b_c_CaCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "kJ/mol",
+                            fmt = "%.5f")
 b_c_MgCO3 <- read_named_cell("b_c_MgCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "kJ/mol",
+                            fmt = "%.5f")
 
 Fr <- read_named_cell("Fr",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            fmt = "%.5f")
 dM_CaCO3 <- read_named_cell("dM_CaCO3",
-                       fmt = "%.6f",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "m^3",
+                            fmt = "%.6f")
 dM_MgCO3 <- read_named_cell("dM_MgCO3",
-                       fmt = "%.6f",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "m^3",
+                            fmt = "%.6f")
 b_com_CaCO3 <- read_named_cell("b_com_CaCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "kJ/mol",
+                            fmt = "%.5f")
 b_com_MgCO3 <- read_named_cell("b_com_MgCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "kJ/mol",
+                            fmt = "%.5f")
 com_constant <- read_named_cell("com_constant",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "J/m^2",
+                            fmt = "%.5f")
 
 b_CaCO3 <- read_named_cell("b_CaCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "kJ/mol",
+                            fmt = "%.5f")
 b_MgCO3 <- read_named_cell("b_MgCO3",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "kJ/mol",
+                            fmt = "%.5f")
 b_tot_limestone<- read_named_cell("b_tot_limestone",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "kJ/mol",
+                            fmt = "%.5f")
 @
 
 In the \ref{sec:exergy_of_materials} section of this paper,
@@ -164,19 +196,19 @@ and changes to \Sexpr{T_kiln} K in the kiln.
 
 The change in enthalpy of $\ce{CaCO3}$ is
 \begin{equation}\label{eq:deltah_CaCO3}
-\Sexpr{deltah_CaCO3} \mathrm{kJ/mol} = \Sexpr{cp_CaCO3}\mathrm{kJ/mol\cdot~K}(\Sexpr{T_kiln}-\Sexpr{T_0})\mathrm{K} \, ,
+\Sexpr{deltah_CaCO3} = \Sexpr{cp_CaCO3}(\Sexpr{T_kiln}-\Sexpr{T_0}) \, ,
 \end{equation}
 %
 where $cp_{\ce{CaCO3}}$ is given by \citet{NIST_2025}
 The change in entropy is
 \begin{equation}\label{eq:deltas_CaCO3}
-\Sexpr{deltas_CaCO3} [kJ/mol\cdot~K] = \Sexpr{cp_CaCO3}[kJ/mol\cdot~K]\ln{\frac{\Sexpr{T_kiln}\mathrm{K}}{\Sexpr{T_0}\mathrm{K}}} \, .
+\Sexpr{deltas_CaCO3} = \Sexpr{cp_CaCO3}\ln{\frac{\Sexpr{T_kiln}}{\Sexpr{T_0}}} \, .
 \end{equation}
 
 Therefore, the physical exergy of calcium carbonate ($\ce{CaCO3}$) is
 
 \begin{equation}\label{eq:b_ph_CaCO3}
-\Sexpr{b_ph_CaCO3}\mathrm{kJ/mol} = \Sexpr{deltah_CaCO3}\mathrm{kJ/mol} - (\Sexpr{T_0}\mathrm{K}) (\Sexpr{deltas_CaCO3}\mathrm{kJ/mol\cdot~K}) \, .
+\Sexpr{b_ph_CaCO3} = \Sexpr{deltah_CaCO3} - (\Sexpr{T_0}) (\Sexpr{deltas_CaCO3}) \, .
 \end{equation}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -199,10 +231,10 @@ is used to define chemical exergy.
 %
 For $\ce{CaCO3}$ the chemical exergy is
 \begin{align}
-  b_{ch,\ce{CaCO3}} = \Sexpr{deltaG_MgCO3}\mathrm{kJ/mol}  &+ ((1 \left(\frac{\mathrm{mol_{\ce{Ca}}}}{\mathrm{mol_{\ce{CaCO3}}}}\right))\Sexpr{b_ch_Ca}\mathrm{kJ/mol})\notag\\
-                                                          &+((1 \left(\frac{\mathrm{mol_{\ce{C}}}}{\mathrm{mol_{\ce{CaCO3}}}}\right))\Sexpr{b_ch_C}\mathrm{kJ/mol}\notag\\
-                                                          &+((\frac{3}{2} \left(\frac{\mathrm{mol_{\ce{O2}}}}{\mathrm{mol_{\ce{CaCO3}}}}\right))\Sexpr{b_ch_O2}\mathrm{kJ/mol}\notag\\
-                    = \Sexpr{b_ch_MgCO3}\mathrm{kJ/mol} \, . \notag
+  b_{ch,\ce{CaCO3}} = \Sexpr{deltaG_MgCO3}  &+ ((1 \left(\frac{\mathrm{mol_{\ce{Ca}}}}{\mathrm{mol_{\ce{CaCO3}}}}\right))\Sexpr{b_ch_Ca})\notag\\
+                                                          &+((1 \left(\frac{\mathrm{mol_{\ce{C}}}}{\mathrm{mol_{\ce{CaCO3}}}}\right))\Sexpr{b_ch_C}\notag\\
+                                                          &+((\frac{3}{2} \left(\frac{\mathrm{mol_{\ce{O2}}}}{\mathrm{mol_{\ce{CaCO3}}}}\right))\Sexpr{b_ch_O2}\notag\\
+                    = \Sexpr{b_ch_MgCO3} \, . \notag
 \end{align}
 
 
@@ -230,7 +262,7 @@ to molar fractions ($y_i$)
 with the molecular weight of each compound ($MW_i$).
 
 \begin{equation}\label{b_c_CaCO3}
-  \Sexpr{b_c_CaCO3} [kJ/mol] = \Sexpr{RT0}[kJ/mol] \cdot~\ln(\Sexpr{y_CaCO3}[\frac{mol_{\ce{CaCO3}}}{mol_{limestone}}]) \, .
+  \Sexpr{b_c_CaCO3}  = \Sexpr{RT0} \cdot~\ln(\Sexpr{y_CaCO3}) \, .
 \end{equation}
 
 
@@ -272,7 +304,7 @@ $F_r$ for limstone is \Sexpr{Fr}
 %
 The comminution exergy for $\ce{CaCO3}$ is
 \begin{equation}\label{eq:comminution_exergy_CaCO3}
-  \Sexpr{b_com_CaCO3}[kJ/mol] = \frac{6[J/m^2](\Sexpr{Fr})}{\Sexpr{dM_CaCO3}[m]} (0.001[m^3/kg]) (0.001[kJ/J]) \, .
+  \Sexpr{b_com_CaCO3}[kJ/mol] = \frac{6(\Sexpr{Fr})}{\Sexpr{dM_CaCO3}} (0.001\mathrm{m^3/kg}) (0.001\mathrm{kJ/J}) \, .
 \end{equation}
 %
 $d_M$ for $\ce{CaCO3}$ is from \citet[Tab.6]{Archbold_1956}.
@@ -326,6 +358,7 @@ can be applied to $\ce{MgCO3}$ as follows:
 
   \item Comminution exergy
 \end{itemize}
+
 
 
 
