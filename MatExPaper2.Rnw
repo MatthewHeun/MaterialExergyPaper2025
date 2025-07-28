@@ -1072,6 +1072,49 @@ Finally, we develop
 
 
 
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth]{images/BXCC_figs_1.pdf}
+\caption{Independent material~(BCC) and energy~(XCC) conversion chains expressed as exergy.
+         All values in kJ.}
+\label{fig:bxcc1}
+\end{figure}
+
+
+
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth]{images/BXCC_figs_2.pdf}
+\caption{PSUT matrices for independent material~(BCC) and energy~(XCC)
+         conversion chains.
+         All values in kJ.}
+\label{fig:bxcc2}
+\end{figure}
+
+
+
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth]{images/BXCC_figs_3.pdf}
+\caption{PSUT matrices for unified material and energy
+         conversion chains~(BXCC).
+         All values in kJ.}
+\label{fig:bxcc3}
+\end{figure}
+
+
+
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth]{images/BXCC_figs_4.pdf}
+\caption{A unified material and exergy conversion chain expressed as exergy~(BXCC).
+         All values in kJ.}
+\label{fig:bxcc4}
+\end{figure}
+
+
+
+
 %------------------------------
 \subsubsection{Process efficiencies}
 \label{ssec:efficiency_methods}
