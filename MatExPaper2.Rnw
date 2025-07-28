@@ -1210,7 +1210,7 @@ of the mixture.
   \includegraphics[width=0.8\textwidth]{images/Solid BF Inputs.pdf}
 %\end{adjustwidth}
   \caption{Material exergy accounting for the solid blast furnace inputs: iron ore, limestone, and coking coal.}
-  \label{fig:Solid Blast Furnace Inputs}
+  \label{tab:Solid Blast Furnace Inputs}
 \end{table}
 
 
@@ -1224,7 +1224,7 @@ of hematite ore is **76**~MJ.
 %\begin{adjustwidth}{-\extralength}{0cm}
   \centering
   \caption{Material exergy accounting for the gaseous blast furnace inputs: air.}
-  \label{fig:Gaseous Blast Furnace Inputs}
+  \label{tab:Gaseous Blast Furnace Inputs}
   \includegraphics[width=0.8\textwidth]{images/Air BF Inputs.pdf}
 %\end{adjustwidth}
 

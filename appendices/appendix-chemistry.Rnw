@@ -18,7 +18,7 @@ for certain processes.
 %++++++++++++++++++++++++++++++
 
 
-\begin{equation}\label{eq:Kiln_chemeqn}
+\begin{equation}\label{eq:kiln_chemeqn}
   \ce{1CaCO3 + MgCO3 -> 1CaO + 2CO2 + 1MgO} \; .
 \end{equation}
 
@@ -29,12 +29,12 @@ for certain processes.
 %++++++++++++++++++++++++++++++
 
 Coal becomes coke oven gas and coke.
-\begin{equation}\label{eq:Coke_oven_chemeqn}
+\begin{equation}\label{eq:coke_oven_chemeqn}
   \ce{C_c H_h N_n O_o -> C + H2 + C2H4 + CO + CO2 + N2 + CH4} \, .
 \end{equation}
 
 The coke oven gas is treated to create methane (\ce{CH_4}).
-\begin{equation}\label{eq:Coke_oven_chemeqn}
+\begin{equation}\label{eq:cog_chemeqn}
   \ce{H2 + C2H4 + CO + CO2 + N2 + CH4 -> H2 + CH4 + O2 + N2} \, .
 \end{equation}
 
@@ -58,22 +58,22 @@ The coke oven gas is treated to create methane (\ce{CH_4}).
 %++++++++++++++++++++++++++++++
 
 Methane complete combustion:
-\begin{equation}\label{eq:Methane_complete_chemeqn}
+\begin{equation}\label{eq:methane_complete_chemeqn}
   \ce{1CH4 + 2(O2 + 3.76N2) -> 1CO2 + 2H2O + 7.52N2} \; .
 \end{equation}
 
 Diesel complete combustion:
-\begin{equation}\label{eq:Methane_complete_chemeqn}
+\begin{equation}\label{eq:diesel_complete_chemeqn}
   \ce{1C_12 H_23 + 17.75(O2 + 3.76N2) -> 12CO2 + 11.5H2O + 66.74N2} \; .
 \end{equation}
 
 Gasoline complete combustion:
-\begin{equation}\label{eq:Methane_complete_chemeqn}
+\begin{equation}\label{eq:gasoline_complete_chemeqn}
   \ce{1C8 H_18 + 12.5(O2 + 3.76N2) -> 8CO2 + 9H2O + 47N2} \; .
 \end{equation}
 
 
 Fuel oil complete combustion:
-\begin{equation}\label{eq:Methane_complete_chemeqn}
+\begin{equation}\label{eq:fuel_oil_complete_chemeqn}
   \ce{C_10 H_20 + 15(O2 + 3.76N2) -> 10CO2 + 10H2O + 56.4N2} \; .
 \end{equation}
