@@ -34,10 +34,11 @@ deltah_MgCO3 <- read_named_cell("deltah_MgCO3",
                             fmt = "%.5f")
 
 T_kiln <- read_named_cell("T_kiln",
-                       file = file.path("data", "Paper Examples.xlsx"))
+                            unit = "K",
+                            fmt = "%.2f")
 T_0 <- read_named_cell("T_0",
-                       file = file.path("data", "Paper Examples.xlsx"))
-
+                            unit = "K",
+                            fmt = "%.2f")
 deltas_CaCO3 <- read_named_cell("deltas_CaCO3",
                             unit = "kJ/mol\\\\!\\\\cdot\\\\!K",
                             fmt = "%.5f")
@@ -108,10 +109,10 @@ RT0 <- read_named_cell("RT0",
                             unit = "kJ/mol",
                             fmt = "%.5f")
 lny_CaCO3 <- read_named_cell("lny_CaCO3",
-                            unit = "mol_{CaCO_3}}/mol_{limestone}",
+                            unit = "mol_{\\\\ce{CaCO3}}/mol_{limestone}",
                             fmt = "%.5f")
 lny_MgCO3 <- read_named_cell("lny_MgCO3",
-                            unit = "mol_{MgCO_3}/mol_{limestone}",
+                            unit = "mol_{\\\\ce{MgCO3}/mol_{limestone}",
                             fmt = "%.5f")
 b_c_CaCO3 <- read_named_cell("b_c_CaCO3",
                             unit = "kJ/mol",
@@ -121,7 +122,7 @@ b_c_MgCO3 <- read_named_cell("b_c_MgCO3",
                             fmt = "%.5f")
 
 Fr <- read_named_cell("Fr",
-                            fmt = "%.5f")
+                            fmt = "%.3f")
 dM_CaCO3 <- read_named_cell("dM_CaCO3",
                             unit = "m^3",
                             fmt = "%.6f")
@@ -262,7 +263,7 @@ to molar fractions ($y_i$)
 with the molecular weight of each compound ($MW_i$).
 
 \begin{equation}\label{b_c_CaCO3}
-  \Sexpr{b_c_CaCO3}  = \Sexpr{RT0} \cdot~\ln(\Sexpr{y_CaCO3}) \, .
+  \Sexpr{b_c_CaCO3}  = \Sexpr{RT0}(\ln(\Sexpr{y_CaCO3})) \, .
 \end{equation}
 
 
@@ -304,7 +305,7 @@ $F_r$ for limstone is \Sexpr{Fr}
 %
 The comminution exergy for $\ce{CaCO3}$ is
 \begin{equation}\label{eq:comminution_exergy_CaCO3}
-  \Sexpr{b_com_CaCO3}[kJ/mol] = \frac{6(\Sexpr{Fr})}{\Sexpr{dM_CaCO3}} (0.001\mathrm{m^3/kg}) (0.001\mathrm{kJ/J}) \, .
+  \Sexpr{b_com_CaCO3} = \frac{\Sexpr{com_constant}(\Sexpr{Fr})}{\Sexpr{dM_CaCO3}} (0.001\mathrm{m^3/kg}) (0.001\mathrm{kJ/J}) \, .
 \end{equation}
 %
 $d_M$ for $\ce{CaCO3}$ is from \citet[Tab.6]{Archbold_1956}.
@@ -325,18 +326,18 @@ can be applied to $\ce{MgCO3}$ as follows:
         is determined by the change in enthalpy:
         \begin{align}
         % \begin{equation}\label{eq:deltah_MgCO3}
-          b_{ph,\ce{MgCO3}} &= \Sexpr{cp_MgCO3}[kJ/mol\cdot~K](\Sexpr{T_kiln}-\Sexpr{T_0})[K] \\
-                            &= \Sexpr{deltah_MgCO3}[kJ/mol] \, ,
+          b_{ph,\ce{MgCO3}} &= \Sexpr{cp_MgCO3}[kJ/mol\cdot~K](\Sexpr{T_kiln}-\Sexpr{T_0}) \\
+                            &= \Sexpr{deltah_MgCO3} \, ,
         \end{align}
         %
         minus the change in entropy:
         \begin{equation}\label{deltas_MgC03}
-          \Sexpr{deltas_MgCO3} \, \mathrm{kJ/mol\cdot~K} = \Sexpr{cp_MgCO3}[kJ/mol\cdot~K] \ln\left(\frac{\Sexpr{T_kiln}[K]}{\Sexpr{T_0}[K]}\right) \, ,
+          \Sexpr{deltas_MgCO3} \,  = \Sexpr{cp_MgCO3} \ln\left(\frac{\Sexpr{T_kiln}}{\Sexpr{T_0}}\right) \, ,
         \end{equation}
         %
         when entropy is multiplied by the ambient temperature:
         \begin{equation}\label{eq:b_ph_MgCO3}
-          \Sexpr{b_ph_MgCO3}[kJ/mol] = \Sexpr{deltah_MgCO3}[kJ/mol] - \Sexpr{T_0}[K](\Sexpr{deltas_MgCO3}[kJ/mol\cdot~K]) \, .
+          \Sexpr{b_ph_MgCO3} = \Sexpr{deltah_MgCO3} - \Sexpr{T_0}(\Sexpr{deltas_MgCO3}) \, .
         \end{equation}
         %
 
@@ -344,16 +345,16 @@ can be applied to $\ce{MgCO3}$ as follows:
         \begin{align}
         % \begin{equation}\label{eq:b_ch_MgCO3}
               b_{ch,\ce{MgCO3}} = \Delta{G_{f,\ce{MgCO3}}}                     &+ \sum_{j}{n_{j}b_{ch,j}} \tag{\ref{eq:chemical_exergy_definition}}\\
-                                = \Sexpr{deltaG_MgCO3}\mathrm{kJ/mol}         &+ ((1 \left(\frac{\mathrm{mol_{\ce{Mg}}}}{\mathrm{mol_{\ce{MgCO3}}}}\right))\Sexpr{b_ch_Mg}\mathrm{kJ/mol})\notag\\
-                                                                              &+((1 \left(\frac{\mathrm{mol_{\ce{C}}}}{\mathrm{mol_{\ce{MgCO3}}}}\right))\Sexpr{b_ch_C}\mathrm{kJ/mol}\notag\\
-                                                                              &+((\frac{3}{2} \left(\frac{\mathrm{mol_{\ce{O2}}}}{\mathrm{mol_{\ce{MgCO3}}}}\right))\Sexpr{b_ch_O2}\mathrm{kJ/mol}\notag\\
-                                = \Sexpr{b_ch_MgCO3}\mathrm{kJ/mol} \, . \notag
+                                = \Sexpr{deltaG_MgCO3}         &+ ((1 \left(\frac{\mathrm{mol_{\ce{Mg}}}}{\mathrm{mol_{\ce{MgCO3}}}}\right))\Sexpr{b_ch_Mg})\notag\\
+                                                                              &+((1 \left(\frac{\mathrm{mol_{\ce{C}}}}{\mathrm{mol_{\ce{MgCO3}}}}\right))\Sexpr{b_ch_C}\notag\\
+                                                                              &+((\frac{3}{2} \left(\frac{\mathrm{mol_{\ce{O2}}}}{\mathrm{mol_{\ce{MgCO3}}}}\right))\Sexpr{b_ch_O2}\notag\\
+                                = \Sexpr{b_ch_MgCO3} \, . \notag
         \end{align}
 
   \item The concentration exergy of $\ce{MgCO3}$ ($b_{c,MgCO_3}$) is given by Eqn. \ref{eq:concentration_exergy_definition}
         where the molar fraction ($y_{MgCO_3}$) is from \ref{tab:limestone_statepoint}.
         \begin{equation}\label{eq:b_c_MgCO3}
-          \Sexpr{b_c_MgCO3}[kJ/mol] = \Sexpr{RT0}[kJ/mol] \ln(\Sexpr{y_MgCO3}[\frac{mol_{\ce{MgCO3}}}{mol_{limestone}}]) \, .
+          \Sexpr{b_c_MgCO3} = \Sexpr{RT0} \ln(\Sexpr{y_MgCO3}) \, .
         \end{equation}
 
   \item Comminution exergy
