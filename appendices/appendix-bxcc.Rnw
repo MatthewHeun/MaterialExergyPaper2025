@@ -13,7 +13,7 @@ for the example presented in this paper, including
 The basis for the conversion chains is 1000~kg of beneficiated iron ore.
 All matrices in Figures~\ref{fig:rb_example_mat}--\ref{fig:ybx_example_mat}
 below contain exergy values in MJ.
-Rows and columns have been removed if all values are 0.
+Rows and columns are removed if all values are 0.
 Entries of 0.0 indicate non-zero values that round to 0.0~MJ.
 
 
@@ -41,10 +41,10 @@ Figure~\ref{fig:yb_example_mat} shows the final demand ($\mat{Y}$) matrix.
 
 
 <<RBMatrix, echo=FALSE, results=tex>>=
-print_named_matrix(matrix_name = "R__B",
+print_named_matrix(matrix_name = "R__MCC_B_RUVY_matrices_mat_level",
                    latex_label = "fig:rb_example_mat",
                    bgcolor = "RYbgcolor",
-                   file = file.path("data", "BXCC.xlsx"),
+                   file = file.path("data", "Paper Examples.xlsx"),
                    digits = 1,
                    factor = factor_for_cc_matvals,
                    caption = paste0("Resource ($\\mat{R}$) matrix for ",
@@ -55,10 +55,10 @@ print_named_matrix(matrix_name = "R__B",
 
 
 <<UBMatrix, echo=FALSE, results=tex>>=
-print_named_matrix(matrix_name = "U__B",
+print_named_matrix(matrix_name = "U__MCC_B_RUVY_matrices_mat_level",
                    latex_label = "fig:ub_example_mat",
                    bgcolor = "UVbgcolor",
-                   file = file.path("data", "BXCC.xlsx"),
+                   file = file.path("data", "Paper Examples.xlsx"),
                    digits = 1,
                    factor = factor_for_cc_matvals,
                    caption = paste0("Use ($\\mat{U}$) matrix for ",
@@ -68,11 +68,12 @@ print_named_matrix(matrix_name = "U__B",
 @
 
 
+\begin{landscape}
 <<VBMatrix, echo=FALSE, results=tex>>=
-print_named_matrix(matrix_name = "V__B",
+print_named_matrix(matrix_name = "V__MCC_B_RUVY_matrices_mat_level",
                    latex_label = "fig:vb_example_mat",
                    bgcolor = "UVbgcolor",
-                   file = file.path("data", "BXCC.xlsx"),
+                   file = file.path("data", "Paper Examples.xlsx"),
                    digits = 1,
                    factor = factor_for_cc_matvals,
                    caption = paste0("Make ($\\mat{V}$) matrix for ",
@@ -80,13 +81,14 @@ print_named_matrix(matrix_name = "V__B",
                                     "All values are exergies in ", cc_unit_string, "."),
                    size = "tiny")
 @
+\end{landscape}
 
 
 <<YBMatrix, echo=FALSE, results=tex>>=
-print_named_matrix(matrix_name = "Y__B",
+print_named_matrix(matrix_name = "Y__MCC_B_RUVY_matrices_mat_level",
                    latex_label = "fig:yb_example_mat",
                    bgcolor = "RYbgcolor",
-                   file = file.path("data", "BXCC.xlsx"),
+                   file = file.path("data", "Paper Examples.xlsx"),
                    digits = 1,
                    factor = factor_for_cc_matvals,
                    caption = paste0("Final demand ($\\mat{Y}$) matrix for ",
@@ -110,10 +112,10 @@ Figure~\ref{fig:yx_example_mat} shows the final demand ($\mat{Y}$) matrix.
 
 
 <<RXMatrix, echo=FALSE, results=tex>>=
-print_named_matrix(matrix_name = "R__X",
+print_named_matrix(matrix_name = "R__ZAF_2013_X",
                    latex_label = "fig:rx_example_mat",
                    bgcolor = "RYbgcolor",
-                   file = file.path("data", "BXCC.xlsx"),
+                   file = file.path("data", "ecc_supply_to_mcc.xlsx"),
                    digits = 1,
                    factor = factor_for_cc_matvals,
                    caption = paste0("Resource ($\\mat{R}$) matrix for ",
@@ -124,10 +126,10 @@ print_named_matrix(matrix_name = "R__X",
 
 
 <<UXMatrix, echo=FALSE, results=tex>>=
-print_named_matrix(matrix_name = "U__X",
+print_named_matrix(matrix_name = "U__ZAF_2013_X",
                    latex_label = "fig:ux_example_mat",
                    bgcolor = "UVbgcolor",
-                   file = file.path("data", "BXCC.xlsx"),
+                   file = file.path("data", "ecc_supply_to_mcc.xlsx"),
                    digits = 1,
                    factor = factor_for_cc_matvals,
                    caption = paste0("Use ($\\mat{U}$) matrix for ",
@@ -138,10 +140,10 @@ print_named_matrix(matrix_name = "U__X",
 
 
 <<VXMatrix, echo=FALSE, results=tex>>=
-print_named_matrix(matrix_name = "V__X",
+print_named_matrix(matrix_name = "V__ZAF_2013_X",
                    latex_label = "fig:vx_example_mat",
                    bgcolor = "UVbgcolor",
-                   file = file.path("data", "BXCC.xlsx"),
+                   file = file.path("data", "ecc_supply_to_mcc.xlsx"),
                    digits = 1,
                    factor = factor_for_cc_matvals,
                    caption = paste0("make ($\\mat{V}$) matrix for ",
@@ -152,10 +154,10 @@ print_named_matrix(matrix_name = "V__X",
 
 
 <<YXMatrix, echo=FALSE, results=tex>>=
-print_named_matrix(matrix_name = "Y__X",
+print_named_matrix(matrix_name = "Y__ZAF_2013_X",
                    latex_label = "fig:yx_example_mat",
                    bgcolor = "RYbgcolor",
-                   file = file.path("data", "BXCC.xlsx"),
+                   file = file.path("data", "ecc_supply_to_mcc.xlsx"),
                    digits = 1,
                    factor = factor_for_cc_matvals,
                    caption = paste0("Final demand ($\\mat{Y}$) matrix for ",
@@ -212,7 +214,7 @@ print_named_matrix(matrix_name = "U__BX",
 
 
 \begin{landscape}
-\setlength{\tabcolsep}{-0.2mm}      % Reduce spacing between columns for just this one
+% \setlength{\tabcolsep}{-0.2mm}      % Reduce spacing between columns for just this one
 <<UBXMatrix, echo=FALSE, results=tex>>=
 # This code shows the V_BX matrix
 print_named_matrix(matrix_name = "V__BX",

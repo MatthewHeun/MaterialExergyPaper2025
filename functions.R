@@ -21,9 +21,7 @@ read_named_cell <- function(cell_name,
 
 
 
-# digits is can be defined as a single value,
-# interpreted as digits for the entire matrix.
-# Or, specify as a vector:  c(overall, rownames, Col1, Col2, Col3, etc.)
+# digits must be a single value.
 # Default is digits = 2.
 print_named_matrix <- function(matrix_name,
                                latex_label,
@@ -44,18 +42,12 @@ print_named_matrix <- function(matrix_name,
     ) |>
     # Convert from kJ to MJ everywhere
     magrittr::multiply_by(factor) |>
-    # Map(f = round, digits = digits) |>
-    # Convert back to a data-frame-like object that preserves col names
-    # tibble::as_tibble() |>
-    # Convert to a data frame so we can set row names without warning
-    # as.data.frame() |>
-    # magrittr::set_rownames(rownames(mat_df_raw)) |>
     # Eliminate rows and cols that contain exclusively 0
     as.matrix() |>
     matsbyname::clean_byname() |>
     # Convert back to data frame
     as.data.frame() |>
-    # Add a background colour to cells in every column
+    # Add a background colour and format/round cells throughout the data frame
     dplyr::mutate(
       dplyr::across(dplyr::everything(),
                     ~ ifelse(is.na(.) | . == 0,

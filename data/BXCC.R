@@ -12,6 +12,7 @@ zaf_2013_ecc <- file.path("data", "zaf_2013_ecc.rds") |>
   dplyr::mutate(
     WorksheetNames = paste(Country, Year, EnergyType, sep = "_")
   )
+
 #
 # Save full ZAF data to an Excel file for later inspection.
 #
