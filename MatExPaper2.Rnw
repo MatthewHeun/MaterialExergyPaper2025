@@ -216,7 +216,7 @@ You can also show a matrix as shown in Figure~\ref{fig:ExampleMatrix}.
 print_named_matrix(matrix_name = "Rmat",
                    latex_label = "fig:ExampleMatrix",
                    file = file.path("data", "Example.xlsx"),
-                   digits = c(1, 2, 3),
+                   digits = 1,
                    caption = "Example resource matrix (\\textbf{R}).",
                    size = "tiny")
 @

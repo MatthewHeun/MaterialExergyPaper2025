@@ -10,12 +10,22 @@ for the example presented in this paper, including
 (a)~the independent material conversion chain (BCC),
 (b)~the independent energy conversion chain (XCC), and
 (c)~the unified material and energy conversion chain (BXCC).
+The basis for the conversion chains is 1000~kg of beneficiated iron ore.
+All matrices in Figures~\ref{fig:rb_example_mat}--\ref{fig:ybx_example_mat}
+below contain exergy values in MJ.
+Rows and columns have been removed if all values are 0.
+Entries of 0.0 indicate non-zero values that round to 0.0~MJ.
 
 
 %++++++++++++++++++++++++++++++
 \subsection{Independent material conversion chain (BCC)}
 \label{sec:BCC_appendix}
 %++++++++++++++++++++++++++++++
+
+<<Factor, echo=FALSE>>=
+factor_for_cc_matvals <- 0.001 # Convert from kJ to MJ
+cc_unit_string <- "MJ"
+@
 
 \begingroup % Change some sizes for this appendix only.
 
@@ -36,8 +46,10 @@ print_named_matrix(matrix_name = "R__B",
                    bgcolor = "RYbgcolor",
                    file = file.path("data", "BXCC.xlsx"),
                    digits = 1,
-                   factor = 0.001, # Convert from kJ to MJ
-                   caption = "Resource ($\\mat{R}$) matrix for the example material conversion chain (BCC). All values are exergies in MJ.",
+                   factor = factor_for_cc_matvals,
+                   caption = paste0("Resource ($\\mat{R}$) matrix for ",
+                                    "the example material conversion chain (BCC). ",
+                                    "All values are exergies in ", cc_unit_string, "."),
                    size = "tiny")
 @
 
@@ -48,24 +60,26 @@ print_named_matrix(matrix_name = "U__B",
                    bgcolor = "UVbgcolor",
                    file = file.path("data", "BXCC.xlsx"),
                    digits = 1,
-                   factor = 0.001, # Convert from kJ to MJ
-                   caption = "Use ($\\mat{U}$) matrix for the example material conversion chain (BCC). All values are exergies in MJ.",
+                   factor = factor_for_cc_matvals,
+                   caption = paste0("Use ($\\mat{U}$) matrix for ",
+                                    "the example material conversion chain (BCC). ",
+                                    "All values are exergies in ", cc_unit_string, "."),
                    size = "tiny")
 @
 
 
-\begin{landscape}
 <<VBMatrix, echo=FALSE, results=tex>>=
 print_named_matrix(matrix_name = "V__B",
                    latex_label = "fig:vb_example_mat",
                    bgcolor = "UVbgcolor",
                    file = file.path("data", "BXCC.xlsx"),
                    digits = 1,
-                   factor = 0.001, # Convert from kJ to MJ
-                   caption = "Make ($\\mat{V}$) matrix for the example material conversion chain (BCC). All values are exergies in MJ.",
+                   factor = factor_for_cc_matvals,
+                   caption = paste0("Make ($\\mat{V}$) matrix for ",
+                                    "the example material conversion chain (BCC). ",
+                                    "All values are exergies in ", cc_unit_string, "."),
                    size = "tiny")
 @
-\end{landscape}
 
 
 <<YBMatrix, echo=FALSE, results=tex>>=
@@ -74,8 +88,10 @@ print_named_matrix(matrix_name = "Y__B",
                    bgcolor = "RYbgcolor",
                    file = file.path("data", "BXCC.xlsx"),
                    digits = 1,
-                   factor = 0.001, # Convert from kJ to MJ
-                   caption = "Final demand ($\\mat{Y}$) matrix for the example material conversion chain (BCC). All values are exergies in MJ.",
+                   factor = factor_for_cc_matvals,
+                   caption = paste0("Final demand ($\\mat{Y}$) matrix for ",
+                                    "the example material conversion chain (BCC). ",
+                                    "All values are exergies in ", cc_unit_string, "."),
                    size = "tiny")
 @
 
@@ -99,8 +115,10 @@ print_named_matrix(matrix_name = "R__X",
                    bgcolor = "RYbgcolor",
                    file = file.path("data", "BXCC.xlsx"),
                    digits = 1,
-                   factor = 0.001, # Convert from kJ to MJ
-                   caption = "Resource ($\\mat{R}$) matrix for the example energy conversion chain (XCC). All values are exergies in MJ.",
+                   factor = factor_for_cc_matvals,
+                   caption = paste0("Resource ($\\mat{R}$) matrix for ",
+                                    "the example energy conversion chain (XCC). ",
+                                    "All values are exergies in ", cc_unit_string, "."),
                    size = "tiny")
 @
 
@@ -111,8 +129,10 @@ print_named_matrix(matrix_name = "U__X",
                    bgcolor = "UVbgcolor",
                    file = file.path("data", "BXCC.xlsx"),
                    digits = 1,
-                   factor = 0.001, # Convert from kJ to MJ
-                   caption = "Use ($\\mat{U}$) matrix for the example energy conversion chain (XCC). All values are exergies in MJ.",
+                   factor = factor_for_cc_matvals,
+                   caption = paste0("Use ($\\mat{U}$) matrix for ",
+                                    "the example energy conversion chain (XCC). ",
+                                    "All values are exergies in ", cc_unit_string, "."),
                    size = "tiny")
 @
 
@@ -123,8 +143,10 @@ print_named_matrix(matrix_name = "V__X",
                    bgcolor = "UVbgcolor",
                    file = file.path("data", "BXCC.xlsx"),
                    digits = 1,
-                   factor = 0.001, # Convert from kJ to MJ
-                   caption = "Make ($\\mat{V}$) matrix for the example energy conversion chain (XCC). All values are exergies in MJ.",
+                   factor = factor_for_cc_matvals,
+                   caption = paste0("make ($\\mat{V}$) matrix for ",
+                                    "the example energy conversion chain (XCC). ",
+                                    "All values are exergies in ", cc_unit_string, "."),
                    size = "tiny")
 @
 
@@ -135,8 +157,10 @@ print_named_matrix(matrix_name = "Y__X",
                    bgcolor = "RYbgcolor",
                    file = file.path("data", "BXCC.xlsx"),
                    digits = 1,
-                   factor = 0.001, # Convert from kJ to MJ
-                   caption = "Final demand ($\\mat{Y}$) matrix for the example energy conversion chain (XCC). All values are exergies in MJ.",
+                   factor = factor_for_cc_matvals,
+                   caption = paste0("Final demand ($\\mat{Y}$) matrix for ",
+                                    "the example energy conversion chain (XCC). ",
+                                    "All values are exergies in ", cc_unit_string, "."),
                    size = "tiny")
 @
 
@@ -154,17 +178,19 @@ Figure~\ref{fig:ubx_example_mat} shows the use ($\mat{U}$) matrix.
 Figure~\ref{fig:vbx_example_mat} shows the make ($\mat{V}$) matrix.
 Figure~\ref{fig:ybx_example_mat} shows the final demand ($\mat{Y}$) matrix.
 
+
 <<RBXMatrix, echo=FALSE, results=tex>>=
 print_named_matrix(matrix_name = "R__BX",
                    latex_label = "fig:rbx_example_mat",
                    bgcolor = "RYbgcolor",
                    file = file.path("data", "BXCC.xlsx"),
                    digits = 1,
-                   factor = 0.001, # Convert from kJ to MJ
-                   caption = "Resource ($\\mat{R}$) matrix for the example unified material and energy conversion chain (BXCC). All values are exergies in MJ.",
+                   factor = factor_for_cc_matvals,
+                   caption = paste0("Resource ($\\mat{R}$) matrix for ",
+                                    "the example unified material and energy conversion chain (BXCC). ",
+                                    "All values are exergies in ", cc_unit_string, "."),
                    size = "tiny")
 @
-
 
 
 \begin{landscape}
@@ -175,8 +201,10 @@ print_named_matrix(matrix_name = "U__BX",
                    bgcolor = "UVbgcolor",
                    file = file.path("data", "BXCC.xlsx"),
                    digits = 1,
-                   factor = 0.001, # Convert from kJ to MJ
-                   caption = "Use ($\\mat{U}$) matrix for the example unified material and energy conversion chain (BXCC). All values are exergies in MJ.",
+                   factor = factor_for_cc_matvals,
+                   caption = paste0("Use ($\\mat{U}$) matrix for ",
+                                    "the example unified material and energy conversion chain (BXCC). ",
+                                    "All values are exergies in ", cc_unit_string, "."),
                    size = "tiny")
 @
 \end{landscape}
@@ -184,6 +212,7 @@ print_named_matrix(matrix_name = "U__BX",
 
 
 \begin{landscape}
+\setlength{\tabcolsep}{-0.2mm}      % Reduce spacing between columns for just this one
 <<UBXMatrix, echo=FALSE, results=tex>>=
 # This code shows the V_BX matrix
 print_named_matrix(matrix_name = "V__BX",
@@ -191,8 +220,10 @@ print_named_matrix(matrix_name = "V__BX",
                    bgcolor = "UVbgcolor",
                    file = file.path("data", "BXCC.xlsx"),
                    digits = 1,
-                   factor = 0.001, # Convert from kJ to MJ
-                   caption = "Make ($\\mat{V}$) matrix for the example unified material and energy conversion chain (BXCC). All values are exergies in MJ.",
+                   factor = factor_for_cc_matvals,
+                   caption = paste0("Make ($\\mat{V}$) matrix for ",
+                                    "the example unified material and energy conversion chain (BXCC). ",
+                                    "All values are exergies in ", cc_unit_string, "."),
                    size = "tiny")
 @
 \end{landscape}
@@ -205,8 +236,10 @@ print_named_matrix(matrix_name = "Y__BX",
                    bgcolor = "RYbgcolor",
                    file = file.path("data", "BXCC.xlsx"),
                    digits = 1,
-                   factor = 0.001, # Convert from kJ to MJ
-                   caption = "Resource ($\\mat{R}$) matrix for the example unified material and energy conversion chain (BXCC). All values are exergies in MJ.",
+                   factor = factor_for_cc_matvals,
+                   caption = paste0("Final demand ($\\mat{Y}$) matrix for ",
+                                    "the example unified material and energy conversion chain (BXCC). ",
+                                    "All values are exergies in ", cc_unit_string, "."),
                    size = "tiny")
 @
 

@@ -34,22 +34,27 @@ print_named_matrix <- function(matrix_name,
                                caption = NULL,
                                size = "normalsize") {
   # Read the matrix as a data frame
-  mat_df <- openxlsx2::read_xlsx(file = file,
-                                 named_region = matrix_name,
-                                 row_names = TRUE) |>
-    as.matrix() |>
-    # Eliminate rows and cols that contain exclusively 0
-    matsbyname::clean_byname() |>
-    as.data.frame() |>
+  mat_df_raw <- openxlsx2::read_xlsx(file = file,
+                                     named_region = matrix_name,
+                                     row_names = TRUE)
+  mat_df <- mat_df_raw |>
+    # Convert all NA values to 0
+    dplyr::mutate(
+      dplyr::across(tidyselect::everything(), ~tidyr::replace_na(., 0))
+    ) |>
     # Convert from kJ to MJ everywhere
-    magrittr::multiply_by(factor)
-
-  mat_df_rounded <- Map(f = round, mat_df, digits = digits) |>
-    # Convert back to a data frame with correct names
-    tibble::as_tibble() |>
-    # Convert to a data frame to allow setting row names
+    magrittr::multiply_by(factor) |>
+    # Map(f = round, digits = digits) |>
+    # Convert back to a data-frame-like object that preserves col names
+    # tibble::as_tibble() |>
+    # Convert to a data frame so we can set row names without warning
+    # as.data.frame() |>
+    # magrittr::set_rownames(rownames(mat_df_raw)) |>
+    # Eliminate rows and cols that contain exclusively 0
+    as.matrix() |>
+    matsbyname::clean_byname() |>
+    # Convert back to data frame
     as.data.frame() |>
-    magrittr::set_rownames(rownames(mat_df)) |>
     # Add a background colour to cells in every column
     dplyr::mutate(
       dplyr::across(dplyr::everything(),
@@ -57,18 +62,24 @@ print_named_matrix <- function(matrix_name,
                              # When NA or 0, add just color
                              paste0("\\cellcolor{", bgcolor, "} "),
                              # When not NA or 0, include the value
-                             paste0("\\cellcolor{", bgcolor, "} ", .)
+                             # paste0("\\cellcolor{", bgcolor, "} ", .)
+                             paste0("\\cellcolor{",
+                                    bgcolor,
+                                    "} ",
+                                    formatC(.,
+                                            format = "f",
+                                            big.mark = ",",
+                                            digits = digits)
+                             )
                     )
       )
     ) |>
     tibble::rownames_to_column(var = " ")
 
-
   # Create an xtable from the matrix
-  xt <- xtable::xtable(mat_df_rounded,
-                       # digits = digits,
+  xt <- xtable::xtable(mat_df,
                        caption = caption,
-                       align = c("r", "r", rep("c", ncol(mat_df_rounded)-1)),
+                       align = c("r", "r", rep("c", ncol(mat_df)-1)),
                        label = latex_label)
   # Print the matrix as a xtable
   print(xt,
