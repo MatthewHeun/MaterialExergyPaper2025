@@ -30,12 +30,19 @@ print_named_matrix <- function(matrix_name,
                                bgcolor = "white",
                                file = file.path("data", "Paper Examples.xlsx"),
                                digits = 2,
+                               factor = 1,
                                caption = NULL,
                                size = "normalsize") {
   # Read the matrix as a data frame
   mat_df <- openxlsx2::read_xlsx(file = file,
                                  named_region = matrix_name,
-                                 row_names = TRUE)
+                                 row_names = TRUE) |>
+    as.matrix() |>
+    # Eliminate rows and cols that contain exclusively 0
+    matsbyname::clean_byname() |>
+    as.data.frame() |>
+    # Convert from kJ to MJ everywhere
+    magrittr::multiply_by(factor)
 
   mat_df_rounded <- Map(f = round, mat_df, digits = digits) |>
     # Convert back to a data frame with correct names
@@ -49,7 +56,7 @@ print_named_matrix <- function(matrix_name,
                     ~ ifelse(is.na(.) | . == 0,
                              # When NA or 0, add just color
                              paste0("\\cellcolor{", bgcolor, "} "),
-                             # When not NA, include the value
+                             # When not NA or 0, include the value
                              paste0("\\cellcolor{", bgcolor, "} ", .)
                     )
       )
@@ -66,11 +73,12 @@ print_named_matrix <- function(matrix_name,
   # Print the matrix as a xtable
   print(xt,
         include.rownames = FALSE,
-        # sanitize.colnames.function = identity,
         sanitize.text.function = identity,
         rotate.colnames = TRUE,
         hline.after = NULL,
         floating.environment = "figure",
+        tabular.environment = "tabular", # Could also be "longtable"
+        # floating = FALSE,
         size = size,
         table.placement = NULL,
         format.args = list(big.mark = ",", decimal.mark = "."))
