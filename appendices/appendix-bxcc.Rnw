@@ -10,11 +10,10 @@ of the PSUT framework
 for the unified material and energy conversion chain (BXCC).
 The BXCC was created using the process
 discussed in Section~\ref{sec:creating_bxcc}.
-
-Figure~\ref{fig:rbx_example_mat} shows the $\mat{R}$ matrix.
-Figure~\ref{fig:ubx_example_mat} shows the $\mat{U}$ matrix.
-Figure~\ref{fig:vbx_example_mat} shows the $\mat{V}$ matrix.
-Figure~\ref{fig:ybx_example_mat} shows the $\mat{Y}$ matrix.
+Figure~\ref{fig:rbx_example_mat} shows the resource ($\mat{R}$) matrix.
+Figure~\ref{fig:ubx_example_mat} shows the use ($\mat{U}$) matrix.
+Figure~\ref{fig:vbx_example_mat} shows the make ($\mat{V}$) matrix.
+Figure~\ref{fig:ybx_example_mat} shows the final demand ($\mat{Y}$) matrix.
 
 
 \begingroup % Change some sizes for this appendix only.

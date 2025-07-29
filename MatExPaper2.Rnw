@@ -1077,6 +1077,48 @@ Finally, we develop
 \label{sec:creating_bxcc}
 %------------------------------
 
+The method for creating a
+unified material and energy conversion chain (BXCC)
+has four steps.
+The four steps are shown in Figures~\ref{fig:bxcc1}--\ref{fig:bxcc4}
+that illustrate a small portion of the blast furnace example
+developed elsewhere in this paper.
+
+In the first step, exergy quantifications
+of the material and energy conversion chains (BCC and XCC)
+are created.
+(See Figure~\ref{fig:bxcc1}.)
+The independent BCC and XCC (expressed in exergy units) are based on
+(a)~the material conversion chain expressed in mass units (MCC) and
+(b)~the energy conversion chain expressed in exergy units (ECC).
+The ECC contains only the energy needed by the MCC.
+Each statepoint in the MCC is converted to exergy
+to form the BCC via methods discussed in Section~\ref{sec:exergy_of_materials}.
+Each statepoint in the ECC is converted to exergy
+to form the XCC via methods discussed in Section~\ref{sec:exergy_of_energy}.
+In the independent XCC of Figure~\ref{fig:bxcc1},
+energy produced by the XCC is delivered to the ``Iron and steel'' sector,
+consistent with existing ECC and XCC
+datasets~\citep{Steenwyk:2022ww,Pinto:2023aa,Tostes:2024aa,Brockway:2024ab}.
+In the independent BCC,
+electricity needed by the blast furnace is supplied by an industry
+called ``Electricity [from Supply]'',
+indicating that the energy is exogenous to the BCC.
+The goal of creating a unified BXCC
+is endogenizing the exogenous energy inputs to the BCC,
+as illustrated by the red and gray lines in Figure~\ref{fig:bxcc1}.
+
+The second step
+
+
+appears in the resource ($\mat{R}$) matrix
+via an
+it should be
+
+mass conversion chain
+
+
+
 ***HEUN UCC approach description. Write after figures are ready***
 
 
