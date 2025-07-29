@@ -35,7 +35,11 @@ print_named_matrix <- function(matrix_name,
   # Read the matrix as a data frame
   mat_df <- openxlsx2::read_xlsx(file = file,
                                  named_region = matrix_name,
-                                 row_names = TRUE) |>
+                                 row_names = TRUE)
+
+  mat_df_rounded <- Map(f = round, mat_df, digits = digits) |>
+    # Convert back to a data frame
+    tibble::as_tibble() |>
     # Add a background colour to cells in every column
     dplyr::mutate(
       dplyr::across(dplyr::everything(),
@@ -51,10 +55,10 @@ print_named_matrix <- function(matrix_name,
 
 
   # Create an xtable from the matrix
-  xt <- xtable::xtable(mat_df,
-                       digits = digits,
+  xt <- xtable::xtable(mat_df_rounded,
+                       # digits = digits,
                        caption = caption,
-                       align = c("r", "r", rep("c", ncol(mat_df)-1)),
+                       align = c("r", "r", rep("c", ncol(mat_df_rounded)-1)),
                        label = latex_label)
   # Print the matrix as a xtable
   print(xt,
