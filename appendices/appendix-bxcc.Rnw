@@ -1,0 +1,81 @@
+% !Rnw root = ../MatExPaper2.Rnw
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section[\appendixname~\thesection]{$\mat{RUVY}$ matrices for unified material and energy conversion chain}
+\label{sec:bxcc_mats}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This appendix contains the $\mat{RUVY}$ matrices
+of the PSUT framework
+for the unified material and energy conversion chain (BXCC).
+The BXCC was created using the process
+discussed in Section~\ref{sec:creating_bxcc}.
+
+Figure~\ref{fig:rbx_example_mat} shows the $\mat{R}$ matrix.
+Figure~\ref{fig:ubx_example_mat} shows the $\mat{U}$ matrix.
+Figure~\ref{fig:vbx_example_mat} shows the $\mat{V}$ matrix.
+Figure~\ref{fig:ybx_example_mat} shows the $\mat{Y}$ matrix.
+
+
+\begingroup % Change some sizes for this appendix only.
+
+\setlength{\tabcolsep}{0.5mm}      % Reduce spacing between columns
+\renewcommand{\arraystretch}{0.9}  % Reduce row height a bit
+
+<<RBXMatrix, echo=FALSE, results=tex>>=
+print_named_matrix(matrix_name = "R__BX",
+                   latex_label = "fig:rbx_example_mat",
+                   bgcolor = "RYbgcolor",
+                   file = file.path("data", "BXCC.xlsx"),
+                   digits = 1,
+                   factor = 0.001, # Convert from kJ to MJ
+                   caption = "Resource ($\\mat{R}$) matrix for the example unified material and energy converstion chain. All values are exergies in MJ.",
+                   size = "tiny")
+@
+
+
+
+\begin{landscape}
+<<UBXMatrix, echo=FALSE, results=tex>>=
+# This code shows the U_BX matrix
+print_named_matrix(matrix_name = "U__BX",
+                   latex_label = "fig:ubx_example_mat",
+                   bgcolor = "UVbgcolor",
+                   file = file.path("data", "BXCC.xlsx"),
+                   digits = 1,
+                   factor = 0.001, # Convert from kJ to MJ
+                   caption = "Use ($\\mat{U}$) matrix for the example unified material and energy converstion chain. All values are exergies in MJ.",
+                   size = "tiny")
+@
+\end{landscape}
+
+
+
+\begin{landscape}
+<<UBXMatrix, echo=FALSE, results=tex>>=
+# This code shows the V_BX matrix
+print_named_matrix(matrix_name = "V__BX",
+                   latex_label = "fig:vbx_example_mat",
+                   bgcolor = "UVbgcolor",
+                   file = file.path("data", "BXCC.xlsx"),
+                   digits = 1,
+                   factor = 0.001, # Convert from kJ to MJ
+                   caption = "Make ($\\mat{V}$) matrix for the example unified material and energy converstion chain. All values are exergies in MJ.",
+                   size = "tiny")
+@
+\end{landscape}
+
+
+
+<<YBXMatrix, echo=FALSE, results=tex>>=
+print_named_matrix(matrix_name = "Y__BX",
+                   latex_label = "fig:ybx_example_mat",
+                   bgcolor = "RYbgcolor",
+                   file = file.path("data", "BXCC.xlsx"),
+                   digits = 1,
+                   factor = 0.001, # Convert from kJ to MJ
+                   caption = "Resource ($\\mat{R}$) matrix for the example unified material and energy converstion chain. All values are exergies in MJ.",
+                   size = "tiny")
+@
+
+\endgroup
