@@ -1144,7 +1144,7 @@ sector in the independent XCC will be re-routed
 to the ``Blast furnace'' in the independent BCC.
 Electricity supplied by ``Electricity [from Supply]''
 in the independent BCC will come from
-``Power plants'' in the independent XCC instead.
+``Power plants'' instead.
 
 \begin{figure}
 \centering
