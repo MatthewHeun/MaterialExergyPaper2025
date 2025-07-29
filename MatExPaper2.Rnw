@@ -1370,12 +1370,21 @@ We would need to get it from the R code.
 
 \begin{landscape}
 <<UMatrix, echo=FALSE, results=tex>>=
-print_named_matrix(matrix_name = "U__MCC_B_RUVY_matrices_mat_level",
+# print_named_matrix(matrix_name = "U__MCC_B_RUVY_matrices_mat_level",
+#                    latex_label = "fig:u_example_mat",
+#                    bgcolor = "UVbgcolor",
+#                    digits = 2,
+#                    caption = "Use ($\\mat{U}$) matrix for the example unified material and energy converstion chain. All values are exergies in kJ.",
+#                    size = "tiny")
+
+print_named_matrix(matrix_name = "U__BX",
                    latex_label = "fig:u_example_mat",
                    bgcolor = "UVbgcolor",
+                   file = file.path("data", "BXCC.xlsx"),
                    digits = 2,
                    caption = "Use ($\\mat{U}$) matrix for the example unified material and energy converstion chain. All values are exergies in kJ.",
                    size = "tiny")
+
 @
 \end{landscape}
 

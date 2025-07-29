@@ -38,8 +38,11 @@ print_named_matrix <- function(matrix_name,
                                  row_names = TRUE)
 
   mat_df_rounded <- Map(f = round, mat_df, digits = digits) |>
-    # Convert back to a data frame
+    # Convert back to a data frame with correct names
     tibble::as_tibble() |>
+    # Convert to a data frame to allow setting row names
+    as.data.frame() |>
+    magrittr::set_rownames(rownames(mat_df)) |>
     # Add a background colour to cells in every column
     dplyr::mutate(
       dplyr::across(dplyr::everything(),

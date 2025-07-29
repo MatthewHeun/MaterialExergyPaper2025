@@ -1,12 +1,10 @@
-# Then, it creates Y_prime matrices from the
-# energy and exergy required to convert 1 ton
-# of iron ore to pig iron
-# according the the examples spreadsheet.
-
+# This script creates a
+# unified material and energy conversion chain (BXCC)
+# for the blast furnace example in the paper.
 
 #
 # Read information downloaded from the Mexer database.
-# See the file download_data.R.
+# See the script download_data.R.
 #
 
 zaf_2013_ecc <- file.path("data", "zaf_2013_ecc.rds") |>
@@ -226,15 +224,22 @@ bx_mats <- dplyr::left_join(mcc_mats_long,
 
 
 #
-# Write the combined energy and material
+# Write the combined material and energy
 # conversion chains
 # to an Excel file for inspection
 #
 
 bx_mats |>
-  Recca::write_ecc_to_excel(path = file.path("data", "BX.xlsx"),
+  Recca::write_ecc_to_excel(path = file.path("data", "BXCC.xlsx"),
                             worksheet_names = "EnergyType",
                             overwrite_file = TRUE)
+
+#
+# Write the data to an RDS file for use in the paper
+#
+
+bx_mats |>
+  saveRDS(file = file.path("data", "BXCC.rds"))
 
 #
 # Double-check energy balances and
