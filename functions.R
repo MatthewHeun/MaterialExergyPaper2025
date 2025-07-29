@@ -46,8 +46,8 @@ print_named_matrix <- function(matrix_name,
     # Add a background colour to cells in every column
     dplyr::mutate(
       dplyr::across(dplyr::everything(),
-                    ~ ifelse(is.na(.),
-                             # When NA, add just color
+                    ~ ifelse(is.na(.) | . == 0,
+                             # When NA or 0, add just color
                              paste0("\\cellcolor{", bgcolor, "} "),
                              # When not NA, include the value
                              paste0("\\cellcolor{", bgcolor, "} ", .)

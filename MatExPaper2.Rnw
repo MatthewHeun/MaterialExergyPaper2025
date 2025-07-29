@@ -1361,13 +1361,6 @@ and the Resource efficiency is **42**$\%$.
 Figure~\ref{fig:u_example_mat} shows the use ($\mat{U}$)
 matrix for the example unified material and energy conversion chain.
 
-****
-I'm not sure this is right.
-Should we rather print the BXCC $\mat{U}$ matrix?
-We would need to get it from the R code.
----MKH
-****
-
 \begin{landscape}
 <<UMatrix, echo=FALSE, results=tex>>=
 # This code shows the U_B matrix
@@ -1382,7 +1375,7 @@ We would need to get it from the R code.
 
 # This code shows the U_BX matrix
 print_named_matrix(matrix_name = "U__BX",
-                   latex_label = "fig:u_example_mat",
+                   latex_label = "fig:ubx_example_mat",
                    bgcolor = "UVbgcolor",
                    file = file.path("data", "BXCC.xlsx"),
                    digits = 2,
