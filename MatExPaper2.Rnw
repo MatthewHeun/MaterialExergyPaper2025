@@ -605,7 +605,7 @@ and the blast furnace.
 
 Information on the direct energy requirements for
 extraction and beneficiation processes
-were taken from the Energy and Environmental Profile of the U.S.\ Mining Industry
+was taken from the Energy and Environmental Profile of the U.S.\ Mining Industry
 \citet[Tables~4.3-4, 9.2-3, and 2.7]{Ore_2025} and
 \citet[Table~A3.4]{Jamison_2015}.
 Information for energy requirements of
@@ -643,7 +643,12 @@ which includes energy and exergy flows for
 68 final energy products, and
 85 final-to-useful (FU) energy conversion devices''~\citep[p.~1]{Brockway:2024ab}.
 We extract energy conversion chain data for South Africa,
-one of the countries in the CL-PFU database.
+one of the countries in the CL-PFU database and
+for 2013, because
+****
+Say why we choose 2013 here.
+---MKH
+****
 
 
 %++++++++++++++++++++++++++++++
@@ -1051,25 +1056,33 @@ to societal exergy analysis,
 we develop several material and energy conversion chains
 using the the $\mat{RUVY}$ matrices of the PSUT framework.
 First, we develop
-two versions of the example material conversion chain:
+two versions of an independent material conversion chain:
 (a) A mass-only material conversion chain (MCC) that contains
     mass flows from extraction through a blast furnace
     to the Iron and steel industry
     (Section~\ref{sec:material_data})
     and
-(b) an exergy version of the MCC (BCC) wherein material exergies
-    are calculated in accordance with Section~\ref{sec:exergy_of_materials}.
-In addition, we develop two versions of the
+(b) an exergy version of the MCC (BCC).
+Each statepoint in the independent MCC is converted to exergy
+to form the BCC in accordance with
+the methods discussed in Section~\ref{sec:exergy_of_materials}.
+
+In addition, we develop two versions of an independent
 energy conversion chain to supply the MCC's energy requirements:
-(c) an energy conversion chain (ECC) extracted from the CL-PFU database
-    (Section~\ref{sec:energy_data} and~\ref{sec:ecc_for_mcc})
+(c) an energy conversion chain (ECC) obtained from the CL-PFU database
+    as described in Sections~\ref{sec:energy_data} and~\ref{sec:ecc_for_mcc}
     and
 (d) an exergy version of the ECC (XCC), also
     extracted from the CL-PFU database.
+To obtain the XCC needed to supply energy to the BCC,
+we perform an ``upstream swim'' from a final demand ($\mat{Y}$) matrix
+populated with the energy requirements of the BCC,
+as discussed in~\citet[Section~2.2.5]{Heun:2018}.
+
 Finally, we develop
 (e) a unified conversion chain (BXCC) which
     brings the exergy of materials and energy together,
-    as described below.
+    as described in Section~\ref{sec:creating_bxcc} below.
 
 
 %------------------------------
@@ -1079,11 +1092,11 @@ Finally, we develop
 
 The method for creating a
 unified material and energy conversion chain (BXCC)
-has four steps.
+involves four steps.
 The method begins (Step~1) and ends (Step~4) with flow diagrams
 depicting the movement of exergy from sources to final demand.
-In the middle (Steps~2 and~3), manipulations are
-performed within the $\mat{RUVY}$ matrices of the PSUT framework.
+In the middle (Steps~2 and~3),
+we manipulate the $\mat{RUVY}$ matrices of the PSUT framework.
 The four steps are illustrated in Figures~\ref{fig:bxcc1}--\ref{fig:bxcc4}
 which show a small portion of the blast furnace example
 developed elsewhere in this paper.
@@ -1100,33 +1113,38 @@ to demonstrate the steps to create the unified BXCC.
 \end{figure}
 
 In the first step, we create independent exergy quantifications
-of the material and energy conversion chains (BCC and XCC).
+of the material and energy conversion chains (BCC and XCC)
+as described in Section~\ref{sec:conversion_chains}.
 (See Figure~\ref{fig:bxcc1}.)
 The independent BCC and XCC
 (both expressed in exergy units)
-are based on
+are based upon
 (a)~the material conversion chain expressed in mass units (MCC) and
 (b)~the energy conversion chain expressed in energy units (ECC).
-The ECC contains only the energy needed by the MCC.
-Each statepoint in the independent MCC is converted to exergy
-to form the BCC via methods discussed in Section~\ref{sec:exergy_of_materials}.
-Each statepoint in the independent ECC is converted to exergy
-to form the XCC via methods discussed in Section~\ref{sec:exergy_of_energy}.
+The ECC contains only the energy needed
+for material conversion processes in the MCC.
+
 In the independent XCC of Figure~\ref{fig:bxcc1},
 electricity produced by the XCC is delivered to the ``Iron and steel'' sector,
 consistent with existing ECC and XCC
 datasets~\citep{Pinto:2023aa,Brockway:2024ab}.
-In the independent BCC,
-electricity consumed by the blast furnace is supplied by an industry
-called ``Electricity [from Supply]'',
+In the independent BCC of Figure~\ref{fig:bxcc1},
+electricity consumed by the blast furnace is supplied by
+``Electricity [from Supply]'',
 indicating that the energy is exogenous to the BCC.
 The goal of creating a unified BXCC
-is endogenizing the exogenous energy inputs to the BCC,
+is endogenizing the exogenous energy inputs to the independent BCC,
 as illustrated by
 the red cut-lines,
 the gray lines, and
 the black dashed line
 in Figure~\ref{fig:bxcc1}.
+Electricity going into the ``Iron and steel''
+sector in the independent XCC will be re-routed
+to the ``Blast furnace'' in the independent BCC.
+Electricity supplied by ``Electricity [from Supply]''
+in the independent BCC will come from
+``Power plants'' in the independent XCC instead.
 
 \begin{figure}
 \centering
@@ -1137,13 +1155,14 @@ in Figure~\ref{fig:bxcc1}.
 \label{fig:bxcc2}
 \end{figure}
 
-The second step is to convert the independent BCC and XCC
+The second step is to convert the independent flow diagrams for BCC and XCC
 into the $\mat{RUVY}$ matrices of the PSUT framework.
 Figure~\ref{fig:bxcc2} shows $\mat{RUVY}$ matrices
 consistent with the independent material and energy conversion chains
 of Figure~\ref{fig:bxcc1}.
-Note that the red X's indicate matrix entries
-to be removed consistent with the
+Note that the red ``X''s in Figure~\ref{fig:bxcc2}
+indicate matrix entries
+to be removed according to the
 red cut-lines in Figure~\ref{fig:bxcc1}.
 
 \begin{figure}
@@ -1155,12 +1174,12 @@ red cut-lines in Figure~\ref{fig:bxcc1}.
 \label{fig:bxcc3}
 \end{figure}
 
-The third step is to
-(a)~remove final demand entries of the XCC's $\mat{Y}$ matrix
-and supply entries of the BCC's $\mat{R}$ matrix and
-(b)~sum the matrices in the BCC and XCC
+The third step involves three sub-steps:
+(a)~remove final demand matrix ($\mat{Y}$) entries from the XCC,
+(b)~remove selected resource matrix ($\mat{R}$) entries from the BCC, and
+(c)~sum the matrices in the BCC and XCC,
 respecting row and column names.
-The result is shown in Figure~\ref{fig:bxcc3}.
+The result for the small example is shown in Figure~\ref{fig:bxcc3}.
 
 \begin{figure}
 \centering
@@ -1173,7 +1192,7 @@ The result is shown in Figure~\ref{fig:bxcc3}.
 The fourth and final step is to create a flow diagram
 from the unified $\mat{RUVY}$ matrices
 developed in Step~3.
-The result is shown in Figure~\ref{fig:bxcc4}.
+The result for the small example is shown in Figure~\ref{fig:bxcc4}.
 
 
 %------------------------------
