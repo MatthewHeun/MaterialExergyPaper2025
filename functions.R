@@ -2,7 +2,7 @@
 # Type "?sprintf" at the console for details of fmt strings.
 read_named_cell <- function(cell_name,
                             unit = NULL,
-                            mathrm = TRUE,
+                            mathrm = FALSE,
                             fmt = "%.2f",
                             file = file.path("data", "Paper Examples.xlsx")) {
   val_df <- openxlsx2::read_xlsx(file = file,
@@ -40,9 +40,9 @@ print_named_matrix <- function(matrix_name,
       dplyr::across(dplyr::everything(),
                     ~ ifelse(is.na(.),
                              # When NA, add just color
-                             "\\cellcolor{gray!20} ",
+                             "\\cellcolor{UVbgcolor} ",
                              # When not NA, include the value
-                             paste0("\\cellcolor{gray!20} ", .)
+                             paste0("\\cellcolor{UVbgcolor} ", .)
                     )
       )
     ) |>
