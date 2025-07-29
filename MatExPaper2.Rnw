@@ -1108,7 +1108,7 @@ to demonstrate the steps to create the unified BXCC.
 \centering
 \includegraphics[width=0.8\linewidth]{images/BXCC_figs_1.pdf}
 \caption{Example independent material~(BCC) and energy~(XCC) conversion chains expressed as exergy.
-         All values in kJ.}
+         All values are exergy in kJ.}
 \label{fig:bxcc1}
 \end{figure}
 
@@ -1151,7 +1151,7 @@ in the independent BCC will come from
 \includegraphics[width=0.9\linewidth]{images/BXCC_figs_2.pdf}
 \caption{Example $\mat{RUVY}$ matrices for independent material~(BCC) and energy~(XCC)
          conversion chains.
-         All values in kJ.}
+         All values are exergy in kJ.}
 \label{fig:bxcc2}
 \end{figure}
 
@@ -1170,7 +1170,7 @@ red cut-lines in Figure~\ref{fig:bxcc1}.
 \includegraphics[width=0.9\linewidth]{images/BXCC_figs_3.pdf}
 \caption{Example $\mat{RUVY}$ matrices for unified material and energy
          conversion chains~(BXCC).
-         All values in kJ.}
+         All values are exergy in kJ.}
 \label{fig:bxcc3}
 \end{figure}
 
@@ -1185,7 +1185,7 @@ The result for the small example is shown in Figure~\ref{fig:bxcc3}.
 \centering
 \includegraphics[width=0.8\linewidth]{images/BXCC_figs_4.pdf}
 \caption{An example unified material and exergy conversion chain expressed as exergy~(BXCC).
-         All values in kJ.}
+         All values are exergy in kJ.}
 \label{fig:bxcc4}
 \end{figure}
 
