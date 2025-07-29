@@ -1080,90 +1080,100 @@ Finally, we develop
 The method for creating a
 unified material and energy conversion chain (BXCC)
 has four steps.
-The four steps are shown in Figures~\ref{fig:bxcc1}--\ref{fig:bxcc4}
-that illustrate a small portion of the blast furnace example
+The method begins (Step~1) and ends (Step~4) with flow diagrams
+depicting the movement of exergy from sources to final demand.
+In the middle (Steps~2 and~3), manipulations are
+performed within the $\mat{RUVY}$ matrices of the PSUT framework.
+The four steps are illustrated in Figures~\ref{fig:bxcc1}--\ref{fig:bxcc4}
+which show a small portion of the blast furnace example
 developed elsewhere in this paper.
-
-In the first step, exergy quantifications
-of the material and energy conversion chains (BCC and XCC)
-are created.
-(See Figure~\ref{fig:bxcc1}.)
-The independent BCC and XCC (expressed in exergy units) are based on
-(a)~the material conversion chain expressed in mass units (MCC) and
-(b)~the energy conversion chain expressed in exergy units (ECC).
-The ECC contains only the energy needed by the MCC.
-Each statepoint in the MCC is converted to exergy
-to form the BCC via methods discussed in Section~\ref{sec:exergy_of_materials}.
-Each statepoint in the ECC is converted to exergy
-to form the XCC via methods discussed in Section~\ref{sec:exergy_of_energy}.
-In the independent XCC of Figure~\ref{fig:bxcc1},
-energy produced by the XCC is delivered to the ``Iron and steel'' sector,
-consistent with existing ECC and XCC
-datasets~\citep{Steenwyk:2022ww,Pinto:2023aa,Tostes:2024aa,Brockway:2024ab}.
-In the independent BCC,
-electricity needed by the blast furnace is supplied by an industry
-called ``Electricity [from Supply]'',
-indicating that the energy is exogenous to the BCC.
-The goal of creating a unified BXCC
-is endogenizing the exogenous energy inputs to the BCC,
-as illustrated by the red and gray lines in Figure~\ref{fig:bxcc1}.
-
-The second step
-
-
-appears in the resource ($\mat{R}$) matrix
-via an
-it should be
-
-mass conversion chain
-
-
-
-***HEUN UCC approach description. Write after figures are ready***
-
-
+Despite not including all exergy flows of the larger example,
+the portion of the example is sufficient
+to demonstrate the steps to create the unified BXCC.
 
 \begin{figure}
 \centering
-\includegraphics[width=1\linewidth]{images/BXCC_figs_1.pdf}
-\caption{Independent material~(BCC) and energy~(XCC) conversion chains expressed as exergy.
+\includegraphics[width=0.8\linewidth]{images/BXCC_figs_1.pdf}
+\caption{Example independent material~(BCC) and energy~(XCC) conversion chains expressed as exergy.
          All values in kJ.}
 \label{fig:bxcc1}
 \end{figure}
 
-
+In the first step, we create independent exergy quantifications
+of the material and energy conversion chains (BCC and XCC).
+(See Figure~\ref{fig:bxcc1}.)
+The independent BCC and XCC
+(both expressed in exergy units)
+are based on
+(a)~the material conversion chain expressed in mass units (MCC) and
+(b)~the energy conversion chain expressed in energy units (ECC).
+The ECC contains only the energy needed by the MCC.
+Each statepoint in the independent MCC is converted to exergy
+to form the BCC via methods discussed in Section~\ref{sec:exergy_of_materials}.
+Each statepoint in the independent ECC is converted to exergy
+to form the XCC via methods discussed in Section~\ref{sec:exergy_of_energy}.
+In the independent XCC of Figure~\ref{fig:bxcc1},
+electricity produced by the XCC is delivered to the ``Iron and steel'' sector,
+consistent with existing ECC and XCC
+datasets~\citep{Pinto:2023aa,Brockway:2024ab}.
+In the independent BCC,
+electricity consumed by the blast furnace is supplied by an industry
+called ``Electricity [from Supply]'',
+indicating that the energy is exogenous to the BCC.
+The goal of creating a unified BXCC
+is endogenizing the exogenous energy inputs to the BCC,
+as illustrated by
+the red cut-lines,
+the gray lines, and
+the black dashed line
+in Figure~\ref{fig:bxcc1}.
 
 \begin{figure}
 \centering
-\includegraphics[width=1\linewidth]{images/BXCC_figs_2.pdf}
-\caption{PSUT matrices for independent material~(BCC) and energy~(XCC)
+\includegraphics[width=0.9\linewidth]{images/BXCC_figs_2.pdf}
+\caption{Example $\mat{RUVY}$ matrices for independent material~(BCC) and energy~(XCC)
          conversion chains.
          All values in kJ.}
 \label{fig:bxcc2}
 \end{figure}
 
-
+The second step is to convert the independent BCC and XCC
+into the $\mat{RUVY}$ matrices of the PSUT framework.
+Figure~\ref{fig:bxcc2} shows $\mat{RUVY}$ matrices
+consistent with the independent material and energy conversion chains
+of Figure~\ref{fig:bxcc1}.
+Note that the red X's indicate matrix entries
+to be removed consistent with the
+red cut-lines in Figure~\ref{fig:bxcc1}.
 
 \begin{figure}
 \centering
-\includegraphics[width=1\linewidth]{images/BXCC_figs_3.pdf}
-\caption{PSUT matrices for unified material and energy
+\includegraphics[width=0.9\linewidth]{images/BXCC_figs_3.pdf}
+\caption{Example $\mat{RUVY}$ matrices for unified material and energy
          conversion chains~(BXCC).
          All values in kJ.}
 \label{fig:bxcc3}
 \end{figure}
 
-
+The third step is to
+(a)~remove final demand entries of the XCC's $\mat{Y}$ matrix
+and supply entries of the BCC's $\mat{R}$ matrix and
+(b)~sum the matrices in the BCC and XCC
+respecting row and column names.
+The result is shown in Figure~\ref{fig:bxcc3}.
 
 \begin{figure}
 \centering
-\includegraphics[width=1\linewidth]{images/BXCC_figs_4.pdf}
-\caption{A unified material and exergy conversion chain expressed as exergy~(BXCC).
+\includegraphics[width=0.8\linewidth]{images/BXCC_figs_4.pdf}
+\caption{An example unified material and exergy conversion chain expressed as exergy~(BXCC).
          All values in kJ.}
 \label{fig:bxcc4}
 \end{figure}
 
-
+The fourth and final step is to create a flow diagram
+from the unified $\mat{RUVY}$ matrices
+developed in Step~3.
+The result is shown in Figure~\ref{fig:bxcc4}.
 
 
 %------------------------------
