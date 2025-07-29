@@ -6,20 +6,153 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 This appendix contains the $\mat{RUVY}$ matrices
-of the PSUT framework
-for the unified material and energy conversion chain (BXCC).
-The BXCC was created using the process
-discussed in Section~\ref{sec:creating_bxcc}.
-Figure~\ref{fig:rbx_example_mat} shows the resource ($\mat{R}$) matrix.
-Figure~\ref{fig:ubx_example_mat} shows the use ($\mat{U}$) matrix.
-Figure~\ref{fig:vbx_example_mat} shows the make ($\mat{V}$) matrix.
-Figure~\ref{fig:ybx_example_mat} shows the final demand ($\mat{Y}$) matrix.
+for the example presented in this paper, including
+(a)~the independent material conversion chain (BCC),
+(b)~the independent energy conversion chain (XCC), and
+(c)~the unified material and energy conversion chain (BXCC).
 
+
+%++++++++++++++++++++++++++++++
+\subsection{Independent material conversion chain (BCC)}
+\label{sec:BCC_appendix}
+%++++++++++++++++++++++++++++++
 
 \begingroup % Change some sizes for this appendix only.
 
 \setlength{\tabcolsep}{0.5mm}      % Reduce spacing between columns
 \renewcommand{\arraystretch}{0.9}  % Reduce row height a bit
+
+
+For the independent material conversion chain (BCC),
+Figure~\ref{fig:rb_example_mat} shows the resource ($\mat{R}$) matrix,
+Figure~\ref{fig:ub_example_mat} shows the use ($\mat{U}$) matrix,
+Figure~\ref{fig:vb_example_mat} shows the make ($\mat{V}$) matrix, and
+Figure~\ref{fig:yb_example_mat} shows the final demand ($\mat{Y}$) matrix.
+
+
+<<RBMatrix, echo=FALSE, results=tex>>=
+print_named_matrix(matrix_name = "R__B",
+                   latex_label = "fig:rb_example_mat",
+                   bgcolor = "RYbgcolor",
+                   file = file.path("data", "BXCC.xlsx"),
+                   digits = 1,
+                   factor = 0.001, # Convert from kJ to MJ
+                   caption = "Resource ($\\mat{R}$) matrix for the example material conversion chain (BCC). All values are exergies in MJ.",
+                   size = "tiny")
+@
+
+
+<<UBMatrix, echo=FALSE, results=tex>>=
+print_named_matrix(matrix_name = "U__B",
+                   latex_label = "fig:ub_example_mat",
+                   bgcolor = "UVbgcolor",
+                   file = file.path("data", "BXCC.xlsx"),
+                   digits = 1,
+                   factor = 0.001, # Convert from kJ to MJ
+                   caption = "Use ($\\mat{U}$) matrix for the example material conversion chain (BCC). All values are exergies in MJ.",
+                   size = "tiny")
+@
+
+
+\begin{landscape}
+<<VBMatrix, echo=FALSE, results=tex>>=
+print_named_matrix(matrix_name = "V__B",
+                   latex_label = "fig:vb_example_mat",
+                   bgcolor = "UVbgcolor",
+                   file = file.path("data", "BXCC.xlsx"),
+                   digits = 1,
+                   factor = 0.001, # Convert from kJ to MJ
+                   caption = "Make ($\\mat{V}$) matrix for the example material conversion chain (BCC). All values are exergies in MJ.",
+                   size = "tiny")
+@
+\end{landscape}
+
+
+<<YBMatrix, echo=FALSE, results=tex>>=
+print_named_matrix(matrix_name = "Y__B",
+                   latex_label = "fig:yb_example_mat",
+                   bgcolor = "RYbgcolor",
+                   file = file.path("data", "BXCC.xlsx"),
+                   digits = 1,
+                   factor = 0.001, # Convert from kJ to MJ
+                   caption = "Final demand ($\\mat{Y}$) matrix for the example material conversion chain (BCC). All values are exergies in MJ.",
+                   size = "tiny")
+@
+
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Independent energy conversion chain (XCC)}
+\label{sec:XCC_appendix}
+%++++++++++++++++++++++++++++++
+
+For the independent energy conversion chain (XCC),
+Figure~\ref{fig:rx_example_mat} shows the resource ($\mat{R}$) matrix,
+Figure~\ref{fig:ux_example_mat} shows the use ($\mat{U}$) matrix,
+Figure~\ref{fig:vx_example_mat} shows the make ($\mat{V}$) matrix, and
+Figure~\ref{fig:yx_example_mat} shows the final demand ($\mat{Y}$) matrix.
+
+
+<<RXMatrix, echo=FALSE, results=tex>>=
+print_named_matrix(matrix_name = "R__X",
+                   latex_label = "fig:rx_example_mat",
+                   bgcolor = "RYbgcolor",
+                   file = file.path("data", "BXCC.xlsx"),
+                   digits = 1,
+                   factor = 0.001, # Convert from kJ to MJ
+                   caption = "Resource ($\\mat{R}$) matrix for the example energy conversion chain (XCC). All values are exergies in MJ.",
+                   size = "tiny")
+@
+
+
+<<UXMatrix, echo=FALSE, results=tex>>=
+print_named_matrix(matrix_name = "U__X",
+                   latex_label = "fig:ux_example_mat",
+                   bgcolor = "UVbgcolor",
+                   file = file.path("data", "BXCC.xlsx"),
+                   digits = 1,
+                   factor = 0.001, # Convert from kJ to MJ
+                   caption = "Use ($\\mat{U}$) matrix for the example energy conversion chain (XCC). All values are exergies in MJ.",
+                   size = "tiny")
+@
+
+
+<<VXMatrix, echo=FALSE, results=tex>>=
+print_named_matrix(matrix_name = "V__X",
+                   latex_label = "fig:vx_example_mat",
+                   bgcolor = "UVbgcolor",
+                   file = file.path("data", "BXCC.xlsx"),
+                   digits = 1,
+                   factor = 0.001, # Convert from kJ to MJ
+                   caption = "Make ($\\mat{V}$) matrix for the example energy conversion chain (XCC). All values are exergies in MJ.",
+                   size = "tiny")
+@
+
+
+<<YXMatrix, echo=FALSE, results=tex>>=
+print_named_matrix(matrix_name = "Y__X",
+                   latex_label = "fig:yx_example_mat",
+                   bgcolor = "RYbgcolor",
+                   file = file.path("data", "BXCC.xlsx"),
+                   digits = 1,
+                   factor = 0.001, # Convert from kJ to MJ
+                   caption = "Final demand ($\\mat{Y}$) matrix for the example energy conversion chain (XCC). All values are exergies in MJ.",
+                   size = "tiny")
+@
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Unified material and energy conversion chain (BXCC)}
+\label{sec:BXCC_appendix}
+%++++++++++++++++++++++++++++++
+
+The unified material and energy conversion chain (BXCC)
+was created using the process
+discussed in Section~\ref{sec:creating_bxcc}.
+Figure~\ref{fig:rbx_example_mat} shows the resource ($\mat{R}$) matrix.
+Figure~\ref{fig:ubx_example_mat} shows the use ($\mat{U}$) matrix.
+Figure~\ref{fig:vbx_example_mat} shows the make ($\mat{V}$) matrix.
+Figure~\ref{fig:ybx_example_mat} shows the final demand ($\mat{Y}$) matrix.
 
 <<RBXMatrix, echo=FALSE, results=tex>>=
 print_named_matrix(matrix_name = "R__BX",
@@ -28,7 +161,7 @@ print_named_matrix(matrix_name = "R__BX",
                    file = file.path("data", "BXCC.xlsx"),
                    digits = 1,
                    factor = 0.001, # Convert from kJ to MJ
-                   caption = "Resource ($\\mat{R}$) matrix for the example unified material and energy converstion chain. All values are exergies in MJ.",
+                   caption = "Resource ($\\mat{R}$) matrix for the example unified material and energy conversion chain (BXCC). All values are exergies in MJ.",
                    size = "tiny")
 @
 
@@ -43,7 +176,7 @@ print_named_matrix(matrix_name = "U__BX",
                    file = file.path("data", "BXCC.xlsx"),
                    digits = 1,
                    factor = 0.001, # Convert from kJ to MJ
-                   caption = "Use ($\\mat{U}$) matrix for the example unified material and energy converstion chain. All values are exergies in MJ.",
+                   caption = "Use ($\\mat{U}$) matrix for the example unified material and energy conversion chain (BXCC). All values are exergies in MJ.",
                    size = "tiny")
 @
 \end{landscape}
@@ -59,7 +192,7 @@ print_named_matrix(matrix_name = "V__BX",
                    file = file.path("data", "BXCC.xlsx"),
                    digits = 1,
                    factor = 0.001, # Convert from kJ to MJ
-                   caption = "Make ($\\mat{V}$) matrix for the example unified material and energy converstion chain. All values are exergies in MJ.",
+                   caption = "Make ($\\mat{V}$) matrix for the example unified material and energy conversion chain (BXCC). All values are exergies in MJ.",
                    size = "tiny")
 @
 \end{landscape}
@@ -73,7 +206,7 @@ print_named_matrix(matrix_name = "Y__BX",
                    file = file.path("data", "BXCC.xlsx"),
                    digits = 1,
                    factor = 0.001, # Convert from kJ to MJ
-                   caption = "Resource ($\\mat{R}$) matrix for the example unified material and energy converstion chain. All values are exergies in MJ.",
+                   caption = "Resource ($\\mat{R}$) matrix for the example unified material and energy conversion chain (BXCC). All values are exergies in MJ.",
                    size = "tiny")
 @
 
