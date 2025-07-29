@@ -27,6 +27,7 @@ read_named_cell <- function(cell_name,
 # Default is digits = 2.
 print_named_matrix <- function(matrix_name,
                                latex_label,
+                               bgcolor = "white",
                                file = file.path("data", "Paper Examples.xlsx"),
                                digits = 2,
                                caption = NULL,
@@ -40,9 +41,9 @@ print_named_matrix <- function(matrix_name,
       dplyr::across(dplyr::everything(),
                     ~ ifelse(is.na(.),
                              # When NA, add just color
-                             "\\cellcolor{UVbgcolor} ",
+                             paste0("\\cellcolor{", bgcolor, "} "),
                              # When not NA, include the value
-                             paste0("\\cellcolor{UVbgcolor} ", .)
+                             paste0("\\cellcolor{", bgcolor, "} ", .)
                     )
       )
     ) |>
