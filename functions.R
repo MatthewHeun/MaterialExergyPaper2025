@@ -3,12 +3,16 @@
 read_named_cell <- function(cell_name,
                             unit = NULL,
                             mathrm = FALSE,
+                            perc = FALSE,
                             fmt = "%.2f",
                             file = file.path("data", "Paper Examples.xlsx")) {
   val_df <- openxlsx2::read_xlsx(file = file,
                                  named_region = cell_name,
                                  col_names = FALSE)
   val <- val_df[[1]][[1]]
+  if (perc) {
+    val <- val * 100
+  }
   out <- sprintf(fmt = fmt, val)
   if (!is.null(unit)) {
     if (mathrm) {

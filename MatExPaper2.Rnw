@@ -1370,8 +1370,8 @@ print_statepoint_table(statepoint_table_name = "Statepoint_ore_into_bf",
                         rownames_latex = c("$\\ce{Fe2O3}$",
                                            "$\\ce{SiO2}$",
                                            "$\\ce{CaO}$",
-                                           "$\\ce{CcHhOoNnSs}$",
-                                           "Sum"),
+                                           "$Coking Coal$",
+                                           "Mixture"),
                         digits = c(0, 1, 2, 3, 2, 1, 2, 3, 3, 3, 3, 3, 1),
                         caption = "Material exergy details for iron ore,
                                    quicklime, and coking coal
@@ -1429,7 +1429,8 @@ print_efficiencies_table(efficiencies_table_name = "Efficiencies__Tables_for_Pap
 @
 <<ExampleValues, echo=FALSE>>=
 rational_n_iron_ext <- read_named_cell("Rational_IronExtraction",
-                            unit = "kJ/kJ",
+                            unit = "\\\\%",
+                            perc = TRUE,
                             fmt = "%.2f")
 resource_n_iron_ext <- read_named_cell("Resource_IronExtraction",
                             unit = "kJ/kJ",
