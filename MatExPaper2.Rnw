@@ -1232,9 +1232,8 @@ and focus on whole streams.
 
 Figure~\ref{fig:fig:example_process_diagram} is an example of a process
 within a conversion chain.
-Inputs A, B, and C represent material statepoints
-and input D represents an energy statepoint used in the process.
-Output E is a useful output and output F is a waste product.
+Inputs R and E represent a resource material and energy statepoint.
+Output P is a useful product and output W is a waste product.
 
 \begin{itemize}
   \item The ***Bejan*** method expresses
@@ -1246,15 +1245,15 @@ Output E is a useful output and output F is a waste product.
   \end{equation}
   where $b_{k,out,m,i}$ is the exergy of a compound in a mixture at the output statepoint of a process   (in units of $\mathrm{kJ_i/mol_i}$)
   and $X_{k,in}$ is the exergy of a fuel streams at an input statepoint, including electricity (in       units of $\mathrm{kJ}$).
-  For example, if output E and input A in Figure~\ref{fig:fig:example_process_diagram}
+  For example, if output P and input R in Figure~\ref{fig:fig:example_process_diagram}
   have the same mixture composition,
   then the Bejan efficiency would be
   \begin{equation}
-    \eta_{Bejan} = \frac{N_{i}(b_{E,m,i}-(b_{A,m,i}))}{X_{D}} \, ,
+    \eta_{Bejan} = \frac{N_{i}(b_{P,m,i}-(b_{R,m,i}))}{X_{E}} \, ,
   \end{equation}
   %
   where $i$ refers to the useful product within the mixture
-  at statepoint A and E.
+  at statepoint R and P.
 
   \item The ***Resource*** method focuses on the main product stream's exergy output
   compared to the total exergy input.
@@ -1266,7 +1265,7 @@ Output E is a useful output and output F is a waste product.
   The Resource efficiency applies to the example process
   (see Figure~\ref{fig:example_process_diagram}) as
   \begin{equation}
-    \eta_{Resource} = \frac{B_{E,m,i}}{X_D + (B_A + B_B + B_C)} \, .
+    \eta_{Resource} = \frac{B_{P,m,i}}{X_E + B_R} \, .
   \end{equation}
 
   The ***Resource*** method quantifies
@@ -1282,7 +1281,7 @@ Output E is a useful output and output F is a waste product.
   \end{equation}
   The Rational efficiency calculation is
   \begin{equation}
-    \eta_{Rational} = \frac{B_E + B_F}{X_D + (B_A + B_B + B_C)} \, ,
+    \eta_{Rational} = \frac{B_P + B_W}{X_E + B_R} \, ,
   \end{equation}
   for the process in Figure~\ref{fig:example_process_diagram}.
 
