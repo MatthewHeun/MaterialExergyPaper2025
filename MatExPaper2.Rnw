@@ -263,7 +263,7 @@ energy storage.
 Furthermore, declining ore quality can lead to
 increased energy consumption
 (and \ce{CO2} emissions)
-to extract and process raw materials.
+to extract and process raw materials~\cite{Calvo:2016aa}.
 These changes require increasing levels of material extraction,
 especially for copper ore and rare earth minerals.
 In short, the energy transition will also be a materials transition,
@@ -309,7 +309,7 @@ concrete production,
 aluminum smelting, and
 chemical manufacturing.
 
-The energy for these processes is delivered
+The energy for material transformation processes is delivered
 via energy conversion chains (ECCs) that
 describe the extraction and conversion of energy carriers
 throughout the economy.
@@ -345,27 +345,26 @@ at many points in the economy.
 One way to address concerns about critical materials
 in high-intensity processes
 is to increase the efficiency of energy-consuming
-processing stages.
+material processing stages.
 ``Efficiency'' is usually quantified by
 material output (in mass units) per
 unit of energy input (in energy units),
 e.g.\ tonnes of iron produced per MJ of coal consumed
-or tonnes of cement produced per MJ of heat generated.
+or tonnes of cement produced per MJ of heat required.
 Strictly speaking, such efficiencies are \emph{efficacies},
-because they are not unitless.
+because they are quantified in units of tonnes/MJ and are not unitless.
 Because different materials are involved (iron and cement),
 the above two efficacies are not comparable
 in the thermodynamic sense.
 To obtain a unitless and comparable
 efficiency for such processes,
-both outputs and inputs must be quantified
+both inputs and outputs must be quantified
 in the same meaningful units.
 One approach is to quantify
 both inputs and outputs as exergy.
 
-Exergy is a work quantification of materials and energy.
-Because exergy is a work quantification,
-it is expressed in energy units (joules).
+Exergy is a work quantification of materials and energy
+expressed in energy units (joules).
 For materials, exergy is defined as the maximum work
 that could be obtained from thermodynamic processes that bring
 a material into equilibrium with its surroundings.
@@ -374,7 +373,7 @@ that could be obtained from thermodynamic processes that bring
 the energy into equilibrium with its surroundings.
 With both materials and energy quantified as exergy
 (in work units, joules),
-thermodynamically meaningful, unitless efficiencies
+thermodynamically meaningful and unitless efficiencies
 can be calculated for intensive processes that
 trade the exergy of energy for the exergy of materials.
 For example, the pig iron output of a blast furnace
@@ -406,14 +405,16 @@ These MCCs are in mass terms, not in exergy
 terms~\citep{Liu:2013ab,Cao:2017aa,Plank:2022aa,Wiedenhofer:2024aa,UN-IRP:aa}.
 
 The Exergy Economics community~\citep{exergy_economics_website}
-have assembled datasets of energy conversion chains (ECCs)
+have assembled datasets of energy-only conversion chains (ECCs) and
+exergy conversion chains (XCCs)
 at the societal level
 in both energy and exergy quantifications
 going as far back
 as 1800~\cite{Steenwyk:2022ww,Pinto:2023aa,Heun:2024aa,Brockway:2024ab}.
-Data for these ECCs are organized
-in physical supply-use table (PSUT) matrices
-that describe the movement of energy through society
+Data for these ECCs and XCCs are organized
+in the $\mat{RUVY}$ matrices of the physical supply-use table (PSUT) framework
+to describe the movement of energy through society
+from primary to final to useful stages
 via energy transformation processes~\cite{Heun:2018,Aramendia:2022tv}.
 
 The unified exergy analysis of materials and energy has been
@@ -487,6 +488,7 @@ at the societal level?}
 The answer to this question will inform future efforts
 to develop datasets for unified exergy analysis of
 material and energy conversion chains
+that extend to products
 with process-level detail at the societal level.
 
 Our approach to answering the question
@@ -503,8 +505,8 @@ For the first time, we
         (production of pig iron) using PSUT matrices; and
 
   \item demonstrate the interaction
-        between MCCs and ECCs using PSUT matrices
-        amenable to existing energy conversion chain datasets.
+        between MCCs and ECCs using the $\mat{RUVY}$ matrices of the PSUT framework
+        in a manner amenable to use with existing XCC datasets.
 
 \end{enumerate}
 
@@ -629,8 +631,8 @@ which we consider to be massless.
 \label{sec:ecc_for_mcc}
 %------------------------------
 
-The direct energy requirements for the material conversion chain (MCC)
-are supplied by an energy conversion chain (ECC)
+The direct energy requirements for the example material conversion chain (MCC)
+are supplied by an energy conversion chain
 that starts at energy extraction and delivers
 electricity, natural gas, gasoline, fuel oil, and diesel
 to material conversion processes.
@@ -649,6 +651,10 @@ for 2013, because
 Say why we choose 2013 here.
 ---MKH
 ****
+The energy conversion chain is quantified
+as exergy to match the exergy version
+of the material conversion chain (BCC), so
+we refer to it as an XCC.
 
 
 %++++++++++++++++++++++++++++++
@@ -836,7 +842,6 @@ the molar intensive material exergy of a compound is given by
 \end{equation}
 
 
-
 %..............................
 \paragraph{Chemical exergy($b_{ch}$)}
 \label{ssec:chemical_exergy}
@@ -1016,7 +1021,7 @@ is given by
 
 
 %------------------------------
-\subsubsection{\texorpdfstring{PSUT framework and $\mat{RUVY}$ matrices}{PSUT framework and RUVY matrices}}
+\subsubsection{The PSUT framework and $\mat{RUVY}$ matrices}
 \label{sec:psut_framework}
 %------------------------------
 
@@ -1026,7 +1031,7 @@ Physical Supply-Use Table (PSUT) framework~\citep{Heun:2018,Aramendia:2022tv}.
 To date, the PSUT framework has been applied
 to energy conversion chains~\cite{Heun:2019aa,Aramendia:2024ac};
 this paper represents its first application
-to unified material and energy conversion chain analysis.
+to unified exergy analysis of material and energy conversion chains.
 
 One benefit of the PSUT framework
 is that it provides a natural structure for data in
@@ -1093,8 +1098,9 @@ Finally, we develop
 The method for creating a
 unified material and energy conversion chain (BXCC)
 involves three steps.
-The start and end points are flow diagrams
-depicting the movement of exergy from resources to final demand.
+The beginning and end points of the process to create the BXCC
+are flow diagrams depicting the movement of exergy
+from resources to final demand.
 In the middle,
 we generate and manipulate the $\mat{RUVY}$ matrices of the PSUT framework.
 The process is illustrated by Figures~\ref{fig:bxcc1}--\ref{fig:bxcc4}
@@ -1105,10 +1111,10 @@ to the blast furnace.
 Despite not including all exergy flows of the full example
 developed in this paper,
 the partial example is sufficient
-to demonstrate the steps to create the unified BXCC.
+to demonstrate the steps for creating a BXCC.
 
 We start with independent exergy quantifications
-of the material and energy conversion chains (BCC and XCC)
+of material and energy conversion chains (BCC and XCC)
 as described in Section~\ref{sec:conversion_chains}.
 (See Figure~\ref{fig:bxcc1} for the independent conversion chains
 for the partial example.)
@@ -1116,8 +1122,8 @@ The independent BCC and XCC
 are based upon
 (a)~the material conversion chain expressed in mass units (MCC) and
 (b)~an energy conversion chain expressed in energy units (ECC).
-The ECC contains only the energy needed
-for material conversion processes in the MCC.
+The ECC contains only the energy supplied to
+material conversion processes in the MCC.
 
 In the independent XCC of Figure~\ref{fig:bxcc1},
 electricity produced by the XCC is delivered to the ``Iron and steel'' sector,
@@ -1132,14 +1138,14 @@ is endogenizing the exogenous energy inputs to the independent BCC,
 as illustrated by
 the red cut-lines,
 the gray lines, and
-the black dashed line
+the red dashed line
 in Figure~\ref{fig:bxcc1}.
 Electricity entering the ``Iron and steel'' sector
 in the independent XCC will be re-routed
 to the ``Blast furnace'' in the independent BCC,
-as shown by the dashed line.
-In the independent BCC,
-Electricity provided by ``Electricity [from Supply]''
+as shown by the red dashed line.
+In the BXCC,
+electricity provided by ``Electricity [from Supply]''
  will come from
 ``Power plants'' instead.
 
@@ -1156,7 +1162,7 @@ for the independent BCC and XCC
 into the $\mat{RUVY}$ matrices of the PSUT framework.
 Figure~\ref{fig:bxcc2} shows $\mat{RUVY}$ matrices
 consistent with the independent material and energy conversion chains
-of Figure~\ref{fig:bxcc1}.
+of the partial example in Figure~\ref{fig:bxcc1}.
 Note that the red ``X''s in Figure~\ref{fig:bxcc2}
 indicate matrix entries
 to be removed according to the
@@ -1176,7 +1182,7 @@ The second step involves three sub-steps:
 (b)~removal of selected entries from the resource matrix ($\mat{R}$) of the BCC, and
 (c)~summation of corresponding matrices in the BCC and XCC,
 respecting row and column names.
-The result for the small example is shown in Figure~\ref{fig:bxcc3}.
+The result for the partial example is shown in Figure~\ref{fig:bxcc3}.
 
 \begin{figure}
 \centering
