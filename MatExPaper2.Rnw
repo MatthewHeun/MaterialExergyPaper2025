@@ -1145,8 +1145,8 @@ in the independent XCC will be re-routed
 to the ``Blast furnace'' in the independent BCC,
 as shown by the red dashed line.
 In the BXCC,
-electricity provided by ``Electricity [from Supply]''
- will come from
+electricity formerly provided by ``Electricity [from Supply]''
+will come from
 ``Power plants'' instead.
 
 \begin{figure}
