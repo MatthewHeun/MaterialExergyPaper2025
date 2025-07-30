@@ -1092,35 +1092,30 @@ Finally, we develop
 
 The method for creating a
 unified material and energy conversion chain (BXCC)
-involves four steps.
-The method begins (Step~1) and ends (Step~4) with flow diagrams
-depicting the movement of exergy from sources to final demand.
-In the middle (Steps~2 and~3),
-we manipulate the $\mat{RUVY}$ matrices of the PSUT framework.
-The four steps are illustrated in Figures~\ref{fig:bxcc1}--\ref{fig:bxcc4}
-which show a small portion of the blast furnace example
+involves three steps.
+The start and end points are flow diagrams
+depicting the movement of exergy from resources to final demand.
+In the middle,
+we generate and manipulate the $\mat{RUVY}$ matrices of the PSUT framework.
+The process is illustrated by Figures~\ref{fig:bxcc1}--\ref{fig:bxcc4}
+which show a portion of the blast furnace example
 developed elsewhere in this paper.
-Despite not including all exergy flows of the larger example,
-the portion of the example is sufficient
+The basis for the partial example is 100~kJ of electricity delivered
+to the blast furnace.
+Despite not including all exergy flows of the full example
+developed in this paper,
+the partial example is sufficient
 to demonstrate the steps to create the unified BXCC.
 
-\begin{figure}
-\centering
-\includegraphics[width=0.8\linewidth]{images/BXCC_figs_1.pdf}
-\caption{Example independent material~(BCC) and energy~(XCC) conversion chains expressed as exergy.
-         All values are exergy in kJ.}
-\label{fig:bxcc1}
-\end{figure}
-
-In the first step, we create independent exergy quantifications
+We start with independent exergy quantifications
 of the material and energy conversion chains (BCC and XCC)
 as described in Section~\ref{sec:conversion_chains}.
-(See Figure~\ref{fig:bxcc1}.)
+(See Figure~\ref{fig:bxcc1} for the independent conversion chains
+for the partial example.)
 The independent BCC and XCC
-(both expressed in exergy units)
 are based upon
 (a)~the material conversion chain expressed in mass units (MCC) and
-(b)~the energy conversion chain expressed in energy units (ECC).
+(b)~an energy conversion chain expressed in energy units (ECC).
 The ECC contains only the energy needed
 for material conversion processes in the MCC.
 
@@ -1131,7 +1126,7 @@ datasets~\citep{Pinto:2023aa,Brockway:2024ab}.
 In the independent BCC of Figure~\ref{fig:bxcc1},
 electricity consumed by the blast furnace is supplied by
 ``Electricity [from Supply]'',
-indicating that the energy is exogenous to the BCC.
+indicating that the electricity supply is exogenous to the BCC.
 The goal of creating a unified BXCC
 is endogenizing the exogenous energy inputs to the independent BCC,
 as illustrated by
@@ -1139,23 +1134,25 @@ the red cut-lines,
 the gray lines, and
 the black dashed line
 in Figure~\ref{fig:bxcc1}.
-Electricity going into the ``Iron and steel''
-sector in the independent XCC will be re-routed
-to the ``Blast furnace'' in the independent BCC.
-Electricity supplied by ``Electricity [from Supply]''
-in the independent BCC will come from
+Electricity entering the ``Iron and steel'' sector
+in the independent XCC will be re-routed
+to the ``Blast furnace'' in the independent BCC,
+as shown by the dashed line.
+In the independent BCC,
+Electricity provided by ``Electricity [from Supply]''
+ will come from
 ``Power plants'' instead.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.9\linewidth]{images/BXCC_figs_2.pdf}
-\caption{Example $\mat{RUVY}$ matrices for independent material~(BCC) and energy~(XCC)
-         conversion chains.
+\includegraphics[width=0.8\linewidth]{images/BXCC_figs_1.pdf}
+\caption{Example independent material~(BCC) and energy~(XCC) conversion chains expressed as exergy.
          All values are exergy in kJ.}
-\label{fig:bxcc2}
+\label{fig:bxcc1}
 \end{figure}
 
-The second step is to convert the independent flow diagrams for BCC and XCC
+The first step is to convert the flow diagrams
+for the independent BCC and XCC
 into the $\mat{RUVY}$ matrices of the PSUT framework.
 Figure~\ref{fig:bxcc2} shows $\mat{RUVY}$ matrices
 consistent with the independent material and energy conversion chains
@@ -1167,6 +1164,22 @@ red cut-lines in Figure~\ref{fig:bxcc1}.
 
 \begin{figure}
 \centering
+\includegraphics[width=0.9\linewidth]{images/BXCC_figs_2.pdf}
+\caption{Example $\mat{RUVY}$ matrices for independent material~(BCC) and energy~(XCC)
+         conversion chains.
+         All values are exergy in kJ.}
+\label{fig:bxcc2}
+\end{figure}
+
+The second step involves three sub-steps:
+(a)~removal of entries from the final demand matrix ($\mat{Y}$) of the XCC,
+(b)~removal of selected entries from the resource matrix ($\mat{R}$) of the BCC, and
+(c)~summation of corresponding matrices in the BCC and XCC,
+respecting row and column names.
+The result for the small example is shown in Figure~\ref{fig:bxcc3}.
+
+\begin{figure}
+\centering
 \includegraphics[width=0.9\linewidth]{images/BXCC_figs_3.pdf}
 \caption{Example $\mat{RUVY}$ matrices for unified material and energy
          conversion chains~(BXCC).
@@ -1174,12 +1187,11 @@ red cut-lines in Figure~\ref{fig:bxcc1}.
 \label{fig:bxcc3}
 \end{figure}
 
-The third step involves three sub-steps:
-(a)~remove final demand matrix ($\mat{Y}$) entries from the XCC,
-(b)~remove selected resource matrix ($\mat{R}$) entries from the BCC, and
-(c)~sum the matrices in the BCC and XCC,
-respecting row and column names.
-The result for the small example is shown in Figure~\ref{fig:bxcc3}.
+The third and final step is to translate
+the $\mat{RUVY}$ matrices for the unified conversion chain (BXCC)
+(Figure~\ref{fig:bxcc3})
+into a flow diagram.
+The result for the partial example is shown in Figure~\ref{fig:bxcc4}.
 
 \begin{figure}
 \centering
@@ -1188,11 +1200,6 @@ The result for the small example is shown in Figure~\ref{fig:bxcc3}.
          All values are exergy in kJ.}
 \label{fig:bxcc4}
 \end{figure}
-
-The fourth and final step is to create a flow diagram
-from the unified $\mat{RUVY}$ matrices
-developed in Step~3.
-The result for the small example is shown in Figure~\ref{fig:bxcc4}.
 
 
 %------------------------------
