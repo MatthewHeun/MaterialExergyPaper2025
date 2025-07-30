@@ -574,12 +574,12 @@ Coal composition is determined by
 the coke oven output compositions, given by
 \citet[Tables~2, 5, 8, and 9]{Kolling_1977},
 \citet{Apicella_2017}, and
-\citet[Table~2]{Satyendra_2_2013}.
+\citet[Table~2]{Sarna_2_2013}.
 The coke oven mass balance is modeled from
 \citet[Figure~4]{Ergul_2024}.
 
 ***Limestone production compositions and energy inputs are taken from
-\citet{Saidur_2011} and \citet{Satyendra_2013}.*** REDO
+\citet{Saidur_2011} and \citet[para.3]{Sarna_2013}.*** REDO
 **** Do we have page numbers or table numbers for the previous citations? ---MKH ****
 
 

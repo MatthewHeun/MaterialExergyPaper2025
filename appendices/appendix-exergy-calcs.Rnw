@@ -190,17 +190,17 @@ An estimate for the entropy of a compound is
 \end{equation}
 %
 where $T_k$ is the temperature at a statepoint
-(in units of K).
+(in units of K) \citet[Fig.1]{Sarna_2013}.
 
 The temperature of limestone at the rotary kiln is ambient
 and changes to \Sexpr{T_kiln} K in the kiln.
 
 The change in enthalpy of $\ce{CaCO3}$ is
 \begin{equation}\label{eq:deltah_CaCO3}
-\Sexpr{deltah_CaCO3} = \Sexpr{cp_CaCO3}(\Sexpr{T_kiln}-\Sexpr{T_0}) \, ,
+\Sexpr{deltah_CaCO3} = \Sexpr{cp_CaCO3}(\Sexpr{T_kiln}-\Sexpr{T_0}) \, .
 \end{equation}
 %
-where $cp_{\ce{CaCO3}}$ is given by \citet{NIST_2025}
+See \citet[p.1-1951]{Chase_1998} for $cp_{\ce{CaCO3}}$ value .
 The change in entropy is
 \begin{equation}\label{eq:deltas_CaCO3}
 \Sexpr{deltas_CaCO3} = \Sexpr{cp_CaCO3}\ln{\frac{\Sexpr{T_kiln}}{\Sexpr{T_0}}} \, .
