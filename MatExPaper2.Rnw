@@ -1392,7 +1392,7 @@ BF_B_out <- read_named_cell("BF_B_out",
 print_statepoint_table(statepoint_table_name = "Statepoint_ore_out_bf",
                         latex_label = "tab:bf_output_statepoint",
                         rownames_latex = c("$\\ce{Fe}$",
-                                           "Sum"),
+                                           "Mixture"),
                         digits = c(0, 1, 2, 3, 2, 1, 2, 3, 3, 3, 3, 3, 1),
                         caption = "Material exergy details for pig iron
                                    at the output of the blast furnace.",
