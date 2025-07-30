@@ -1022,7 +1022,7 @@ is given by
 
 
 %------------------------------
-\subsubsection{The PSUT framework and $\mat{RUVY}$ matrices}
+\subsubsection{\texorpdfstring{PSUT framework and $\mat{RUVY}$ matrices}{PSUT framework and RUVY matrices}}
 \label{sec:psut_framework}
 %------------------------------
 
@@ -1341,7 +1341,7 @@ contains 46 material statepoints,
 9 energy statepoints,
 and 14 processes.
 Example tables for the statepoints exergies
-can be found in Appendix~\ref{ssec:statepoint_exergy_ex}.\\
+can be found in Appendix~\ref{tab:limestone_statepoint}.\\
 
 Equations [X] to [X] are the basis for material exergy accounting
 along the material conversion chain.
@@ -1352,69 +1352,59 @@ to the blast furnace.
 
 
 The chemical and concentration exergy,
-columns [X] and [X],
+columns [6] and [9],
 sum to the total material exergy
 based on the molar amount
 of each component
 based on Eqn. [X].
-Column [X] is the total material exergy
+Column [12] is the total material exergy
 for each component
 calculated by Eqn. [X].
 The sum of exergy inputs ($B_{m,i}$)
 is the total material exergy
 of the mixture.
-
-
-\begin{table}
-%\begin{adjustwidth}{-\extralength}{0cm}
-  \centering
-  \includegraphics[width=0.8\textwidth]{images/Solid BF Inputs.pdf}
-%\end{adjustwidth}
-  \caption{Material exergy accounting for the solid blast furnace inputs: iron ore, limestone, and coking coal.}
-  \label{tab:Solid Blast Furnace Inputs}
-\end{table}
-
-
-
-The total material exergy of solid inputs ($B_{m,i}$)
-in Table~\ref{tab:Solid Blast Furnace Inputs} is **7072**~MJ.
-% The material exergy in Figure~\ref{fig1}
-of hematite ore is **76**~MJ.
-
-\begin{table}
-%\begin{adjustwidth}{-\extralength}{0cm}
-  \centering
-  \caption{Material exergy accounting for the gaseous blast furnace inputs: air.}
-  \label{tab:Gaseous Blast Furnace Inputs}
-  \includegraphics[width=0.8\textwidth]{images/Air BF Inputs.pdf}
-%\end{adjustwidth}
-
-\end{table}
-
-The total material exergy of air
-in Table~\ref{tab:Gaseous Blast Furnace Inputs} is **9**~MJ.
-
-
-
-Table~\ref{tab:limestone_statepoint} shows details of material
-exergy calculations for limestone,
-a mixture of
-calcium carbonate ($\ce{CaCO3}$)
-and
-magnesium carbonate ($\ce{MgCO3}$),
-at the inlet to the rotary kiln.
-
-<<LimestoneStatepointTable, echo=FALSE, results=tex>>=
-print_statepoint_table(statepoint_table_name = "Statepoint_limestone_into_kiln",
-                       latex_label = "tab:limestone_statepoint",
-                       rownames_latex = c("$\\ce{CaCO3}$",
-                                          "$\\ce{MgCO3}$",
-                                          "Sum"),
-                       digits = c(0, 1, 2, 3, 2, 1, 2, 3, 3, 3, 3, 3, 1),
-                       caption = "Material exergy details for limestone
-                                  at the inlet to the rotary kiln.",
-                       size = "tiny")
+\begin{landscape}
+<<BFinputsStatepointTable, echo=FALSE, results=tex>>=
+print_statepoint_table(statepoint_table_name = "Statepoint_ore_into_bf",
+                        latex_label = "tab:bf_input_statepoint",
+                        rownames_latex = c("$\\ce{Fe2O3}$",
+                                           "$\\ce{SiO2}$",
+                                           "$\\ce{CaO}$",
+                                           "$\\ce{CcHhOoNnSs}$",
+                                           "Sum"),
+                        digits = c(0, 1, 2, 3, 2, 1, 2, 3, 3, 3, 3, 3, 1),
+                        caption = "Material exergy details for iron ore,
+                                   quicklime, and coking coal
+                                   at the inlet to the blast furnace.",
+                        size = "tiny")
 @
+<<ExampleValues, echo=FALSE>>=
+BF_B_in <- read_named_cell("BF_B_in",
+                            unit = "kJ",
+                            fmt = "%.0f")
+BF_B_out <- read_named_cell("BF_B_out",
+                            unit = "kJ",
+                            fmt = "%.0f")
+@
+
+
+<<BFoutputsStatepointTable, echo=FALSE, results=tex>>=
+print_statepoint_table(statepoint_table_name = "Statepoint_ore_out_bf",
+                        latex_label = "tab:bf_output_statepoint",
+                        rownames_latex = c("$\\ce{Fe}$",
+                                           "Sum"),
+                        digits = c(0, 1, 2, 3, 2, 1, 2, 3, 3, 3, 3, 3, 1),
+                        caption = "Material exergy details for pig iron
+                                   at the output of the blast furnace.",
+                        size = "tiny")
+@
+\end{landscape}
+The material exergy of the ore inputs to the blast furnace is \Sexpr{BF_B_in}.
+The material exergy of the pig iron is \Sexpr{BF_B_out}.
+
+
+
+
 
 
 %++++++++++++++++++++++++++++++
@@ -1636,11 +1626,6 @@ See \citet[Eq.~C.5a]{Kotas_1995}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \SweaveInput{appendices/appendix-chemistry.Rnw}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\SweaveInput{appendices/appendix-statepoint.Rnw}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
