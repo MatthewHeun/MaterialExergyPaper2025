@@ -64,23 +64,23 @@ deltaG_MgCO3 <- read_named_cell("deltaG_MgCO3",
 
 b_ch_Ca <- read_named_cell("b_ch_Ca",
                             unit = "kJ/mol",
-                            fmt = "%.5f")
+                            fmt = "%.1f")
 
 b_ch_C <- read_named_cell("b_ch_C",
                             unit = "kJ/mol",
-                            fmt = "%.5f")
+                            fmt = "%.1f")
 b_ch_O2 <- read_named_cell("b_ch_O2",
                             unit = "kJ/mol",
-                            fmt = "%.5f")
+                            fmt = "%.1f")
 b_ch_Mg <- read_named_cell("b_ch_Mg",
                             unit = "kJ/mol",
-                            fmt = "%.5f")
+                            fmt = "%.1f")
 b_ch_MgCO3 <- read_named_cell("b_ch_MgCO3",
                             unit = "kJ/mol",
-                            fmt = "%.5f")
+                            fmt = "%.4f")
 b_ch_CaCO3 <- read_named_cell("b_ch_CaCO3",
                             unit = "kJ/mol",
-                            fmt = "%.5f")
+                            fmt = "%.4f")
 
 # MW_CaCO3 <- read_named_cell("MW_CaCO3",
 #                             unit = "kg/mol",
@@ -332,7 +332,7 @@ can be applied to $\ce{MgCO3}$ as follows:
         %
         minus the change in entropy:
         \begin{equation}\label{deltas_MgC03}
-          \Sexpr{deltas_MgCO3} \,  = \Sexpr{cp_MgCO3} \ln\left(\frac{\Sexpr{T_kiln}}{\Sexpr{T_0}}\right) \, ,
+          \Sexpr{deltas_MgCO3} \,  = \Sexpr{cp_MgCO3} \left(\ln\left(\frac{\Sexpr{T_kiln}}{\Sexpr{T_0}}\right)\right) \, ,
         \end{equation}
         %
         when entropy is multiplied by the ambient temperature:

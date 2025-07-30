@@ -466,6 +466,8 @@ to characterize the complexity of those products.
 Can we do a calculation to show that complex products
 have a lot of concentration exergy?
 ****
+Treated coke oven gas is high when multiplied by moles of compound -EES
+****
 And to our knowledge, no previous studies at the societal level
 include the concentration exergy ($b_{c}$)
 of inputs and outputs
@@ -671,9 +673,6 @@ that organizes information at any statepoint.
 \label{sec:material_hierarchy}
 %------------------------------
 
-To analyze each statepoint of the example MCC,
-we employ a material hierarchy, namely
-
 \begin{table}
 \caption{Material Hierarchy}
 \begin{tabularx}{\textwidth}{||C C C||}
@@ -688,7 +687,9 @@ element    & ($j$)    & a combination of atoms \\
 \end{tabularx}
 \label{tab:material_hierarchy}
 \end{table}
-
+To analyze each statepoint of the example MCC,
+we employ a material hierarchy, namely
+\ref{tab:material_hierarchy}.
 This ordering enables later incorporation of
 components (a configuration of mixtures) and
 products (an assembly of components)
@@ -1212,28 +1213,28 @@ The result for the partial example is shown in Figure~\ref{fig:bxcc4}.
 \subsubsection{Process efficiencies}
 \label{ssec:efficiency_methods}
 %------------------------------
-
-**** Change to matrix equations where possible. ****
-Vi / iU formulation
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{images/example_efficiency_diagram.pdf}
+  \caption{An example process to apply efficiency methods to.}
+  \label{fig:example_process_diagram}
+\end{figure}
+%
 
 We illustrate the application of material exergy to
 societal exergy analysis within the PSUT framework
 by calculating process efficiencies
 throughout the unified conversion chain (BXCC).
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\linewidth]{images/efficiency_methods.pdf}
-  \caption{Three efficiency methods used for energy and material exergy conversion chains.
-           ***Change figure***}
-  \label{fig:efficiency_methods}
-\end{figure}
-
-%
 We suggest three methods for calculating efficiencies
 based on exergy upgrades, focus on a product,
 and focus on whole streams.
-(See Figure~\ref{fig:efficiency_methods}.)
+
+Figure~\ref{fig:fig:example_process_diagram} is an example of a process
+within a conversion chain.
+Inputs A, B, and C represent material statepoints
+and input D represents an energy statepoint used in the process.
+Output E is a useful output and output F is a waste product.
 
 \begin{itemize}
   \item The ***Bejan*** method expresses
@@ -1243,18 +1244,35 @@ and focus on whole streams.
   \begin{equation}\label{eq:Bejan Efficiency}
     \eta_{Bejan} = \frac{N_i(b_{k,out,m,i} - b_{k,in,m,i})}{\sum{X_{k,in}}} \, .
   \end{equation}
-  where $b_{m,i,1}$ is the exergy of a compound in a mixture at statepoint 1 (in units of $\mathrm{kJ_i/mol_i}$)
-  and $X_{in}$ is the exergy of all fuel streams, including electricity (in units of $\mathrm{kJ}$).
+  where $b_{k,out,m,i}$ is the exergy of a compound in a mixture at the output statepoint of a process   (in units of $\mathrm{kJ_i/mol_i}$)
+  and $X_{k,in}$ is the exergy of a fuel streams at an input statepoint, including electricity (in       units of $\mathrm{kJ}$).
+  For example, if output E and input A in Figure~\ref{fig:fig:example_process_diagram}
+  have the same mixture composition,
+  then the Bejan efficiency would be
+  \begin{equation}
+    \eta_{Bejan} = \frac{N_{i}(b_{E,m,i}-(b_{A,m,i}))}{X_{D}} \, ,
+  \end{equation}
+  %
+  where $i$ refers to the useful product within the mixture
+  at statepoint A and E.
+
   \item The ***Resource*** method focuses on the main product stream's exergy output
   compared to the total exergy input.
   The ***Resource*** efficiency is
   \begin{equation}\label{eq:Resource Efficiency}
-    \eta_{Resource} = \frac{(B_{m,i,1})}{\sum{X_{k,in}}+\sum{B_{k,in}}} \, ,
+    \eta_{Resource} = \frac{(B_{k,m,i})}{\sum{X_{k,in}}+\sum{B_{k,in}}} \, ,
   \end{equation}
   from \citet[Equation~(2.44), p.~32]{Dincer_2007}.
+  The Resource efficiency applies to the example process
+  (see Figure~\ref{fig:example_process_diagram}) as
+  \begin{equation}
+    \eta_{Resource} = \frac{B_{E,m,i}}{X_D + (B_A + B_B + B_C)} \, .
+  \end{equation}
+
   The ***Resource*** method quantifies
   how efficiently a process
   can produce the desired output.
+
 
   \item The ***Rational efficiency*** method focuses on the total exergy output
   compared to the total exergy input.
@@ -1262,10 +1280,18 @@ and focus on whole streams.
   \begin{equation}\label{eq:Rational efficiency}
     \eta_{Rational} = \frac{\sum{B_{k,out}}}{\sum{X_{k,in}} + \sum{B_{k,in}}} \, .
   \end{equation}
+  The Rational efficiency calculation is
+  \begin{equation}
+    \eta_{Rational} = \frac{B_E + B_F}{X_D + (B_A + B_B + B_C)} \, ,
+  \end{equation}
+  for the process in Figure~\ref{fig:example_process_diagram}.
 
-  **** Should we sum over $k$ in the above equation? ****
-Describe k in and out
-
+  In PSUT matrix format, the Rational efficiency is equal to
+  \begin{equation}\label{eq:PSUT Rational efficiency}
+    \eta_{PSUT,Rational} = \frac{\mat{iU}}{\mat{Vi}} \, ,
+  \end{equation}
+  where $\mat{iU}$ is the use matrix identity column vector
+  and $\mat{Vi}$ is the make matrix identity column vector.
 
   The ***Rational efficiency*** method is helpful
   for quick efficiency calculations
@@ -1311,9 +1337,9 @@ can be found in Appendix~\ref{sec:MCC_exergy}.
 
 A material conversion chain
 of pig iron production
-contains 25 material statepoints,
-11 energy statepoints,
-and 12 processes.
+contains 46 material statepoints,
+9 energy statepoints,
+and 14 processes.
 Example tables for the statepoints exergies
 can be found in Appendix~\ref{ssec:statepoint_exergy_ex}.\\
 

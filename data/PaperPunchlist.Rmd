@@ -18,6 +18,8 @@ date: "26 June 2025"
 - [X] h to [kJ/mol]
 - [X] hM matrix
 - [X] edit matrices
-- [ ] example appendix
+- [X] example appendix
 - [ ] fix warnings
-- [ ] Erin's laptop usable
+- [X] Erin's laptop usable
+- [ ] clean up data repo
+- [ ] Potential b_c example (large amount of b)

@@ -44,12 +44,12 @@ The coke oven gas is treated to create methane (\ce{CH_4}).
 \label{ssec:blast_furnace}
 %++++++++++++++++++++++++++++++
 
-\begin{equation}\label{eq:Bf_chemeqn}
-  \ce{1.5C + 1.5O2 -> 1.5CO2 + 5.64N2}
-  \ce{1.5CO2 + 1.5C -> 3CO}
-  \ce{1Fe2O3 + 3CO -> 2Fe + 3CO2}
-  \ce{1CaO + 1SiO2 -> 1CaSiO3} \; .
-\end{equation}
+\begin{align}
+  &\ce{1.5C + 1.5O2 -> 1.5CO2 + 5.64N2} \notag\\
+  &\ce{1.5CO2 + 1.5C -> 3CO} \notag\\
+  &\ce{1Fe2O3 + 3CO -> 2Fe + 3CO2} \notag\\
+  &\ce{1CaO + 1SiO2 -> 1CaSiO3} \notag\\
+\end{align}
 
 
 %++++++++++++++++++++++++++++++
