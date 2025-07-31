@@ -15,6 +15,8 @@ All matrices in Figures~\ref{fig:rb_example_mat}--\ref{fig:ybx_example_mat}
 below contain exergy values in MJ.
 Rows and columns are removed if all values are 0.
 Entries of 0.0 indicate non-zero values that round to 0.0~MJ.
+See the Supplemental Information for an Excel file
+containing these matrices.
 
 
 %++++++++++++++++++++++++++++++

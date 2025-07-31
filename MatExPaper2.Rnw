@@ -1022,7 +1022,7 @@ is given by
 
 
 %------------------------------
-\subsubsection{\texorpdfstring{PSUT framework and $\mat{RUVY}$ matrices}{PSUT framework and RUVY matrices}}
+\subsubsection{PSUT framework and $\mat{RUVY}$ matrices}
 \label{sec:psut_framework}
 %------------------------------
 
@@ -1030,7 +1030,8 @@ The native data format for the CL-PFU database~\citep{Brockway:2024ab} is
 the $\mat{RUVY}$ matrices of the
 Physical Supply-Use Table (PSUT) framework~\citep{Heun:2018,Aramendia:2022tv}.
 To date, the PSUT framework has been applied
-to energy conversion chains~\cite{Heun:2019aa,Aramendia:2024ac};
+to analysis of energy conversion chains
+(both ECCs and XCCs)~\citep{Heun:2019aa,Aramendia:2024ac};
 this paper represents its first application
 to unified exergy analysis of material and energy conversion chains.
 
@@ -1044,8 +1045,8 @@ developed in Section~\ref{sec:results}
 below.
 The four matrices of the PSUT framework are
 the resource matrix ($\mat{R}$) which contains exogeneous inputs to a conversion chain,
-the use ($\mat{U}$) matrix which contains the consumption of materials and energy,
-the make ($\mat{V}$) matrix which describes the production of materials and energy
+the use matrix ($\mat{U}$) which includes the consumption of materials and energy,
+the make matrix ($\mat{V}$) which describes the production of materials and energy
 by processes in conversion chains, and
 the final demand matrix ($\mat{Y}$) which contains consumption
 of materials and energy by economic sectors.
@@ -1172,8 +1173,10 @@ red cut-lines in Figure~\ref{fig:bxcc1}.
 \begin{figure}
 \centering
 \includegraphics[width=0.9\linewidth]{images/BXCC_figs_2.pdf}
-\caption{Example $\mat{RUVY}$ matrices for independent material~(BCC) and energy~(XCC)
-         conversion chains.
+\caption{Resource ($\mat{R}$), use ($\mat{U}$), make ($\mat{V}$), and
+         final demand ($\mat{Y}$) matrices
+         for the independent material~(BCC) and energy~(XCC)
+         conversion chains of the partial example.
          All values are exergy in kJ.}
 \label{fig:bxcc2}
 \end{figure}
@@ -1188,8 +1191,10 @@ The result for the partial example is shown in Figure~\ref{fig:bxcc3}.
 \begin{figure}
 \centering
 \includegraphics[width=0.9\linewidth]{images/BXCC_figs_3.pdf}
-\caption{Example $\mat{RUVY}$ matrices for unified material and energy
-         conversion chains~(BXCC).
+\caption{Resource ($\mat{R}$), use ($\mat{U}$), make ($\mat{V}$), and
+         final demand ($\mat{Y}$) matrices
+         for the unified material and energy
+         conversion chains~(BXCC) of the partial example.
          All values are exergy in kJ.}
 \label{fig:bxcc3}
 \end{figure}
@@ -1287,13 +1292,28 @@ may be needed in other processes.
   \end{equation}
   for the process in Figure~\ref{fig:example_process_diagram}.
 
-  In PSUT matrix format, the Rational efficiency is equal to
+  In PSUT matrix format, the Rational efficiency is a vector of
+  efficiencies of processing stages and is given by
+
+
+  **** This next equation is not the matrix way. ---MKH ****
   \begin{equation}\label{eq:PSUT Rational efficiency}
     \eta_{PSUT,Rational} = \frac{\mat{iU}}{\mat{Vi}} \, ,
   \end{equation}
-  where $\mat{iU}$ is the use matrix identity column vector
-  and $\mat{Vi}$ is the make matrix identity column vector.
 
+
+
+  **** This is the matrix way. ---MKH ****
+  \begin{equation} \label{eq:psut_rational_efficiency_matrix}
+    \eta_{PSUT,Rational} = \left(\widehat{\mat{iU}}\right)\!^{-1} (\mat{Vi}) \, ,
+  \end{equation}
+  %
+  where $\mat{iU}$ gives column sums of the use matrix,
+  the~~$\widehat{~}$~~symbol indicates diagonalization of a vector into a square matrix,
+  $^{-1}$ indicates matrix inversion, and
+  $\mat{Vi}$ gives row sums of the make matrix.
+  **** Need boldface $\eta$ in the equation above.---MKH ****
+  **** I don't think we need the next sentence. ---MKH ****
   The ***Rational efficiency*** method is helpful
   for quick efficiency calculations
   of an overall process.
