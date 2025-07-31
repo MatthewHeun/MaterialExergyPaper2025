@@ -1387,6 +1387,78 @@ unified material and energy conversion chain (BXCC).
 \label{sec:discussion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+****
+Work in progress.
+---MKH
+****
+
+Arranging data in the $\mat{RUVY}$ matrices of the PSUT framework
+provides many benefits to analysts.
+In particular, absent the PSUT framework,
+analyses of all transformation processes involve repetitive
+calculations, once for each process.
+With the PSUT framework,
+the repetitive calculations can be expressed as a single matrix equation
+that performs the analysis across a conversion chain.
+The interpretation of the results varies,
+depending on the type of conversion chain under consideration.
+In this discussion section,
+we demonstrate the analytical power of the PSUT framework
+by
+
+
+analyses of all transformation processes
+in conversion chains are
+
+are made simple
+
+
+
+When
+energy conversion chains (ECC and XCC),
+material conversion chains (MCC and BCC), and
+unified conversion chains (BXCC)
+are expressed in the $\mat{RUVY}$ matrices of the PSUT framework,
+many additional analyses can be performed.
+The interpretation of the results varies,
+depending on the type of conversion chain under consideration.
+We show a few of those analyses here, including
+(a)~transfer balances,
+(b)~mass balances,
+(c)~heat loss calculations, and
+(d)~irreversibility calculations.
+
+
+%------------------------------
+\subsubsection{Transfer balances}
+\label{sec:transfer_balances}
+%------------------------------
+
+
+
+
+
+%------------------------------
+\subsubsection{Mass balances}
+\label{sec:mass_balances}
+%------------------------------
+
+
+
+%------------------------------
+\subsubsection{Heat losses}
+\label{sec:heat_losses}
+%------------------------------
+
+
+
+
+%------------------------------
+\subsubsection{Irreversibility}
+\label{sec:irreversibility}
+%------------------------------
+
+
 <<HeatLossTable, echo=FALSE, results=tex>>=
 print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_Q_loss",
                          latex_label = "tab:across_efficiency_balance",
@@ -1402,14 +1474,27 @@ print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_Q
 -n across industry
 
 
+
+
+
 %++++++++++++++++++++++++++++++
 \subsection{Efficiencies}
 \label{ssec:efficiency}
 %++++++++++++++++++++++++++++++
+
+
+
 %------------------------------
 \subsubsection{Process efficiencies}
 \label{ssec:efficiency_methods}
 %------------------------------
+
+
+
+
+
+
+
 \begin{figure}
   \centering
   \includegraphics[width=0.8\linewidth]{images/example_efficiency_diagram.pdf}
@@ -1447,6 +1532,11 @@ may be needed in other processes.
   \begin{equation}
     \eta_{Resource} = \frac{B_{P,m,i}}{X_E + B_R} \, .
   \end{equation}
+
+  \begin{equation} \label{eq:psut_resource_efficiency_matrix}
+    \boldsymbol{\upeta}_{Resource} = \left(\widehat{\mat{iU}}\right)\!^{-1} (\mat{Vi}_P) \, ,
+  \end{equation}
+
 
   The Resource method quantifies
   how efficiently a process
