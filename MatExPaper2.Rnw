@@ -1522,9 +1522,10 @@ unified material and energy conversion chain (BXCC).
 \section{Discussion}
 \label{sec:discussion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-
+****HEUN $BX_across_industry_balance$ in Tables for Paper tab****
+-inter industry balance is zero for every matrix
+-across industry varies (Q loss and I)
+-n across industry
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
 \label{sec:conclusion}
