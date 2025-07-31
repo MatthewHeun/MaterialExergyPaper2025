@@ -1214,126 +1214,6 @@ The result for the partial example is shown in Figure~\ref{fig:bxcc4}.
 \end{figure}
 
 
-%------------------------------
-\subsubsection{Process efficiencies}
-\label{ssec:efficiency_methods}
-%------------------------------
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\linewidth]{images/example_efficiency_diagram.pdf}
-  \caption{An example process to apply efficiency methods to.}
-  \label{fig:example_process_diagram}
-\end{figure}
-%
-
-We illustrate the application of material exergy to
-societal exergy analysis within the PSUT framework
-by calculating process efficiencies
-throughout the unified conversion chain (BXCC).
-
-We suggest three methods for calculating efficiencies
-based on exergy upgrades, focus on a product,
-and focus on whole streams.
-
-Figure~\ref{fig:fig:example_process_diagram} is an example of a process
-within a conversion chain.
-Inputs R and E represent a resource material and energy statepoint.
-Output P is a useful product and output W is a waste product.
-Note that more resources, energy inputs, useful products, and waste streams
-may be needed in other processes.
-
-\begin{itemize}
-  \item The ***Bejan*** method expresses
-  how much energy is necessary
-  to concentrate a specific element or compound.
-  We define ***Bejan*** efficiency as
-  \begin{equation}\label{eq:bejan_efficiency}
-    \eta_{Bejan} = \frac{N_i(b_{k,out,m,i} - b_{k,in,m,i})}{\sum{X_{k,in}}} \, .
-  \end{equation}
-  where $b_{k,out,m,i}$ is the exergy of a compound in a mixture at the output statepoint of a process   (in units of $\mathrm{kJ_i/mol_i}$)
-  and $X_{k,in}$ is the exergy of a fuel streams at an input statepoint, including electricity (in       units of $\mathrm{kJ}$).
-  For example, if output P and input R in Figure~\ref{fig:fig:example_process_diagram}
-  have the same mixture composition,
-  then the Bejan efficiency would be
-  \begin{equation}
-    \eta_{Bejan} = \frac{N_{i}(b_{P,m,i}-(b_{R,m,i}))}{X_{E}} \, ,
-  \end{equation}
-  %
-  where $i$ refers to the useful product within the mixture
-  at statepoint R and P.
-
-  \item The ***Resource*** method focuses on the main product stream's exergy output
-  compared to the total exergy input.
-  The ***Resource*** efficiency is
-  \begin{equation}\label{eq:resource_efficiency}
-    \eta_{Resource} = \frac{(B_{k,m,i})}{\sum{X_{k,in}}+\sum{B_{k,in}}} \, ,
-  \end{equation}
-  from \citet[Equation~(2.44), p.~32]{Dincer_2007}.
-  The Resource efficiency applies to the example process
-  (see Figure~\ref{fig:example_process_diagram}) as
-  \begin{equation}
-    \eta_{Resource} = \frac{B_{P,m,i}}{X_E + B_R} \, .
-  \end{equation}
-
-  The ***Resource*** method quantifies
-  how efficiently a process
-  can produce the desired output.
-
-
-  \item The ***Rational efficiency*** method focuses on the total exergy output
-  compared to the total exergy input.
-  \citet[Equation~(2.45), p.~32]{Dincer_2007} define ***Rational efficiency*** efficiency as
-  \begin{equation}\label{eq:rational_efficiency}
-    \eta_{Rational} = \frac{\sum{B_{k,out}}}{\sum{X_{k,in}} + \sum{B_{k,in}}} \, .
-  \end{equation}
-  The Rational efficiency calculation is
-  \begin{equation}
-    \eta_{Rational} = \frac{B_P + B_W}{X_E + B_R} \, ,
-  \end{equation}
-  for the process in Figure~\ref{fig:example_process_diagram}.
-
-  In PSUT matrix format, the Rational efficiency is a vector of
-  efficiencies of processing stages and is given by
-
-
-  **** This next equation is not the matrix way. ---MKH ****
-  \begin{equation}\label{eq:PSUT Rational efficiency}
-    \eta_{PSUT,Rational} = \frac{\mat{iU}}{\mat{Vi}} \, ,
-  \end{equation}
-
-
-
-  **** This is the matrix way. ---MKH ****
-  \begin{equation} \label{eq:psut_rational_efficiency_matrix}
-    \eta_{Rational} = \left(\widehat{\mat{iU}}\right)\!^{-1} (\mat{Vi}) \, ,
-  \end{equation}
-  %
-  where
-  $\eta_{Rational}$ is a vector of rational efficiencies for transformation process,
-  $\mat{iU}$ gives column sums of the use matrix,
-  the~~$\widehat{~}$~~symbol indicates diagonalization of a vector into a square matrix,
-  $^{-1}$ indicates matrix inversion, and
-  $\mat{Vi}$ gives row sums of the make matrix.
-  **** Need boldface $\eta$ in the equation above.---MKH ****
-  **** I don't think we need the next sentence. ---MKH ****
-  The ***Rational efficiency*** method is helpful
-  for quick efficiency calculations
-  of an overall process.
-
-\end{itemize}
-
-For our purpose, the previous efficiencies
-apply to one process
-in a material conversion chain.
-Larger scale efficiencies
-are given by
-\begin{equation}\label{eq:Task efficiency}
-  \eta_{Task} = \frac{\sum{B_{in,min,theoretical}}}{\sum{B_{in,actual}}} \, .
-\end{equation}
-%
-See \citet[Equation~(2.46), p.~32]{Dincer_2007}.
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
@@ -1429,10 +1309,120 @@ in the production of pig iron
 can be found in ****data repo****.
 
 %++++++++++++++++++++++++++++++
+\subsection{PSUT matrices}
+\label{sec:psut_mats_bxcc}
+%++++++++++++++++++++++++++++++
+***include BCC? or just the exergy balance and irreversibilities****-EES
+The MCC converted to $\mat{RUVY}$ matrices
+allows for an exergy balance across industries
+and the irreversibilities of each process.
+\ref{sec:psut_framework}
+
+Appendix~\ref{sec:bxcc_mats} contains
+$\mat{RUVY}$ matrices for the PSUT framework for the
+unified material and energy conversion chain (BXCC).
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Discussion}
+\label{sec:discussion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+****HEUN $BX_across_industry_balance$ in Tables for Paper tab****
+-inter industry balance is zero for every matrix
+-across industry varies (Q loss and I)
+-n across industry
+
+%++++++++++++++++++++++++++++++
 \subsection{Efficiencies}
 \label{ssec:efficiency}
 %++++++++++++++++++++++++++++++
+%------------------------------
+\subsubsection{Process efficiencies}
+\label{ssec:efficiency_methods}
+%------------------------------
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\linewidth]{images/example_efficiency_diagram.pdf}
+  \caption{An example process to apply efficiency methods to.}
+  \label{fig:example_process_diagram}
+\end{figure}
+%
 
+We illustrate the application of material exergy to
+societal exergy analysis within the PSUT framework
+by calculating process efficiencies
+throughout the unified conversion chain (BXCC).
+
+We suggest two methods for calculating efficiencies
+based on exergy upgrades, focus on a product,
+and focus on whole streams.
+
+Figure~\ref{fig:fig:example_process_diagram} is an example of a process
+within a conversion chain.
+Inputs R and E represent a resource material and energy statepoint.
+Output P is a useful product and output W is a waste product.
+Note that more resources, energy inputs, useful products, and waste streams
+may be needed in other processes.
+
+  \item The Resource method focuses on the main product stream's exergy output
+  compared to the total exergy input.
+  The Resource efficiency is
+  \begin{equation}\label{eq:resource_efficiency}
+    \eta_{Resource} = \frac{(B_{k,m,i})}{\sum{X_{k,in}}+\sum{B_{k,in}}} \, ,
+  \end{equation}
+  from \citet[Equation~(2.44), p.~32]{Dincer_2007}.
+  The Resource efficiency applies to the example process
+  (see Figure~\ref{fig:example_process_diagram}) as
+  \begin{equation}
+    \eta_{Resource} = \frac{B_{P,m,i}}{X_E + B_R} \, .
+  \end{equation}
+
+  The Resource method quantifies
+  how efficiently a process
+  can produce the desired output.
+
+
+  \item The Rational efficiency method focuses on the total exergy output
+  compared to the total exergy input.
+  \citet[Equation~(2.45), p.~32]{Dincer_2007} define ***Rational efficiency*** efficiency as
+  \begin{equation}\label{eq:rational_efficiency}
+    \eta_{Rational} = \frac{\sum{B_{k,out}}}{\sum{X_{k,in}} + \sum{B_{k,in}}} \, .
+  \end{equation}
+  The Rational efficiency calculation is
+  \begin{equation}
+    \eta_{Rational} = \frac{B_P + B_W}{X_E + B_R} \, ,
+  \end{equation}
+  for the process in Figure~\ref{fig:example_process_diagram}.
+
+  In PSUT matrix format, the Rational efficiency is a vector of
+  efficiencies of processing stages and is given by
+
+  \begin{equation} \label{eq:psut_rational_efficiency_matrix}
+    \eta_{Rational} = \left(\widehat{\mat{iU}}\right)\!^{-1} (\mat{Vi}) \, ,
+  \end{equation}
+  %
+  where
+  $\eta_{Rational}$ is a vector of rational efficiencies for transformation process,
+  $\mat{iU}$ gives column sums of the use matrix,
+  the~~$\widehat{~}$~~symbol indicates diagonalization of a vector into a square matrix,
+  $^{-1}$ indicates matrix inversion, and
+  $\mat{Vi}$ gives row sums of the make matrix.
+  **** Need boldface $\eta$ in the equation above.---MKH ****
+
+\end{itemize}
+
+For our purpose, the previous efficiencies
+apply to one process
+in a material conversion chain.
+Larger scale efficiencies
+are given by
+\begin{equation}\label{eq:Task efficiency}
+  \eta_{Task} = \frac{\sum{B_{in,min,theoretical}}}{\sum{B_{in,actual}}} \, .
+\end{equation}
+%
+See \citet[Equation~(2.46), p.~32]{Dincer_2007}.
 Knowing the material exergy of each statepoint,
 allows for efficiency calculations
 of each process.
@@ -1501,31 +1491,8 @@ The blast furnace Rational efficiency is \Sexpr{rational_n_bf},
 and the Resource efficiency is \Sexpr{resource_n_bf}.
 
 
-%++++++++++++++++++++++++++++++
-\subsection{PSUT matrices}
-\label{sec:psut_mats_bxcc}
-%++++++++++++++++++++++++++++++
-***include BCC? or just the exergy balance and irreversibilities****-EES
-The MCC converted to $\mat{RUVY}$ matrices
-allows for an exergy balance across industries
-and the irreversibilities of each process.
-\ref{sec:psut_framework}
-
-Appendix~\ref{sec:bxcc_mats} contains
-$\mat{RUVY}$ matrices for the PSUT framework for the
-unified material and energy conversion chain (BXCC).
 
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Discussion}
-\label{sec:discussion}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-****HEUN $BX_across_industry_balance$ in Tables for Paper tab****
--inter industry balance is zero for every matrix
--across industry varies (Q loss and I)
--n across industry
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
 \label{sec:conclusion}
