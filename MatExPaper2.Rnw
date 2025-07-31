@@ -1433,7 +1433,7 @@ We show a few of those analyses here, including
 \subsubsection{Transfer balances}
 \label{sec:transfer_balances}
 %------------------------------
-
+**inter industry balances?**
 
 
 
@@ -1442,14 +1442,14 @@ We show a few of those analyses here, including
 \subsubsection{Mass balances}
 \label{sec:mass_balances}
 %------------------------------
-
+-across industry eqn for MCC
 
 
 %------------------------------
 \subsubsection{Heat losses}
 \label{sec:heat_losses}
 %------------------------------
-
+-across industry for ECC
 
 
 
@@ -1457,7 +1457,7 @@ We show a few of those analyses here, including
 \subsubsection{Irreversibility}
 \label{sec:irreversibility}
 %------------------------------
-
+-across industry for BCC, XCC, BXCC
 
 <<HeatLossTable, echo=FALSE, results=tex>>=
 print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_Q_loss",
