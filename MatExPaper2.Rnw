@@ -1292,13 +1292,28 @@ may be needed in other processes.
   \end{equation}
   for the process in Figure~\ref{fig:example_process_diagram}.
 
-  In PSUT matrix format, the Rational efficiency is equal to
+  In PSUT matrix format, the Rational efficiency is a vector of
+  efficiencies of processing stages and is given by
+
+
+  **** This next equation is not the matrix way. ---MKH ****
   \begin{equation}\label{eq:PSUT Rational efficiency}
     \eta_{PSUT,Rational} = \frac{\mat{iU}}{\mat{Vi}} \, ,
   \end{equation}
-  where $\mat{iU}$ is the use matrix identity column vector
-  and $\mat{Vi}$ is the make matrix identity column vector.
 
+
+
+  **** This is the matrix way. ---MKH ****
+  \begin{equation} \label{eq:psut_rational_efficiency_matrix}
+    \eta_{PSUT,Rational} = \left(\widehat{\mat{iU}}\right)\!^{-1} (\mat{Vi}) \, ,
+  \end{equation}
+  %
+  where $\mat{iU}$ gives column sums of the use matrix,
+  the~~$\widehat{~}$~~symbol indicates diagonalization of a vector into a square matrix,
+  $^{-1}$ indicates matrix inversion, and
+  $\mat{Vi}$ gives row sums of the make matrix.
+  **** Need boldface $\eta$ in the equation above.---MKH ****
+  **** I don't think we need the next sentence. ---MKH ****
   The ***Rational efficiency*** method is helpful
   for quick efficiency calculations
   of an overall process.
