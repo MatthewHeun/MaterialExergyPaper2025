@@ -1044,10 +1044,10 @@ developed in Section~\ref{sec:results}
 below.
 The four matrices of the PSUT framework are
 the resource matrix ($\mat{R}$) which contains exogeneous inputs to a conversion chain,
-the use ($\mat{U}$) and make ($\mat{V}$) matrices which
-describe the consumption and production of materials and energy
+the use ($\mat{U}$) matrix which contains the consumption of materials and energy,
+the make ($\mat{V}$) matrix which describes the production of materials and energy
 by processes in conversion chains, and
-the final demand matrix ($\mat{Y}$) which describes consumption
+the final demand matrix ($\mat{Y}$) which contains consumption
 of materials and energy by economic sectors.
 (See \citet[Figure~1]{Aramendia:2022tv}.)
 
