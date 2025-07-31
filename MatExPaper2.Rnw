@@ -1345,18 +1345,25 @@ can be found in ****data repo****.
 \subsection{PSUT matrices}
 \label{sec:psut_mats_bxcc}
 %++++++++++++++++++++++++++++++
-***HEUN add Irreversibilities tables $BX_across_industry_balance$ in Tables for Paper tab***
 
 <<IrreversibilitiesTable, echo=FALSE, results=tex>>=
-print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance",
+print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_I",
                          latex_label = "tab:across_efficiency_balance",
-                         digits = 3,
-                         caption = paste("Process irreversibilities in the material conversion chain.",
+                         digits = 0,
+                         caption = paste("Process irreversibilities in the",
+                                         "example material conversion chain.",
                                          "All values in kJ."),
                          size = "footnotesize")
 @
 
+
+
+
 \ref{eq:irreversibility}
+
+
+
+
 
 The MCC converted to $\mat{RUVY}$ matrices
 allows for an exergy balance across industries
@@ -1379,7 +1386,17 @@ unified material and energy conversion chain (BXCC).
 \section{Discussion}
 \label{sec:discussion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-****HEUN $BX_across_industry_balance$ in Tables for Paper tab****
+
+<<HeatLossTable, echo=FALSE, results=tex>>=
+print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_Q_loss",
+                         latex_label = "tab:across_efficiency_balance",
+                         digits = 0,
+                         caption = paste("Process heat losses ($Q_{loss}$) in the",
+                                         "example material conversion chain.",
+                                         "All values in kJ."),
+                         size = "footnotesize")
+@
+
 -inter industry balance is zero for every matrix
 -across industry varies (Q loss and I)
 -n across industry
@@ -1452,7 +1469,7 @@ may be needed in other processes.
   efficiencies of processing stages and is given by
 
   \begin{equation} \label{eq:psut_rational_efficiency_matrix}
-    \eta_{Rational} = \left(\widehat{\mat{iU}}\right)\!^{-1} (\mat{Vi}) \, ,
+    \boldsymbol{\upeta}_{Rational} = \left(\widehat{\mat{iU}}\right)\!^{-1} (\mat{Vi}) \, ,
   \end{equation}
   %
   where
@@ -1461,7 +1478,6 @@ may be needed in other processes.
   the~~$\widehat{~}$~~symbol indicates diagonalization of a vector into a square matrix,
   $^{-1}$ indicates matrix inversion, and
   $\mat{Vi}$ gives row sums of the make matrix.
-  **** Need boldface $\eta$ in the equation above.---MKH ****
 
 \end{itemize}
 
@@ -1541,6 +1557,9 @@ The mixer and blast furnace efficiencies
 are equal for all ores because the desired output, pig iron, is the same.
 The blast furnace Rational efficiency is \Sexpr{rational_n_bf},
 and the Resource efficiency is \Sexpr{resource_n_bf}.
+
+
+
 
 
 
