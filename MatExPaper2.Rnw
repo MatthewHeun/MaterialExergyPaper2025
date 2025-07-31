@@ -784,16 +784,16 @@ from \citet[Tables~11.1--11.7]{Valero_2015}.
 \label{sec:exergy_of_mixtures}
 %..............................
 
-The total material exergy of a mixture ($B_m$) at a statepoint is
+The total material exergy of a mixture at a statepoint ($B_{k,m}$) is
 
 \begin{equation}\label{eq:exergy_mixture}
-   B_m = N_m b_m \, ,
+   B_{k,m} = N_{k,m} b_{k,m} \, ,
  \end{equation}
 %
-where $B_m$ is in units of $\mathrm{kJ_m}$,
-$N_m$ is the amount of the mixture
+where $B_{k,m}$ is in units of $\mathrm{kJ_m}$,
+$N_{k,m}$ is the amount of the mixture
 (in units of $\mathrm{mol_m}$),
-and $b_m$ is the molar intensive material exergy of the mixture
+and $b_{k,m}$ is the molar intensive material exergy of the mixture
 (in units of $\mathrm{kJ_m/mol_m}$).
 
 The material exergy of a mixture may be accounted for each species with
@@ -810,6 +810,37 @@ of compound $i$ (in $\mathrm{kJ_i/mol_i}$),
 and $y_i$ is the mole fraction
 of compound $i$ in its mixture
 (in $\mathrm{mol_i/mol_m}$).
+
+The irreversibilities and loss of exergy at a process
+is determined by the total exergy input and output
+to the process.
+\begin{equation}\label{eq:irreversibility}
+  I = \sum_k{B_{in,m}} - \sum_k{B_{out,m}}
+\end{equation}
+%
+where $I$ is the irreversibile exergy destruction,
+$B_{in,m}$ is the exergy of a mixture going into a process,
+and $B_{out,m}$ is the exergy of a mixture leaving a process
+(all in units of $\mathrm{kJ}$).
+$I$ should never be a negative value because exergy can not be generated,
+only destroyed.
+
+The exergy lost ($B_{lost}$) from a process is given by
+\begin{equation}\label{exergy_lost}
+  B_{lost} = \sum_k{B_{m,waste}}
+\end{equation}
+%
+where $B_{m,waste}$ is the exergy of a waste stream
+from a process (in units of $\mathrm{kJ}$).
+The embodied exergy is the exergy loss
+across a material conversion chain (MCC),
+give by
+\begin{equation}\label{embodied_exergy}
+  B_{em} = \sum{B_{lost}}
+\end{equation}
+%
+where $B_{em}$ is the embodied exergy
+(in units of $\mathrm{kJ}$).
 
 
 %..............................
@@ -1325,6 +1356,7 @@ print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance",
                          size = "footnotesize")
 @
 
+\ref{eq:irreversibility}
 
 The MCC converted to $\mat{RUVY}$ matrices
 allows for an exergy balance across industries
