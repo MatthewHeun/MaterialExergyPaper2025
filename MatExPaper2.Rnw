@@ -1352,12 +1352,12 @@ Table~\ref{bf_output_statepoint} shows the pig iron output.
 
 
 The chemical and concentration exergy,
-columns [6] and [9],
+columns [$b_{ch,i}$] and [$b_{c,i}$],
 sum to the total material exergy
 based on the molar amount
 of each component
 based on equations \ref{eq:general_material_exergy_definition} and \ref{eq:total_exergy_mixture}.
-Column [12] is the total material exergy
+Column [$b_{m,i}$] is the total material exergy
 for each component
 calculated by Eqn.~\ref{eq:total_exergy_mixture}.
 The sum of exergy inputs ($B_{m,i}$)
@@ -1402,17 +1402,18 @@ print_statepoint_table(statepoint_table_name = "Statepoint_ore_out_bf",
 The material exergy of the ore inputs to the blast furnace is \Sexpr{BF_B_in}.
 The material exergy of the pig iron is \Sexpr{BF_B_out}.
 
-The entire MCC which leads to the production of pig iron
+The material exergy for each statepoint
+in the production of pig iron
 can be found in ****data repo****.
-
-
 
 %++++++++++++++++++++++++++++++
 \subsection{Efficiencies}
 \label{ssec:efficiency}
 %++++++++++++++++++++++++++++++
 
-
+Knowing the material exergy of each statepoint,
+allows for efficiency calculations
+of each process.
 
 Table~\ref{tab:process_efficiencies} shows process efficiencies
 calculated via Equations \ref{eq:bejan_efficiency}, \ref{eq:resource_efficiency}, and \ref{eq:rational_efficiency}.
@@ -1427,25 +1428,31 @@ print_efficiencies_table(efficiencies_table_name = "Efficiencies__Tables_for_Pap
                          convert_to_perc = TRUE,
                          size = "footnotesize")
 @
+
 <<ExampleValues, echo=FALSE>>=
 rational_n_iron_ext <- read_named_cell("Rational_IronExtraction",
                             unit = "\\\\%",
                             perc = TRUE,
                             fmt = "%.2f")
 resource_n_iron_ext <- read_named_cell("Resource_IronExtraction",
-                            unit = "kJ/kJ",
+                            unit = "\\\\%",
+                            perc = TRUE,
                             fmt = "%.2f")
 resource_n_lime_ext <- read_named_cell("Resource_LimeExtraction",
-                            unit = "kJ/kJ",
+                            unit = "\\\\%",
+                            perc = TRUE,
                             fmt = "%.2f")
 rational_n_lime_ext <- read_named_cell("Rational_LimeExtraction",
-                            unit = "kJ/kJ",
+                            unit = "\\\\%",
+                            perc = TRUE,
                             fmt = "%.2f")
 rational_n_bf <- read_named_cell("Rational_BF",
-                            unit = "kJ/kJ",
+                            unit = "\\\\%",
+                            perc = TRUE,
                             fmt = "%.2f")
 resource_n_bf <- read_named_cell("Resource_BF",
-                            unit = "kJ/kJ",
+                            unit = "\\\\%",
+                            perc = TRUE,
                             fmt = "%.2f")
 @
 
@@ -1476,6 +1483,11 @@ and the Resource efficiency is \Sexpr{resource_n_bf}.
 \subsection{PSUT matrices}
 \label{sec:psut_mats_bxcc}
 %++++++++++++++++++++++++++++++
+***include BCC? or just the exergy balance and irreversibilities****-EES
+The MCC converted to $\mat{RUVY}$ matrices
+allows for an exergy balance across industries
+and the irreversibilities of each process.
+\ref~{sec:psut_framework}
 
 Appendix~\ref{sec:bxcc_mats} contains
 $\mat{RUVY}$ matrices for the PSUT framework for the
