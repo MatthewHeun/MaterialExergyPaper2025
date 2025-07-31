@@ -1509,7 +1509,7 @@ and the Resource efficiency is \Sexpr{resource_n_bf}.
 The MCC converted to $\mat{RUVY}$ matrices
 allows for an exergy balance across industries
 and the irreversibilities of each process.
-\ref~{sec:psut_framework}
+\ref{sec:psut_framework}
 
 Appendix~\ref{sec:bxcc_mats} contains
 $\mat{RUVY}$ matrices for the PSUT framework for the
