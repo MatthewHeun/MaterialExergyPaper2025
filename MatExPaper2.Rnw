@@ -1305,10 +1305,12 @@ may be needed in other processes.
 
   **** This is the matrix way. ---MKH ****
   \begin{equation} \label{eq:psut_rational_efficiency_matrix}
-    \eta_{PSUT,Rational} = \left(\widehat{\mat{iU}}\right)\!^{-1} (\mat{Vi}) \, ,
+    \eta_{Rational} = \left(\widehat{\mat{iU}}\right)\!^{-1} (\mat{Vi}) \, ,
   \end{equation}
   %
-  where $\mat{iU}$ gives column sums of the use matrix,
+  where
+  $\eta_{Rational}$ is a vector of rational efficiencies for transformation process,
+  $\mat{iU}$ gives column sums of the use matrix,
   the~~$\widehat{~}$~~symbol indicates diagonalization of a vector into a square matrix,
   $^{-1}$ indicates matrix inversion, and
   $\mat{Vi}$ gives row sums of the make matrix.
