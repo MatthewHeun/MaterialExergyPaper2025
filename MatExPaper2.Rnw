@@ -1243,7 +1243,7 @@ of pig iron production
 contains 46 material statepoints,
 9 energy statepoints,
 and 14 processes.
-Example tables for the statepoints exergies
+Example calculations for statepoint table exergies
 can be found in Appendix~\ref{tab:limestone_statepoint}.\\
 
 Equations \ref{eq:exergy_mixture} and \ref{eq:total_exergy_mixture} are the basis for material exergy accounting
@@ -1265,6 +1265,7 @@ calculated by Eqn.~\ref{eq:total_exergy_mixture}.
 The sum of exergy inputs ($B_{m,i}$)
 is the total material exergy
 of the mixture.
+***Solid input and output. sup info details***
 \begin{landscape}
 <<BFinputsStatepointTable, echo=FALSE, results=tex>>=
 print_statepoint_table(statepoint_table_name = "Statepoint_ore_into_bf",
@@ -1272,7 +1273,7 @@ print_statepoint_table(statepoint_table_name = "Statepoint_ore_into_bf",
                         rownames_latex = c("$\\ce{Fe2O3}$",
                                            "$\\ce{SiO2}$",
                                            "$\\ce{CaO}$",
-                                           "$Coking Coal$",
+                                           "Coking Coal",
                                            "Mixture"),
                         digits = c(0, 1, 2, 3, 2, 1, 2, 3, 3, 3, 3, 3, 1),
                         caption = "Material exergy details for iron ore,
@@ -1301,6 +1302,7 @@ print_statepoint_table(statepoint_table_name = "Statepoint_ore_out_bf",
                         size = "tiny")
 @
 \end{landscape}
+
 The material exergy of the ore inputs to the blast furnace is \Sexpr{BF_B_in}.
 The material exergy of the pig iron is \Sexpr{BF_B_out}.
 
@@ -1312,10 +1314,12 @@ can be found in ****data repo****.
 \subsection{PSUT matrices}
 \label{sec:psut_mats_bxcc}
 %++++++++++++++++++++++++++++++
-***include BCC? or just the exergy balance and irreversibilities****-EES
+***HEUN add Irreversibilities tables $BX_across_industry_balance$ in Tables for Paper tab***
+
 The MCC converted to $\mat{RUVY}$ matrices
 allows for an exergy balance across industries
 and the irreversibilities of each process.
+
 \ref{sec:psut_framework}
 
 Appendix~\ref{sec:bxcc_mats} contains
@@ -1333,6 +1337,7 @@ unified material and energy conversion chain (BXCC).
 -inter industry balance is zero for every matrix
 -across industry varies (Q loss and I)
 -n across industry
+
 
 %++++++++++++++++++++++++++++++
 \subsection{Efficiencies}
@@ -1365,6 +1370,7 @@ Inputs R and E represent a resource material and energy statepoint.
 Output P is a useful product and output W is a waste product.
 Note that more resources, energy inputs, useful products, and waste streams
 may be needed in other processes.
+\begin{itemize}
 
   \item The Resource method focuses on the main product stream's exergy output
   compared to the total exergy input.
