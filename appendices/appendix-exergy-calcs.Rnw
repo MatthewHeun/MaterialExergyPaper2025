@@ -434,7 +434,6 @@ Note that the comminution exergy is small compared to the total value.
 Thus, we ignore comminution exergy when analyzing large material conversion chains.
 
 
-Heun said I should
 
 
 
