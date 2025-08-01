@@ -1458,18 +1458,6 @@ We show a few of those analyses here, including
 \label{sec:heat_losses}
 %------------------------------
 -across industry for ECC
-With the enthalpy, mass, and molecular weight
-of a statepoint's mixture,
-the PSUT framework gives the heat loss
-across
-
-
-%------------------------------
-\subsubsection{Irreversibility}
-\label{sec:irreversibility}
-%------------------------------
--across industry for BCC, XCC, BXCC
-
 <<HeatLossTable, echo=FALSE, results=tex>>=
 print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_Q_loss",
                          latex_label = "tab:across_efficiency_balance",
@@ -1479,6 +1467,34 @@ print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_Q
                                          "All values in kJ."),
                          size = "footnotesize")
 @
+
+With the enthalpy, mass, and molecular weight
+of a statepoint's mixture,
+the PSUT framework gives the heat loss
+across industries.
+
+\begin{equation}\label{eq:heat_loss}
+  Q_{m,loss} = \frac{h_m M_m}{MW_m} \, ,
+\end{equation}
+%
+where $Q_{k,loss}$ is the heat loss of a mixture across an industry (in units of $\mathrm{kJ}$),
+$h_m$ is the enthalpy of a mixture (in units of $\mathrm{kJ/mol}$),
+$M_m$ is the mass of a mixture (in units of $\mathrm{kg}$),
+and $MW_m$ is the molecular weight of a mixture (in units of $\mathrm{kg/mol}$).
+
+For mixtures that do not change from a process, like hauling,
+the heat loss is equal to the energy input.
+See Table~\ref{tab:across_efficiency_balance} for across industry information
+and supplemental information for the associated $\mathrm{RUVY}$ matrices.
+
+
+%------------------------------
+\subsubsection{Irreversibility}
+\label{sec:irreversibility}
+%------------------------------
+-across industry for BCC, XCC, BXCC
+
+
 
 -inter industry balance is zero for every matrix
 -across industry varies (Q loss and I)
