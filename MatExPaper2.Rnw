@@ -1244,7 +1244,9 @@ The result for the partial example is shown in Figure~\ref{fig:bxcc4}.
 \label{fig:bxcc4}
 \end{figure}
 
-Quiz 1
+
+Test 2
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
