@@ -6,7 +6,7 @@
 \label{sec:MCC_exergy}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-<<ExampleValues, echo=FALSE>>=
+<<LimestoneValues, echo=FALSE>>=
 
 # Old version still works, but you need to manually supply the unit.
 # cp_CaCO3 <- read_named_cell("cp_CaCO3",
