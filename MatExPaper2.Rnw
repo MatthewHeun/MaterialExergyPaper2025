@@ -1410,7 +1410,7 @@ by
 analyses of all transformation processes
 in conversion chains are
 
-are made simple
+are simplified
 
 
 
