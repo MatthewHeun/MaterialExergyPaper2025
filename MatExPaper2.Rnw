@@ -1376,30 +1376,18 @@ print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_I
                          size = "footnotesize")
 @
 
-
-
-
-\ref{eq:irreversibility}
-
-
-
-
-
 The MCC converted to $\mat{RUVY}$ matrices
 allows for an exergy balance across industries
 and the irreversibilities of each process.
 
-\ref{sec:psut_framework}
+The material exergy irreversibilities
+are given in Table~\ref{tab:across_efficiency_balance},
+determined by Eqn.~\ref{eq:irreversibility}.
 
 Appendix~\ref{sec:bxcc_mats} contains
 $\mat{RUVY}$ matrices for the PSUT framework for the
 unified material and energy conversion chain (BXCC).
 
-
-
-
-
-TESTING
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1430,7 +1418,7 @@ by
 analyses of all transformation processes
 in conversion chains are
 
-are made simple
+are simplified
 
 
 
@@ -1470,7 +1458,10 @@ We show a few of those analyses here, including
 \label{sec:heat_losses}
 %------------------------------
 -across industry for ECC
-
+With the enthalpy, mass, and molecular weight
+of a statepoint's mixture,
+the PSUT framework gives the heat loss
+across
 
 
 %------------------------------
