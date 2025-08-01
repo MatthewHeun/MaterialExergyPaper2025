@@ -1475,6 +1475,8 @@ and $MW_m$ is the molecular weight of a mixture (in units of $\mathrm{kg/mol}$).
 
 For mixtures that do not change from a process, like hauling,
 the heat loss is equal to the energy input.
+An industry balance should never have a negative heat loss,
+which would indicate exergy generation.
 See Table~\ref{tab:across_efficiency_balance} for across industry information
 and supplemental information for the associated $\mathrm{RUVY}$ matrices.
 
@@ -1483,7 +1485,7 @@ and supplemental information for the associated $\mathrm{RUVY}$ matrices.
 \subsubsection{Irreversibility}
 \label{sec:irreversibility}
 %------------------------------
--across industry for BCC, XCC, BXCC
+-across industry for BCC, XCC, BXCC\\
 <<IrreversibilitiesTable, echo=FALSE, results=tex>>=
 print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_I",
                          latex_label = "tab:across_efficiency_balance",
@@ -1614,7 +1616,7 @@ allows for efficiency calculations
 of each process.
 
 Table~\ref{tab:process_efficiencies} shows process efficiencies
-calculated via Equations \ref{eq:bejan_efficiency}, \ref{eq:resource_efficiency}, and \ref{eq:rational_efficiency}.
+calculated via Equations \ref{eq:resource_efficiency} and \ref{eq:rational_efficiency}.
 
 
 <<EfficienciesTable, echo=FALSE, results=tex>>=
@@ -1652,17 +1654,17 @@ resource_n_bf <- read_named_cell("Resource_BF",
                             unit = "\\\\%",
                             perc = TRUE,
                             fmt = "%.2f")
+task_n <- read_named_cell("task_n",
+                            unit = "$kJ/t_{ore}$",
+                            fmt = "%.2f")
 @
 
-
-% Three efficiency calculation methods,
-% shown in Figure~\ref{fig:efficiencymethods},
-% were applied to processing steps
-% in the material conversion chain.
 
 The efficiencies of iron ore processes,
 in Table~\ref{tab:process_efficiencies},
 are lower than the limestone and coal efficiencies.
+The conversion of limestone to quicklime and coal to coke
+have low efficiencies (see Table~\ref{tab:process_efficiencies}).
 
 The iron ore extraction Rational efficiency is \Sexpr{rational_n_iron_ext}
 and the Resource efficiency is \Sexpr{resource_n_iron_ext}.
@@ -1670,17 +1672,14 @@ The limestone and coal extraction efficiencies range
 from \Sexpr{resource_n_lime_ext} to \Sexpr{rational_n_lime_ext}.
 Refer to Table~\ref{tab:process_efficiencies}
 to see similar results
-for hauling efficiencies.\\
+for hauling and beneficiation efficiencies.\\
 The mixer and blast furnace efficiencies
 are equal for all ores because the desired output, pig iron, is the same.
 The blast furnace Rational efficiency is \Sexpr{rational_n_bf},
 and the Resource efficiency is \Sexpr{resource_n_bf}.
 
-
-
-
-
-
+The task efficiency, based on the ore input to the MCC,
+is \Sexpr{task_n}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
