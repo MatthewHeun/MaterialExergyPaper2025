@@ -833,7 +833,7 @@ The exergy lost ($B_{lost}$) from a process is given by
 where $B_{k,m,waste}$ is the exergy of a waste stream
 from a process (in units of $\mathrm{kJ}$).
 The embodied exergy is the exergy loss
-across a material conversion chain (MCC),
+in a supply chain,
 give by
 \begin{equation}\label{embodied_exergy}
   B_{em} = \sum{B_{lost}}
@@ -1366,16 +1366,6 @@ can be found in ****data repo****.
 \label{sec:psut_mats_bxcc}
 %++++++++++++++++++++++++++++++
 
-<<IrreversibilitiesTable, echo=FALSE, results=tex>>=
-print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_I",
-                         latex_label = "tab:across_efficiency_balance",
-                         digits = 0,
-                         caption = paste("Process irreversibilities in the",
-                                         "example material conversion chain.",
-                                         "All values in kJ."),
-                         size = "footnotesize")
-@
-
 The MCC converted to $\mat{RUVY}$ matrices
 allows for an exergy balance across industries
 and the irreversibilities of each process.
@@ -1443,7 +1433,7 @@ We show a few of those analyses here, including
 %------------------------------
 **inter industry balances?**
 
-
+-inter industry balance is zero for every matrix
 
 
 %------------------------------
@@ -1452,6 +1442,7 @@ We show a few of those analyses here, including
 %------------------------------
 -across industry eqn for MCC
 
+-across industry varies (Q loss and I)
 
 %------------------------------
 \subsubsection{Heat losses}
@@ -1493,11 +1484,28 @@ and supplemental information for the associated $\mathrm{RUVY}$ matrices.
 \label{sec:irreversibility}
 %------------------------------
 -across industry for BCC, XCC, BXCC
+<<IrreversibilitiesTable, echo=FALSE, results=tex>>=
+print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_I",
+                         latex_label = "tab:across_efficiency_balance",
+                         digits = 0,
+                         caption = paste("Process irreversibilities in the",
+                                         "example material conversion chain.",
+                                         "All values in kJ."),
+                         size = "footnotesize")
+@
+
+Exergy is destroyed across industries,
+unless the mixture does not change
+and no energy is input to the process.
+From Eqn.~\ref{eq:irreversibility},
+the irreversibility of each process
+in the BCC, XCC, and BXCC
+is seen in Table~\ref{tab:across_efficiency_balance}.
+
+***HEUN I and Q loss have same reference label***-EES
+***Should we add the XCC and BXCC irreversibility values into the table?***-EES
 
 
-
--inter industry balance is zero for every matrix
--across industry varies (Q loss and I)
 -n across industry
 
 
@@ -1515,12 +1523,6 @@ and supplemental information for the associated $\mathrm{RUVY}$ matrices.
 \subsubsection{Process efficiencies}
 \label{ssec:efficiency_methods}
 %------------------------------
-
-
-
-
-
-
 
 \begin{figure}
   \centering
@@ -1553,6 +1555,7 @@ may be needed in other processes.
   \begin{equation}\label{eq:resource_efficiency}
     \eta_{Resource} = \frac{(B_{k,m,i})}{\sum{X_{k,in}}+\sum{B_{k,in}}} \, ,
   \end{equation}
+  %
   from \citet[Equation~(2.44), p.~32]{Dincer_2007}.
   The Resource efficiency applies to the example process
   (see Figure~\ref{fig:example_process_diagram}) as
@@ -1564,11 +1567,9 @@ may be needed in other processes.
     \boldsymbol{\upeta}_{Resource} = \left(\widehat{\mat{iU}}\right)\!^{-1} (\mat{Vi}_P) \, ,
   \end{equation}
 
-
   The Resource method quantifies
   how efficiently a process
   can produce the desired output.
-
 
   \item The Rational efficiency method focuses on the total exergy output
   compared to the total exergy input.
@@ -1576,6 +1577,7 @@ may be needed in other processes.
   \begin{equation}\label{eq:rational_efficiency}
     \eta_{Rational} = \frac{\sum{B_{k,out}}}{\sum{X_{k,in}} + \sum{B_{k,in}}} \, .
   \end{equation}
+  %
   The Rational efficiency calculation is
   \begin{equation}
     \eta_{Rational} = \frac{B_P + B_W}{X_E + B_R} \, ,
@@ -1584,7 +1586,6 @@ may be needed in other processes.
 
   In PSUT matrix format, the Rational efficiency is a vector of
   efficiencies of processing stages and is given by
-
   \begin{equation} \label{eq:psut_rational_efficiency_matrix}
     \boldsymbol{\upeta}_{Rational} = \left(\widehat{\mat{iU}}\right)\!^{-1} (\mat{Vi}) \, ,
   \end{equation}
