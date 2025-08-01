@@ -1315,7 +1315,9 @@ print_statepoint_table(statepoint_table_name = "Statepoint_ore_into_bf",
                                    at the inlet to the blast furnace.",
                         size = "tiny")
 @
-<<ExampleValues, echo=FALSE>>=
+
+
+<<BlastFurnaceValues, echo=FALSE>>=
 BF_B_in <- read_named_cell("BF_B_in",
                             unit = "kJ",
                             fmt = "%.0f")
@@ -1415,7 +1417,7 @@ by
 analyses of all transformation processes
 in conversion chains are
 
-are made simple
+are simplified
 
 
 
@@ -1607,7 +1609,7 @@ print_efficiencies_table(efficiencies_table_name = "Efficiencies__Tables_for_Pap
                          size = "footnotesize")
 @
 
-<<ExampleValues, echo=FALSE>>=
+<<DiscussionEfficiencyValues, echo=FALSE>>=
 rational_n_iron_ext <- read_named_cell("Rational_IronExtraction",
                             unit = "\\\\%",
                             perc = TRUE,
