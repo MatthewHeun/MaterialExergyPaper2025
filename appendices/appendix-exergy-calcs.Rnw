@@ -148,6 +148,12 @@ b_MgCO3 <- read_named_cell("b_MgCO3",
 b_tot_limestone<- read_named_cell("b_tot_limestone",
                             unit = "kJ/mol",
                             fmt = "%.5f")
+b_com <- read_named_cell("b_com",
+                            unit = "kJ/mol",
+                            fmt = "%.5f")
+b_com_tot <- read_named_cell("b_com_tot",
+                            unit = "kJ/mol",
+                            fmt = "%.5f")
 @
 
 In the \ref{sec:exergy_of_materials} section of this paper,
@@ -375,14 +381,57 @@ can be applied to $\ce{MgCO3}$ as follows:
         \begin{equation}\label{eq:b_c_MgCO3}
           \Sexpr{b_c_MgCO3} = \Sexpr{RT0} \ln(\Sexpr{y_MgCO3}) \, .
         \end{equation}
-
-  \item Comminution exergy
 \end{itemize}
-
-
-
-
-
+%   \item The comminution exergy of $\ce{MgCO3}$ ($b_{com,\ce{MgCO3}}$) is
+%         \begin{align}
+%           b_{com,{\ce{MgCO3}}} =& \frac{\Sexpr{com_constant}(\Sexpr{Fr})}{\Sexpr{dM_MgCO3}} (0.001\mathrm{m^3/kg}) (0.001\mathrm{kJ/J}) \notag\\
+%                       =& \Sexpr{b_com_MgCO3} \, , \notag\\
+%         \end{align}
+% \end{itemize}
+%
+%
+%
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \subsection{Material exergy of the statepoint}
+% \label{sec:limestone_exergy}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% The total exergy at the statepoint is the exergy of the mixture.
+% See \ref{eq:exergy_of_compounds}.
+%
+% The total exergy of $\ce{CaCO3}$ is
+%   \begin{align}
+%     b_{\ce{CaCO3}} =& b_{ph,\ce{CaCO3}} + b_{ch,\ce{CaCO3}} + b_{c,\ce{CaCO3}} + b_{com,\ce{CaCO3}} \notag\\
+%                    =& \Sexpr{b_ph_CaCO3} + \Sexpr{b_ch_CaCO3} + \Sexpr{b_c_CaCO3} + \Sexpr{b_com_CaCO3} \notag\\
+%                    =& \Sexpr{b_CaCO3} \, . \notag\\
+%   \end{align}
+%
+% The total exergy of $\ce{MgCO3}$ is
+%   \begin{align}
+%     b_{\ce{MgCO3}} =& b_{ph,\ce{MgCO3}} + b_{ch,\ce{MgCO3}} + b_{c,\ce{MgCO3}} + b_{com,\ce{MgCO3}} \notag\\
+%                    =& \Sexpr{b_ph_MgCO3} + \Sexpr{b_ch_MgCO3} + \Sexpr{b_c_MgCO3} + \Sexpr{b_com_CaCO3} \notag\\
+%                    =& \Sexpr{b_MgCO3} \, . \notag\\
+%   \end{align}
+%
+% The total exergy of the statepoint includes the molar intensity of each compound
+% by including the molar fraction of each compound.
+%   \begin{align}
+%     b_{statepoint} &= y_{\ce{CaCO3}} b_{\ce{CaCO3}} + y_{\ce{MgCO3}} b_{\ce{MgCO3}} \notag\\
+%                    &= \Sexpr{y_CaCO3} (\Sexpr{b_CaCO3})
+%                    &+ \Sexpr{y_MgCO3} (\Sexpr{b_MgCO3} \notag\\
+%                    &= \Sexpr{b_tot_limestone} \notag\\
+%   \end{align}
+%
+% Note that the comminution exergy is small compared to the total value.
+%   \begin{align}
+%     \frac{b_{com}}{b_{total}} &= \frac{b_{com,\ce{CaCO3}}y_{\ce{CaCO3}}+ b_{com,\ce{MgCO3}}y_{\ce{MgCO3}}}{b_{total}} \notag\\
+%                               &= \frac{\Sexpr{b_com_CaCO3}(\Sexpr{y_CaCO3})+\Sexpr{b_com_MgCO3}(\Sexpr{y_MgCO3})}{\Sexpr{b_tot_limestone}} \notag\\
+%                               &= \frac{\Sexpr{b_com}}{\Sexpr{b_tot_limestone}} \notag\\
+%                               &= \Sexpr{b_com_tot} \notag\\
+%   \end{align}
+%
+% Thus, we ignore comminution exergy when calculating large material conversion chains.
 
 
 
