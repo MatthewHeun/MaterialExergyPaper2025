@@ -815,7 +815,7 @@ The irreversibilities and loss of exergy at a process
 is determined by the total exergy input and output
 to the process.
 \begin{equation}\label{eq:irreversibility}
-  I = \sum_k{B_{in,m}} - \sum_k{B_{out,m}}
+  I = \sum_{in}{B_{k,m}} - \sum_{out}{B_{k,m}}
 \end{equation}
 %
 where $I$ is the irreversibile exergy destruction,
@@ -827,10 +827,10 @@ only destroyed.
 
 The exergy lost ($B_{lost}$) from a process is given by
 \begin{equation}\label{exergy_lost}
-  B_{lost} = \sum_k{B_{m,waste}}
+  B_{lost} = \sum_{out}{B_{k,m,waste}}
 \end{equation}
 %
-where $B_{m,waste}$ is the exergy of a waste stream
+where $B_{k,m,waste}$ is the exergy of a waste stream
 from a process (in units of $\mathrm{kJ}$).
 The embodied exergy is the exergy loss
 across a material conversion chain (MCC),
@@ -1282,6 +1282,9 @@ along the material conversion chain.
 Table~\ref{bf_input_statepoint} shows the solid material inputs
 to the blast furnace: iron ore, limestone, and coking coal.
 Table~\ref{bf_output_statepoint} shows the pig iron output.
+Table~\ref{tab:bf_slag_output_statepoint} is the waste stream from the blast furnace.
+Supplemental information includes the gaseous inputs and outputs
+for the blast furnace process.
 
 
 The chemical and concentration exergy,
@@ -1296,7 +1299,7 @@ calculated by Eqn.~\ref{eq:total_exergy_mixture}.
 The sum of exergy inputs ($B_{m,i}$)
 is the total material exergy
 of the mixture.
-***Solid input and output. sup info details***
+
 \begin{landscape}
 <<BFinputsStatepointTable, echo=FALSE, results=tex>>=
 print_statepoint_table(statepoint_table_name = "Statepoint_ore_into_bf",
@@ -1312,11 +1315,16 @@ print_statepoint_table(statepoint_table_name = "Statepoint_ore_into_bf",
                                    at the inlet to the blast furnace.",
                         size = "tiny")
 @
-<<ExampleValues, echo=FALSE>>=
+
+
+<<BlastFurnaceValues, echo=FALSE>>=
 BF_B_in <- read_named_cell("BF_B_in",
                             unit = "kJ",
                             fmt = "%.0f")
 BF_B_out <- read_named_cell("BF_B_out",
+                            unit = "kJ",
+                            fmt = "%.0f")
+BF_B_slag_out <- read_named_cell("BF_B_slag_out",
                             unit = "kJ",
                             fmt = "%.0f")
 @
@@ -1332,10 +1340,22 @@ print_statepoint_table(statepoint_table_name = "Statepoint_ore_out_bf",
                                    at the output of the blast furnace.",
                         size = "tiny")
 @
+
+<<BFoutputsStatepointTable, echo=FALSE, results=tex>>=
+print_statepoint_table(statepoint_table_name = "statepoint_slag_out_bf",
+                        latex_label = "tab:bf_slag_output_statepoint",
+                        rownames_latex = c("$\\ce{CaSiO3}$",
+                                           "Mixture"),
+                        digits = c(0, 1, 2, 3, 2, 1, 2, 3, 3, 3, 3, 3, 1),
+                        caption = "Material exergy details for slag
+                                   at the output of the blast furnace.",
+                        size = "tiny")
+@
 \end{landscape}
 
-The material exergy of the ore inputs to the blast furnace is \Sexpr{BF_B_in}.
-The material exergy of the pig iron is \Sexpr{BF_B_out}.
+The material exergy of the ore inputs to the blast furnace is \Sexpr{BF_B_in},
+of the pig iron out is \Sexpr{BF_B_out},
+and solid waste out is \Sexpr{BF_B_slag_out}.
 
 The material exergy for each statepoint
 in the production of pig iron
@@ -1599,7 +1619,7 @@ print_efficiencies_table(efficiencies_table_name = "Efficiencies__Tables_for_Pap
                          size = "footnotesize")
 @
 
-<<ExampleValues, echo=FALSE>>=
+<<DiscussionEfficiencyValues, echo=FALSE>>=
 rational_n_iron_ext <- read_named_cell("Rational_IronExtraction",
                             unit = "\\\\%",
                             perc = TRUE,
@@ -1791,6 +1811,9 @@ $LHV$             & lower heating value [kJ/kg]\\
 $w$               & mass fraction of moisture in a fuel [kg/kg]\\
 $h_{fg}$          & enthalpy of evaporation of \ce{H2O} [kJ/kg]\\
 $s$               & mass fraction of sulphur in a fuel [kg/kg]\\
+$I$               & irreversibility [kJ]\\
+$B_{lost}$        & exergy destroyed in a process [kJ]\\
+$B_{em}$          & sum $B_{lost}$ across a MCC [kJ]\\
 \bottomrule
 \end{tabularx}
 \end{table}
