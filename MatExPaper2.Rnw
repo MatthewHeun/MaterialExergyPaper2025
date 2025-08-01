@@ -1428,13 +1428,12 @@ We show a few of those analyses here, including
 
 
 %------------------------------
-\subsubsection{Transfer balances}
-\label{sec:transfer_balances}
+\subsubsection{Inter-industry balances}
+\label{sec:inter_industry_balances}
 %------------------------------
-**inter industry balances?**
-
+-MOVE to methods
 -inter industry balance is zero for every matrix
-
+-masses, hM, B all zero
 
 %------------------------------
 \subsubsection{Mass balances}
@@ -1451,7 +1450,7 @@ We show a few of those analyses here, including
 -across industry for ECC
 <<HeatLossTable, echo=FALSE, results=tex>>=
 print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_Q_loss",
-                         latex_label = "tab:across_efficiency_balance",
+                         latex_label = "tab:across_industry_Q_loss",
                          digits = 0,
                          caption = paste("Process heat losses ($Q_{loss}$) in the",
                                          "example material conversion chain.",
@@ -1463,6 +1462,8 @@ With the enthalpy, mass, and molecular weight
 of a statepoint's mixture,
 the PSUT framework gives the heat loss
 across industries.
+
+***Matrix form*** iV - Ui
 
 \begin{equation}\label{eq:heat_loss}
   Q_{m,loss} = \frac{h_m M_m}{MW_m} \, ,
@@ -1485,10 +1486,10 @@ and supplemental information for the associated $\mathrm{RUVY}$ matrices.
 \subsubsection{Irreversibility}
 \label{sec:irreversibility}
 %------------------------------
--across industry for BCC, XCC, BXCC\\
+-across industry for ***HEUN add BCC, XCC, BXCC. in same table***\\
 <<IrreversibilitiesTable, echo=FALSE, results=tex>>=
 print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_I",
-                         latex_label = "tab:across_efficiency_balance",
+                         latex_label = "tab:across_industry_irreversibilities",
                          digits = 0,
                          caption = paste("Process irreversibilities in the",
                                          "example material conversion chain.",
@@ -1604,16 +1605,16 @@ may be needed in other processes.
 For our purpose, the previous efficiencies
 apply to one process
 in a material conversion chain.
-Larger scale efficiencies
-are given by
-\begin{equation}\label{eq:Task efficiency}
-  \eta_{Task} = \frac{\sum{B_{in,min,theoretical}}}{\sum{B_{in,actual}}} \, .
-\end{equation}
-%
-See \citet[Equation~(2.46), p.~32]{Dincer_2007}.
-Knowing the material exergy of each statepoint,
-allows for efficiency calculations
-of each process.
+% Larger scale efficiencies
+% are given by
+% \begin{equation}\label{eq:Task efficiency}
+%   \eta_{Task} = \frac{\sum{B_{in,min,theoretical}}}{\sum{B_{in,actual}}} \, .
+% \end{equation}
+% %
+% See \citet[Equation~(2.46), p.~32]{Dincer_2007}.
+% Knowing the material exergy of each statepoint,
+% allows for efficiency calculations
+% of each process.
 
 Table~\ref{tab:process_efficiencies} shows process efficiencies
 calculated via Equations \ref{eq:resource_efficiency} and \ref{eq:rational_efficiency}.
@@ -1654,9 +1655,7 @@ resource_n_bf <- read_named_cell("Resource_BF",
                             unit = "\\\\%",
                             perc = TRUE,
                             fmt = "%.2f")
-task_n <- read_named_cell("task_n",
-                            unit = "$kJ/t_{ore}$",
-                            fmt = "%.2f")
+
 @
 
 
@@ -1678,8 +1677,6 @@ are equal for all ores because the desired output, pig iron, is the same.
 The blast furnace Rational efficiency is \Sexpr{rational_n_bf},
 and the Resource efficiency is \Sexpr{resource_n_bf}.
 
-The task efficiency, based on the ore input to the MCC,
-is \Sexpr{task_n}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}
