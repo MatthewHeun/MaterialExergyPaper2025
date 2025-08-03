@@ -236,6 +236,29 @@ bx_mats |>
                             overwrite_file = TRUE)
 
 #
+# Write the data into the Paper Examples.xlsx file, too.
+#
+
+paper_examples_path <- file.path("data", "Paper Examples.xlsx")
+sheet_names <- bx_mats$EnergyType
+paper_examples_wb <- openxlsx2::wb_load(paper_examples_path)
+
+# First, remove existing sheets, if they exist.
+lapply(sheet_names, FUN = function(this_sheet_name) {
+  openxlsx2::wb_remove_worksheet(paper_examples_wb, sheet = this_sheet_name)
+})
+
+# Second, add the new data into the file.
+
+
+
+# Finally, save the workbook back to disk
+# openxlsx2::wb_save(wb = paper_examples_wb,
+#                    file = paper_examples_path,
+#                    overwrite = TRUE)
+
+
+#
 # Write the data to an RDS file for use in the paper
 #
 
