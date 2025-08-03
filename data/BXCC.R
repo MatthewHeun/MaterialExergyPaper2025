@@ -21,7 +21,8 @@ zaf_2013_ecc_path <- file.path("data", "zaf_2013_ecc.xlsx")
 zaf_2013_ecc |>
   Recca::write_ecc_to_excel(path = zaf_2013_ecc_path,
                             worksheet_names = "WorksheetNames",
-                            overwrite_file = TRUE)
+                            overwrite_file = TRUE,
+                            overwrite_worksheets = TRUE)
 
 #
 # Read ECC requirements from the MCC spreadsheet.
@@ -135,8 +136,8 @@ ecc_supply_to_mcc <- zaf_2013_ecc |>
 ecc_supply_to_mcc |>
   Recca::write_ecc_to_excel(path = file.path("data", "ecc_supply_to_mcc.xlsx"),
                             worksheet_names = "WorksheetNames",
-                            overwrite_file = TRUE)
-
+                            overwrite_file = TRUE,
+                            overwrite_worksheets = TRUE)
 
 #
 # Modify the ECC by removing the Y matrix
@@ -168,7 +169,6 @@ ecc_supply_to_mcc_long <- ecc_supply_to_mcc |>
   dplyr::mutate(
     X = matsbyname::clean_byname(.data[["X"]], tol = 1e-8)
   )
-
 
 
 #
@@ -233,7 +233,8 @@ bx_mats <- dplyr::left_join(mcc_mats_long,
 bx_mats |>
   Recca::write_ecc_to_excel(path = file.path("data", "BXCC.xlsx"),
                             worksheet_names = "EnergyType",
-                            overwrite_file = TRUE)
+                            overwrite_file = TRUE,
+                            overwrite_worksheets = TRUE)
 
 #
 # Write the data into the Paper Examples.xlsx file, too.
@@ -242,7 +243,8 @@ bx_mats |>
 bx_mats |>
   Recca::write_ecc_to_excel(path = file.path("data", "Paper Examples.xlsx"),
                             worksheet_names = "EnergyType",
-                            overwrite_file = TRUE)
+                            overwrite_file = TRUE,
+                            overwrite_worksheets = TRUE)
 
 #
 # Write the data to an RDS file for use in the paper
@@ -261,6 +263,17 @@ efficiencies <- bx_mats |>
   Recca::verify_SUT_energy_balance() |>
   Recca::calc_eta_i()
 
+#
+# Calculate heat loss to compare with values
+# in Paper Examples.xlsx
+#
+
+heat_loss <- bx_mats |>
+  dplyr::mutate(
+    Q_loss = matsbyname::colsums_byname(.data[["U"]]) |>
+      matsbyname::transpose_byname() |>
+      matsbyname::difference_byname(matsbyname::rowsums_byname(.data[["V"]]))
+  )
 
 #
 # Calculate efficiencies
