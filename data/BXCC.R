@@ -239,26 +239,10 @@ bx_mats |>
 # Write the data into the Paper Examples.xlsx file, too.
 #
 
-paper_examples_path <- file.path("data", "Paper Examples.xlsx")
-sheet_names <- bx_mats$EnergyType
-paper_examples_wb <- openxlsx2::wb_load(paper_examples_path)
-
-# First, remove existing sheets, if they exist.
-for (this_sheet_name in sheet_names) {
-  if (this_sheet_name %in% openxlsx2::wb_get_sheet_names(paper_examples_wb))
-    paper_examples_wb <- paper_examples_wb |>
-      openxlsx2::wb_remove_worksheet(sheet = this_sheet_name)
-}
-
-# Second, add the new data into the file.
-
-
-
-# Finally, save the workbook back to disk
-# openxlsx2::wb_save(wb = paper_examples_wb,
-#                    file = paper_examples_path,
-#                    overwrite = TRUE)
-
+bx_mats |>
+  Recca::write_ecc_to_excel(path = file.path("data", "Paper Examples.xlsx"),
+                            worksheet_names = "EnergyType",
+                            overwrite_file = TRUE)
 
 #
 # Write the data to an RDS file for use in the paper
