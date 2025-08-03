@@ -244,9 +244,11 @@ sheet_names <- bx_mats$EnergyType
 paper_examples_wb <- openxlsx2::wb_load(paper_examples_path)
 
 # First, remove existing sheets, if they exist.
-lapply(sheet_names, FUN = function(this_sheet_name) {
-  openxlsx2::wb_remove_worksheet(paper_examples_wb, sheet = this_sheet_name)
-})
+for (this_sheet_name in sheet_names) {
+  if (this_sheet_name %in% openxlsx2::wb_get_sheet_names(paper_examples_wb))
+    paper_examples_wb <- paper_examples_wb |>
+      openxlsx2::wb_remove_worksheet(sheet = this_sheet_name)
+}
 
 # Second, add the new data into the file.
 
