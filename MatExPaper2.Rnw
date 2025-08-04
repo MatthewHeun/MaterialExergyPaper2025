@@ -1469,31 +1469,72 @@ irreversibility calculations.
 \label{sec:across_industry_mass}
 %------------------------------
 
-For an MCC with all wastes accounted,
+For an MCC with all wastes accounted
+(as in the example in this paper),
 the across-industry balance of
 Equation~(\ref{eq:across_industry_balances})
 becomes
 
 \begin{equation} \label{eq:across_industry_mass}
-  (\mat{iU})^\mathrm{T} - \mat{Vi} = \mat{0} \, .
+   \mat{m}_{loss} = (\mat{iU}_m)^\mathrm{T} - \mat{V}_m\mat{i} = \mat{0} \, ,
 \end{equation}
 %
-The $\mat{0}$ on the right side
+where $\mat{m}_{loss}$ is a vector of mass losses
+with rownames of processing stages,
+the subscript ``m'' indicates mass versions of the
+$\mat{U}$ and $\mat{V}$ matrices.
+The $\mat{0}$ vector on the right side
 of Equation~(\ref{eq:across_industry_mass})
 indicates that mass is conserved.
 The example MCC in Section~\ref{sec:results}
-is balanced, as shown in Figure ****.
+is balanced, as shown in Table~\ref{tab:across_industry_M_loss}.
 
-****
-MKH: Add the vector here.
-****
+<<MassLossTable, echo=FALSE, results=tex>>=
+print_efficiencies_table(efficiencies_table_name = "M_across_industry_balance_M_loss",
+                         latex_label = "tab:across_industry_M_loss",
+                         digits = 0,
+                         caption = paste("Mass losses ($m_{loss}$) in the",
+                                         "example material conversion chain.",
+                                         "All values in kg."),
+                         size = "footnotesize")
+@
 
 
 %------------------------------
-\subsubsection{Heat losses}
-\label{sec:heat_losses}
+\subsubsection{Across-industry heat losses}
+\label{sec:across_industry_heat_losses}
 %------------------------------
--across industry for ECC
+
+For an ECC with no heat losses accounted
+(as in the example of this paper),
+across-industry energy balances calculate heat loss from each process.
+Equation~(\ref{eq:across_industry_balances}) becomes
+
+\begin{equation} \label{eq:across_industry_heat}
+  \mat{Q}_{loss} = (\mat{iU}_e)^\mathrm{T} - \mat{V}_e\mat{i} \, ,
+\end{equation}
+%
+where the subscript ``e'' indicates energy versions of the
+$\mat{U}$ and $\mat{V}$ matrices obtained by
+
+\begin{equation}
+  \mat{U}_e = (\mat{U}_m \circ \mat{U}_h) + \mat{U}_{elect}
+\end{equation}
+%
+and
+
+\begin{equation}
+  \mat{V}_e = (\mat{V}_m \circ \mat{V}_h) + \mat{V}_{elect}
+\end{equation}
+%
+with $\circ$ indicating the Hadamard (element-wise) product,
+subscript ``$h$'' indicating $\mat{U}$ and $\mat{V}$ matrices
+consisting of enthalpy values, and
+subscript ``$elect$'' indicating electricity.
+The heat loss vector
+for the the example ECC is shown
+in Table~\ref{tab:across_industry_Q_loss}.
+
 <<HeatLossTable, echo=FALSE, results=tex>>=
 print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_Q_loss",
                          latex_label = "tab:across_industry_Q_loss",
@@ -1537,7 +1578,7 @@ and supplemental information for the associated $\mathrm{RUVY}$ matrices.
 print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_I",
                          latex_label = "tab:across_industry_irreversibilities",
                          digits = 0,
-                         caption = paste("Process irreversibilities in the",
+                         caption = paste("Process irreversibilities ($I$) in the",
                                          "example material conversion chain.",
                                          "All values in kJ."),
                          size = "footnotesize")
