@@ -1245,6 +1245,36 @@ The result for the partial example is shown in Figure~\ref{fig:bxcc4}.
 \end{figure}
 
 
+%++++++++++++++++++++++++++++++
+\subsection{Inter-industry balances}
+\label{sec:inter-industry_balances}
+%++++++++++++++++++++++++++++++
+
+When constructing the $\mat{RUVY}$ matrices of the PSUT framework,
+we perform an important consistency check
+via balances of inter-industry flows.
+The matrix equation for inter-industry flow balances is
+
+\begin{equation} \label{eq:inter_industry_balances}
+  \mat{iR} + \mat{iV} - \mat{Ui} - \mat{y} \overset{?}{=} \mat{0} \, ,
+\end{equation}
+%
+where $\mat{i}$ is a unity row or column vector of the appropriate size and
+$\mat{y} \equiv \mat{Yi}$.
+
+Regardless of the type of conversion chain
+(MCC, BCC, ECC, XCC, BXCC),
+Equation~(\ref{eq:inter_industry_balances}) tests whether
+all flows extracted from resources ($\mat{R}$) or
+produced by conversion processes ($\mat{V}$)
+become inputs to conversion processes ($\mat{U}$) or
+final demand ($\mat{Y}$).
+When Equation~(\ref{eq:inter_industry_balances}) is true,
+the conversion chain is internally consistent.
+All conversion chains developed for this paper
+pass this inter-industry balance check.
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
 \label{sec:results}
@@ -1426,13 +1456,6 @@ We show a few of those analyses here, including
 (d)~irreversibility calculations.
 
 
-%------------------------------
-\subsubsection{Inter-industry balances}
-\label{sec:inter_industry_balances}
-%------------------------------
--MOVE to methods
--inter industry balance is zero for every matrix
--masses, hM, B all zero
 
 %------------------------------
 \subsubsection{Mass balances}
