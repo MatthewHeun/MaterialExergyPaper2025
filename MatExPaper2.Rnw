@@ -1245,10 +1245,10 @@ The result for the partial example is shown in Figure~\ref{fig:bxcc4}.
 \end{figure}
 
 
-%++++++++++++++++++++++++++++++
-\subsection{Inter-industry balances}
+%------------------------------
+\subsubsection{Inter-industry balances}
 \label{sec:inter-industry_balances}
-%++++++++++++++++++++++++++++++
+%------------------------------
 
 When constructing the $\mat{RUVY}$ matrices of the PSUT framework,
 we perform an important consistency check
@@ -1256,11 +1256,13 @@ via balances of inter-industry flows.
 The matrix equation for inter-industry flow balances is
 
 \begin{equation} \label{eq:inter_industry_balances}
-  \mat{iR} + \mat{iV} - \mat{Ui} - \mat{y} \overset{?}{=} \mat{0} \, ,
+  \mat{iR}^\mathrm{T} + \mat{iV}^\mathrm{T} - \mat{Ui} - \mat{y} \overset{?}{=} \mat{0} \, ,
 \end{equation}
 %
-where $\mat{i}$ is a unity row or column vector of the appropriate size and
+where $^\mathrm{T}$ is the transpose operator,
+$\mat{i}$ is a unity row or column vector of the appropriate size and
 $\mat{y} \equiv \mat{Yi}$.
+The result is a column vector with products in rows.
 
 Regardless of the type of conversion chain
 (MCC, BCC, ECC, XCC, BXCC),
@@ -1271,8 +1273,9 @@ become inputs to conversion processes ($\mat{U}$) or
 final demand ($\mat{Y}$).
 When Equation~(\ref{eq:inter_industry_balances}) is true,
 the conversion chain is internally consistent.
+
 All conversion chains developed for this paper
-pass this inter-industry balance check.
+pass this inter-industry consistency check.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1414,56 +1417,78 @@ unified material and energy conversion chain (BXCC).
 \label{sec:discussion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-****
-Work in progress.
----MKH
-****
-
-Arranging data in the $\mat{RUVY}$ matrices of the PSUT framework
+Arranging conversion chain data
+in the $\mat{RUVY}$ matrices of the PSUT framework
 provides many benefits to analysts.
-In particular, absent the PSUT framework,
+In particular, without the PSUT framework,
 analyses of all transformation processes involve repetitive
 calculations, once for each process.
 With the PSUT framework,
 the repetitive calculations can be expressed as a single matrix equation
-that performs the analysis across a conversion chain.
+that performs the analysis across an entire conversion chain.
 The interpretation of the results varies,
 depending on the type of conversion chain under consideration.
-In this discussion section,
-we demonstrate the analytical power of the PSUT framework
-by
+In the section the follow,
+we demonstrate the power of the PSUT framework
+for analyzing material and energy conversion chains
+by discussing first across-industry balances and
+second efficiencies.
 
 
-analyses of all transformation processes
-in conversion chains are
+%++++++++++++++++++++++++++++++
+\subsection{Across-industry balances}
+\label{sec:across_industry_balances}
+%++++++++++++++++++++++++++++++
 
-are simplified
+In contrast to the inter-industry balances
+of Equation~(\ref{eq:inter_industry_balances}),
+across-industry balances do not always
+calculate the $\mat{0}$ vector.
+Instead, across-industry balances calculate important quantities
+depending on the information contained in the $\mat{RUVY}$ matrices.
+The across-industry balances for every processing stage
+in a conversion chain are given by
 
+\begin{equation} \label{eq:across_industry_balances}
+  \mat{iU}^\mathrm{T} - \mat{Vi} \, ,
+\end{equation}
+%
+the result being a column vector
+with conversion processes in rows.
 
-
-When
-energy conversion chains (ECC and XCC),
-material conversion chains (MCC and BCC), and
-unified conversion chains (BXCC)
-are expressed in the $\mat{RUVY}$ matrices of the PSUT framework,
-many additional analyses can be performed.
-The interpretation of the results varies,
-depending on the type of conversion chain under consideration.
-We show a few of those analyses here, including
-(a)~transfer balances,
-(b)~mass balances,
-(c)~heat loss calculations, and
-(d)~irreversibility calculations.
-
+In the following subsections,
+we discuss the variety of calculations made possible
+by across-industry balances for
+mass balances,
+heat loss calculations, and
+irreversibility calculations.
 
 
 %------------------------------
-\subsubsection{Mass balances}
-\label{sec:mass_balances}
+\subsubsection{Across-industry mass balances}
+\label{sec:across_industry_mass}
 %------------------------------
--across industry eqn for MCC
 
--across industry varies (Q loss and I)
+For an MCC with all wastes accounted,
+the across-industry balance of
+Equation~(\ref{eq:across_industry_balances})
+becomes
+
+\begin{equation} \label{eq:across_industry_mass}
+  \mat{iU}^\mathrm{T} - \mat{Vi} = \mat{0} \, .
+\end{equation}
+%
+The $\mat{0}$ on the right side
+of Equation~(\ref{eq:across_industry_mass})
+indicates that mass is conserved.
+The example MCC in Section~\ref{sec:results}
+is balanced, as shown in Figure ****.
+
+****
+Add the vector here.
+---MKH
+****
+
 
 %------------------------------
 \subsubsection{Heat losses}
