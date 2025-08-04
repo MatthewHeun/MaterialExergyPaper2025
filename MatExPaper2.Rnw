@@ -1256,7 +1256,7 @@ via balances of inter-industry flows.
 The matrix equation for inter-industry flow balances is
 
 \begin{equation} \label{eq:inter_industry_balances}
-  \mat{iR}^\mathrm{T} + \mat{iV}^\mathrm{T} - \mat{Ui} - \mat{y} \overset{?}{=} \mat{0} \, ,
+  (\mat{iR})^\mathrm{T} + (\mat{iV})^\mathrm{T} - \mat{Ui} - \mat{y} \overset{?}{=} \mat{0} \, ,
 \end{equation}
 %
 where $^\mathrm{T}$ is the transpose operator,
@@ -1450,7 +1450,7 @@ The across-industry balances for every processing stage
 in a conversion chain are given by
 
 \begin{equation} \label{eq:across_industry_balances}
-  \mat{iU}^\mathrm{T} - \mat{Vi} \, ,
+  (\mat{iU})^\mathrm{T} - \mat{Vi} \, ,
 \end{equation}
 %
 the result being a column vector
@@ -1475,7 +1475,7 @@ Equation~(\ref{eq:across_industry_balances})
 becomes
 
 \begin{equation} \label{eq:across_industry_mass}
-  \mat{iU}^\mathrm{T} - \mat{Vi} = \mat{0} \, .
+  (\mat{iU})^\mathrm{T} - \mat{Vi} = \mat{0} \, .
 \end{equation}
 %
 The $\mat{0}$ on the right side
@@ -1485,8 +1485,7 @@ The example MCC in Section~\ref{sec:results}
 is balanced, as shown in Figure ****.
 
 ****
-Add the vector here.
----MKH
+MKH: Add the vector here.
 ****
 
 
@@ -1591,7 +1590,7 @@ We suggest two methods for calculating efficiencies
 based on exergy upgrades, focus on a product,
 and focus on whole streams.
 
-Figure~\ref{fig:fig:example_process_diagram} is an example of a process
+Figure~\ref{fig:example_process_diagram} is an example of a process
 within a conversion chain.
 Inputs R and E represent a resource material and energy statepoint.
 Output P is a useful product and output W is a waste product.
@@ -1614,7 +1613,7 @@ may be needed in other processes.
   \end{equation}
 
   \begin{equation} \label{eq:psut_resource_efficiency_matrix}
-    \boldsymbol{\upeta}_{Resource} = \left(\widehat{\mat{iU}}\right)\!^{-1} (\mat{Vi}_P) \, ,
+    \boldsymbol{\upeta}_{Resource} = (\widehat{\mat{iU}})\!^{-1} (\mat{Vi}_P) \, ,
   \end{equation}
 
   The Resource method quantifies
