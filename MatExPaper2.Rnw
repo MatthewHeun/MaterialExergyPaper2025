@@ -1275,7 +1275,7 @@ When Equation~(\ref{eq:inter_industry_balances}) is true,
 the conversion chain is internally consistent.
 
 All conversion chains developed for this paper
-pass this inter-industry consistency check.
+pass the inter-industry consistency check.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
