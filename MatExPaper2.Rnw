@@ -70,6 +70,7 @@
 %=================================================================
 % Add packages and commands here. The following packages are loaded in our class file: fontenc, inputenc, calc, indentfirst, fancyhdr, graphicx, epstopdf, lastpage, ifthen, float, amsmath, amssymb, lineno, setspace, enumitem, mathpazo, booktabs, titlesec, etoolbox, tabto, xcolor, colortbl, soul, multirow, microtype, tikz, totcount, changepage, attrib, upgreek, array, tabularx, pbox, ragged2e, tocloft, marginnote, marginfix, enotez, amsthm, natbib, hyperref, cleveref, scrextend, url, geometry, newfloat, caption, draftwatermark, seqsplit
 % cleveref: load \crefname definitions after \begin{document}
+\usepackage{bm}                 % For the \bm{} (bold math) command
 \usepackage{geometry}           % To adjust margins
 \usepackage{makecell}           % For multiline cells in tables
 \usepackage[version=4]{mhchem}  % For awesome chemical equations
@@ -186,64 +187,6 @@ library(xtable)
 <<Functions, echo=FALSE>>=
 source("functions.R")
 @
-
-
-<<ExampleValues, echo=FALSE>>=
-# Above a paragraph where you want to use
-# values read from a spreadsheet,
-# create an R chunk and
-# read values using read_named_cell().
-# This is the place to control the formatting of the number
-# with the fmt argument.
-ex1 <- read_named_cell("example1",
-                       file = file.path("data", "Example.xlsx"))
-ex2 <- read_named_cell("example2",
-                       fmt = "%e",
-                       file = file.path("data", "Example.xlsx"))
-@
-
-
-% Then use the value with the \Sexpr LaTeX command.
-The value of \texttt{example1} is \Sexpr{ex1}.
-
-The value of \texttt{example2} is \Sexpr{ex2}.
-
-
-
-You can also show a matrix as shown in Figure~\ref{fig:ExampleMatrix}.
-
-<<ExampleMatrix, echo=FALSE, results=tex>>=
-print_named_matrix(matrix_name = "Rmat",
-                   latex_label = "fig:ExampleMatrix",
-                   file = file.path("data", "Example.xlsx"),
-                   digits = 1,
-                   caption = "Example resource matrix (\\textbf{R}).",
-                   size = "tiny")
-@
-
-
-
-You can also include a statepoint table as shown
-in Table~\ref{tab:ExampleStatepointTable}.
-The named range in the Excel file should cover only the numbers.
-Default column names that include units on a second line are provided
-by \verb+print_statepoint_table()+.
-Change as needed.
-Row names must be supplied in the call to the function.
-
-<<ExampleStatepointTable, echo=FALSE, results=tex>>=
-print_statepoint_table(statepoint_table_name = "statepoint_table",
-                       latex_label = "tab:ExampleStatepointTable",
-                       rownames_latex = c("$\\ce{CaCO3}$",
-                                          "$\\ce{MgCO3}$",
-                                          "Sum"),
-                       file = file.path("data", "Example.xlsx"),
-                       digits = c(0, 1, 2, 3, 2, 1, 2, 3, 3, 3, 3, 3, 1),
-                       caption = "Example statepoint table.",
-                       size = "tiny")
-@
-
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1531,13 +1474,13 @@ For an ECC with no heat losses included
 (as in the example of Section~\ref{sec:results}),
 the across-industry balance
 of Equation~(\ref{eq:across_industry_balances})
-calculate heat loss from each industry:
+calculates heat loss from each industry:
 
 \begin{equation} \label{eq:across_industry_heat}
   \mat{Q}_{loss} = (\mat{iU}_e)^\mathrm{T} - \mat{V}_e\mat{i} \, ,
 \end{equation}
 %
-where the subscript ``e'' indicates energy versions of the
+where the subscript ``$e$'' indicates energy versions of the
 $\mat{U}$ and $\mat{V}$ matrices obtained by
 
 \begin{equation}
@@ -1558,7 +1501,6 @@ See the supplementary information for the
 $\mat{U}_m$, $\mat{V}_m$, $\mat{U}_h$, $\mat{V}_h$,
 $\mat{U}_e$, and $\mat{V}_e$ matrices
 for the example of Section~\ref{sec:results}.
-
 Table~\ref{tab:across_industry_Q_loss} shows
 the heat loss vector
 for the example in Section~\ref{sec:results}.
@@ -1593,8 +1535,9 @@ should calculate to the $\mat{0}$ vector.
 For an exergy conversion chain
 (BCC, XCC, or BXCC),
 the across-industry balance calculates the
-thermodynamic irreversibility ($I$) of an industry.
-Equation~\ref{eq:across_industry_balances} becomes
+thermodynamic irreversibility ($I$) of
+(or exergy destruction by) an industry.
+Equation~(\ref{eq:across_industry_balances}) becomes
 
 \begin{align} \label{eq:irreversibility_balances}
   \mat{I}_B &= (\mat{iU}_B)^\mathrm{T} - \mat{V}_B\mat{i} \, , \\
@@ -1605,23 +1548,22 @@ Equation~\ref{eq:across_industry_balances} becomes
 where $\mat{I}$ is a column vector of irreversibilities
 (exergy destroyed) with industries in rows.
 Table~\ref{tab:across_industry_irreversibilities} shows
-irreversibilities for the example conversion chains of Section~\ref{sec:results}.
+irreversibilities for the example conversion chains
+of the example in Section~\ref{sec:results}.
+Exergy is destroyed across all industries,
+unless the process is trivial.
 
 <<IrreversibilitiesTable, echo=FALSE, results=tex>>=
 print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_I",
                          latex_label = "tab:across_industry_irreversibilities",
                          digits = 0,
-                         caption = paste("Process irreversibilities ($I$) in the",
-                                         "example material conversion chain.",
-                                         "All values in kJ."),
+                         caption = paste("Irreversibilities ($I$) in the",
+                                         "example conversion chains.",
+                                         "**** Need to add irreversibilities to",
+                                         "the table in Excel. ---MKH ****"),
                          size = "footnotesize")
 @
 
-Exergy is destroyed across all industries,
-unless the mass does not change
-and no energy is input to the process.
-
-***Should we add the XCC and BXCC irreversibility values into the table?***-EES
 
 
 %++++++++++++++++++++++++++++++
