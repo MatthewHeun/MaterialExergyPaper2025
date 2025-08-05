@@ -73,6 +73,7 @@
 \usepackage{bm}                 % For the \bm{} (bold math) command
 \usepackage{geometry}           % To adjust margins
 \usepackage{makecell}           % For multiline cells in tables
+\usepackage{mathrsfs}           % For bold script "I" for irreversibility vector
 \usepackage[version=4]{mhchem}  % For awesome chemical equations
 \usepackage{pdflscape}          % For rotated tables
 \usepackage{rotating}           % For rotated cells in tables
@@ -1000,14 +1001,22 @@ is given by
 \label{sec:psut_framework}
 %------------------------------
 
-The native data format for the CL-PFU database~\citep{Brockway:2024ab} is
-the $\mat{RUVY}$ matrices of the
+The native data format for the ECCs and XCCs
+of the CL-PFU database~\citep{Brockway:2024ab} is
+the $\mat{RUVY}$ matrices%
+\footnote{
+  Note that matrices are represented by capital letters in bold, non-italic font.
+  Vectors are represented by lower-case letters in bold, non-italic font.
+}
+%
+of the
 Physical Supply-Use Table (PSUT) framework~\citep{Heun:2018,Aramendia:2022tv}.
 To date, the PSUT framework has been applied
 to analysis of energy conversion chains
 (both ECCs and XCCs)~\citep{Heun:2019aa,Aramendia:2024ac};
-this paper represents its first application
-to unified exergy analysis of material and energy conversion chains.
+this paper represents its first application to
+material conversion chains (MCCs) and
+to unified exergy analysis of material and energy conversion chains (BXCCs).
 
 One benefit of the PSUT framework
 is that it provides a natural structure for data in
@@ -1017,13 +1026,17 @@ exergy ($B$ for material and $X$ for energy in exergy units)
 conversion chains
 developed in Section~\ref{sec:results} below.
 The four matrices of the PSUT framework are
-the resource matrix ($\mat{R}$) which contains exogeneous inputs to a conversion chain,
-the use matrix ($\mat{U}$) which includes the consumption of materials and energy,
-the make matrix ($\mat{V}$) which describes the production of materials and energy
-by processes in conversion chains, and
-the final demand matrix ($\mat{Y}$) which contains consumption
+the resource matrix ($\mat{R}$), which contains exogeneous inputs to a conversion chain;
+the use matrix ($\mat{U}$), which includes the consumption of materials and energy;
+the make matrix ($\mat{V}$), which describes the production of materials and energy
+by processes in conversion chains; and
+the final demand matrix ($\mat{Y}$), which contains consumption
 of materials and energy by economic sectors.
 (See \citet[Figure~1]{Aramendia:2022tv}.)
+****
+Should we include the referenced figure in this paper?
+---MKH
+****
 
 In the PSUT framework,
 processing stages are generically called ``industries,'' and
@@ -1075,6 +1088,8 @@ Finally, we develop
 (e) a unified conversion chain (BXCC) which
     brings the exergy of materials and energy together,
     as described in Section~\ref{sec:creating_bxcc} below.
+The benefit of unifying independent material and energy conversion chains
+is that all upstream activities are accounted in a BXCC.
 
 
 %------------------------------
@@ -1109,6 +1124,9 @@ The independent BCC and XCC
 are based upon
 (a)~the material conversion chain expressed in mass units (MCC) and
 (b)~an energy conversion chain expressed in energy units (ECC).
+The MCC contains only the direct energy requirements for material transformations and
+does not contain upstream energy-production processes.
+The ECC does not contain any material transformation information.
 The ECC contains only the energy supplied to
 material conversion processes (industries) in the MCC.
 
@@ -1215,10 +1233,13 @@ The matrix equation for inter-industry product balances is
   (\mat{iR})^\mathrm{T} + (\mat{iV})^\mathrm{T} - \mat{Ui} - \mat{y} \overset{?}{=} \mat{0} \, ,
 \end{equation}
 %
-where $^\mathrm{T}$ is the transpose operator,
-$\mat{i}$ is a unity row or column vector
-of the appropriate size and orientation, and
-$\mat{y} \equiv \mat{Yi}$.
+where
+$\mat{i}$ is a unity row or column vector as appropriate,
+$\mat{iR}$ gives column sums of the resource matrix,
+$^\mathrm{T}$ is the transpose operator,
+$\mat{iV}$ gives column sums of the make matrix,
+$\mat{Ui}$ gives row sums of the use matrix, and
+$\mat{y} \equiv \mat{Yi}$, the row sums of the final demand matrix.
 The result is a column vector with products in rows.
 
 Regardless of the type of conversion chain
@@ -1391,7 +1412,7 @@ depending on the type of conversion chain under consideration.
 We demonstrate below
 the benefits of the PSUT framework
 by discussing
-across-industry balances (Section~\ref{sec:across_industry_balances} and
+across-industry balances (Section~\ref{sec:across_industry_balances}) and
 industry efficiencies (Section~\ref{sec:efficiency}).
 
 
@@ -1414,6 +1435,11 @@ in a conversion chain are given by the matrix equation
   (\mat{iU})^\mathrm{T} - \mat{Vi} \, ,
 \end{equation}
 %
+where
+$\mat{iU}$ gives column sums of the use matrix,
+$^\mathrm{T}$ indicates the transpose, and
+$\mat{Vi}$ gives row sums of the make matrix.
+
 the result being a column vector
 with industries in rows.
 
@@ -1430,27 +1456,27 @@ mass, heat loss, and irreversibility.
 For an MCC, the across-industry balance of
 Equation~(\ref{eq:across_industry_balances}) becomes
 
-\begin{equation}
-  \mat{m}_{loss} = (\mat{iU}_m)^\mathrm{T} - \mat{V}_m\mat{i} \, ,
+\begin{equation} \label{eq:across_industry_mass}
+  \mat{m}_{loss} = (\mat{iU}_{MCC})^\mathrm{T} - \mat{V}_{\!MCC}\mat{i} \, ,
 \end{equation}
 %
 where $\mat{m}_{loss}$ is a vector of mass losses
 in which rownames are processing stages and
-the subscript ``m'' indicates mass versions of the
+the subscript ``MCC'' indicates mass versions of the
 $\mat{U}$ and $\mat{V}$ matrices.
 
 For an MCC with all waste flows included
 (as in the example in this paper),
 the across-industry balance of
-Equation~(\ref{eq:across_industry_balances})
+Equation~(\ref{eq:across_industry_mass})
 becomes
 
-\begin{equation} \label{eq:across_industry_mass}
-   \mat{m}_{loss} = (\mat{iU}_m)^\mathrm{T} - \mat{V}_m\mat{i} = \mat{0} \, ,
+\begin{equation} \label{eq:across_industry_mass_with_0}
+   \mat{m}_{loss} = (\mat{iU}_{MCC})^\mathrm{T} - \mat{V}_{\!MCC}\mat{i} = \mat{0} \, ,
 \end{equation}
 %
 where the $\mat{0}$ vector on the right side
-of Equation~(\ref{eq:across_industry_mass})
+of Equation~(\ref{eq:across_industry_mass_with_0})
 indicates that mass is conserved.
 The example MCC of Section~\ref{sec:results}
 is mass-balanced across industries,
@@ -1459,7 +1485,7 @@ as shown in Table~\ref{tab:across_industry_M_loss}.
 <<MassLossTable, echo=FALSE, results=tex>>=
 print_efficiencies_table(efficiencies_table_name = "M_across_industry_balance_M_loss",
                          latex_label = "tab:across_industry_M_loss",
-                         digits = 0,
+                         digits = 3,
                          caption = paste("Mass losses ($m_{loss}$) in the",
                                          "example material conversion chain."),
                          size = "footnotesize")
@@ -1478,29 +1504,33 @@ of Equation~(\ref{eq:across_industry_balances})
 calculates heat loss from each industry:
 
 \begin{equation} \label{eq:across_industry_heat}
-  \mat{Q}_{loss} = (\mat{iU}_e)^\mathrm{T} - \mat{V}_e\mat{i} \, ,
+  \mat{Q}_{loss} = (\mat{iU}_{ECC})^\mathrm{T} - \mat{V}_{\!ECC}\mat{i} \, ,
 \end{equation}
 %
-where the subscript ``$e$'' indicates energy versions of the
+where the subscript ``$ECC$'' indicates energy versions of the
 $\mat{U}$ and $\mat{V}$ matrices obtained by
 
 \begin{equation}
-  \mat{U}_e = (\mat{U}_m \circ \mat{U}_h) + \mat{U}_{elect}
+  \mat{U}_{ECC} = (\mat{U}_{MCC} \circ \mat{U}_h) + \mat{U}_{elect}
 \end{equation}
 %
 and
 
 \begin{equation}
-  \mat{V}_e = (\mat{V}_m \circ \mat{V}_h) + \mat{V}_{elect} \, ,
+  \mat{V}_{\!ECC} = (\mat{V}_{\!MCC} \circ \mat{V}_h) + \mat{V}_{elect} \, ,
 \end{equation}
 %
-with $\circ$ indicating the Hadamard (element-wise) product,
+with
+$\circ$ indicating the Hadamard (element-wise) product,
 subscript ``$h$'' indicating $\mat{U}$ and $\mat{V}$ matrices
 containing enthalpy values, and
-subscript ``$elect$'' indicating electricity.
+subscript ``$elect$'' indicating indicating $\mat{U}$ and $\mat{V}$ matrices
+containing only electricity inputs.
 See the supplementary information for the
-$\mat{U}_m$, $\mat{V}_m$, $\mat{U}_h$, $\mat{V}_h$,
-$\mat{U}_e$, and $\mat{V}_e$ matrices
+$\mat{U}_{MCC}$, $\mat{V}_{\!MCC}$,
+$\mat{U}_h$, $\mat{V}_h$,
+$\mat{U}_{elect}$, $\mat{V}_{\!elect}$,
+$\mat{U}_{ECC}$, and $\mat{V}_{ECC}$ matrices
 for the example of Section~\ref{sec:results}.
 Table~\ref{tab:across_industry_Q_loss} shows
 the heat loss vector
@@ -1541,18 +1571,19 @@ thermodynamic irreversibility ($I$) of
 Equation~(\ref{eq:across_industry_balances}) becomes
 
 \begin{align} \label{eq:irreversibility_balances}
-  \mat{I}_B &= (\mat{iU}_B)^\mathrm{T} - \mat{V}_B\mat{i} \, , \\
-  \mat{I}_X &= (\mat{iU}_X)^\mathrm{T} - \mat{V}_X\mat{i} \, , \, \mathrm{and} \\
-  \mat{I}_{BX} &= (\mat{iU}_{BX})^\mathrm{T} - \mat{V}_{BX}\mat{i} \, ,
+  \boldsymbol{\mathcal{I}}_{BCC}  &= (\mat{iU}_{BCC})^\mathrm{T} - \mat{V}_{BCC}\mat{i} \, , \\
+  \boldsymbol{\mathcal{I}}_{XCC}  &= (\mat{iU}_{XCC})^\mathrm{T} - \mat{V}_{XCC}\mat{i} \, , \, \mathrm{and} \\
+  \boldsymbol{\mathcal{I}}_{BXCC} &= (\mat{iU}_{BXCC})^\mathrm{T} - \mat{V}_{BXCC}\mat{i} \, ,
 \end{align}
 %
-where $\mat{I}$ is a column vector of irreversibilities
-(exergy destroyed) with industries in rows.
+where $\boldsymbol{\mathcal{I}}$ is a column vector of irreversibilities
+(or exergy destruction) with industries in rows.
 Table~\ref{tab:across_industry_irreversibilities} shows
 irreversibilities for the example conversion chains
-of the example in Section~\ref{sec:results}.
+of Section~\ref{sec:results}.
 Exergy is destroyed across all industries,
-unless the process is trivial.
+unless the process is trivial
+(e.g., coke oven gas distribution).
 
 <<IrreversibilitiesTable, echo=FALSE, results=tex>>=
 print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_I",
@@ -1569,15 +1600,8 @@ print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_I
 
 %++++++++++++++++++++++++++++++
 \subsection{Efficiencies}
-\label{ssec:efficiency}
+\label{sec:efficiency}
 %++++++++++++++++++++++++++++++
-
-
-
-%------------------------------
-\subsubsection{Process efficiencies}
-\label{ssec:efficiency_methods}
-%------------------------------
 
 \begin{figure}
   \centering
@@ -1591,143 +1615,188 @@ We illustrate the application of material exergy to
 societal exergy analysis within the PSUT framework
 by calculating process efficiencies
 throughout the unified conversion chain (BXCC).
+We discuss two methods for calculating efficiencies:
+the rational efficiency and the product efficiency.
 
-We suggest two methods for calculating efficiencies
-based on exergy upgrades, focus on a product,
-and focus on whole streams.
+To illustrate calculations for the rational and product efficiencies,
+we employ Figure~\ref{fig:example_process_diagram} which shows
+an example process (industry) within a conversion chain.
+Inputs $R$ and $E$ represent material resources and energy inputs, respectively.
+Output $P$ represents beneficial products, and
+output $W$ represents waste products.
+Note that additional resource, energy input, product, or waste streams
+may be present in real processes.
 
-Figure~\ref{fig:example_process_diagram} is an example of a process
-within a conversion chain.
-Inputs R and E represent a resource material and energy statepoint.
-Output P is a useful product and output W is a waste product.
-Note that more resources, energy inputs, useful products, and waste streams
-may be needed in other processes.
-\begin{itemize}
 
-  \item The Resource method focuses on the main product stream's exergy output
-  compared to the total exergy input.
-  The Resource efficiency is
-  \begin{equation}\label{eq:resource_efficiency}
-    \eta_{Resource} = \frac{(B_{k,m,i})}{\sum{X_{k,in}}+\sum{B_{k,in}}} \, ,
-  \end{equation}
-  %
-  from \citet[Equation~(2.44), p.~32]{Dincer_2007}.
-  The Resource efficiency applies to the example process
-  (see Figure~\ref{fig:example_process_diagram}) as
-  \begin{equation}
-    \eta_{Resource} = \frac{B_{P,m,i}}{X_E + B_R} \, .
-  \end{equation}
+%------------------------------
+\subsubsection{Rational efficiencies}
+\label{sec:rational_efficiency}
+%------------------------------
 
-  \begin{equation} \label{eq:psut_resource_efficiency_matrix}
-    \boldsymbol{\upeta}_{Resource} = (\widehat{\mat{iU}})\!^{-1} (\mat{Vi}_P) \, ,
-  \end{equation}
+The rational efficiency method accounts for all process outputs
+in the numerator and all process inputs in the denominator.
+With reference to Figure~\ref{fig:example_process_diagram},
+\citet[Equation~(2.45)]{Dincer_2007}
+define the rational efficiency efficiency as
 
-  The Resource method quantifies
-  how efficiently a process
-  can produce the desired output.
+\begin{equation} \label{eq:rational_efficiency_process}
+  \eta_{rational} = \frac{B_P + B_W}{X_{elect} + B_E + B_R} \, .
+\end{equation}
+%
+****
+ESS:
+Is the above how we actually implemented the efficiency calculations?
+If so, we should change Figure~\ref{fig:example_process_diagram}
+to include an electricity input, too.
+---MKH
+****
+Equation~(\ref{eq:rational_efficiency_process}) must be applied separately
+to each process in a conversion chain.
 
-  \item The Rational efficiency method focuses on the total exergy output
-  compared to the total exergy input.
-  \citet[Equation~(2.45), p.~32]{Dincer_2007} define ***Rational efficiency*** efficiency as
-  \begin{equation}\label{eq:rational_efficiency}
-    \eta_{Rational} = \frac{\sum{B_{k,out}}}{\sum{X_{k,in}} + \sum{B_{k,in}}} \, .
-  \end{equation}
-  %
-  The Rational efficiency calculation is
-  \begin{equation}
-    \eta_{Rational} = \frac{B_P + B_W}{X_E + B_R} \, ,
-  \end{equation}
-  for the process in Figure~\ref{fig:example_process_diagram}.
+In the PSUT framework,
+Equation~(\ref{eq:rational_efficiency_process})
+can be re-cast as a matrix equation
+that applies to all processes in a conversion chain.
 
-  In PSUT matrix format, the Rational efficiency is a vector of
-  efficiencies of processing stages and is given by
-  \begin{equation} \label{eq:psut_rational_efficiency_matrix}
-    \boldsymbol{\upeta}_{Rational} = \left(\widehat{\mat{iU}}\right)\!^{-1} (\mat{Vi}) \, ,
-  \end{equation}
-  %
-  where
-  $\eta_{Rational}$ is a vector of rational efficiencies for transformation process,
-  $\mat{iU}$ gives column sums of the use matrix,
-  the~~$\widehat{~}$~~symbol indicates diagonalization of a vector into a square matrix,
-  $^{-1}$ indicates matrix inversion, and
-  $\mat{Vi}$ gives row sums of the make matrix.
-
-\end{itemize}
-
-For our purpose, the previous efficiencies
-apply to one process
-in a material conversion chain.
-% Larger scale efficiencies
-% are given by
-% \begin{equation}\label{eq:Task efficiency}
-%   \eta_{Task} = \frac{\sum{B_{in,min,theoretical}}}{\sum{B_{in,actual}}} \, .
-% \end{equation}
-% %
-% See \citet[Equation~(2.46), p.~32]{Dincer_2007}.
-% Knowing the material exergy of each statepoint,
-% allows for efficiency calculations
-% of each process.
-
-Table~\ref{tab:process_efficiencies} shows process efficiencies
-calculated via Equations \ref{eq:resource_efficiency} and \ref{eq:rational_efficiency}.
-
+\begin{equation} \label{eq:rational_efficiency_psut}
+  \boldsymbol{\upeta}_{rational} = (\widehat{\mat{iU}}_{BXCC})\!^{-1} (\mat{V}_{\!BXCC}\mat{i}) \, ,
+\end{equation}
+%
+where
+$\boldsymbol{\upeta}_{rational}$ is a column vector of rational efficiencies
+for transformation processs with industries in rows,
+the~~$\widehat{~}$~~symbol indicates diagonalization
+of the $\mat{iU}$ vector into a square matrix, and
+$^{-1}$ indicates matrix inversion.
+Table~\ref{tab:process_efficiencies} shows rational efficiencies
+for the example BXCC in Section~\ref{sec:results}.
 
 <<EfficienciesTable, echo=FALSE, results=tex>>=
 print_efficiencies_table(efficiencies_table_name = "Efficiencies__Tables_for_Paper",
                          latex_label = "tab:process_efficiencies",
-                         digits = 3,
-                         caption = paste("Process efficiencies in example material conversion chain.",
-                                         "All values in \\%."),
+                         digits = 1,
+                         caption = "Process efficiencies in example material conversion chain.",
                          convert_to_perc = TRUE,
                          size = "footnotesize")
 @
 
-<<DiscussionEfficiencyValues, echo=FALSE>>=
-rational_n_iron_ext <- read_named_cell("Rational_IronExtraction",
-                            unit = "\\\\%",
-                            perc = TRUE,
-                            fmt = "%.2f")
-resource_n_iron_ext <- read_named_cell("Resource_IronExtraction",
-                            unit = "\\\\%",
-                            perc = TRUE,
-                            fmt = "%.2f")
-resource_n_lime_ext <- read_named_cell("Resource_LimeExtraction",
-                            unit = "\\\\%",
-                            perc = TRUE,
-                            fmt = "%.2f")
-rational_n_lime_ext <- read_named_cell("Rational_LimeExtraction",
-                            unit = "\\\\%",
-                            perc = TRUE,
-                            fmt = "%.2f")
-rational_n_bf <- read_named_cell("Rational_BF",
-                            unit = "\\\\%",
-                            perc = TRUE,
-                            fmt = "%.2f")
-resource_n_bf <- read_named_cell("Resource_BF",
-                            unit = "\\\\%",
-                            perc = TRUE,
-                            fmt = "%.2f")
-
+<<DiscussionRationalEfficiencyValues, echo=FALSE>>=
+rational_eta_iron_ext <- read_named_cell("Rational_IronExtraction",
+                                         unit = "\\\\%",
+                                         perc = TRUE,
+                                         fmt = "%.1f")
+rational_eta_lime_ext <- read_named_cell("Rational_LimeExtraction",
+                                         unit = "\\\\%",
+                                         perc = TRUE,
+                                         fmt = "%.1f")
+rational_eta_coal_ext <- read_named_cell("Rational_CoalExtraction",
+                                         unit = "\\\\%",
+                                         perc = TRUE,
+                                         fmt = "%.1f")
+rational_eta_mixer <- read_named_cell("Rational_mixer",
+                                      unit = "\\\\%",
+                                      perc = TRUE,
+                                      fmt = "%.1f")
+rational_eta_bf <- read_named_cell("Rational_BF",
+                                   unit = "\\\\%",
+                                   perc = TRUE,
+                                   fmt = "%.1f")
 @
 
+****
+Discuss only rational efficiencies here.
+Discuss resource efficiencies in contrast to rational efficiencies
+in the next subsection.
+---MKH
+****
 
-The efficiencies of iron ore processes,
+The rational efficiencies of iron ore processes,
 in Table~\ref{tab:process_efficiencies},
-are lower than the limestone and coal efficiencies.
-The conversion of limestone to quicklime and coal to coke
-have low efficiencies (see Table~\ref{tab:process_efficiencies}).
-
-The iron ore extraction Rational efficiency is \Sexpr{rational_n_iron_ext}
-and the Resource efficiency is \Sexpr{resource_n_iron_ext}.
-The limestone and coal extraction efficiencies range
-from \Sexpr{resource_n_lime_ext} to \Sexpr{rational_n_lime_ext}.
+are lower than the limestone and coal efficiencies,
+****
+due to what? ---MKH
+****
+.
+The rational efficiency for iron ore extraction is \Sexpr{rational_eta_iron_ext}.
+The rational efficiencies for limestone and coal extraction are
+\Sexpr{rational_eta_lime_ext} and \Sexpr{rational_eta_coal_ext}.
 Refer to Table~\ref{tab:process_efficiencies}
 to see similar results
-for hauling and beneficiation efficiencies.\\
-The mixer and blast furnace efficiencies
-are equal for all ores because the desired output, pig iron, is the same.
-The blast furnace Rational efficiency is \Sexpr{rational_n_bf},
-and the Resource efficiency is \Sexpr{resource_n_bf}.
+for hauling and beneficiation efficiencies.
+The rational efficiencies for the mixer and blast furnace
+are
+\Sexpr{rational_eta_mixer} and
+\Sexpr{rational_eta_bf}, respectively.
+
+
+%------------------------------
+\subsubsection{Resource efficiencies}
+\label{sec:resource_efficiency}
+%------------------------------
+
+The resource approach quantifies
+how efficiently a process makes its desired product.
+The resource efficiency removes wastes and
+accounts only for beneficial exergy outputs in the numerator
+of the efficiency calculation.
+Similar to the rational efficiency,
+the resource efficiency includes all exergy inputs in the denominator
+of the efficiency calculation.
+With reference to Figure~\ref{fig:example_process_diagram},
+\citet[Equation~(2.44)]{Dincer_2007}
+define the resource efficiency efficiency as
+%
+\begin{equation} \label{eq:resource_efficiency_process}
+  \eta_{resource} = \frac{B_P}{X_{elect} + B_E + B_R} \, .
+\end{equation}
+%
+Similar to Equation~(\ref{eq:rational_efficiency_process}),
+Equation~(\ref{eq:resource_efficiency_process}) must be applied separately
+to each process in a conversion chain.
+
+In the PSUT framework,
+Equation~(\ref{eq:resource_efficiency_process}) can be re-cast as a matrix equation
+that applies to all process in a conversion chain.
+
+\begin{equation} \label{eq:resource_efficiency_psut}
+  \boldsymbol{\upeta}_{resource} = (\widehat{\mat{iU}}_{BXCC})\!^{-1} (\mat{V}_{\!BXCC}\mat{i}_P) \, ,
+\end{equation}
+%
+Equation~(\ref{eq:resource_efficiency_psut}) is identical to
+Equation~(\ref{eq:rational_efficiency_psut}) except that
+the make matrix ($\mat{V}_{\!BXCC}$) is post-multiplied by $\mat{i}_P$
+instead of by $\mat{i}$.
+$\mat{i}_P$ is a product selection vector containing ``1''
+for beneficial outputs and ``0'' for wastes.
+Table~\ref{tab:process_efficiencies} shows resource efficiencies
+for the example BXCC of Section~\ref{sec:results}.
+
+<<DiscussionResourceEfficiencyValues, echo=FALSE>>=
+resource_eta_iron_ext <- read_named_cell("Resource_IronExtraction",
+                            unit = "\\\\%",
+                            perc = TRUE,
+                            fmt = "%.2f")
+resource_eta_lime_ext <- read_named_cell("Resource_LimeExtraction",
+                            unit = "\\\\%",
+                            perc = TRUE,
+                            fmt = "%.2f")
+resource_eta_bf <- read_named_cell("Resource_BF",
+                            unit = "\\\\%",
+                            perc = TRUE,
+                            fmt = "%.2f")
+@
+
+In Table~\ref{tab:process_efficiencies},
+resource efficiencies are equal or less than rational
+efficiencies in all cases, as expected.
+The greatest differences between rational and resource efficiencies
+are observed for **** and ****
+because ****.
+****
+ESS:
+Fill the **** above.
+---MKH
+****
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
