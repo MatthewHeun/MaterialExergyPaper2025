@@ -98,7 +98,7 @@
 \TitleCitation{Title}
 
 % Author Orchid ID: enter ID or remove command
-\newcommand{\orcidauthorA}{0000-0000-0000-000X} % Add \orcidA{} behind the author's name
+\newcommand{\orcidauthorA}{0009-0007-8991-8545} % Add \orcidA{} behind the author's name
 \newcommand{\orcidauthorB}{0009-0009-3005-7247} % Add \orcidB{} behind the author's name
 \newcommand{\orcidauthorC}{0000-0002-7438-214X} % Add \orcidC{} behind the author's name
 \newcommand{\orcidauthorD}{0000-0002-3502-3371} % Add \orcidD{} behind the author's name
@@ -618,23 +618,26 @@ that organizes information at any statepoint.
 %------------------------------
 
 \begin{table}
-\caption{Material Hierarchy}
-\begin{tabularx}{\textwidth}{||C C C||}
+\footnotesize
+\centering
+\caption{Material hierarchy.}
+\begin{tabularx}{0.9\textwidth}{lcl}
 \toprule
 Name & Subscript & Definition \\
 \midrule
-statepoint & ($k$)		& a material stream that is an input or output of a process\\
-mixture    & ($m$)		& a combination of compounds and/or elements that exist at a statepoint\\
-compound   & ($i$)    & a combination of elements \\
-element    & ($j$)    & a combination of atoms \\
+statepoint & $k$		& a material stream that is an input or output of a process \\
+mixture    & $m$		& a combination of compounds and/or elements that exist at a statepoint \\
+compound   & $i$    & a combination of elements \\
+element    & $j$    & a combination of atoms \\
 \bottomrule
 \end{tabularx}
 \label{tab:material_hierarchy}
 \end{table}
+
 To analyze each statepoint of the example MCC,
-we employ a material hierarchy, namely
-\ref{tab:material_hierarchy}.
-This ordering enables later incorporation of
+we employ the material hierarchy shown in
+Table~\ref{tab:material_hierarchy}.
+This hierarchy enables later incorporation of
 components (a configuration of mixtures) and
 products (an assembly of components)
 between mixture and statepoint in our hierarchy.
@@ -649,21 +652,6 @@ For example, $B_{m,k}$ gives the material exergy ($B$)
 of a mixture (subscript $m$) at statepoint $k$.
 Our choice of $j$ (for elements) and $i$ (for compounds)
 follows \citet{Valero_2015}.
-
-% \begin{table}
-% \caption{Hierarchy nomenclature.}
-% \begin{tabularx}{\textwidth}{CCC}
-% \toprule
-% Subscript	& Meaning \\
-% \midrule
-% $k$					    & statepoint \\
-% $m$					    & mixture \\
-% $i$             & compound \\
-% $j$             & element \\
-% \bottomrule
-% \end{tabularx}
-% \label{tab:hierarchy_nomenclature}
-% \end{table}
 
 
 %------------------------------
@@ -731,20 +719,21 @@ from \citet[Tables~11.1--11.7]{Valero_2015}.
 The total material exergy of a mixture at a statepoint ($B_{k,m}$) is
 
 \begin{equation}\label{eq:exergy_mixture}
-   B_{k,m} = N_{k,m} b_{k,m} \, ,
+   B_m = N_m b_m \, ,
  \end{equation}
 %
-where $B_{k,m}$ is in units of $\mathrm{kJ_m}$,
-$N_{k,m}$ is the amount of the mixture
+where $B_m$ is the total exergy of the mixture
+(in units of $\mathrm{kJ_m}$),
+$N_m$ is the amount of the mixture
 (in units of $\mathrm{mol_m}$),
-and $b_{k,m}$ is the molar intensive material exergy of the mixture
+and $b_m$ is the molar intensive material exergy of the mixture
 (in units of $\mathrm{kJ_m/mol_m}$).
 
-The material exergy of a mixture may be accounted for each species with
+The material exergy of a mixture may be accounted for each compound ($i$)
+in the mixture with
 
 \begin{equation}\label{eq:total_exergy_mixture}
-   B_m = \sum_i{{N_i}{b_i}}
-       = N_m\sum_i{{y_i}{b_i}} \, ,
+   B_m = \sum_i{N_i b_i} = N_m\sum_i{y_ib_i} \, ,
 \end{equation}
 %
 where $N_i$ is the number of moles of compound $i$
@@ -759,10 +748,10 @@ The irreversibilities and loss of exergy at a process
 is determined by the total exergy input and output
 to the process.
 \begin{equation}\label{eq:irreversibility}
-  I = \sum_{in}{B_{k,m}} - \sum_{out}{B_{k,m}}
+  I = \sum_{in}{B_m} - \sum_{out}{B_m}
 \end{equation}
 %
-where $I$ is the irreversibile exergy destruction,
+where $I$ is the irreversibility (or exergy destruction) of the process,
 $B_{in,m}$ is the exergy of a mixture going into a process,
 and $B_{out,m}$ is the exergy of a mixture leaving a process
 (all in units of $\mathrm{kJ}$).
@@ -1269,16 +1258,6 @@ pass the inter-industry consistency check.
 \label{sec:mcc_example}
 %++++++++++++++++++++++++++++++
 
-Using the methods of Section~\ref{sec:methods},
-we compiled an example independent material conversion chain (MCC)
-for the production of pig iron.
-Figure~\ref{fig:mcc_example} shows a simplified version
-of the MCC.
-Full details of the independent MCC,
-an independent ECC, and
-a unified BXCC are available in the
-supplementary information.
-
 \begin{figure}
 \centering
 \includegraphics[width=1\linewidth]{images/MCC_example.pdf}
@@ -1286,21 +1265,24 @@ supplementary information.
 \label{fig:mcc_example}
 \end{figure}
 
-
-
-
-
-In this section, we present results
-for the material exergy
-of inputs to the blast furnace,
-the PSUT matrices for exergy accounting,
-and selected process efficiencies.
-
-An entire exergy accounting,
-additional matrices,
-and efficiencies
-for the material conversion chain
-can be found in Appendix~\ref{sec:MCC_exergy}.
+Using the methods of Section~\ref{sec:methods},
+we compiled an example independent material conversion chain (MCC)
+for the production of pig iron.
+The example independent material conversion chain
+for pig iron production
+contains 46 material statepoints,
+9 energy statepoints,
+and 14 material conversion processes (industries).
+Figure~\ref{fig:mcc_example} shows a representation
+of the MCC.
+(For simplicity,
+waste streams are now shown in Figure~\ref{fig:mcc_example}.)
+Full details of the example independent MCC,
+the example independent ECC from the CL-PFU database, and
+an example unified BXCC,
+including magnitudes for all flows,
+are available in the
+supplementary information.
 
 
 %++++++++++++++++++++++++++++++
@@ -1308,36 +1290,32 @@ can be found in Appendix~\ref{sec:MCC_exergy}.
 \label{ssec:blast furnace example}
 %++++++++++++++++++++++++++++++
 
-A material conversion chain
-of pig iron production
-contains 46 material statepoints,
-9 energy statepoints,
-and 14 processes.
-Example calculations for statepoint table exergies
-can be found in Appendix~\ref{tab:limestone_statepoint}.\\
-
-Equations \ref{eq:exergy_mixture} and \ref{eq:total_exergy_mixture} are the basis for material exergy accounting
-along the material conversion chain.
-Table~\ref{bf_input_statepoint} shows the solid material inputs
+Equations~(\ref{eq:exergy_mixture}) and~(\ref{eq:total_exergy_mixture})
+are the basis for material exergy accounting
+along the independent material conversion chain.
+At each statepoint,
+we calculate mixture material exergies ($B_m$),
+including chemical ($b_c$) and concentration ($b_{ch}$) exergies
+and all components thereof.
+Table~\ref{tab:bf_input_statepoint} shows the solid material inputs
 to the blast furnace: iron ore, limestone, and coking coal.
-Table~\ref{bf_output_statepoint} shows the pig iron output.
-Table~\ref{tab:bf_slag_output_statepoint} is the waste stream from the blast furnace.
-Supplemental information includes the gaseous inputs and outputs
-for the blast furnace process.
+Table~\ref{tab:bf_output_statepoint} shows the pig iron output.
+Table~\ref{tab:bf_slag_output_statepoint} gives details
+of the waste slag from the blast furnace.
 
-
-The chemical and concentration exergy,
-columns [$b_{ch,i}$] and [$b_{c,i}$],
-sum to the total material exergy
-based on the molar amount
-of each component
-based on equations \ref{eq:general_material_exergy_definition} and \ref{eq:total_exergy_mixture}.
-Column [$b_{m,i}$] is the total material exergy
-for each component
-calculated by Equation~(\ref{eq:total_exergy_mixture}).
-The sum of exergy inputs ($B_{m,i}$)
-is the total material exergy
-of the mixture.
+Using Table~\ref{tab:bf_input_statepoint} as the example,
+the lower-right value ($B$ for the mixture) is calculated
+by Equation~(\ref{eq:exergy_mixture}) or~(\ref{eq:total_exergy_mixture}).
+The values in the middle rows of the $b_{ch,i}$ column are calculated by
+Equation~(\ref{eq:chemical_exergy_definition}).
+The values in the middle rows of the $b_{c,i}$ column are calculated by
+Equation~(\ref{eq:concentration_exergy_definition}).
+The values in the middle rows of the $b_i$ column are calculated by
+Equation~(\ref{eq:general_material_exergy_definition}).
+Fully-detailed calculations for exergies at the inlet to the rotary kiln
+can be found in Appendix~\ref{sec:MCC_exergy}.
+See the supplementary information for details
+of the gaseous inputs to and outputs from the blast furnace.
 
 \begin{landscape}
 <<BFinputsStatepointTable, echo=FALSE, results=tex>>=
@@ -1355,7 +1333,6 @@ print_statepoint_table(statepoint_table_name = "Statepoint_ore_into_bf",
                         size = "tiny")
 @
 
-
 <<BlastFurnaceValues, echo=FALSE>>=
 BF_B_in <- read_named_cell("BF_B_in",
                             unit = "kJ",
@@ -1367,7 +1344,6 @@ BF_B_slag_out <- read_named_cell("BF_B_slag_out",
                             unit = "kJ",
                             fmt = "%.0f")
 @
-
 
 <<BFoutputsStatepointTable, echo=FALSE, results=tex>>=
 print_statepoint_table(statepoint_table_name = "Statepoint_ore_out_bf",
@@ -1392,31 +1368,39 @@ print_statepoint_table(statepoint_table_name = "statepoint_slag_out_bf",
 @
 \end{landscape}
 
-The material exergy of the ore inputs to the blast furnace is \Sexpr{BF_B_in},
-of the pig iron out is \Sexpr{BF_B_out},
-and solid waste out is \Sexpr{BF_B_slag_out}.
+The material exergy of the iron ore, quicklime, and coking coal inputs
+to the blast furnace in the example BCC is \Sexpr{BF_B_in}.
+The material exergy of the pig iron output is \Sexpr{BF_B_out}.
+The material exergy of the solid waste (slag) output is \Sexpr{BF_B_slag_out}.
+Material exerggies for all statepoints
+in the example MCC
+can be found in supplemenary information.
 
-The material exergy for each statepoint
-in the production of pig iron
-can be found in ****data repo****.
 
 %++++++++++++++++++++++++++++++
 \subsection{PSUT matrices}
 \label{sec:psut_mats_bxcc}
 %++++++++++++++++++++++++++++++
 
-The MCC converted to $\mat{RUVY}$ matrices
-allows for an exergy balance across industries
-and the irreversibilities of each process.
-
-The material exergy irreversibilities
-are given in Table~\ref{tab:across_efficiency_balance},
-determined by Equation~(\ref{eq:irreversibility}).
-
+The example MCC can be converted to
+the $\mat{RUVY}$ matrices of the PSUT framework.
 Appendix~\ref{sec:bxcc_mats} contains
-$\mat{RUVY}$ matrices for the PSUT framework for the
+$\mat{RUVY}$ matrices for the
 unified material and energy conversion chain (BXCC).
 
+
+%++++++++++++++++++++++++++++++
+\subsection{Irreversibilities}
+\label{sec:irreversibilities_in_results}
+%++++++++++++++++++++++++++++++
+
+Irreversibilities
+calculated by Equation~(\ref{eq:irreversibility})
+are given in Table~\ref{tab:across_efficiency_balance}.
+****
+Fix table reference.
+---MKH
+****
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1748,6 +1732,14 @@ The rational efficiencies for the mixer and blast furnace
 are
 \Sexpr{rational_eta_mixer} and
 \Sexpr{rational_eta_bf}, respectively.
+
+****
+EES:
+Discuss the low exergy efficiency of the rotary kiln
+somewhere in this section.
+The low exergy efficiency is due to outputs cooling to $T_0$.
+---MKH
+****
 
 
 %------------------------------

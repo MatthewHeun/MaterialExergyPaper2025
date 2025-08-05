@@ -1,7 +1,7 @@
 ---
 title: "Punch list for paper examples"
-author: Erin Schuman
-date: "26 June 2025"
+author: Erin Schuman, Matthew Kuperus Heun
+date: "5 Aug 2025"
 ---
 
 - [ ] Rotary kiln efficiencies should be higher 
@@ -26,3 +26,4 @@ date: "26 June 2025"
 - [ ] MKH: No ~ for % units
 - [ ] MKH: b_c vs. N graph 
 - [ ] MKH: irreversibilities for XCC and BXCC
+- [ ] EES: Read the entire paper completely. Edit the nomenclature table.
