@@ -1208,8 +1208,8 @@ The result for the partial example is shown in Figure~\ref{fig:bxcc4}.
 
 When constructing the $\mat{RUVY}$ matrices of the PSUT framework,
 we perform an important consistency check
-via balances of inter-industry flows.
-The matrix equation for inter-industry flow balances is
+via balances of inter-industry product flows.
+The matrix equation for inter-industry product balances is
 
 \begin{equation} \label{eq:inter_industry_balances}
   (\mat{iR})^\mathrm{T} + (\mat{iV})^\mathrm{T} - \mat{Ui} - \mat{y} \overset{?}{=} \mat{0} \, ,
@@ -1229,7 +1229,7 @@ produced by industries ($\mat{V}$)
 become inputs to industries ($\mat{U}$) or
 final demand sectors ($\mat{Y}$).
 When Equation~(\ref{eq:inter_industry_balances}) is true
-(i.e., when the calculation of the left side produces the $\mat{0}$ vector),
+(i.e., when the calculation on the left side produces the $\mat{0}$ vector),
 the conversion chain is internally consistent.
 
 All matrix representations of conversion chains
@@ -1242,7 +1242,7 @@ pass the inter-industry consistency check.
 \label{sec:results}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-In this section we present results
+In this section, we present results
 for the material exergy
 of inputs to the blast furnace,
 the PSUT matrices for exergy accounting,
@@ -1376,7 +1376,7 @@ unified material and energy conversion chain (BXCC).
 \label{sec:discussion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Arranging conversion chain data
+Arranging material and energy conversion chain data
 in the $\mat{RUVY}$ matrices of the PSUT framework
 provides many benefits to analysts.
 In particular, without the PSUT framework,
@@ -1384,15 +1384,15 @@ analyses of all transformation processes (industries) involve repetitive
 calculations, once for each process.
 With the PSUT framework,
 the repetitive calculations can be expressed as a single matrix equation
-that performs the analysis for all industries
+that performs the analyses for all industries
 in a conversion chain.
 The interpretation of the results varies,
 depending on the type of conversion chain under consideration.
 We demonstrate below
-benefits of the PSUT framework
-for analyzing material and energy conversion chains
-by discussing both across-industry balances and
-efficiencies.
+the benefits of the PSUT framework
+by discussing
+across-industry balances (Section~\ref{sec:across_industry_balances} and
+industry efficiencies (Section~\ref{sec:efficiency}).
 
 
 %++++++++++++++++++++++++++++++
@@ -1403,9 +1403,10 @@ efficiencies.
 In contrast to the inter-industry balances
 of Equation~(\ref{eq:inter_industry_balances}),
 across-industry balances do not and should not always
-calculate the $\mat{0}$ vector.
+calculate to the $\mat{0}$ vector.
 Instead, across-industry balances calculate important quantities
-depending on the information contained in the $\mat{RUVY}$ matrices.
+depending on the information contained in the $\mat{RUVY}$ matrices,
+possibly mass flow, energy flows, or exergy flows.
 Across-industry balances for every industry
 in a conversion chain are given by the matrix equation
 
@@ -1559,8 +1560,8 @@ print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_I
                          digits = 0,
                          caption = paste("Irreversibilities ($I$) in the",
                                          "example conversion chains.",
-                                         "**** Need to add irreversibilities to",
-                                         "the table in Excel. ---MKH ****"),
+                                         "**** ESS: Please add irreversibilities to",
+                                         "the table in Paper Examples.xlsx ---MKH ****"),
                          size = "footnotesize")
 @
 
