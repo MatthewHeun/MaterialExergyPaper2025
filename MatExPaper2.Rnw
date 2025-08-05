@@ -618,23 +618,26 @@ that organizes information at any statepoint.
 %------------------------------
 
 \begin{table}
-\caption{Material Hierarchy}
-\begin{tabularx}{\textwidth}{||C C C||}
+\footnotesize
+\centering
+\caption{Material hierarchy.}
+\begin{tabularx}{0.9\textwidth}{lcl}
 \toprule
 Name & Subscript & Definition \\
 \midrule
-statepoint & ($k$)		& a material stream that is an input or output of a process\\
-mixture    & ($m$)		& a combination of compounds and/or elements that exist at a statepoint\\
-compound   & ($i$)    & a combination of elements \\
-element    & ($j$)    & a combination of atoms \\
+statepoint & $k$		& a material stream that is an input or output of a process \\
+mixture    & $m$		& a combination of compounds and/or elements that exist at a statepoint \\
+compound   & $i$    & a combination of elements \\
+element    & $j$    & a combination of atoms \\
 \bottomrule
 \end{tabularx}
 \label{tab:material_hierarchy}
 \end{table}
+
 To analyze each statepoint of the example MCC,
-we employ a material hierarchy, namely
-\ref{tab:material_hierarchy}.
-This ordering enables later incorporation of
+we employ the material hierarchy shown in
+Table~\ref{tab:material_hierarchy}.
+This hierarchy enables later incorporation of
 components (a configuration of mixtures) and
 products (an assembly of components)
 between mixture and statepoint in our hierarchy.
@@ -1279,11 +1282,20 @@ pass the inter-industry consistency check.
 Using the methods of Section~\ref{sec:methods},
 we compiled an example independent material conversion chain (MCC)
 for the production of pig iron.
-Figure~\ref{fig:mcc_example} shows a simplified version
+The example independent material conversion chain
+for pig iron production
+contains 46 material statepoints,
+9 energy statepoints,
+and 14 material conversion processes (industries).
+Figure~\ref{fig:mcc_example} shows a representation
 of the MCC.
-Full details of the independent MCC,
-an independent ECC, and
-a unified BXCC are available in the
+(For simplicity,
+waste streams are now shown in Figure~\ref{fig:mcc_example}.)
+Full details of the example independent MCC,
+the example independent ECC from the CL-PFU database, and
+an example unified BXCC,
+including magnitudes for all flows,
+are available in the
 supplementary information.
 
 
@@ -1294,12 +1306,6 @@ supplementary information.
 
 
 
-
-In this section, we present results
-for the material exergy
-of inputs to the blast furnace,
-the PSUT matrices for exergy accounting,
-and selected process efficiencies.
 
 An entire exergy accounting,
 additional matrices,
@@ -1313,43 +1319,21 @@ can be found in Appendix~\ref{sec:MCC_exergy}.
 \label{ssec:blast furnace example}
 %++++++++++++++++++++++++++++++
 
-Our example material conversion chain
-for pig iron production
-contains 46 material statepoints,
-9 energy statepoints,
-and 14 material conversion processes (industries).
-At each material statepoint,
-we calculate material exergies ($B_m$)
-including chemical ($b_c$) and concentration ($b_{ch}$) exergies
-for all mixtures.
-
-
-
-Example calculations for statepoint table exergies
-can be found in Appendix~\ref{tab:limestone_statepoint}.\\
-
-Equations \ref{eq:exergy_mixture} and \ref{eq:total_exergy_mixture} are the basis for material exergy accounting
-along the material conversion chain.
-Table~\ref{bf_input_statepoint} shows the solid material inputs
+Equations~(\ref{eq:exergy_mixture}) and~(\ref{eq:total_exergy_mixture})
+are the basis for material exergy accounting
+along the independent material conversion chain.
+At each statepoint,
+we calculate mixture material exergies ($B_m$),
+including chemical ($b_c$) and concentration ($b_{ch}$) exergies.
+Table~\ref{tab:bf_input_statepoint} shows the solid material inputs
 to the blast furnace: iron ore, limestone, and coking coal.
-Table~\ref{bf_output_statepoint} shows the pig iron output.
-Table~\ref{tab:bf_slag_output_statepoint} is the waste stream from the blast furnace.
-Supplemental information includes the gaseous inputs and outputs
-for the blast furnace process.
-
-
-The chemical and concentration exergy,
-columns [$b_{ch,i}$] and [$b_{c,i}$],
-sum to the total material exergy
-based on the molar amount
-of each component
-based on equations \ref{eq:general_material_exergy_definition} and \ref{eq:total_exergy_mixture}.
-Column [$b_{m,i}$] is the total material exergy
-for each component
-calculated by Equation~(\ref{eq:total_exergy_mixture}).
-The sum of exergy inputs ($B_{m,i}$)
-is the total material exergy
-of the mixture.
+Table~\ref{tab:bf_output_statepoint} shows the pig iron output.
+Table~\ref{tab:bf_slag_output_statepoint} gives details
+of the waste slag from the blast furnace.
+See the supplementary information for details
+of the gaseous inputs to and outputs from the blast furnace.
+(Example calculations for exergies at the inlet to the rotary kiln
+can be found in Appendix~\ref{sec:MCC_exergy}.)
 
 \begin{landscape}
 <<BFinputsStatepointTable, echo=FALSE, results=tex>>=
@@ -1367,7 +1351,6 @@ print_statepoint_table(statepoint_table_name = "Statepoint_ore_into_bf",
                         size = "tiny")
 @
 
-
 <<BlastFurnaceValues, echo=FALSE>>=
 BF_B_in <- read_named_cell("BF_B_in",
                             unit = "kJ",
@@ -1379,7 +1362,6 @@ BF_B_slag_out <- read_named_cell("BF_B_slag_out",
                             unit = "kJ",
                             fmt = "%.0f")
 @
-
 
 <<BFoutputsStatepointTable, echo=FALSE, results=tex>>=
 print_statepoint_table(statepoint_table_name = "Statepoint_ore_out_bf",
@@ -1403,6 +1385,21 @@ print_statepoint_table(statepoint_table_name = "statepoint_slag_out_bf",
                         size = "tiny")
 @
 \end{landscape}
+
+In Tables~\ref{tab:bf_input_statepoint}--\ref{tab:bf_slag_output_statepoint},
+the chemical and concentration exergy
+columns ($b_{ch,i}$ and $b_{c,i}$),
+sum to the total material exergy
+based on the molar amount
+of each component
+based on
+Equations~(\ref{eq:general_material_exergy_definition}) and~(\ref{eq:total_exergy_mixture}).
+The $b_{m,i}$ column is the total material exergy
+for each component
+calculated by Equation~(\ref{eq:total_exergy_mixture}).
+The sum of exergy inputs ($B_{m,i}$)
+is the total material exergy
+of the mixture.
 
 The material exergy of the ore inputs to the blast furnace is \Sexpr{BF_B_in},
 of the pig iron out is \Sexpr{BF_B_out},
