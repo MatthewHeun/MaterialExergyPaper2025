@@ -210,7 +210,7 @@ to extract and process raw materials~\cite{Calvo:2016aa}.
 These changes require increasing levels of material extraction,
 especially for copper ore and rare earth minerals.
 In short, the energy transition will also be a materials transition,
-and depletion of key resources may become a long-term concern.
+and depletion of key material resources may become a long-term concern.
 
 Second,
 continued \emph{economic growth} implies increasing rates of
@@ -328,7 +328,7 @@ Quantifying materials and energy as exergy enables calculation
 of comparable efficiencies of all processes in societal MCCs.
 With such efficiencies available,
 hot-spots of inefficiency can be identified
-and actions taken to improve process efficiencies.
+and actions taken to improve processes.
 
 
 %++++++++++++++++++++++++++++++
@@ -337,8 +337,8 @@ and actions taken to improve process efficiencies.
 %++++++++++++++++++++++++++++++
 
 ****
-References here from the Valeros.
-End by discussing the types of exergy.
+Tania supplies references here from the Valeros.
+End by discussing the types of material exergy.
 ****
 
 In recent years,
@@ -1528,7 +1528,7 @@ should calculate to the $\mat{0}$ vector.
 
 
 %------------------------------
-\subsubsection{Across-industry exergy balances: irreversibility}
+\subsubsection{Across-industry exergy balances: irreversibilities}
 \label{sec:irreversibility}
 %------------------------------
 
