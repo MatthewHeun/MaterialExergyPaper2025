@@ -1667,16 +1667,10 @@ With reference to Figure~\ref{fig:example_process_diagram},
 define the rational efficiency efficiency as
 
 \begin{equation} \label{eq:rational_efficiency_process}
-  \eta_{rational} = \frac{B_P + B_W}{X_{elect} + B_E + B_R} \, .
+  \eta_{rational} = \frac{B_P + B_W}{X_{elect} + B_R} \, .
 \end{equation}
 %
-****
-ESS:
-Is the above how we actually implemented the efficiency calculations?
-If so, we should change Figure~\ref{fig:example_process_diagram}
-to include an electricity input, too.
----MKH
-****
+where $X_{elect}$ is the exergy of energy input E.
 Equation~(\ref{eq:rational_efficiency_process}) must be applied separately
 to each process in a conversion chain.
 
@@ -1774,10 +1768,9 @@ With reference to Figure~\ref{fig:example_process_diagram},
 define the resource efficiency efficiency as
 %
 \begin{equation} \label{eq:resource_efficiency_process}
-  \eta_{resource} = \frac{B_P}{X_{elect}+ B_R} \, ,
+  \eta_{resource} = \frac{B_P}{X_{elect}+ B_R} \, .
 \end{equation}
 %
-where $X_{elect}$ is the exergy of energy input E.
 Similar to Equation~(\ref{eq:rational_efficiency_process}),
 Equation~(\ref{eq:resource_efficiency_process}) must be applied separately
 to each process in a conversion chain.
@@ -1818,13 +1811,10 @@ In Table~\ref{tab:process_efficiencies},
 resource efficiencies are equal or less than rational
 efficiencies in all cases, as expected.
 The greatest differences between rational and resource efficiencies
-are observed for **** and ****
-because ****.
-****
-ESS:
-Fill the **** above.
----MKH
-****
+are observed for the mixer and the COG treatment
+because the iron ore is a small portion of the mixer mixture
+and the methane is a small portion of the COG that is distributed.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
