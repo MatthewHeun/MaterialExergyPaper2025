@@ -1263,6 +1263,33 @@ pass the inter-industry consistency check.
 \label{sec:results}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+%++++++++++++++++++++++++++++++
+\subsection{Material conversion chain}
+\label{sec:mcc_example}
+%++++++++++++++++++++++++++++++
+
+Using the methods of Section~\ref{sec:methods},
+we compiled an example independent material conversion chain (MCC)
+for the production of pig iron.
+Figure~\ref{fig:mcc_example} shows a simplified version
+of the MCC.
+Full details of the independent MCC,
+an independent ECC, and
+a unified BXCC are available in the
+supplementary information.
+
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth]{images/MCC_example.pdf}
+\caption{Simplified version of the example MCC.}
+\label{fig:mcc_example}
+\end{figure}
+
+
+
+
+
 In this section, we present results
 for the material exergy
 of inputs to the blast furnace,
