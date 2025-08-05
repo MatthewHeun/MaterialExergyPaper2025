@@ -98,7 +98,7 @@
 \TitleCitation{Title}
 
 % Author Orchid ID: enter ID or remove command
-\newcommand{\orcidauthorA}{0000-0000-0000-000X} % Add \orcidA{} behind the author's name
+\newcommand{\orcidauthorA}{0009-0007-8991-8545} % Add \orcidA{} behind the author's name
 \newcommand{\orcidauthorB}{0009-0009-3005-7247} % Add \orcidB{} behind the author's name
 \newcommand{\orcidauthorC}{0000-0002-7438-214X} % Add \orcidC{} behind the author's name
 \newcommand{\orcidauthorD}{0000-0002-3502-3371} % Add \orcidD{} behind the author's name
@@ -1313,11 +1313,18 @@ can be found in Appendix~\ref{sec:MCC_exergy}.
 \label{ssec:blast furnace example}
 %++++++++++++++++++++++++++++++
 
-A material conversion chain
-of pig iron production
+Our example material conversion chain
+for pig iron production
 contains 46 material statepoints,
 9 energy statepoints,
-and 14 processes.
+and 14 material conversion processes (industries).
+At each material statepoint,
+we calculate material exergies ($B_m$)
+including chemical ($b_c$) and concentration ($b_{ch}$) exergies
+for all mixtures.
+
+
+
 Example calculations for statepoint table exergies
 can be found in Appendix~\ref{tab:limestone_statepoint}.\\
 
@@ -1421,7 +1428,6 @@ determined by Equation~(\ref{eq:irreversibility}).
 Appendix~\ref{sec:bxcc_mats} contains
 $\mat{RUVY}$ matrices for the PSUT framework for the
 unified material and energy conversion chain (BXCC).
-
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
