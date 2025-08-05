@@ -1072,8 +1072,7 @@ material ($M$ in mass units),
 energy ($E$ in energy units), and
 exergy ($B$ for material and $X$ for energy in exergy units)
 conversion chains
-developed in Section~\ref{sec:results}
-below.
+developed in Section~\ref{sec:results} below.
 The four matrices of the PSUT framework are
 the resource matrix ($\mat{R}$) which contains exogeneous inputs to a conversion chain,
 the use matrix ($\mat{U}$) which includes the consumption of materials and energy,
@@ -1082,6 +1081,16 @@ by processes in conversion chains, and
 the final demand matrix ($\mat{Y}$) which contains consumption
 of materials and energy by economic sectors.
 (See \citet[Figure~1]{Aramendia:2022tv}.)
+
+In the PSUT framework,
+processing stages are generically called ``industries,'' and
+flows of mass, energy, or exergy between processing stages
+are generically called ``products.''
+In a flow diagram,
+industries are represented visually by boxes.
+Products are represented visually by arrows
+that indicate the direction of flow
+from one industry to another.
 
 
 %------------------------------
@@ -1100,7 +1109,8 @@ two versions of an independent material conversion chain:
     to the Iron and steel industry
     (Section~\ref{sec:material_data})
     and
-(b) an exergy version of the MCC (BCC).
+(b) an exergy version of the material conversion chain
+    that we deem a BCC.
 Each statepoint in the independent MCC is converted to exergy
 to form the BCC in accordance with
 the methods discussed in Section~\ref{sec:exergy_of_materials}.
@@ -1110,9 +1120,10 @@ energy conversion chain to supply the MCC's energy requirements:
 (c) an energy conversion chain (ECC) obtained from the CL-PFU database
     as described in Sections~\ref{sec:energy_data} and~\ref{sec:ecc_for_mcc}
     and
-(d) an exergy version of the ECC (XCC), also
-    extracted from the CL-PFU database.
-To obtain the XCC needed to supply energy to the BCC,
+(d) an exergy version of the energy conversion chain
+    that we deem an XCC,
+    also extracted from the CL-PFU database.
+To obtain the XCC,
 we perform an ``upstream swim'' from a final demand ($\mat{Y}$) matrix
 populated with the energy requirements of the BCC,
 as discussed in~\citet[Section~2.2.5]{Heun:2018}.
@@ -1137,7 +1148,7 @@ from resources to final demand.
 In the middle,
 we generate and manipulate the $\mat{RUVY}$ matrices of the PSUT framework.
 The process is illustrated by Figures~\ref{fig:bxcc1}--\ref{fig:bxcc4}
-which show a portion of the blast furnace example
+which show a illustrative portion of the blast furnace example
 developed elsewhere in this paper.
 The basis for the partial example is 100~kJ of electricity delivered
 to the blast furnace.
@@ -1156,7 +1167,7 @@ are based upon
 (a)~the material conversion chain expressed in mass units (MCC) and
 (b)~an energy conversion chain expressed in energy units (ECC).
 The ECC contains only the energy supplied to
-material conversion processes in the MCC.
+material conversion processes (industries) in the MCC.
 
 In the independent XCC of Figure~\ref{fig:bxcc1},
 electricity produced by the XCC is delivered to the ``Iron and steel'' sector,
@@ -1166,6 +1177,7 @@ In the independent BCC of Figure~\ref{fig:bxcc1},
 electricity consumed by the blast furnace is supplied by
 ``Electricity [from Supply]'',
 indicating that the electricity supply is exogenous to the BCC.
+
 The goal of creating a unified BXCC
 is endogenizing the exogenous energy inputs to the independent BCC,
 as illustrated by
@@ -1179,8 +1191,8 @@ to the ``Blast furnace'' in the independent BCC,
 as shown by the red dashed line.
 In the BXCC,
 electricity formerly provided by ``Electricity [from Supply]''
-will come from
-``Power plants'' instead.
+will come from the
+``Power plants'' industry instead.
 
 \begin{figure}
 \centering
@@ -1217,7 +1229,8 @@ The second step involves three sub-steps:
 (b)~removal of selected entries from the resource matrix ($\mat{R}$) of the BCC, and
 (c)~summation of corresponding matrices in the BCC and XCC,
 respecting row and column names.
-The result for the partial example is shown in Figure~\ref{fig:bxcc3}.
+The result for the partial example is
+the unified conversion chain (BXCC) shown in Figure~\ref{fig:bxcc3}.
 
 \begin{figure}
 \centering
@@ -1260,18 +1273,20 @@ The matrix equation for inter-industry flow balances is
 \end{equation}
 %
 where $^\mathrm{T}$ is the transpose operator,
-$\mat{i}$ is a unity row or column vector of the appropriate size and
+$\mat{i}$ is a unity row or column vector
+of the appropriate size and orientation, and
 $\mat{y} \equiv \mat{Yi}$.
 The result is a column vector with products in rows.
 
 Regardless of the type of conversion chain
 (MCC, BCC, ECC, XCC, BXCC),
 Equation~(\ref{eq:inter_industry_balances}) tests whether
-all flows extracted from resources ($\mat{R}$) or
-produced by conversion processes ($\mat{V}$)
-become inputs to conversion processes ($\mat{U}$) or
-final demand ($\mat{Y}$).
-When Equation~(\ref{eq:inter_industry_balances}) is true,
+all products extracted from resources ($\mat{R}$) or
+produced by industries ($\mat{V}$)
+become inputs to industries ($\mat{U}$) or
+final demand sectors ($\mat{Y}$).
+When Equation~(\ref{eq:inter_industry_balances}) is true
+(i.e., when the calculation of the left side produces the $\mat{0}$ vector),
 the conversion chain is internally consistent.
 
 All matrix representations of conversion chains
@@ -1422,18 +1437,19 @@ Arranging conversion chain data
 in the $\mat{RUVY}$ matrices of the PSUT framework
 provides many benefits to analysts.
 In particular, without the PSUT framework,
-analyses of all transformation processes involve repetitive
+analyses of all transformation processes (industries) involve repetitive
 calculations, once for each process.
 With the PSUT framework,
 the repetitive calculations can be expressed as a single matrix equation
-that performs the analysis across an entire conversion chain.
+that performs the analysis for all industries
+in a conversion chain.
 The interpretation of the results varies,
 depending on the type of conversion chain under consideration.
-In the section the follow,
-we demonstrate the power of the PSUT framework
+We demonstrate below
+benefits of the PSUT framework
 for analyzing material and energy conversion chains
-by discussing first across-industry balances and
-second efficiencies.
+by discussing both across-industry balances and
+efficiencies.
 
 
 %++++++++++++++++++++++++++++++
@@ -1443,34 +1459,43 @@ second efficiencies.
 
 In contrast to the inter-industry balances
 of Equation~(\ref{eq:inter_industry_balances}),
-across-industry balances do not always
+across-industry balances do not and should not always
 calculate the $\mat{0}$ vector.
 Instead, across-industry balances calculate important quantities
 depending on the information contained in the $\mat{RUVY}$ matrices.
-The across-industry balances for every processing stage
-in a conversion chain are given by
+Across-industry balances for every industry
+in a conversion chain are given by the matrix equation
 
 \begin{equation} \label{eq:across_industry_balances}
   (\mat{iU})^\mathrm{T} - \mat{Vi} \, ,
 \end{equation}
 %
 the result being a column vector
-with conversion processes in rows.
+with industries in rows.
 
 In the following subsections,
-we discuss the variety of calculations made possible
-by across-industry balances for
-mass balances,
-heat loss calculations, and
-irreversibility calculations.
+we discuss calculations using across-industry balances for
+mass, heat loss, and irreversibility.
 
 
 %------------------------------
-\subsubsection{Across-industry mass balances}
+\subsubsection{Across-industry mass balances: mass losses}
 \label{sec:across_industry_mass}
 %------------------------------
 
-For an MCC with all wastes accounted
+For an MCC, the across-industry balance of
+Equation~(\ref{eq:across_industry_balances}) becomes
+
+\begin{equation}
+  \mat{m}_{loss} = (\mat{iU}_m)^\mathrm{T} - \mat{V}_m\mat{i} \, ,
+\end{equation}
+%
+where $\mat{m}_{loss}$ is a vector of mass losses
+in which rownames are processing stages and
+the subscript ``m'' indicates mass versions of the
+$\mat{U}$ and $\mat{V}$ matrices.
+
+For an MCC with all waste flows included
 (as in the example in this paper),
 the across-industry balance of
 Equation~(\ref{eq:across_industry_balances})
@@ -1480,36 +1505,33 @@ becomes
    \mat{m}_{loss} = (\mat{iU}_m)^\mathrm{T} - \mat{V}_m\mat{i} = \mat{0} \, ,
 \end{equation}
 %
-where $\mat{m}_{loss}$ is a vector of mass losses
-with rownames of processing stages,
-the subscript ``m'' indicates mass versions of the
-$\mat{U}$ and $\mat{V}$ matrices.
-The $\mat{0}$ vector on the right side
+where the $\mat{0}$ vector on the right side
 of Equation~(\ref{eq:across_industry_mass})
 indicates that mass is conserved.
-The example MCC in Section~\ref{sec:results}
-is balanced, as shown in Table~\ref{tab:across_industry_M_loss}.
+The example MCC of Section~\ref{sec:results}
+is mass-balanced across industries,
+as shown in Table~\ref{tab:across_industry_M_loss}.
 
 <<MassLossTable, echo=FALSE, results=tex>>=
 print_efficiencies_table(efficiencies_table_name = "M_across_industry_balance_M_loss",
                          latex_label = "tab:across_industry_M_loss",
                          digits = 0,
                          caption = paste("Mass losses ($m_{loss}$) in the",
-                                         "example material conversion chain.",
-                                         "All values in kg."),
+                                         "example material conversion chain."),
                          size = "footnotesize")
 @
 
 
 %------------------------------
-\subsubsection{Across-industry heat losses}
+\subsubsection{Across-industry energy balances: heat losses}
 \label{sec:across_industry_heat_losses}
 %------------------------------
 
-For an ECC with no heat losses accounted
-(as in the example of this paper),
-across-industry energy balances calculate heat loss from each process.
-Equation~(\ref{eq:across_industry_balances}) becomes
+For an ECC with no heat losses included
+(as in the example of Section~\ref{sec:results}),
+the across-industry balance
+of Equation~(\ref{eq:across_industry_balances})
+calculate heat loss from each industry:
 
 \begin{equation} \label{eq:across_industry_heat}
   \mat{Q}_{loss} = (\mat{iU}_e)^\mathrm{T} - \mat{V}_e\mat{i} \, ,
@@ -1525,56 +1547,66 @@ $\mat{U}$ and $\mat{V}$ matrices obtained by
 and
 
 \begin{equation}
-  \mat{V}_e = (\mat{V}_m \circ \mat{V}_h) + \mat{V}_{elect}
+  \mat{V}_e = (\mat{V}_m \circ \mat{V}_h) + \mat{V}_{elect} \, ,
 \end{equation}
 %
 with $\circ$ indicating the Hadamard (element-wise) product,
 subscript ``$h$'' indicating $\mat{U}$ and $\mat{V}$ matrices
-consisting of enthalpy values, and
+containing enthalpy values, and
 subscript ``$elect$'' indicating electricity.
-The heat loss vector
-for the the example ECC is shown
-in Table~\ref{tab:across_industry_Q_loss}.
+See the supplementary information for the
+$\mat{U}_m$, $\mat{V}_m$, $\mat{U}_h$, $\mat{V}_h$,
+$\mat{U}_e$, and $\mat{V}_e$ matrices
+for the example of Section~\ref{sec:results}.
+
+Table~\ref{tab:across_industry_Q_loss} shows
+the heat loss vector
+for the example in Section~\ref{sec:results}.
 
 <<HeatLossTable, echo=FALSE, results=tex>>=
 print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_Q_loss",
                          latex_label = "tab:across_industry_Q_loss",
                          digits = 0,
                          caption = paste("Process heat losses ($Q_{loss}$) in the",
-                                         "example material conversion chain.",
-                                         "All values in kJ."),
+                                         "example material conversion chain."),
                          size = "footnotesize")
 @
 
-With the enthalpy, mass, and molecular weight
-of a statepoint's mixture,
-the PSUT framework gives the heat loss
-across industries.
-
-***Matrix form*** iV - Ui
-
-\begin{equation}\label{eq:heat_loss}
-  Q_{m,loss} = \frac{h_m M_m}{MW_m} \, ,
-\end{equation}
-%
-where $Q_{k,loss}$ is the heat loss of a mixture across an industry (in units of $\mathrm{kJ}$),
-$h_m$ is the enthalpy of a mixture (in units of $\mathrm{kJ/mol}$),
-$M_m$ is the mass of a mixture (in units of $\mathrm{kg}$),
-and $MW_m$ is the molecular weight of a mixture (in units of $\mathrm{kg/mol}$).
-
-For mixtures that do not change from a process, like hauling,
-the heat loss is equal to the energy input.
-An industry balance should never have a negative heat loss,
-which would indicate exergy generation.
-See Table~\ref{tab:across_efficiency_balance} for across industry information
-and supplemental information for the associated $\mathrm{RUVY}$ matrices.
+For industries that simply transport mass
+(e.g., hauling),
+$Q_{loss}$ is simply equal to the energy input.
+****
+Why does the Mixer have non-zero $Q_{loss}$?
+---MKH
+****
+For an ECC that includes heat losses,
+the across-industry balance
+of Equation~(\ref{eq:across_industry_balances})
+should calculate to the $\mat{0}$ vector.
 
 
 %------------------------------
-\subsubsection{Irreversibility}
+\subsubsection{Across-industry exergy balances: irreversibility}
 \label{sec:irreversibility}
 %------------------------------
--across industry for ***HEUN add BCC, XCC, BXCC. in same table***\\
+
+For an exergy conversion chain
+(BCC, XCC, or BXCC),
+the across-industry balance calculates the
+thermodynamic irreversibility ($I$) of an industry.
+Equation~\ref{eq:across_industry_balances} becomes
+
+\begin{align} \label{eq:irreversibility_balances}
+  \mat{I}_B &= (\mat{iU}_B)^\mathrm{T} - \mat{V}_B\mat{i} \, , \\
+  \mat{I}_X &= (\mat{iU}_X)^\mathrm{T} - \mat{V}_X\mat{i} \, , \, \mathrm{and} \\
+  \mat{I}_{BX} &= (\mat{iU}_{BX})^\mathrm{T} - \mat{V}_{BX}\mat{i} \, ,
+\end{align}
+%
+where $\mat{I}$ is a column vector of irreversibilities
+(exergy destroyed) with industries in rows.
+Table~\ref{tab:across_industry_irreversibilities} shows
+irreversibilities for the example conversion chains of Section~\ref{sec:results}.
+
 <<IrreversibilitiesTable, echo=FALSE, results=tex>>=
 print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_I",
                          latex_label = "tab:across_industry_irreversibilities",
@@ -1585,22 +1617,11 @@ print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_I
                          size = "footnotesize")
 @
 
-Exergy is destroyed across industries,
-unless the mixture does not change
+Exergy is destroyed across all industries,
+unless the mass does not change
 and no energy is input to the process.
-From Equation~(\ref{eq:irreversibility}),
-the irreversibility of each process
-in the BCC, XCC, and BXCC
-is seen in Table~\ref{tab:across_efficiency_balance}.
 
-***HEUN I and Q loss have same reference label***-EES
 ***Should we add the XCC and BXCC irreversibility values into the table?***-EES
-
-
--n across industry
-
-
-
 
 
 %++++++++++++++++++++++++++++++
