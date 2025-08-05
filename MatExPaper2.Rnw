@@ -653,21 +653,6 @@ of a mixture (subscript $m$) at statepoint $k$.
 Our choice of $j$ (for elements) and $i$ (for compounds)
 follows \citet{Valero_2015}.
 
-% \begin{table}
-% \caption{Hierarchy nomenclature.}
-% \begin{tabularx}{\textwidth}{CCC}
-% \toprule
-% Subscript	& Meaning \\
-% \midrule
-% $k$					    & statepoint \\
-% $m$					    & mixture \\
-% $i$             & compound \\
-% $j$             & element \\
-% \bottomrule
-% \end{tabularx}
-% \label{tab:hierarchy_nomenclature}
-% \end{table}
-
 
 %------------------------------
 \subsubsection{The exergy of materials}
@@ -1324,7 +1309,8 @@ are the basis for material exergy accounting
 along the independent material conversion chain.
 At each statepoint,
 we calculate mixture material exergies ($B_m$),
-including chemical ($b_c$) and concentration ($b_{ch}$) exergies.
+including chemical ($b_c$) and concentration ($b_{ch}$) exergies
+and all components thereof.
 Table~\ref{tab:bf_input_statepoint} shows the solid material inputs
 to the blast furnace: iron ore, limestone, and coking coal.
 Table~\ref{tab:bf_output_statepoint} shows the pig iron output.
@@ -1387,8 +1373,8 @@ print_statepoint_table(statepoint_table_name = "statepoint_slag_out_bf",
 \end{landscape}
 
 In Tables~\ref{tab:bf_input_statepoint}--\ref{tab:bf_slag_output_statepoint},
-the chemical and concentration exergy
-columns ($b_{ch,i}$ and $b_{c,i}$),
+the chemical and concentration exergies
+(columns $b_{ch,i}$ and $b_{c,i}$)
 sum to the total material exergy
 based on the molar amount
 of each component
