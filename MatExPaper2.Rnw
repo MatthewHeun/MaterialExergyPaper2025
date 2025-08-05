@@ -1754,6 +1754,14 @@ are
 \Sexpr{rational_eta_mixer} and
 \Sexpr{rational_eta_bf}, respectively.
 
+****
+EES:
+Discuss the low exergy efficiency of the rotary kiln
+somewhere in this section.
+The low exergy efficiency is due to outputs cooling to $T_0$.
+---MKH
+****
+
 
 %------------------------------
 \subsubsection{Resource efficiencies}
