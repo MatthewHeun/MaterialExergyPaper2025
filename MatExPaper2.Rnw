@@ -1311,6 +1311,8 @@ to the blast furnace: iron ore, limestone, and coking coal.
 Table~\ref{tab:bf_output_statepoint} shows the pig iron output.
 Table~\ref{tab:bf_slag_output_statepoint} gives details
 of the waste slag from the blast furnace.
+See the supplementary information for details
+of the gaseous inputs to and outputs from the blast furnace.
 
 Using Table~\ref{tab:bf_input_statepoint} as the example,
 the lower-right value ($B$ for the mixture) is calculated
@@ -1323,8 +1325,7 @@ The values in the middle rows of the $b_i$ column are calculated by
 Equation~(\ref{eq:general_material_exergy_definition}).
 Fully-detailed calculations for exergies at the inlet to the rotary kiln
 can be found in Appendix~\ref{sec:MCC_exergy}.
-See the supplementary information for details
-of the gaseous inputs to and outputs from the blast furnace.
+
 
 \begin{landscape}
 <<BFinputsStatepointTable, echo=FALSE, results=tex>>=
