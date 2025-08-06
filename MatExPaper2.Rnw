@@ -290,11 +290,20 @@ One way to address concerns about critical materials
 in high-intensity processes
 is to increase the efficiency of energy-consuming
 material processing stages.
-``Efficiency'' is usually quantified by
+``Efficiency'' of a material conversion process
+is often quantified by
 material output (in mass units) per
 unit of energy input (in energy units),
 e.g.\ tonnes of iron produced per MJ of coal consumed
-or tonnes of cement produced per MJ of heat required.
+or tonnes of cement produced per MJ of heat required.%
+%
+\footnote{
+  A related concept is material productivity in units of \$/tonne
+  (or its inverse material intensity in units of tonne/\$)
+  where \$ are GDP at the national level.
+  See **** add references from Nicolas here ****.
+}
+%
 Strictly speaking, such efficiencies are \emph{efficacies},
 because they are quantified in units of tonnes/MJ and are not unitless.
 Because different materials are involved (iron and cement),
@@ -311,10 +320,55 @@ Exergy is a work quantification of materials and energy
 expressed in energy units (joules).
 For materials, exergy is defined as the maximum work
 that could be obtained from thermodynamic processes that bring
-a material into equilibrium with its surroundings.
+a material into equilibrium with a reference environment.
+Material exergy has four components,
+each accounting for a different dis-equilibration relative to the reference environment.
+Physical exergy
+accounts for differences in temperature and pressure,
+with the reference environment typically defined as
+298.15~K and 1~atm.
+Chemical exergy
+accounts for differences in chemical species,
+with the reference environment characterized
+by the references substances
+at the reference partial pressures (in the atmosphere)
+or concentrations (in seawater or the crust of the Earth)..
+
+Concentration (or mixing) exergy
+accounts for differences in abundance.
+Comminution exergy
+accounts for differences in molecular structure
+****
+Is ``molecular structure'' correct?
+---MKH
+****).
 For energy, exergy is defined as the maximum work
 that could be obtained from thermodynamic processes that bring
 the energy into equilibrium with its surroundings.
+
+An important aspect of both material and energy exergy is defining
+the reference environment,
+
+
+The
+The reference environment for the crust
+is not trivial to define because the crust is heterogeneous.
+\citet{Valero_2015}
+defined \emph{Thanatia} as a theoretical model
+of the Earth with all minerals and materials dispersed
+in their most degraded, mixed form.
+Thus, the chemical exergy is strongly dependent on the reference state.
+The exergy of mixing (or concentration exergy)
+is the work required to separate substances from a mixture.
+The exergy of mixing can be relevant
+at the beginning of an MCC (ores) and
+at the end of an MCC (complex products).
+
+
+
+
+
+
 With both materials and energy quantified as exergy
 (in work units, joules),
 thermodynamically meaningful and unitless efficiencies
@@ -337,18 +391,13 @@ and actions taken to improve processes.
 \label{sec:prior_work}
 %++++++++++++++++++++++++++++++
 
-****
-Tania supplies references here from the Valeros.
-End by discussing the types of material exergy.
-****
-
 In recent years,
 researchers have developed databases of material flows in MCCs
 at the world and societal levels.
 These MCCs are in mass terms, not in exergy
 terms~\citep{Liu:2013ab,Cao:2017aa,Plank:2022aa,Wiedenhofer:2024aa,UN-IRP:aa}.
 
-The Exergy Economics community~\citep{exergy_economics_website}
+Members of the Exergy Economics community~\citep{exergy_economics_website}
 have assembled datasets of energy-only conversion chains (ECCs) and
 exergy conversion chains (XCCs)
 at the societal level
@@ -383,7 +432,8 @@ unified exergy analysis of materials and energy.
 Wall and coauthors~\citep{Wall:1987,Wall:1994,Wall:1990aa}
 applied a unified exergy-based analysis to assess resource use
 in Sweden, Japan, and Italy,
-tracing flows from primary inputs to end-use applications.
+tracing flows from primary inputs to end-use applications
+excluding the exergy flows of non-metals and precious metals.
 The studies reveal low overall exergy efficiencies
 (around
 20\% for Sweden,
@@ -392,7 +442,8 @@ The studies reveal low overall exergy efficiencies
 highlight substantial losses across
 the material and energy conversion chains.
 \citet{Carmona:2021aa} quantified global resource flows and stocks
-from 1900 to 2010, from extraction to end-use.
+from 1900 to 2010, from extraction to end-use,
+including the exergy flows of non-metals, precious metals, and products.
 During this period,
 primary exergy use increased from 115 to 903~EJ/year,
 while useful exergy rose from 9 to 148~EJ/year,
@@ -402,16 +453,40 @@ Resource conversion efficiency improved from 8\% to 16\%.
 Previous unified exergy analyses of materials and energy
 at the societal level have lacked process-level detail
 in characterizing material and energy transformations.
-****
-Do any of these studies extend to products?
-If not, we can say that studies will in the future
-and we will then need concentration exergy
-to characterize the complexity of those products.
-Can we do a calculation to show that complex products
-have a lot of concentration exergy?
-****
-Treated coke oven gas is high when multiplied by moles of compound -EES
-****
+% ****
+% Do any of these studies extend to products?
+% If not, we can say that studies will in the future
+% and we will then need concentration exergy
+% to characterize the complexity of those products.
+% Can we do a calculation to show that complex products
+% have a lot of concentration exergy?
+% ****
+% Treated coke oven gas is high when multiplied by moles of compound -EES
+% ****
+
+
+\citet{Carmona:2021aa} quantified the exergy of products
+(defined as mixtures of substances)
+as a mean weighted average of the chemical exergies
+of minerals and metals that compose the product.
+\citeauthor{Carmona:2021aa} ignored the exergy of mixing.
+
+A key aspect of
+
+This approach is an approach because the exergy of a product,
+at reference conditions of temperature and pressure,
+has an additional component which is the exergy of mixing.
+Chemical exergy is defined as the maximum useful work
+that can be obtained when a pure chemical substance
+is brought from its initial state (usually 298.15~K, 1~atm)
+to chemical equilibrium with the reference environment.
+
+
+
+
+
+
+
 And to our knowledge, no previous studies at the societal level
 include the concentration exergy ($b_{c}$)
 of inputs and outputs
@@ -648,7 +723,7 @@ may be described as a mixture of compounds,
 and the compounds an arrangement of elements.
 For this paper, we adopt subscript symbols for the hierarchy
 as shown in Table~\ref{tab:material_hierarchy}
-adapted from \citet{Remmen_2024}.
+adapted from \citet[p.~10]{Remmen_2024}.
 For example, $B_{m,k}$ gives the material exergy ($B$)
 of a mixture (subscript $m$) at statepoint $k$.
 Our choice of $j$ (for elements) and $i$ (for compounds)
@@ -1409,6 +1484,12 @@ Fix table reference.
 \label{sec:discussion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+****
+Tania suggests that
+we include a discussion of the importance
+of concentration exergy.
+****
+
 Arranging material and energy conversion chain data
 in the $\mat{RUVY}$ matrices of the PSUT framework
 provides many benefits to analysts.
@@ -1615,6 +1696,7 @@ print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_I
 \label{sec:efficiency}
 %++++++++++++++++++++++++++++++
 
+There are many ways to
 \begin{figure}
   \centering
   \includegraphics[width=0.8\linewidth]{images/example_efficiency_diagram.pdf}
@@ -1773,7 +1855,7 @@ Equation~(\ref{eq:resource_efficiency_process}) can be re-cast as a matrix equat
 that applies to all process in a conversion chain.
 
 \begin{equation} \label{eq:resource_efficiency_psut}
-  \boldsymbol{\upeta}_{resource} = (\widehat{\mat{iU}}_{BXCC})\!^{-1} (\mat{V}_{\!BXCC}\mat{i}_P) \, ,
+  \boldsymbol{\upeta}_{resource} = (\widehat{\mat{iU}}_{BXCC})\!^{-1} (\mat{V}_{\!BXCC}\mat{i}_P)
 \end{equation}
 %
 Equation~(\ref{eq:resource_efficiency_psut}) is identical to
@@ -1844,7 +1926,24 @@ which is only 6\% of the output (by mole).
 
 
 
+%++++++++++++++++++++++++++++++
+\subsection{Summary}
+\label{sec:summary}
+%++++++++++++++++++++++++++++++
 
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Future work}
+\label{sec:future_work}
+%++++++++++++++++++++++++++++++
+
+****
+Add a note here about embodied exergy (exergy cost)
+being enabled by the PSUT framework.
+The reference should be \citet[Section~3.3]{Heun:2018}
+---MKH
+****
 
 
 
