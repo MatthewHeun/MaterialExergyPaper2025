@@ -647,7 +647,8 @@ the material at any statepoint
 may be described as a mixture of compounds,
 and the compounds an arrangement of elements.
 For this paper, we adopt subscript symbols for the hierarchy
-as shown in Table~\ref{tab:material_hierarchy}.
+as shown in Table~\ref{tab:material_hierarchy}
+adapted from \ref{Remmen_2024}.
 For example, $B_{m,k}$ gives the material exergy ($B$)
 of a mixture (subscript $m$) at statepoint $k$.
 Our choice of $j$ (for elements) and $i$ (for compounds)
@@ -937,7 +938,6 @@ from \citet[Table~9.1]{Valero_2015}.
 The example MCC has both material and energy inputs to processes.
 We calculate the exergy of energy inputs as
 shown in Equation~(\ref{eq:general_material_exergy_definition})
-when the Gibbs energy of formation ()
 Energy inputs are treated as we treat as materials
 when the Gibbs energy of formation
 ($\Delta{G_{f}}$)
@@ -956,7 +956,7 @@ $LHV_i$ is the lower heating value of a material (in units of $\mathrm{kJ/kg}$),
 $w$ is the fuel's mass fraction of moisture (in units of $\mathrm{kg/kg}$),
 $h_{fg}$ is the enthalpy of evaporation of \ce{H2O} (in units of $\mathrm{kJ/kg}$),
 $\phi_i$ is the ratio of exergy to energy (in units of $\mathrm{kJ/kJ}$),
-the constant, 9417, is the difference in sulfur's exergy and lower heating value (in units of $\mathrm{kJ/kg}$),**** needs units ---MKH ****,
+the constant, 9417, is the difference in sulfur's exergy and lower heating value (in units of $\mathrm{kJ/kg}$),
 and $s$ is the mass fraction of sulfur in the fuel (in units of $\mathrm{kg/kg}$).
 See \citet[Eq.~C.5a]{Kotas_1995}.
 
