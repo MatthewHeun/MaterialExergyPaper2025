@@ -290,11 +290,20 @@ One way to address concerns about critical materials
 in high-intensity processes
 is to increase the efficiency of energy-consuming
 material processing stages.
-``Efficiency'' is usually quantified by
+``Efficiency'' of a material conversion process
+is often quantified by
 material output (in mass units) per
 unit of energy input (in energy units),
 e.g.\ tonnes of iron produced per MJ of coal consumed
-or tonnes of cement produced per MJ of heat required.
+or tonnes of cement produced per MJ of heat required.%
+%
+\footnote{
+  A related concept is material productivity in units of \$/tonne
+  (or its inverse material intensity in units of tonne/\$)
+  where \$ are GDP at the national level.
+  See **** add references from Nicolas here ****.
+}
+%
 Strictly speaking, such efficiencies are \emph{efficacies},
 because they are quantified in units of tonnes/MJ and are not unitless.
 Because different materials are involved (iron and cement),
@@ -1614,6 +1623,7 @@ print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_I
 \label{sec:efficiency}
 %++++++++++++++++++++++++++++++
 
+There are many ways to
 \begin{figure}
   \centering
   \includegraphics[width=0.8\linewidth]{images/example_efficiency_diagram.pdf}
@@ -1772,7 +1782,7 @@ Equation~(\ref{eq:resource_efficiency_process}) can be re-cast as a matrix equat
 that applies to all process in a conversion chain.
 
 \begin{equation} \label{eq:resource_efficiency_psut}
-  \boldsymbol{\upeta}_{resource} = (\widehat{\mat{iU}}_{BXCC})\!^{-1} (\mat{V}_{\!BXCC}\mat{i}_P) \, ,
+  \boldsymbol{\upeta}_{resource} = (\widehat{\mat{iU}}_{BXCC})\!^{-1} (\mat{V}_{\!BXCC}\mat{i}_P)
 \end{equation}
 %
 Equation~(\ref{eq:resource_efficiency_psut}) is identical to
@@ -1843,7 +1853,24 @@ which is only 6\% of the output (by mole).
 
 
 
+%++++++++++++++++++++++++++++++
+\subsection{Summary}
+\label{sec:summary}
+%++++++++++++++++++++++++++++++
 
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Future work}
+\label{sec:future_work}
+%++++++++++++++++++++++++++++++
+
+****
+Add a note here about embodied exergy (exergy cost)
+being enabled by the PSUT framework.
+The reference should be \citet[Section~3.3]{Heun:2018}
+---MKH
+****
 
 
 
