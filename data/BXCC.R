@@ -14,6 +14,13 @@ zaf_2013_ecc <- file.path("data", "zaf_2013_ecc.rds") |>
   )
 
 #
+# Verify the inter-industry exergy balance
+#
+
+zaf_2013_ecc |>
+  Recca::verify_SUT_energy_balance()
+
+#
 # Save full ZAF data to an Excel file for later inspection.
 #
 
