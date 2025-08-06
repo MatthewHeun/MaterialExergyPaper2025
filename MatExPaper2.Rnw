@@ -648,7 +648,7 @@ may be described as a mixture of compounds,
 and the compounds an arrangement of elements.
 For this paper, we adopt subscript symbols for the hierarchy
 as shown in Table~\ref{tab:material_hierarchy}
-adapted from \ref{Remmen_2024}.
+adapted from \citet{Remmen_2024}.
 For example, $B_{m,k}$ gives the material exergy ($B$)
 of a mixture (subscript $m$) at statepoint $k$.
 Our choice of $j$ (for elements) and $i$ (for compounds)
@@ -1302,6 +1302,8 @@ to the blast furnace: iron ore, limestone, and coking coal.
 Table~\ref{tab:bf_output_statepoint} shows the pig iron output.
 Table~\ref{tab:bf_slag_output_statepoint} gives details
 of the waste slag from the blast furnace.
+See the supplementary information for details
+of the gaseous inputs to and outputs from the blast furnace.
 
 Using Table~\ref{tab:bf_input_statepoint} as the example,
 the lower-right value ($B$ for the mixture) is calculated
@@ -1314,8 +1316,7 @@ The values in the middle rows of the $b_i$ column are calculated by
 Equation~(\ref{eq:general_material_exergy_definition}).
 Fully-detailed calculations for exergies at the inlet to the rotary kiln
 can be found in Appendix~\ref{sec:MCC_exergy}.
-See the supplementary information for details
-of the gaseous inputs to and outputs from the blast furnace.
+
 
 \begin{landscape}
 <<BFinputsStatepointTable, echo=FALSE, results=tex>>=
