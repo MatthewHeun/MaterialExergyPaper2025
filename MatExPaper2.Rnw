@@ -322,21 +322,24 @@ For materials, exergy is defined as the maximum work
 that could be obtained from thermodynamic processes that bring
 a material into equilibrium with a reference environment.
 Material exergy has four components,
-each accounting for a different dis-equilibration relative to the reference environment.
+each accounting for a different dis-equilibration
+relative to the reference environment.
 Physical exergy
 accounts for differences in temperature and pressure,
 with the reference environment typically defined as
 298.15~K and 1~atm.
 Chemical exergy
 accounts for differences in chemical species,
-with the reference environment characterized
-by the references substances
-at the reference partial pressures (in the atmosphere)
-or concentrations (in seawater or the crust of the Earth)..
-
+with the reference environment characterized by
+reference substances at reference partial pressures (in the atmosphere)
+and reference concentrations (in seawater or the crust of the Earth).
 Concentration (or mixing) exergy
-accounts for differences in abundance.
-Comminution exergy
+accounts for differences in relative abundance compared to the reference environment
+and represents the minimum work required to separate substances from a mixture.
+Concentration exergy can be especially relevant
+at the beginning and end of an MCC
+for ores and complex products, respectively.
+Finally, comminution exergy
 accounts for differences in molecular structure
 ****
 Is ``molecular structure'' correct?
@@ -348,26 +351,14 @@ the energy into equilibrium with its surroundings.
 
 An important aspect of both material and energy exergy is defining
 the reference environment,
-
-
-The
-The reference environment for the crust
-is not trivial to define because the crust is heterogeneous.
-\citet{Valero_2015}
-defined \emph{Thanatia} as a theoretical model
-of the Earth with all minerals and materials dispersed
-in their most degraded, mixed form.
-Thus, the chemical exergy is strongly dependent on the reference state.
-The exergy of mixing (or concentration exergy)
-is the work required to separate substances from a mixture.
-The exergy of mixing can be relevant
-at the beginning of an MCC (ores) and
-at the end of an MCC (complex products).
-
-
-
-
-
+a non-trivial task for the calculation
+of chemical exergy for minerals
+due to the inhomogeinity of the Earth's crust.
+To that end,
+\citet{Valero_2015} defined \emph{Thanatia},
+a theoretical model of the Earth
+with all minerals and materials dispersed
+in their most degraded and homogeneously mixed form.
 
 With both materials and energy quantified as exergy
 (in work units, joules),
@@ -393,9 +384,8 @@ and actions taken to improve processes.
 
 In recent years,
 researchers have developed databases of material flows in MCCs
-at the world and societal levels.
-These MCCs are in mass terms, not in exergy
-terms~\citep{Liu:2013ab,Cao:2017aa,Plank:2022aa,Wiedenhofer:2024aa,UN-IRP:aa}.
+at the world and societal levels~\citep{Liu:2013ab,Cao:2017aa,Plank:2022aa,Wiedenhofer:2024aa,UN-IRP:aa}.
+These MCCs are in mass terms, not in exergy terms.
 
 Members of the Exergy Economics community~\citep{exergy_economics_website}
 have assembled datasets of energy-only conversion chains (ECCs) and
@@ -429,6 +419,13 @@ across the period of study.
 At the societal level,
 there are several examples of
 unified exergy analysis of materials and energy.
+\citet{Carmona:2021aa} quantified the exergy of products
+(defined as mixtures of substances)
+as a mean weighted average of the chemical exergies
+of minerals and metals that compose each product.
+\citeauthor{Carmona:2021aa} ignored concentration exergy
+(i.e., the exergy of mixing).
+
 Wall and coauthors~\citep{Wall:1987,Wall:1994,Wall:1990aa}
 applied a unified exergy-based analysis to assess resource use
 in Sweden, Japan, and Italy,
@@ -449,45 +446,11 @@ primary exergy use increased from 115 to 903~EJ/year,
 while useful exergy rose from 9 to 148~EJ/year,
 with 47\% embedded in material goods by 2010.
 Resource conversion efficiency improved from 8\% to 16\%.
-
 Previous unified exergy analyses of materials and energy
 at the societal level have lacked process-level detail
 in characterizing material and energy transformations.
-% ****
-% Do any of these studies extend to products?
-% If not, we can say that studies will in the future
-% and we will then need concentration exergy
-% to characterize the complexity of those products.
-% Can we do a calculation to show that complex products
-% have a lot of concentration exergy?
-% ****
-% Treated coke oven gas is high when multiplied by moles of compound -EES
-% ****
 
-
-\citet{Carmona:2021aa} quantified the exergy of products
-(defined as mixtures of substances)
-as a mean weighted average of the chemical exergies
-of minerals and metals that compose the product.
-\citeauthor{Carmona:2021aa} ignored the exergy of mixing.
-
-A key aspect of
-
-This approach is an approach because the exergy of a product,
-at reference conditions of temperature and pressure,
-has an additional component which is the exergy of mixing.
-Chemical exergy is defined as the maximum useful work
-that can be obtained when a pure chemical substance
-is brought from its initial state (usually 298.15~K, 1~atm)
-to chemical equilibrium with the reference environment.
-
-
-
-
-
-
-
-And to our knowledge, no previous studies at the societal level
+To our knowledge, no previous studies at the societal level
 include the concentration exergy ($b_{c}$)
 of inputs and outputs
 of material and energy transformations.
