@@ -657,7 +657,7 @@ may be described as a mixture of compounds,
 and the compounds an arrangement of elements.
 For this paper, we adopt subscript symbols for the hierarchy
 as shown in Table~\ref{tab:material_hierarchy}
-adapted from \ref{Remmen_2024}.
+adapted from \citet[p.~10]{Remmen_2024}.
 For example, $B_{m,k}$ gives the material exergy ($B$)
 of a mixture (subscript $m$) at statepoint $k$.
 Our choice of $j$ (for elements) and $i$ (for compounds)
