@@ -10,7 +10,7 @@
 zaf_2013_ecc <- file.path("data", "zaf_2013_ecc.rds") |>
   readRDS() |>
   dplyr::mutate(
-    WorksheetNames = paste(Country, Year, EnergyType, sep = "_")
+    WorksheetNames = paste0(Country, "_", Year, "_", EnergyType)
   )
 
 #
