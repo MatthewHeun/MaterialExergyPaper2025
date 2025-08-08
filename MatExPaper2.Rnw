@@ -327,7 +327,7 @@ relative to the reference environment.
 Physical exergy
 accounts for differences in temperature and pressure,
 with the reference environment typically defined as
-298.15~K and 1~atm.
+$T_0$ = 298.15~K and $P_0$ = 1~atm.
 Chemical exergy
 accounts for differences in chemical species,
 with the reference environment characterized by
@@ -464,7 +464,7 @@ to unified exergy analysis of material and energy conversion chains.
 \label{sec:question_structure}
 %++++++++++++++++++++++++++++++
 
-All of which raises the question answered by this paper:
+All of which raises the question addressed by this paper:
 \emph{how should unified energy and material conversion chains
 that extend to products with process-level detail
 be represented for unified exergy analysis of materials and energy
