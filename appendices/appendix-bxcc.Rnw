@@ -12,7 +12,7 @@ for the example presented in this paper, including
 (c)~the unified material and energy conversion chain (BXCC).
 The basis for the conversion chains is 1000~kg of beneficiated iron ore.
 All matrices in Figures~\ref{fig:rb_example_mat}--\ref{fig:ybx_example_mat}
-below contain exergy values in MJ.
+contain exergy values in MJ.
 Rows and columns are removed if all values are 0.
 Entries of 0.0 indicate non-zero values that round to 0.0~MJ.
 See the Supplemental Information for an Excel file

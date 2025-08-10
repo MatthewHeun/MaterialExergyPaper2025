@@ -17,70 +17,86 @@
 # New version.
 cp_CaCO3 <- read_named_cell("cp_CaCO3",
                             unit = "kJ/mol\\\\!\\\\cdot\\\\!K",
-                            fmt = "%.5f")
-
+                            format = "f",
+                            digits = 5)
 
 cp_MgCO3 <- read_named_cell("cp_MgCO3",
                             unit = "kJ/mol\\\\!\\\\cdot\\\\!K",
-                            fmt = "%.5f")
+                            format = "f",
+                            digits = 5)
 
 
 deltah_CaCO3 <- read_named_cell("deltah_CaCO3",
                             unit = "kJ/mol",
-                            fmt = "%.5f")
-
+                            format = "f",
+                            digits = 5)
 deltah_MgCO3 <- read_named_cell("deltah_MgCO3",
                             unit = "kJ/mol",
-                            fmt = "%.5f")
+                            format = "f",
+                            digits = 5)
 
 T_kiln <- read_named_cell("T_kiln",
                             unit = "K",
-                            fmt = "%.2f")
+                            format = "f",
+                            digits = 2)
 T_0 <- read_named_cell("T_0",
                             unit = "K",
-                            fmt = "%.2f")
+                            format = "f",
+                            digits = 2)
 deltas_CaCO3 <- read_named_cell("deltas_CaCO3",
                             unit = "kJ/mol\\\\!\\\\cdot\\\\!K",
-                            fmt = "%.5f")
+                            format = "f",
+                            digits = 5)
 deltas_MgCO3 <- read_named_cell("deltas_MgCO3",
                             unit = "kJ/mol\\\\!\\\\cdot\\\\!K",
-                            fmt = "%.5f")
+                            format = "f",
+                            digits = 5)
 
 b_ph_MgCO3 <- read_named_cell("b_ph_MgCO3",
                             unit = "kJ/mol",
-                            fmt = "%.5f")
+                            format = "f",
+                            digits = 5)
 
 b_ph_CaCO3 <- read_named_cell("b_ph_CaCO3",
                             unit = "kJ/mol",
-                            fmt = "%.5f")
+                            format = "f",
+                            digits = 5)
 
 deltaG_CaCO3 <- read_named_cell("deltaG_CaCO3",
                             unit = "kJ/mol",
-                            fmt = "%.5f")
+                            format = "f",
+                            digits = 5)
 
 deltaG_MgCO3 <- read_named_cell("deltaG_MgCO3",
                             unit = "kJ/mol",
-                            fmt = "%.5f")
+                            format = "f",
+                            digits = 5)
 
 b_ch_Ca <- read_named_cell("b_ch_Ca",
                             unit = "kJ/mol",
-                            fmt = "%.1f")
+                            format = "f",
+                            digits = 1)
 
 b_ch_C <- read_named_cell("b_ch_C",
                             unit = "kJ/mol",
-                            fmt = "%.1f")
+                            format = "f",
+                            digits = 1)
 b_ch_O2 <- read_named_cell("b_ch_O2",
                             unit = "kJ/mol",
-                            fmt = "%.1f")
+                            format = "f",
+                            digits = 1)
 b_ch_Mg <- read_named_cell("b_ch_Mg",
                             unit = "kJ/mol",
-                            fmt = "%.1f")
+                            format = "f",
+                            digits = 1)
 b_ch_MgCO3 <- read_named_cell("b_ch_MgCO3",
                             unit = "kJ/mol",
-                            fmt = "%.4f")
+                            format = "f",
+                            digits = 4)
 b_ch_CaCO3 <- read_named_cell("b_ch_CaCO3",
                             unit = "kJ/mol",
-                            fmt = "%.4f")
+                            format = "f",
+                            digits = 4)
 
 # MW_CaCO3 <- read_named_cell("MW_CaCO3",
 #                             unit = "kg/mol",
@@ -101,59 +117,77 @@ b_ch_CaCO3 <- read_named_cell("b_ch_CaCO3",
 #                        file = file.path("data", "Paper Examples.xlsx"))
 y_CaCO3 <- read_named_cell("y_CaCO3",
                             unit = "mol_{CaCO_3}/mol_{limestone}",
-                            fmt = "%.5f")
+                            format = "f",
+                            digits = 5)
 y_MgCO3 <- read_named_cell("y_MgCO3",
                             unit = "mol_{MgCO_3}/mol_{limestone}",
-                            fmt = "%.5f")
+                            format = "f",
+                            digits = 5)
 RT0 <- read_named_cell("RT0",
                             unit = "kJ/mol",
-                            fmt = "%.5f")
+                            format = "f",
+                            digits = 5)
 lny_CaCO3 <- read_named_cell("lny_CaCO3",
                             unit = "mol_{\\\\ce{CaCO3}}/mol_{limestone}",
-                            fmt = "%.5f")
+                            format = "f",
+                            digits = 5)
 lny_MgCO3 <- read_named_cell("lny_MgCO3",
                             unit = "mol_{\\\\ce{MgCO3}/mol_{limestone}",
-                            fmt = "%.5f")
+                            format = "f",
+                            digits = 5)
 b_c_CaCO3 <- read_named_cell("b_c_CaCO3",
                             unit = "kJ/mol",
-                            fmt = "%.5f")
+                            format = "f",
+                            digits = 5)
 b_c_MgCO3 <- read_named_cell("b_c_MgCO3",
                             unit = "kJ/mol",
-                            fmt = "%.5f")
+                            format = "f",
+                            digits = 5)
 
 Fr <- read_named_cell("Fr",
-                            fmt = "%.3f")
+                      format = "f",
+                      digits = 3)
 dM_CaCO3 <- read_named_cell("dM_CaCO3",
                             unit = "m^3",
-                            fmt = "%.6f")
+                            format = "f",
+                            digits = 6)
 dM_MgCO3 <- read_named_cell("dM_MgCO3",
                             unit = "m^3",
-                            fmt = "%.6f")
+                            format = "f",
+                            digits = 6)
 b_com_CaCO3 <- read_named_cell("b_com_CaCO3",
                             unit = "kJ/mol",
-                            fmt = "%.5f")
+                            format = "f",
+                            digits = 5)
 b_com_MgCO3 <- read_named_cell("b_com_MgCO3",
                             unit = "kJ/mol",
-                            fmt = "%.5f")
+                            format = "f",
+                            digits = 5)
 com_constant <- read_named_cell("com_constant",
                             unit = "J/m^2",
-                            fmt = "%.5f")
+                            format = "f",
+                            digits = 5)
 
 b_CaCO3 <- read_named_cell("b_CaCO3",
                             unit = "kJ/mol",
-                            fmt = "%.5f")
+                            format = "f",
+                            digits = 5)
 b_MgCO3 <- read_named_cell("b_MgCO3",
                             unit = "kJ/mol",
-                            fmt = "%.5f")
+                            format = "f",
+                            digits = 5)
 b_tot_limestone<- read_named_cell("b_tot_limestone",
                             unit = "kJ/mol",
-                            fmt = "%.5f")
+                            format = "f",
+                            digits = 5)
 b_com <- read_named_cell("b_com",
                             unit = "kJ/mol",
-                            fmt = "%.5f")
+                            format = "f",
+                            digits = 5)
 b_com_tot <- read_named_cell("b_com_tot",
                             unit = "kJ/mol",
-                            fmt = "%.5f")
+                            format = "f",
+                            digits = 5)
 @
 
 In the \ref{sec:exergy_of_materials} section of this paper,

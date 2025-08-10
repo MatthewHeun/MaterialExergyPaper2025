@@ -1314,7 +1314,7 @@ and 14 material conversion processes (industries).
 Figure~\ref{fig:mcc_example} shows a representation
 of the MCC.
 (For simplicity,
-waste streams are now shown in Figure~\ref{fig:mcc_example}.)
+waste streams are not shown in Figure~\ref{fig:mcc_example}.)
 Full details of the example independent MCC,
 the example independent ECC from the CL-PFU database, and
 an example unified BXCC,
@@ -1336,12 +1336,15 @@ we calculate mixture material exergies ($B_m$),
 including chemical ($b_c$) and concentration ($b_{ch}$) exergies
 and all components thereof.
 Table~\ref{tab:bf_input_statepoint} shows the solid material inputs
-to the blast furnace: iron ore, limestone, and coking coal.
+to the blast furnace:
+iron ore (\ce{Fe2O3} with \ce{SiO2} impurities),
+quicklime (\ce{CaO}), and
+coking coal.
 Table~\ref{tab:bf_output_statepoint} shows the pig iron output.
 Table~\ref{tab:bf_slag_output_statepoint} gives details
 of the waste slag from the blast furnace.
 See the supplementary information for details
-of the gaseous inputs to and outputs from the blast furnace.
+of the gaseous inputs and outputs of the blast furnace.
 
 Using Table~\ref{tab:bf_input_statepoint} as the example,
 the lower-right value ($B$ for the mixture) is calculated
@@ -1374,17 +1377,20 @@ print_statepoint_table(statepoint_table_name = "Statepoint_ore_into_bf",
 
 <<BlastFurnaceValues, echo=FALSE>>=
 BF_B_in <- read_named_cell("BF_B_in",
-                            unit = "kJ",
-                            fmt = "%.0f")
+                           unit = "kJ",
+                           format = "f",
+                           digits = 1)
 BF_B_out <- read_named_cell("BF_B_out",
                             unit = "kJ",
-                            fmt = "%.0f")
+                            format = "f",
+                            digits = 1)
 BF_B_slag_out <- read_named_cell("BF_B_slag_out",
                             unit = "kJ",
-                            fmt = "%.0f")
+                            format = "f",
+                            digits = 1)
 @
 
-<<BFoutputsStatepointTable, echo=FALSE, results=tex>>=
+<<BFoutputsPIStatepointTable, echo=FALSE, results=tex>>=
 print_statepoint_table(statepoint_table_name = "Statepoint_ore_out_bf",
                         latex_label = "tab:bf_output_statepoint",
                         rownames_latex = c("$\\ce{Fe}$",
@@ -1395,7 +1401,7 @@ print_statepoint_table(statepoint_table_name = "Statepoint_ore_out_bf",
                         size = "tiny")
 @
 
-<<BFoutputsStatepointTable, echo=FALSE, results=tex>>=
+<<BFoutputsSlagStatepointTable, echo=FALSE, results=tex>>=
 print_statepoint_table(statepoint_table_name = "statepoint_slag_out_bf",
                         latex_label = "tab:bf_slag_output_statepoint",
                         rownames_latex = c("$\\ce{CaSiO3}$",
@@ -1421,25 +1427,13 @@ can be found in supplemenary information.
 \label{sec:psut_mats_bxcc}
 %++++++++++++++++++++++++++++++
 
-The example MCC can be converted to
-the $\mat{RUVY}$ matrices of the PSUT framework.
+We created a representation of the
+example unified material and energy conversion chain
+in the $\mat{RUVY}$ matrix format of the PSUT framework
+using the methods of Section~\ref{sec:creating_bxcc}.
 Appendix~\ref{sec:bxcc_mats} contains
 $\mat{RUVY}$ matrices for the
 unified material and energy conversion chain (BXCC).
-
-
-%++++++++++++++++++++++++++++++
-\subsection{Irreversibilities}
-\label{sec:irreversibilities_in_results}
-%++++++++++++++++++++++++++++++
-
-Irreversibilities
-calculated by Equation~(\ref{eq:irreversibility})
-are given in Table~\ref{tab:across_efficiency_balance}.
-****
-Fix table reference.
----MKH
-****
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1449,8 +1443,8 @@ Fix table reference.
 
 ****
 Tania suggests that
-we include a discussion of the importance
-of concentration exergy.
+we include a discussion of the
+relative importance of concentration exergy.
 ****
 
 Arranging material and energy conversion chain data
@@ -1647,7 +1641,7 @@ print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_I
                          digits = 0,
                          caption = paste("Irreversibilities ($I$) in the",
                                          "example conversion chains.",
-                                         "**** ESS: Please add irreversibilities to",
+                                         "**** EES: Please add irreversibilities to",
                                          "the table in Paper Examples.xlsx ---MKH ****"),
                          size = "footnotesize")
 @
@@ -1735,23 +1729,28 @@ print_efficiencies_table(efficiencies_table_name = "Efficiencies__Tables_for_Pap
 rational_eta_iron_ext <- read_named_cell("Rational_IronExtraction",
                                          unit = "\\\\%",
                                          perc = TRUE,
-                                         fmt = "%.1f")
+                                         format = "f",
+                                         digits = 1)
 rational_eta_lime_ext <- read_named_cell("Rational_LimeExtraction",
                                          unit = "\\\\%",
                                          perc = TRUE,
-                                         fmt = "%.1f")
+                                         format = "f",
+                                         digits = 1)
 rational_eta_coal_ext <- read_named_cell("Rational_CoalExtraction",
                                          unit = "\\\\%",
                                          perc = TRUE,
-                                         fmt = "%.1f")
+                                         format = "f",
+                                         digits = 1)
 rational_eta_mixer <- read_named_cell("Rational_mixer",
                                       unit = "\\\\%",
                                       perc = TRUE,
-                                      fmt = "%.1f")
+                                      format = "f",
+                                      digits = 1)
 rational_eta_bf <- read_named_cell("Rational_BF",
                                    unit = "\\\\%",
                                    perc = TRUE,
-                                   fmt = "%.1f")
+                                   format = "f",
+                                   digits = 1)
 @
 
 ****
@@ -1834,15 +1833,18 @@ for the example BXCC of Section~\ref{sec:results}.
 resource_eta_iron_ext <- read_named_cell("Resource_IronExtraction",
                             unit = "\\\\%",
                             perc = TRUE,
-                            fmt = "%.2f")
+                            format = "f",
+                            digits = 2)
 resource_eta_lime_ext <- read_named_cell("Resource_LimeExtraction",
                             unit = "\\\\%",
                             perc = TRUE,
-                            fmt = "%.2f")
+                            format = "f",
+                            digits = 2)
 resource_eta_bf <- read_named_cell("Resource_BF",
                             unit = "\\\\%",
                             perc = TRUE,
-                            fmt = "%.2f")
+                            format = "f",
+                            digits = 2)
 @
 
 In Table~\ref{tab:process_efficiencies},

@@ -28,3 +28,4 @@ date: "5 Aug 2025"
 - [ ] MKH: irreversibilities for XCC and BXCC
 - [ ] EES: Read the entire paper completely. Edit the nomenclature table.
 - [ ] EES: Clean up all broken names in Paper Examples.xlsx
+- [ ] EES: Draft an abstract

@@ -4,7 +4,8 @@ read_named_cell <- function(cell_name,
                             unit = NULL,
                             mathrm = FALSE,
                             perc = FALSE,
-                            fmt = "%.2f",
+                            format = "f",
+                            digits = 2,
                             file = file.path("data", "Paper Examples.xlsx")) {
   val_df <- openxlsx2::read_xlsx(file = file,
                                  named_region = cell_name,
@@ -13,7 +14,9 @@ read_named_cell <- function(cell_name,
   if (perc) {
     val <- val * 100
   }
-  out <- sprintf(fmt = fmt, val)
+  # out <- sprintf(fmt = fmt, val)
+  # out <- sprintf(fmt = fmt, formatC(val, format = fmt, big.mark = ",", digits = digits))
+  out <- formatC(val, digits = digits, big.mark = ",", format = format)
   if (!is.null(unit)) {
     if (mathrm) {
       unit <- paste0("\\\\mathrm{", unit, "}")
