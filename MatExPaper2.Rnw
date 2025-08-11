@@ -290,7 +290,7 @@ One way to address concerns about critical materials
 in high-intensity processes
 is to increase the efficiency of energy-consuming
 material processing stages.
-``Efficiency'' of a material conversion process
+The ``efficiency'' of a material conversion process
 is often quantified by
 material output (in mass units) per
 unit of energy input (in energy units),
@@ -344,12 +344,14 @@ accounts for differences in molecular structure
 ****
 Is ``molecular structure'' correct?
 ---MKH
-****).
+****.
 For energy, exergy is defined as the maximum work
 that could be obtained from thermodynamic processes that bring
 the energy into equilibrium with its surroundings.
 
-An important aspect of both material and energy exergy is defining
+An important aspect of both
+the exergy of materials and the exergy of energy
+is defining
 the reference environment,
 a non-trivial task for the calculation
 of chemical exergy for minerals
@@ -429,7 +431,7 @@ of minerals and metals that compose each product.
 Wall and coauthors~\citep{Wall:1987,Wall:1994,Wall:1990aa}
 applied a unified exergy-based analysis to assess resource use
 in Sweden, Japan, and Italy,
-tracing flows from primary inputs to end-use applications
+tracing flows from primary inputs to end-use applications,
 excluding the exergy flows of non-metals and precious metals.
 The studies reveal low overall exergy efficiencies
 (around
@@ -450,7 +452,8 @@ Previous unified exergy analyses of materials and energy
 at the societal level have lacked process-level detail
 in characterizing material and energy transformations.
 
-To our knowledge, no previous studies at the societal level
+To our knowledge, no previous studies of material conversion chains
+at the societal level
 include the concentration exergy ($b_{c}$)
 of inputs and outputs
 of material and energy transformations.
@@ -488,7 +491,7 @@ For the first time, we
   \item perform exergy analysis with an example MCC
         (production of pig iron) using PSUT matrices; and
 
-  \item demonstrate the interaction
+  \item illustrate the interactions
         between MCCs and ECCs using the $\mat{RUVY}$ matrices of the PSUT framework
         in a manner amenable to use with existing XCC datasets.
 
@@ -510,7 +513,7 @@ Section~\ref{sec:conclusion} concludes.
 Our method for demonstrating
 a consistent approach
 for societal exergy analysis along
-unified conversion chains (MCCs and ECCs)
+unified conversion chains (BXCCs)
 is to elucidate mathematical expressions
 and example calculations in full detail.
 The mathematical expressions are shown in
@@ -547,7 +550,7 @@ developed in this paper.
 
 Mass ratios and composition
 for each statepoint in the example MCC
-come from various sources.
+come from a variety of sources.
 Iron ore and coal compositions are representative
 of pig iron production in South Africa.
 The exergy of coal is calculated as shown in
@@ -557,7 +560,7 @@ the coke oven output compositions, given by
 \citet[Tables~2, 5, 8, and 9]{Kolling_1977},
 \citet{Apicella_2017}, and
 \citet[Table~2]{Sarna_2_2013}.
-The coke oven mass balance is modeled from
+The coke oven mass balance is modeled after
 \citet[Figure~4]{Ergul_2024}.
 
 ***Limestone production compositions and energy inputs are taken from
@@ -601,13 +604,13 @@ Energy inputs to the coke oven and coke oven gas treatment
 were taken from \citet[Fig.~3]{Carmona:2019aa}
 and \citet{COG_treatment_2025}.
 
-Note that most energy inputs to the exmaple MCC
+Note that most energy inputs to the example MCC
 can also be considered as material inputs, including
 coal, gasoline, diesel, natural gas, and coke oven gas.
 We treat all energy inputs to the example MCC
 to be materials,
 the exception being electricity
-which we consider to be massless.
+which we assume to be massless.
 
 
 %------------------------------
@@ -632,13 +635,13 @@ We extract energy conversion chain data for South Africa,
 one of the countries in the CL-PFU database and
 for 2013, because
 ****
+EES:
 Say why we choose 2013 here.
 ---MKH
 ****
 The energy conversion chain is quantified
-as exergy to match the exergy version
-of the material conversion chain (BCC), so
-we refer to it as an XCC.
+as exergy (XCC) to match the exergy version
+of the material conversion chain (BCC).
 
 
 %++++++++++++++++++++++++++++++
@@ -675,12 +678,12 @@ element    & $j$    & a combination of atoms \\
 To analyze each statepoint of the example MCC,
 we employ the material hierarchy shown in
 Table~\ref{tab:material_hierarchy}.
-This hierarchy enables later incorporation of
+This hierarchy enables later expansion to include
 components (a configuration of mixtures) and
 products (an assembly of components)
 between mixture and statepoint in our hierarchy.
 
-With this approach,
+With this hierarchy,
 the material at any statepoint
 may be described as a mixture of compounds,
 and the compounds an arrangement of elements.
@@ -688,9 +691,10 @@ For this paper, we adopt subscript symbols for the hierarchy
 as shown in Table~\ref{tab:material_hierarchy}
 adapted from \citet[p.~10]{Remmen_2024}.
 For example, $B_{m,k}$ gives the material exergy ($B$)
-of a mixture (subscript $m$) at statepoint $k$.
-Our choice of $j$ (for elements) and $i$ (for compounds)
-follows \citet{Valero_2015}.
+of a mixture (subscript $m$) of materials at statepoint $k$.
+Our choices of subscript $j$ (for elements) and
+subscript $i$ (for compounds)
+follow \citet{Valero_2015}.
 
 
 %------------------------------
@@ -702,15 +706,19 @@ Material exergy ($B$) is the exergy of a mixture of compounds
 that exist at a statepoint ($B_k$).
 Material exergy is the maximum amount of work
 that could be extracted
-by a process that takes the mixture
-to equilibrium with the reference environment,
+by a process that brings the mixture
+into equilibrium with the reference environment,
 defined by its temperature ($T_0$), pressure ($P_0$), and chemical composition.
 Thus, the total exergy of a material ($B$)
 is the sum of the work of four reversible processes.
 
 \begin{table}
 \footnotesize
-\caption{Components of material exergy.}
+\caption{Components of material exergy.
+         ****
+         Why ``()'' around the items in the ``Subscript'' column?
+         ---MKH
+         ****}
 \begin{tabularx}{\textwidth}{C C C C C}
 \toprule
 Name & Subscript & From & To & Constraint \\
@@ -734,8 +742,8 @@ material temperature to be different from $T_0$.)
 Natural resources have a positive material exergy ($b$ in kJ/mol)
 because they have a chemical composition
 different from their Environment.
-Comminution exergy is minimal and ignored for a material conversion chain analysis
-\citep[p.~280]{Valero_2015}.
+Comminution exergy is minimal\citep[p.~280]{Valero_2015}
+and ignored for the analysis of conversion chains herein.
 (The exception, again, is Appendix~\ref{sec:MCC_exergy},
 which for illustration purposes
 demonstrates communition exergy calculations.)
@@ -755,7 +763,7 @@ from \citet[Tables~11.1--11.7]{Valero_2015}.
 \label{sec:exergy_of_mixtures}
 %..............................
 
-The total material exergy of a mixture at a statepoint ($B_{k,m}$) is
+The total material exergy of a mixture at a statepoint ($B_m$) is
 
 \begin{equation}\label{eq:exergy_mixture}
    B_m = N_m b_m \, ,
@@ -768,8 +776,8 @@ $N_m$ is the amount of the mixture
 and $b_m$ is the molar intensive material exergy of the mixture
 (in units of $\mathrm{kJ_m/mol_m}$).
 
-The material exergy of a mixture may be accounted for each compound ($i$)
-in the mixture with
+The material exergy of a mixture may be calculated from
+compounds ($i$) in the mixture with
 
 \begin{equation}\label{eq:total_exergy_mixture}
    B_m = \sum_i{N_i b_i} = N_m\sum_i{y_ib_i} \, ,
@@ -783,17 +791,30 @@ and $y_i$ is the mole fraction
 of compound $i$ in its mixture
 (in $\mathrm{mol_i/mol_m}$).
 
+****
+Should the following part about irreversibilities
+move to the discussion section?
+We don't discuss irreversibilities in results,
+only in the discussion.
+---MKH
+****
 The irreversibilities and loss of exergy at a process
-is determined by the total exergy input and output
-to the process.
+is determined by the exergy inputs and outputs
+to the process,
+
 \begin{equation}\label{eq:irreversibility}
-  I = \sum_{in}{B_m} - \sum_{out}{B_m}
+  I = \sum_{in}{B_m} - \sum_{out}{B_m} \, ,
 \end{equation}
 %
 where $I$ is the irreversibility (or exergy destruction) of the process,
 $B_{in,m}$ is the exergy of a mixture going into a process,
 and $B_{out,m}$ is the exergy of a mixture leaving a process
 (all in units of $\mathrm{kJ}$).
+****
+The narrative here should be expanded to cover the exergy
+of massless inputs and outputs, namely heat and electricity.
+---MKH
+****
 $I$ should never be a negative value because exergy can not be generated,
 only destroyed.
 
@@ -834,11 +855,12 @@ $b_{com,i}$ is communition exergy.
 (See \citet[p.~276]{Valero_2015}.)
 All terms are in units of $\mathrm{kJ_i/mol_i}$.
 As discussed above,
-physical exergy ($b_{ch,i}$) is zero for all statepoints in the example MCC,
+physical exergy ($b_{ch,i}$) is zero for all statepoints in the example MCC
+of this paper,
 because all statepoints are assumed to be at $T_0$ and $P_0$.
-Comminution exergy is assumed small and neglected.
+Comminution exergy ($b_{com,i}$) is assumed small and neglected.
 (See Appendix~\ref{sec:MCC_exergy} for confirmation of this assumption.)
-So for the purposes of this paper,
+Thus, for this paper
 the molar intensive material exergy of a compound is given by
 
 \begin{equation}\label{eq:general_material_exergy_definition}
@@ -859,7 +881,7 @@ to compounds and elements
 in their environmentally stable forms.
 If compound $i$ does not exist
 in the reference environment,
-then the chemical exergy is the amount of work obtained
+its chemical exergy is the amount of work obtained
 in the reversible chemical reactions
 that decompose the pure compound
 to the set of compounds
@@ -893,7 +915,6 @@ The chemical exergy of a compound ($b_{ch,i}$) is given by
 where $b_{ch,i}$ is in units of $\mathrm{kJ_i/mol_i}$,
 $n_j$ is the number of moles of an element (in units of $\mathrm{mol_i}$),
 and Gibbs energy of formation ($\Delta{G_f}$) is in units of $\mathrm{kJ_i/mol_i}$.
-
 $\Delta{G_{f}}$ values are taken from \citet[pp.~9.4--9.94]{Dean_1979},
 \citet[Table~2]{Gibbs_formation},
 and \citet[Appendix~II~B]{Tro_2006}.
@@ -920,14 +941,15 @@ where $\Delta{S_m}$ is in units of $\mathrm{kJ/mol_m \cdot K}$,
 and $R$ is the universal gas constant (in units of $\mathrm{kJ/mol \cdot K}$), and
 $y_i$ are in $\mathrm{mol_i/mol_m}$.
 
-The reference point for concentrations ($y_i$) is
-the species as a pure substance,
+The reference points for concentrations ($y_i$) are
+species as pure substances,
 so $y_{i,0} \equiv 1$.
 The minimum work required to separate a mixture reversibly
 at constant temperature and pressure is given by
+
 \begin{equation}\label{eq:work}
     W_{min} = -T_0\Delta{S_m}
-            = RT_0 N_m \sum_{i}(y_i\ln{y_i}) \, ,
+            = R T_0 N_m \sum_{i}(y_i\ln{y_i}) \, ,
 \end{equation}
 %
 where $W_{min}$ is in units of $\mathrm{kJ/mol_m}$.
@@ -937,7 +959,12 @@ into the mixture.
 
 The concentration exergy of a compound (as defined above)
 is the reversible work needed to concentrate it to the pure state.
-\citet{Valero_2015} define concentration exergy of a compound ($b_{c,i}$) as
+\citet{Valero_2015}
+****
+Include page number.
+---MKH
+****
+define concentration exergy of a compound ($b_{c,i}$) as
 
 \begin{equation}\label{eq:concentration_exergy}
   b_{c,i} = RT_0[\ln(y_i) - \ln(y_{i,0})] \, .
@@ -951,7 +978,8 @@ with $y_{i,0} = 1$ gives
   b_{c,i} = R T_0 \ln(y_i) \, .
 \end{equation}
 %
-Concentration exergy is always negative
+The concentration exergy of a compound in a mixture
+is always negative
 because the pure substance
 in the reference environment
 becomes less concentrated
@@ -963,9 +991,9 @@ at any statepoint.
 \label{sssec:elements}
 %..............................
 
-The chemical exergy of elements ($b_{ch,j}$) is standardized
-based on the Crepuscular Earth Model
-from \citet[Table~9.1]{Valero_2015}.
+We take chemical exergies of elements ($b_{ch,j}$)
+from the crepuscular earth model
+of \citet[Table~9.1]{Valero_2015}.
 
 
 %------------------------------
@@ -974,36 +1002,39 @@ from \citet[Table~9.1]{Valero_2015}.
 %------------------------------
 
 The example MCC has both material and energy inputs to processes.
-We calculate the exergy of energy inputs as
+We calculate the exergy of energy as
 shown in Equation~(\ref{eq:general_material_exergy_definition})
-Energy inputs are treated as we treat as materials
+for all energy sources with mass (e.g., coal, oil, and natural gas).
+The exergy of energy inputs are determined by
+Equation~(\ref{eq:chemical_exergy_definition})
 when the Gibbs energy of formation
 ($\Delta{G_{f}}$)
 is available.
-When the Gibbs energy of formation is not available
-(such as for coal and fuel oil),
-we calculate the exergy of solid fuels by
-
+Otherwise (such as for coal and fuel oil),
+we calculate material exergy by
 
 \begin{equation}\label{eq:energy_exergy_fuels}
-  \varepsilon_i = [LHV_i + w h_{fg}]\phi_i + 9417s
+  \varepsilon_i = [LHV_i + w h_{fg}]\phi_i + 9417~\mathrm{kJ/kg} s
 \end{equation}
 %
 where $\varepsilon_i$ is the exergy of energy (in units of $\mathrm{kJ}$),
-$LHV_i$ is the lower heating value of a material (in units of $\mathrm{kJ/kg}$),
+$LHV_i$ is the lower heating value of the fuel (in units of $\mathrm{kJ/kg}$),
 $w$ is the fuel's mass fraction of moisture (in units of $\mathrm{kg/kg}$),
 $h_{fg}$ is the enthalpy of evaporation of \ce{H2O} (in units of $\mathrm{kJ/kg}$),
 $\phi_i$ is the ratio of exergy to energy (in units of $\mathrm{kJ/kJ}$),
-the constant, 9417, is the difference in sulfur's exergy and lower heating value (in units of $\mathrm{kJ/kg}$),
+the constant 9417~kJ/kg is the difference
+in sulfur's exergy and lower heating value
+****
+EES:
+``difference'' should be between two things.
+Please clarify.
+---MKH
+****,
 and $s$ is the mass fraction of sulfur in the fuel (in units of $\mathrm{kg/kg}$).
-See \citet[Eq.~C.5a]{Kotas_1995}.
-
-
-We obtain \ref{eq:energy_exergy_fuels}
-and $\phi$ values from \citet[Appendix~C]{Kotas_1995}.
+(See \citet[Eq.~C.5a]{Kotas_1995}.)
+We obtain $\phi$ values from \citet[Appendix~C]{Kotas_1995}.
 (See Appendix~\ref{sec:appendix_phi}
 for solid and liquid fuel exergy equations.)
-
 
 All other energy sources in the example MCC are electricity.
 The exergy of electricity is given by
@@ -1014,13 +1045,17 @@ The exergy of electricity is given by
 %
 where $\phi_{electricity} \equiv 1$, by definition.
 
-The total exergy of energy
+The exergy of energy
 at any statepoint
 in a material conversion chain
 is given by
 \begin{equation}\label{eq:energy_exergy_definition}
   X_i = \sum_i{\phi_i E_i} \, .
 \end{equation}
+****
+Is this a repeat of Equation~(\ref{eq:electricity_exergy_definition})?
+---MKH
+****
 
 
 %------------------------------
