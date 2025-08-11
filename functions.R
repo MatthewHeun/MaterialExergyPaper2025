@@ -6,11 +6,12 @@ read_named_cell <- function(cell_name,
                             perc = FALSE,
                             format = "f",
                             digits = 2,
+                            multiplier = 1,
                             file = file.path("data", "Paper Examples.xlsx")) {
   val_df <- openxlsx2::read_xlsx(file = file,
                                  named_region = cell_name,
                                  col_names = FALSE)
-  val <- val_df[[1]][[1]]
+  val <- val_df[[1]][[1]] * multiplier
   if (perc) {
     val <- val * 100
   }

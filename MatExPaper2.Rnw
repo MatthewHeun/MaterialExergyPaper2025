@@ -463,8 +463,8 @@ to unified exergy analysis of material and energy conversion chains.
 
 
 %++++++++++++++++++++++++++++++
-\subsection{Question and structure}
-\label{sec:question_structure}
+\subsection{Question, contributions, and structure}
+\label{sec:question_contributions_structure}
 %++++++++++++++++++++++++++++++
 
 All of which raises the question addressed by this paper:
@@ -702,6 +702,11 @@ follow \citet{Valero_2015}.
 \label{sec:exergy_of_materials}
 %------------------------------
 
+In this section, we carefully elucidate
+concepts and equations for
+consistent exergy analysis approach for ECCs and MCCs,
+including chemical and concentration exergies
+(contribution 1 of Section~\ref{sec:question_contributions_structure}).
 Material exergy ($B$) is the exergy of a mixture of compounds
 that exist at a statepoint ($B_k$).
 Material exergy is the maximum amount of work
@@ -1054,6 +1059,8 @@ is given by
 \end{equation}
 ****
 Is this a repeat of Equation~(\ref{eq:electricity_exergy_definition})?
+Or, can we combine Equations~(\ref{eq:electricity_exergy_definition})
+and~(\ref{eq:energy_exergy_definition})?
 ---MKH
 ****
 
@@ -1068,37 +1075,42 @@ of the CL-PFU database~\citep{Brockway:2024ab} is
 the $\mat{RUVY}$ matrices%
 \footnote{
   Note that matrices are represented by capital letters in bold, non-italic font.
-  Vectors are represented by lower-case letters in bold, non-italic font.
+  Vectors are represented by lower-case or script letters in bold, non-italic font.
 }
 %
 of the
 Physical Supply-Use Table (PSUT) framework~\citep{Heun:2018,Aramendia:2022tv}.
-To date, the PSUT framework has been applied
+Although the PSUT framework has been applied
 to analysis of energy conversion chains
-(both ECCs and XCCs)~\citep{Heun:2019aa,Aramendia:2024ac};
+(both ECCs and XCCs)~\citep{Heun:2019aa,Aramendia:2024ac},
 this paper represents its first application to
 material conversion chains (MCCs) and
 to unified exergy analysis of material and energy conversion chains (BXCCs).
 
 One benefit of the PSUT framework
 is that it provides a natural structure for data in
-material ($M$ in mass units),
-energy ($E$ in energy units), and
-exergy ($B$ for material and $X$ for energy in exergy units)
-conversion chains
+material conversion chains (MCCs in mass units),
+energy conversion chains (ECCs in energy units), and
+exergy conversion chains
+(BCCs for material,
+XCCs for energy, and
+BXCCs for unified,
+all in exergy units).
+We apply that structure to the conversion chains
 developed in Section~\ref{sec:results} below.
-The four matrices of the PSUT framework are
+The four matrices of the PSUT framework
+\citep[Figure~1]{Aramendia:2022tv}
+****
+Should we include the referenced figure in this paper?
+---MKH
+****
+are
 the resource matrix ($\mat{R}$), which contains exogeneous inputs to a conversion chain;
 the use matrix ($\mat{U}$), which includes the consumption of materials and energy;
 the make matrix ($\mat{V}$), which describes the production of materials and energy
 by processes in conversion chains; and
 the final demand matrix ($\mat{Y}$), which contains consumption
 of materials and energy by economic sectors.
-(See \citet[Figure~1]{Aramendia:2022tv}.)
-****
-Should we include the referenced figure in this paper?
----MKH
-****
 
 In the PSUT framework,
 processing stages are generically called ``industries,'' and
@@ -1107,7 +1119,7 @@ are generically called ``products.''
 In a flow diagram,
 industries are represented visually by boxes.
 Products are represented visually by arrows
-that indicate the direction of flow
+that indicate the direction of product flow
 from one industry to another.
 
 
@@ -1122,36 +1134,34 @@ we develop several material and energy conversion chains
 using the the $\mat{RUVY}$ matrices of the PSUT framework.
 First, we develop
 two versions of an independent material conversion chain:
-(a) A mass-only material conversion chain (MCC) that contains
+(a) A mass-only independent material conversion chain (MCC) that contains
     mass flows from extraction through a blast furnace
     to the Iron and steel industry
     (Section~\ref{sec:material_data})
     and
-(b) an exergy version of the material conversion chain
-    that we deem a BCC.
+(b) an exergy version of the material conversion chain (BCC).
 Each statepoint in the independent MCC is converted to exergy
 to form the BCC in accordance with
 the methods discussed in Section~\ref{sec:exergy_of_materials}.
 
 In addition, we develop two versions of an independent
 energy conversion chain to supply the MCC's energy requirements:
-(c) an energy conversion chain (ECC) obtained from the CL-PFU database
+(c) an independent energy conversion chain (ECC) obtained from the CL-PFU database
     as described in Sections~\ref{sec:energy_data} and~\ref{sec:ecc_for_mcc}
     and
-(d) an exergy version of the energy conversion chain
-    that we deem an XCC,
+(d) an exergy version of the energy conversion chain (XCC),
     also extracted from the CL-PFU database.
 To obtain the XCC,
-we perform an ``upstream swim'' from a final demand ($\mat{Y}$) matrix
+we perform an ``upstream swim'' from a new final demand ($\mat{Y}$) matrix
 populated with the energy requirements of the BCC,
 as discussed in~\citet[Section~2.2.5]{Heun:2018}.
 
 Finally, we develop
-(e) a unified conversion chain (BXCC) which
+(e) a unified conversion chain (BXCC) that
     brings the exergy of materials and energy together,
     as described in Section~\ref{sec:creating_bxcc} below.
 The benefit of unifying independent material and energy conversion chains
-is that all upstream activities are accounted in a BXCC.
+is that all upstream activities for the MCC and ECC are accounted in a BXCC.
 
 
 %------------------------------
@@ -1168,7 +1178,7 @@ from resources to final demand.
 In the middle,
 we generate and manipulate the $\mat{RUVY}$ matrices of the PSUT framework.
 The process is illustrated by Figures~\ref{fig:bxcc1}--\ref{fig:bxcc4}
-which show a illustrative portion of the blast furnace example
+which show an illustrative portion of the blast furnace example
 developed elsewhere in this paper.
 The basis for the partial example is 100~kJ of electricity delivered
 to the blast furnace.
@@ -1209,7 +1219,7 @@ the gray lines, and
 the red dashed line
 in Figure~\ref{fig:bxcc1}.
 Electricity entering the ``Iron and steel'' sector
-in the independent XCC will be re-routed
+of the independent XCC will be re-routed
 to the ``Blast furnace'' in the independent BCC,
 as shown by the red dashed line.
 In the BXCC,
@@ -1247,11 +1257,11 @@ red cut-lines in Figure~\ref{fig:bxcc1}.
 \label{fig:bxcc2}
 \end{figure}
 
-The second step involves three sub-steps:
-(a)~removal of entries from the final demand matrix ($\mat{Y}$) of the XCC,
-(b)~removal of selected entries from the resource matrix ($\mat{R}$) of the BCC, and
-(c)~summation of corresponding matrices in the BCC and XCC,
-respecting row and column names.
+The second step involves three actions:
+(a)~removing entries from the final demand matrix ($\mat{Y}$) of the XCC,
+(b)~removing selected entries from the resource matrix ($\mat{R}$) of the BCC, and
+(c)~summing corresponding matrices in the BCC and XCC,
+    respecting row and column names.
 The result for the partial example is
 the unified conversion chain (BXCC) shown in Figure~\ref{fig:bxcc3}.
 
@@ -1297,11 +1307,11 @@ The matrix equation for inter-industry product balances is
 %
 where
 $\mat{i}$ is a unity row or column vector as appropriate,
-$\mat{iR}$ gives column sums of the resource matrix,
+$\mat{iR}$ gives column sums of the resource matrix (a row vector),
 $^\mathrm{T}$ is the transpose operator,
-$\mat{iV}$ gives column sums of the make matrix,
-$\mat{Ui}$ gives row sums of the use matrix, and
-$\mat{y} \equiv \mat{Yi}$, the row sums of the final demand matrix.
+$\mat{iV}$ gives column sums of the make matrix (a row vector),
+$\mat{Ui}$ gives row sums of the use matrix (a column vector), and
+$\mat{y} \equiv \mat{Yi}$ is the row sums of the final demand matrix (a column vector).
 The result is a column vector with products in rows.
 
 Regardless of the type of conversion chain
@@ -1340,19 +1350,25 @@ pass the inter-industry consistency check.
 
 Using the methods of Section~\ref{sec:methods},
 we compiled an example independent material conversion chain (MCC)
-for the production of pig iron.
+for the production of pig iron
+(contribution 2 of Section~\ref{sec:question_contributions_structure}).
 The example independent material conversion chain
-for pig iron production
 contains 46 material statepoints,
 9 energy statepoints,
 and 14 material conversion processes (industries).
+****
+ESS:
+Double-check these numbers.
+We have made several changes.
+---MKH
+****
 Figure~\ref{fig:mcc_example} shows a representation
 of the MCC.
 (For simplicity,
 waste streams are not shown in Figure~\ref{fig:mcc_example}.)
 Full details of the example independent MCC,
 the example independent ECC from the CL-PFU database, and
-an example unified BXCC,
+the example unified BXCC,
 including magnitudes for all flows,
 are available in the
 supplementary information.
@@ -1390,6 +1406,18 @@ The values in the middle rows of the $b_{c,i}$ column are calculated by
 Equation~(\ref{eq:concentration_exergy_definition}).
 The values in the middle rows of the $b_i$ column are calculated by
 Equation~(\ref{eq:general_material_exergy_definition}).
+The values in the middle rows of the $b_m$ column are calculated by
+Equation~()****
+ESS:
+Complete this sentence.
+---MKH
+****.
+The values in the middle rows of the $B_m$ column are calculated by
+Equation~()****
+ESS:
+Complete this sentence.
+---MKH
+****.
 Fully-detailed calculations for exergies at the inlet to the rotary kiln
 can be found in Appendix~\ref{sec:MCC_exergy}.
 
@@ -1449,12 +1477,18 @@ print_statepoint_table(statepoint_table_name = "statepoint_slag_out_bf",
 \end{landscape}
 
 The material exergy of the iron ore, quicklime, and coking coal inputs
-to the blast furnace in the example BCC is \Sexpr{BF_B_in}.
+to the blast furnace in the example independent BCC is \Sexpr{BF_B_in}.
 The material exergy of the pig iron output is \Sexpr{BF_B_out}.
 The material exergy of the solid waste (slag) output is \Sexpr{BF_B_slag_out}.
-Material exerggies for all statepoints
+****
+Should we change the above values to MJ?
+If so, use the new ``multiplier'' argument to the
+readnamedcell() function.
+---MKH
+****
+Material exergies for all statepoints
 in the example MCC
-can be found in supplemenary information.
+can be found in supplementary information.
 
 
 %++++++++++++++++++++++++++++++
@@ -1465,22 +1499,17 @@ can be found in supplemenary information.
 We created a representation of the
 example unified material and energy conversion chain
 in the $\mat{RUVY}$ matrix format of the PSUT framework
-using the methods of Section~\ref{sec:creating_bxcc}.
+using the methods of Section~\ref{sec:creating_bxcc}
+(contribution 3 of Section~\ref{sec:question_contributions_structure}).
 Appendix~\ref{sec:bxcc_mats} contains
 $\mat{RUVY}$ matrices for the
-unified material and energy conversion chain (BXCC).
+example unified material and energy conversion chain (BXCC).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
 \label{sec:discussion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-****
-Tania suggests that
-we include a discussion of the
-relative importance of concentration exergy.
-****
 
 Arranging material and energy conversion chain data
 in the $\mat{RUVY}$ matrices of the PSUT framework
@@ -1935,6 +1964,23 @@ The resource efficiency of the COG treatment process is
 much lower than its rational efficiency,
 because the beneficial product of COG treatment is methane,
 which is only 6\% of the output (by mole).
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Relative magnitude of concentration exergy}
+\label{sec:magnitude_concentration_exergy}
+%++++++++++++++++++++++++++++++
+
+****
+Tania suggests that
+we include a discussion of the
+relative importance of concentration exergy
+compared to chemical exergy
+in the unified conversion chain.
+EES:
+Please draft this section.
+---MKH
+****
 
 
 
