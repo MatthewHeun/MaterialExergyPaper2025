@@ -1489,9 +1489,8 @@ where
 $\mat{iU}$ gives column sums of the use matrix,
 $^\mathrm{T}$ indicates the transpose, and
 $\mat{Vi}$ gives row sums of the make matrix.
-
-the result being a column vector
-with industries in rows.
+The result of Equation~(\ref{eq:across_industry_balances})
+is a column vector with industries in rows.
 
 In the following subsections,
 we discuss calculations using across-industry balances for
@@ -1609,15 +1608,23 @@ should calculate to the $\mat{0}$ vector.
 
 
 %------------------------------
-\subsubsection{Across-industry exergy balances: irreversibilities}
+\subsubsection{Across-industry exergy balances: exergy losses and irreversibility}
 \label{sec:irreversibility}
 %------------------------------
 
 For an exergy conversion chain
-(BCC, XCC, or BXCC),
+(BCC, XCC, or BXCC)
+that includes waste heat and mass flows,
 the across-industry balance calculates the
 thermodynamic irreversibility ($I$) of
 (or exergy destruction by) an industry.
+For exergy conversion chains that include waste mass flows
+and exclude heat loss terms
+(as in the example unified material and energy conversion chain
+of this paper),
+the across-exergy balance of Equation~(\ref{eq:across_industry_balances})
+calculates the sum of irreversibility and
+exergy loss due to heat dissipation ($\boldsymbol{\mathcal{I}}$).
 Equation~(\ref{eq:across_industry_balances}) becomes
 
 \begin{align} \label{eq:irreversibility_balances}
@@ -1626,8 +1633,10 @@ Equation~(\ref{eq:across_industry_balances}) becomes
   \boldsymbol{\mathcal{I}}_{BXCC} &= (\mat{iU}_{BXCC})^\mathrm{T} - \mat{V}_{BXCC}\mat{i} \, ,
 \end{align}
 %
-where $\boldsymbol{\mathcal{I}}$ is a column vector of irreversibilities
-(or exergy destruction) with industries in rows.
+where $\boldsymbol{\mathcal{I}}$ is a column vector of
+the sum of irreversibility (or exergy destruction)
+and exergy loss due to heat dissipation
+with industries in rows.
 Table~\ref{tab:across_industry_irreversibilities} shows
 irreversibilities for the example conversion chains
 of Section~\ref{sec:results}.
@@ -1653,30 +1662,40 @@ print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_I
 \label{sec:efficiency}
 %++++++++++++++++++++++++++++++
 
-There are many ways to
+We illustrate the application of material exergy to
+societal exergy analysis within the PSUT framework
+by calculating process efficiencies
+throughout the unified conversion chain (BXCC).
+There are many ways to calculate the efficiencies of industries
+in a material or energy conversion chain.
+We two methods:
+the rational efficiency and the resource efficiency.
+
 \begin{figure}
   \centering
   \includegraphics[width=0.8\linewidth]{images/example_efficiency_diagram.pdf}
   \caption{An example process to apply efficiency methods to.}
   \label{fig:example_process_diagram}
 \end{figure}
-%
 
-We illustrate the application of material exergy to
-societal exergy analysis within the PSUT framework
-by calculating process efficiencies
-throughout the unified conversion chain (BXCC).
-We discuss two methods for calculating efficiencies:
-the rational efficiency and the product efficiency.
+****
+We should add a waste heat ($W_Q$) stream to the diagram.
+Then, we should rename the waste material stream as $W_M$.
+Then, we should use the new terms in the text below.
+Irreversibility arises from thermodynamic inefficiencies.
+Exergy loss arises from not using outputs.
+We should clarify in the discussion below.
+---MKH
+****
 
-To illustrate calculations for the rational and product efficiencies,
+To illustrate calculations for the rational and resource efficiencies,
 we employ Figure~\ref{fig:example_process_diagram} which shows
 an example process (industry) within a conversion chain.
 Inputs $R$ and $E$ represent material resources and energy inputs, respectively.
 Output $P$ represents beneficial products, and
 output $W$ represents waste products.
 Note that additional resource, energy input, product, or waste streams
-may be present in real processes.
+can be present in real processes.
 
 
 %------------------------------
@@ -1793,7 +1812,8 @@ The low exergy efficiency is due to outputs cooling to $T_0$.
 %------------------------------
 
 The resource approach quantifies
-how efficiently a process makes its desired product.
+how efficiently a process converts resources
+(all inputs) into the desired product of the process.
 The resource efficiency removes wastes and
 accounts only for beneficial exergy outputs in the numerator
 of the efficiency calculation.
@@ -1848,7 +1868,7 @@ resource_eta_bf <- read_named_cell("Resource_BF",
 @
 
 In Table~\ref{tab:process_efficiencies},
-resource efficiencies are equal or less than rational
+resource efficiencies are equal to or less than rational
 efficiencies in all cases, as expected.
 The greatest differences between rational and resource efficiencies
 are observed for the mixer and the COG treatment.
