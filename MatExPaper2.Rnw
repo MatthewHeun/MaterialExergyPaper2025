@@ -1019,7 +1019,7 @@ Otherwise (such as for coal and fuel oil),
 we calculate material exergy by
 
 \begin{equation}\label{eq:energy_exergy_fuels}
-  \varepsilon_i = [LHV_i + w h_{fg}]\phi_i + 9417~\mathrm{kJ/kg} s
+  \varepsilon_i = [LHV_i + w h_{fg}]\phi_i + (9417~\mathrm{kJ/kg}) \, s
 \end{equation}
 %
 where $\varepsilon_i$ is the exergy of energy (in units of $\mathrm{kJ}$),
