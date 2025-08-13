@@ -719,19 +719,15 @@ is the sum of the work of four reversible processes.
 
 \begin{table}
 \footnotesize
-\caption{Components of material exergy.
-         ****
-         Why ``()'' around the items in the ``Subscript'' column?
-         ---MKH
-         ****}
+\caption{Components of material exergy.}
 \begin{tabularx}{\textwidth}{C C C C C}
 \toprule
 Name & Subscript & From & To & Constraint \\
 \midrule
-physical exergy & ($b_{ph}$) & $T$ and $P$ & $T_0$ and $P_0$ & without changes in the chemical composition \\
-chemical exergy   & ($b_{ch}$)	& Chemical composition & Reference chemical composition & while the system remains at $T_0$ and $P_0$\\
-concentration exergy & ($b_c$)  & Concentration at the statepoint & Entirely concentrated & NA\\
-comminution exergy & ($b_{com}$) & Dispersed state & Cohesive state & NA\\
+physical exergy & $b_{ph}$ & $T$ and $P$ & $T_0$ and $P_0$ & without changes in the chemical composition \\
+chemical exergy   & $b_{ch}$	& Chemical composition & Reference chemical composition & while the system remains at $T_0$ and $P_0$\\
+concentration exergy & $b_c$  & Concentration at the statepoint & Entirely concentrated & NA\\
+comminution exergy & $b_{com}$ & Dispersed state & Cohesive state & NA\\
 \bottomrule
 \end{tabularx}
 \label{tab:material_exergy}
@@ -796,49 +792,7 @@ and $y_i$ is the mole fraction
 of compound $i$ in its mixture
 (in $\mathrm{mol_i/mol_m}$).
 
-****
-Should the following part about irreversibilities
-move to the discussion section?
-We don't discuss irreversibilities in results,
-only in the discussion.
----MKH
-****
-The irreversibilities and loss of exergy at a process
-is determined by the exergy inputs and outputs
-to the process,
 
-\begin{equation}\label{eq:irreversibility}
-  I = \sum_{in}{B_m} - \sum_{out}{B_m} \, ,
-\end{equation}
-%
-where $I$ is the irreversibility (or exergy destruction) of the process,
-$B_{in,m}$ is the exergy of a mixture going into a process,
-and $B_{out,m}$ is the exergy of a mixture leaving a process
-(all in units of $\mathrm{kJ}$).
-****
-The narrative here should be expanded to cover the exergy
-of massless inputs and outputs, namely heat and electricity.
----MKH
-****
-$I$ should never be a negative value because exergy can not be generated,
-only destroyed.
-
-The exergy lost ($B_{lost}$) from a process is given by
-\begin{equation}\label{exergy_lost}
-  B_{lost} = \sum_{out}{B_{k,m,waste}}
-\end{equation}
-%
-where $B_{k,m,waste}$ is the exergy of a waste stream
-from a process (in units of $\mathrm{kJ}$).
-The embodied exergy is the exergy loss
-in a supply chain,
-give by
-\begin{equation}\label{embodied_exergy}
-  B_{em} = \sum{B_{lost}}
-\end{equation}
-%
-where $B_{em}$ is the embodied exergy
-(in units of $\mathrm{kJ}$).
 
 
 %..............................
@@ -872,6 +826,11 @@ the molar intensive material exergy of a compound is given by
   b_i = b_{ch,i} + b_{c,i} \, .
 \end{equation}
 
+The molar intensive material exergy of a statepoint
+is given by
+\begin{equation}\label{eq:molar_intensive_exergy_definition}
+  b_m = \sum_i{b_i} \, .
+\end{equation}
 
 %..............................
 \paragraph{Chemical exergy($b_{ch}$)}
@@ -1028,13 +987,7 @@ $w$ is the fuel's mass fraction of moisture (in units of $\mathrm{kg/kg}$),
 $h_{fg}$ is the enthalpy of evaporation of \ce{H2O} (in units of $\mathrm{kJ/kg}$),
 $\phi_i$ is the ratio of exergy to energy (in units of $\mathrm{kJ/kJ}$),
 the constant 9417~kJ/kg is the difference
-in sulfur's exergy and lower heating value
-****
-EES:
-``difference'' should be between two things.
-Please clarify.
----MKH
-****,
+in rhombic sulfur's chemical exergy and it's lower heating value,
 and $s$ is the mass fraction of sulfur in the fuel (in units of $\mathrm{kg/kg}$).
 (See \citet[Eq.~C.5a]{Kotas_1995}.)
 We obtain $\phi$ values from \citet[Appendix~C]{Kotas_1995}.
@@ -1042,28 +995,17 @@ We obtain $\phi$ values from \citet[Appendix~C]{Kotas_1995}.
 for solid and liquid fuel exergy equations.)
 
 All other energy sources in the example MCC are electricity.
-The exergy of electricity is given by
+The exergy of energy at any statepoint
+is given by
 
-\begin{equation}\label{eq:electricity_exergy_definition}
+\begin{equation}\label{eq:energy_exergy_definition}
   X_i = \phi_i E_i \, ,
 \end{equation}
 %
-where $\phi_{electricity} \equiv 1$, by definition.
-
-The exergy of energy
-at any statepoint
-in a material conversion chain
-is given by
-\begin{equation}\label{eq:energy_exergy_definition}
-  X_i = \sum_i{\phi_i E_i} \, .
-\end{equation}
-****
-Is this a repeat of Equation~(\ref{eq:electricity_exergy_definition})?
-Or, can we combine Equations~(\ref{eq:electricity_exergy_definition})
-and~(\ref{eq:energy_exergy_definition})?
----MKH
-****
-
+where $X_i$ is the exergy of energy of a species (in units of kJ),
+$\phi_i$ is the exergy to energy ratio (unitless),
+and $E_i$ is the energy of a species (in units of kJ).
+Note $\phi_{electricity} \equiv 1$, by definition.
 
 %------------------------------
 \subsubsection{PSUT framework and $\mat{RUVY}$ matrices}
@@ -1357,7 +1299,7 @@ contains 46 material statepoints,
 9 energy statepoints,
 and 14 material conversion processes (industries).
 ****
-ESS:
+ESS: add heat loss statepoints
 Double-check these numbers.
 We have made several changes.
 ---MKH
@@ -1407,17 +1349,9 @@ Equation~(\ref{eq:concentration_exergy_definition}).
 The values in the middle rows of the $b_i$ column are calculated by
 Equation~(\ref{eq:general_material_exergy_definition}).
 The values in the middle rows of the $b_m$ column are calculated by
-Equation~()****
-ESS:
-Complete this sentence.
----MKH
-****.
+Equation~\ref{eq:molar_intensive_exergy_mixture}.
 The values in the middle rows of the $B_m$ column are calculated by
-Equation~()****
-ESS:
-Complete this sentence.
----MKH
-****.
+Equation~\ref{eq:exergy_mixture}.
 Fully-detailed calculations for exergies at the inlet to the rotary kiln
 can be found in Appendix~\ref{sec:MCC_exergy}.
 
@@ -1485,7 +1419,9 @@ Should we change the above values to MJ?
 If so, use the new ``multiplier'' argument to the
 readnamedcell() function.
 ---MKH
-****
+Maybe note this for Tania and see what's most readable to her
+--EES****
+
 Material exergies for all statepoints
 in the example MCC
 can be found in supplementary information.
@@ -1664,6 +1600,7 @@ $Q_{loss}$ is simply equal to the energy input.
 ****
 Why does the Mixer have non-zero $Q_{loss}$?
 ---MKH
+I checked and I am unsure at the moment---EES
 ****
 For an ECC that includes heat losses,
 the across-industry balance
@@ -1708,6 +1645,9 @@ Exergy is destroyed across all industries,
 unless the process is trivial
 (e.g., coke oven gas distribution).
 
+***Just the BXCC irreversibility equation?
+-EES***
+
 <<IrreversibilitiesTable, echo=FALSE, results=tex>>=
 print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_I",
                          latex_label = "tab:across_industry_irreversibilities",
@@ -1719,7 +1659,42 @@ print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_I
                          size = "footnotesize")
 @
 
+The irreversibilities and loss of exergy at a process
+is determined by the exergy inputs and outputs
+to the process,
 
+\begin{equation}\label{eq:irreversibility}
+  I = \sum_{in}{B_m + I_m} - \sum_{out}{B_m + I_m} \, ,
+\end{equation}
+%
+where $I$ is the irreversibility (or exergy destruction) of the process,
+$B_{in,m}$ is the exergy of a mixture going into a process,
+and $B_{out,m}$ is the exergy of a mixture leaving a process
+(all in units of $\mathrm{kJ}$).
+****
+The narrative here should be expanded to cover the exergy
+of massless inputs and outputs, namely heat and electricity.
+---MKH
+****
+$I$ should never be a negative value because exergy can not be generated,
+only destroyed.
+
+The exergy lost ($B_{lost}$) from a process is given by
+\begin{equation}\label{exergy_lost}
+  B_{lost} = \sum_{out}{B_{k,m,waste}}
+\end{equation}
+%
+where $B_{k,m,waste}$ is the exergy of a waste stream
+from a process (in units of $\mathrm{kJ}$).
+The embodied exergy is the exergy loss
+in a supply chain,
+give by
+\begin{equation}\label{embodied_exergy}
+  B_{em} = \sum{B_{lost}}
+\end{equation}
+%
+where $B_{em}$ is the embodied exergy
+(in units of $\mathrm{kJ}$).
 
 %++++++++++++++++++++++++++++++
 \subsection{Efficiencies}
@@ -1737,7 +1712,7 @@ the rational efficiency and the resource efficiency.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\linewidth]{images/example_efficiency_diagram.pdf}
+  \includegraphics[width=0.8\linewidth]{images/example_process_diagram.png}
   \caption{An example process to apply efficiency methods to.}
   \label{fig:example_process_diagram}
 \end{figure}
