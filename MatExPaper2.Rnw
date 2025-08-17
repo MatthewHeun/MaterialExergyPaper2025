@@ -1717,22 +1717,17 @@ the rational efficiency and the resource efficiency.
   \label{fig:example_process_diagram}
 \end{figure}
 
-****
-We should add a waste heat ($W_Q$) stream to the diagram.
-Then, we should rename the waste material stream as $W_M$.
-Then, we should use the new terms in the text below.
+
 Irreversibility arises from thermodynamic inefficiencies.
 Exergy loss arises from not using outputs.
-We should clarify in the discussion below.
----MKH
-****
 
 To illustrate calculations for the rational and resource efficiencies,
 we employ Figure~\ref{fig:example_process_diagram} which shows
 an example process (industry) within a conversion chain.
 Inputs $R$ and $E$ represent material resources and energy inputs, respectively.
-Output $P$ represents beneficial products, and
-output $W$ represents waste products.
+Output $P$ represents beneficial products,
+output $W_M$ represents material waste products.
+and output $W_Q$ represents heat waste.
 Note that additional resource, energy input, product, or waste streams
 can be present in real processes.
 
@@ -1749,7 +1744,7 @@ With reference to Figure~\ref{fig:example_process_diagram},
 define the rational efficiency efficiency as
 
 \begin{equation} \label{eq:rational_efficiency_process}
-  \eta_{rational} = \frac{B_P + B_W}{X_{elect} + B_R} \, .
+  \eta_{rational} = \frac{B_P + B_{W,M}}{X_{elect} + B_R} \, .
 \end{equation}
 %
 where $X_{elect}$ is the exergy of energy input E.
@@ -1946,18 +1941,18 @@ which is only 6\% of the output (by mole).
 \label{sec:magnitude_concentration_exergy}
 %++++++++++++++++++++++++++++++
 
-****
-Tania suggests that
-we include a discussion of the
-relative importance of concentration exergy
-compared to chemical exergy
-in the unified conversion chain.
-EES:
-Please draft this section.
----MKH
-****
-
-
+Concentration exergy has a relatively low magnitude
+in comparison to chemical exergy
+when applied to only one mixture.
+At the unified conversion chain level, concentration exergy
+increases in magnitude
+and represents the destruction of work
+at a statepoint,
+because of the work done by the environment.
+Over time, concentration exergy will grow increasingly important
+as more critical materials take more work to extract
+due to lower concentrations
+within the earth's crust.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
