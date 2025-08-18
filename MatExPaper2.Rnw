@@ -1712,8 +1712,8 @@ the rational efficiency and the resource efficiency.
 
 \begin{figure}
   \centering
-  \includegraphics[width=0.8\linewidth]{images/example_process_diagram.png}
-  \caption{An example process to apply efficiency methods to.}
+  \includegraphics[width=0.5\linewidth]{images/example_process_diagram.pdf}
+  \caption{An example process for efficiency methods.}
   \label{fig:example_process_diagram}
 \end{figure}
 
