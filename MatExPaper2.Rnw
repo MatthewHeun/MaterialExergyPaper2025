@@ -1921,12 +1921,35 @@ which is only 6\% of the output (by mole).
 Concentration exergy has a relatively low magnitude
 in comparison to chemical exergy
 when applied to only one mixture.
+****
+What is meant by ``to only one mixture?''
+---MKH
+****
 At the unified conversion chain level, concentration exergy
 increases in magnitude
+****
+Can we give an example?
+---MKH
+****
 and represents the destruction of work
 at a statepoint,
 because of the work done by the environment.
-Over time, concentration exergy will grow increasingly important
+****
+Can we find a different way to express this?
+I think the reader will have too little context to interpret
+``work done by the environment.''
+---MKH
+****
+Over time,
+****
+Can we be more specific?
+Over what time frame?
+Or maybe ``time'' is not the right metric?
+Should we say
+``As ore qualities degrade (mineral concentrations decrease)''?
+---MKH
+****
+concentration exergy will grow increasingly important
 as more critical materials take more work to extract
 due to lower concentrations
 within the earth's crust.
