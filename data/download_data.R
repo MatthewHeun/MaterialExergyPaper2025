@@ -8,15 +8,7 @@
 #
 
 # Establish the connection to the Mexer database
-conn_params <- list(dbname = "ScratchMDB",
-                    user = "dbcreator",
-                    host = "mexer.site",
-                    port = 6432)
-conn <- DBI::dbConnect(drv = RPostgres::Postgres(),
-                       dbname = conn_params$dbname,
-                       host = conn_params$host,
-                       port = conn_params$port,
-                       user = conn_params$user)
+conn <- PFUPipelineTools::get_scratchmdb_conn()
 on.exit(DBI::dbDisconnect(conn))
 
 # Read the ECC data once
