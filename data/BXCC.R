@@ -80,6 +80,7 @@ Y_rownames_supply <- mcc_energy_reqts$Y_prime[[1]] |>
 Y_colnames_supply <- c("Iron and steel", "Mining and quarrying")
 
 ecc_supply_to_mcc <- zaf_2013_ecc |>
+  dplyr::filter(EnergyType == "X") |>
   Recca::calc_io_mats() |>
   dplyr::mutate(
     # Isolate only the rows we need
