@@ -4,7 +4,8 @@
 
 #
 # Read information downloaded from the Mexer database.
-# See the script download_data.R.
+# See the script download_data.R,
+# which downloads and creates the zaf_2013_ecc.rds file.
 #
 
 zaf_2013_ecc <- file.path("data", "zaf_2013_ecc.rds") |>
