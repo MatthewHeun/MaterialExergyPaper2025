@@ -1904,32 +1904,9 @@ resource_eta_bf <- read_named_cell("Resource_BF",
 In Table~\ref{tab:process_efficiencies},
 resource efficiencies are equal to or less than rational
 efficiencies in all cases, as expected.
-The greatest differences between rational and resource efficiencies
-are observed for the mixer and the COG treatment.
+The greatest difference between rational and resource efficiencies
+are observed for the COG treatment.
 
-****
-Sentence here about the mixer?
-EES original draft follows.
-****
-because the iron ore is a small portion of the mixer mixture.
-
-****
-EES:
-What is the beneficial output of the mixer?
-I.e., what is the purpose of the mixer?
-I would argue that the purpose of the mixer is to
-mix all of its inputs before entering the blast furnace.
-As such, I would argue that the beneficial output of the Mixer is
-ALL of the quicklime, anthracite, and beneficiated iron ore.
-If you agree, then the efficiency of the mixer will be much higher.
----MKH
-****
-
-****
-Sentence here about COG treatment.
-I made clarifying edits to EES original draft.
----MKH
-****
 The resource efficiency of the COG treatment process is
 much lower than its rational efficiency,
 because the beneficial product of COG treatment is methane,
