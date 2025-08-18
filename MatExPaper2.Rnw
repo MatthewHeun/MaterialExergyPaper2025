@@ -1953,6 +1953,10 @@ concentration exergy will grow increasingly important
 as more critical materials take more work to extract
 due to lower concentrations
 within the earth's crust.
+****
+Can we do a quick calculation to provide a numeric example?
+---MKH
+****
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
