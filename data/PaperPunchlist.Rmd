@@ -27,5 +27,5 @@ date: "5 Aug 2025"
 - [ ] MKH: b_c vs. N graph 
 - [ ] MKH: irreversibilities for XCC and BXCC
 - [ ] EES: Read the entire paper completely. Edit the nomenclature table.
-- [ ] EES: Clean up all broken names in the name manager in Paper Examples.xlsx
+- [X] EES: Clean up all broken names in the name manager in Paper Examples.xlsx
 - [ ] EES: Draft an abstract
