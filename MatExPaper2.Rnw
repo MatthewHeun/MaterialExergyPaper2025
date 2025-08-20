@@ -1366,8 +1366,9 @@ print_statepoint_table(statepoint_table_name = "Statepoint_ore_into_bf",
                                            "Coking Coal",
                                            "Mixture"),
                         digits = c(0, 1, 2, 3, 2, 1, 2, 3, 3, 3, 3, 3, 1),
-                        caption = "Material exergy details for iron ore,
-                                   quicklime, and coking coal
+                        caption = "Material exergy details for iron ore
+                                   (\\ce{Fe2O3} and \\ce{SiO2}),
+                                   quicklime (\\ce{CaO}), and coking coal
                                    at the inlet to the blast furnace.",
                         size = "tiny")
 @
