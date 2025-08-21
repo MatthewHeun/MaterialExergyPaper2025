@@ -1921,35 +1921,24 @@ which is only 6\% of the output (by mole).
 
 Concentration exergy has a relatively low magnitude
 in comparison to chemical exergy
-when applied to only one mixture.
-****
-What is meant by ``to only one mixture?''
----MKH
-****
+when calculated for a single statepoint.
+
 At the unified conversion chain level, concentration exergy
 increases in magnitude
-****
-Can we give an example?
----MKH
-****
 and represents the destruction of work
-at a statepoint,
-because of the work done by the environment.
-****
-Can we find a different way to express this?
-I think the reader will have too little context to interpret
-``work done by the environment.''
----MKH
-****
-Over time,
-****
-Can we be more specific?
-Over what time frame?
-Or maybe ``time'' is not the right metric?
-Should we say
-``As ore qualities degrade (mineral concentrations decrease)''?
----MKH
-****
+at a statepoint.
+Iron, for example, is concentrated
+from hematite ore
+to pig iron
+with energy inputs to several processes.
+The total concentration exergy
+across the change of iron
+from ore to pig iron
+is significant
+in comparison to the concentration exergy
+of a single process such as iron ore beneficiation.
+
+As ore qualities degrade,
 concentration exergy will grow increasingly important
 as more critical materials take more work to extract
 due to lower concentrations
@@ -1957,6 +1946,9 @@ within the earth's crust.
 ****
 Can we do a quick calculation to provide a numeric example?
 ---MKH
+With the three ores we have in the MCC,
+there isn't an easy numeric example.
+---EES
 ****
 
 
