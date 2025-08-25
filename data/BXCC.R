@@ -79,7 +79,7 @@ Y_rownames_supply <- mcc_energy_reqts$Y_prime[[1]] |>
   rownames()
 Y_colnames_supply <- c("Iron and steel", "Mining and quarrying")
 
-ecc_supply_to_mcc <- zaf_2013_ecc |>
+xcc_supply_to_bcc <- zaf_2013_ecc |>
   dplyr::filter(EnergyType == "X") |>
   Recca::calc_io_mats() |>
   dplyr::mutate(
@@ -142,18 +142,18 @@ ecc_supply_to_mcc <- zaf_2013_ecc |>
 
 # Save the ECC that supplies the MCC to an Excel file for inspection.
 # This ECC is in TJ.
-ecc_supply_to_mcc |>
+xcc_supply_to_bcc |>
   Recca::write_ecc_to_excel(path = file.path("data", "ecc_supply_to_mcc.xlsx"),
                             worksheet_names = "WorksheetNames",
                             overwrite_file = TRUE,
                             overwrite_worksheets = TRUE)
 
 #
-# Modify the ECC by removing the Y matrix
+# Modify the XCC by removing the Y matrix
 # in preparation for summation with the MCC.
 #
 
-ecc_supply_to_mcc_long <- ecc_supply_to_mcc |>
+xcc_supply_to_bcc_long <- xcc_supply_to_bcc |>
   dplyr::mutate(
     WorksheetNames = NULL,
     Y = NULL,
@@ -181,22 +181,22 @@ ecc_supply_to_mcc_long <- ecc_supply_to_mcc |>
 
 
 #
-# Read the MCC exergy matrices.
+# Read the BCC exergy matrices.
 # These are in kJ and material exergy (B).
 #
 
-mcc_mats <- file.path("data", "Paper Examples.xlsx") |>
+bcc_mats <- file.path("data", "Paper Examples.xlsx") |>
   Recca::read_ecc_from_excel(worksheets = "MCC_B_RUVY_matrices_mat_level")
 
 
 #
-# Modify the MCC by removing the "Supply [of X]"
+# Modify the BCC by removing the "Supply [of X]"
 # rows from the R matrix and removing
 # the [from Supply] suffix from row and column names
 # in other matrices to prepare for summation.
 #
 
-mcc_mats_long <- mcc_mats |>
+bcc_mats_long <- bcc_mats |>
   dplyr::mutate(
     WorksheetNames = NULL,
     R = matsbyname::select_rows_byname(.data[["R"]], remove_pattern = "^Supply")
@@ -218,11 +218,11 @@ mcc_mats_long <- mcc_mats |>
 
 
 #
-# Sum the ECC and MCC matrices
+# Sum the XCC and BCC matrices
 #
 
-bx_mats <- dplyr::left_join(mcc_mats_long,
-                            ecc_supply_to_mcc_long,
+bx_mats <- dplyr::left_join(bcc_mats_long,
+                            xcc_supply_to_bcc_long,
                             by = "matnames") |>
   dplyr::mutate(
     BX = matsbyname::sum_byname(.data[["B"]], .data[["X"]])
