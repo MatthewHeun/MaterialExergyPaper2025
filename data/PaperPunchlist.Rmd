@@ -1,10 +1,24 @@
 ---
 title: "Punch list for paper examples"
 author: Erin Schuman, Matthew Kuperus Heun
-date: "5 Aug 2025"
+date: "27 Aug 2025"
 ---
 
-- [ ] Rotary kiln efficiencies should be higher 
+- [ ] get the paper to build
+- [ ] clean up data repo
+- [ ] Potential b_c example (large amount of b)
+      (relevance of concentration exergy)
+- [ ] b_c vs. N graph (need to decide if we want to include a graph like this)
+- [ ] EES: No ~ for % units. Usually 15%, not 15~%.  Or 15~%/yr.
+- [ ] EES: irreversibilities for BXCC
+- [ ] EES: check energy balances for the BCC
+ -[ ] EES: Implement Q_loss into BXCC
+- [ ] EES: Read the entire paper completely. Edit the nomenclature table.
+- [ ] EES: Draft an abstract
+- [ ] EES: Figure out why iron ore processes have lower efficiency than
+           limestone or coal processes
+
+- [X] EES: Clean up all broken names in the name manager in Paper Examples.xlsx
 - [X] Coke oven efficiencies should be lower 
 - [X] Tidy up arrows 
 - [X] MCC B RUVY nonzero energy balances
@@ -19,13 +33,6 @@ date: "5 Aug 2025"
 - [X] hM matrix
 - [X] edit matrices
 - [X] example appendix
-- [ ] fix warnings
 - [X] Erin's laptop usable
-- [ ] clean up data repo
-- [ ] Potential b_c example (large amount of b)
-- [ ] MKH: No ~ for % units
-- [ ] MKH: b_c vs. N graph 
-- [ ] MKH: irreversibilities for XCC and BXCC
-- [ ] EES: Read the entire paper completely. Edit the nomenclature table.
-- [X] EES: Clean up all broken names in the name manager in Paper Examples.xlsx
-- [ ] EES: Draft an abstract
+- [x] fix warnings
+- [x] Rotary kiln efficiencies should be higher 
