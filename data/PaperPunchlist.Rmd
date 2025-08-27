@@ -15,6 +15,7 @@ date: "27 Aug 2025"
  -[ ] EES: Implement Q_loss into BXCC
 - [ ] EES: Read the entire paper completely. Edit the nomenclature table.
 - [ ] EES: Draft an abstract
+- [ ] EES: Draft a conclusion
 - [ ] EES: Figure out why iron ore processes have lower efficiency than
            limestone or coal processes
 
