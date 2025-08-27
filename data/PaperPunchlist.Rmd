@@ -18,6 +18,9 @@ date: "27 Aug 2025"
 - [ ] EES: Draft a conclusion
 - [ ] EES: Figure out why iron ore processes have lower efficiency than
            limestone or coal processes
+- [ ] EES: There are many processes in the economy where we do NOT trade
+           exergy of energy for the exergy of materials.  
+           The text in the introduction should allow for those processes, too.
 - [ ] EES: In the introduction, highlight that we are defining
            material exergy as four components.
            We might be the first to do that.
