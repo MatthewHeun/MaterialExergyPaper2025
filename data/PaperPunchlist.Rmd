@@ -18,6 +18,41 @@ date: "27 Aug 2025"
 - [ ] EES: Draft a conclusion
 - [ ] EES: Figure out why iron ore processes have lower efficiency than
            limestone or coal processes
+- [ ] EES: In the introduction, highlight that we are defining
+           material exergy as four components.
+           We might be the first to do that.
+- [ ] EES: Pull Table 2 forward into the introduction
+- [ ] EES: Remove statepoint (k) from Table 1 (hierarchy table)
+- [ ] EES: Add a statepoint definition in text: "A statepoint is a location in space
+           where temperature, pressure, and composition of a material is known."
+- [ ] EES: State that material exergy can be calculated 
+           at a statepoint, for a mixture, for a compound, and/or for an element.
+- [ ] EES: Clarify that material exergy can be calculated at a statepoint
+- [ ] EES: Make clearer distinction between chemical exergy of a compound 
+           and chemical exergy of a mixture.
+- [ ] EES: For calculating chemical exergy, 
+           make clearer distinction between compounds that exist in the reference environment
+           and compounds that DO NOT exist in the reference environment.
+           Refer to hierarchy.
+- [ ] EES: Make clearer distinction between concentration exergy of a compound
+           and concentration exergy of a mixture.
+           Refer to hierarchy.
+- [ ] EES: In chemical and concentration exergy sections, 
+           talk about calculating for a compound or element first.
+           Then talk about calculating for a mixture 
+           (which is likely to be at a statepoint).
+- [ ] EES: Do a better job of describing that the content of Section 3 
+           is tied to the contributions of the paper.
+           This should be done in both the intro
+           (where we describe the contents of each section)
+           and at the top of the results section (Section 3).
+- [ ] EES: Do a better job (if necessary) of describing the contents of Section 4,
+           namely that is describes additional analyses that can be performed
+           when data are in the RUVY matrices of the PSUT framework.
+           This should be done in both the intro
+           (where we describe the contents of each section)
+           and at the top of the discussion section (Section 4).
+
 
 - [X] EES: Clean up all broken names in the name manager in Paper Examples.xlsx
 - [X] Coke oven efficiencies should be lower 
