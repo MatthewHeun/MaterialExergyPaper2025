@@ -32,6 +32,7 @@ read_named_cell <- function(cell_name,
 # digits must be a single value.
 # Default is digits = 2.
 print_named_matrix <- function(matrix_name,
+                               sheet_name,
                                latex_label,
                                bgcolor = "white",
                                file = file.path("data", "Paper Examples.xlsx"),
@@ -42,6 +43,7 @@ print_named_matrix <- function(matrix_name,
   # Read the matrix as a data frame
   mat_df_raw <- openxlsx2::read_xlsx(file = file,
                                      named_region = matrix_name,
+                                     sheet = sheet_name,
                                      row_names = TRUE)
   mat_df <- mat_df_raw |>
     # Convert all NA values to 0
