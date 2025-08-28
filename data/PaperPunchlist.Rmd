@@ -9,7 +9,6 @@ date: "27 Aug 2025"
 - [ ] Potential b_c example (large amount of b)
       (relevance of concentration exergy)
 - [ ] b_c vs. N graph (need to decide if we want to include a graph like this)
-- [ ] EES: No ~ for % units. Usually 15%, not 15~%.  Or 15~%/yr.
 - [ ] EES: irreversibilities for BXCC
 - [ ] EES: check energy balances for the BCC
  -[ ] EES: Implement Q_loss into BXCC
@@ -56,7 +55,7 @@ date: "27 Aug 2025"
            (where we describe the contents of each section)
            and at the top of the discussion section (Section 4).
 
-
+- [X] EES: No ~ for % units. Usually 15%, not 15~%.  Or 15~%/yr.
 - [X] EES: Clean up all broken names in the name manager in Paper Examples.xlsx
 - [X] Coke oven efficiencies should be lower 
 - [X] Tidy up arrows 

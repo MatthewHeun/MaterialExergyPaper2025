@@ -666,7 +666,6 @@ that organizes information at any statepoint.
 \toprule
 Name & Subscript & Definition \\
 \midrule
-statepoint & $k$		& a material stream that is an input or output of a process \\
 mixture    & $m$		& a combination of compounds and/or elements that exist at a statepoint \\
 compound   & $i$    & a combination of elements \\
 element    & $j$    & a combination of atoms \\
@@ -675,6 +674,9 @@ element    & $j$    & a combination of atoms \\
 \label{tab:material_hierarchy}
 \end{table}
 
+A material stream or a statepoint ($k$) is a mixture
+of compounds and or elements
+that goes into or out of a process.
 To analyze each statepoint of the example MCC,
 we employ the material hierarchy shown in
 Table~\ref{tab:material_hierarchy}.
@@ -683,10 +685,10 @@ components (a configuration of mixtures) and
 products (an assembly of components)
 between mixture and statepoint in our hierarchy.
 
-With this hierarchy,
-the material at any statepoint
-may be described as a mixture of compounds,
-and the compounds an arrangement of elements.
+% With this hierarchy,
+% the material at any statepoint
+% may be described as a mixture of compounds,
+% and the compounds an arrangement of elements.
 For this paper, we adopt subscript symbols for the hierarchy
 as shown in Table~\ref{tab:material_hierarchy}
 adapted from \citet[p.~10]{Remmen_2024}.
@@ -852,9 +854,9 @@ to the set of compounds
 in equilibrium with the environment.
 
 This process can be decomposed into two steps:
-***decomposition of compound in the environment to its most stable form of compounds and elements
+decomposition of compound in the environment to its most stable form of compounds and elements
 including the formation of a compound from stable compounds and elements,
-which is captured by Gibbs free energy.***
+which is captured by Gibbs free energy.
 The reversible work produced from the first process
 is the chemical exergy of the compound.
 
@@ -864,11 +866,6 @@ Perhaps we can cite this paper:
 ---MKH
 ****
 
-****
-Hmmm. The wording here is confusing.
-It sounds like chemical exergy is a component of chemical exergy.
----MKH
-****
 
 The chemical exergy of a compound ($b_{ch,i}$) is given by
 
@@ -883,6 +880,11 @@ $\Delta{G_{f}}$ values are taken from \citet[pp.~9.4--9.94]{Dean_1979},
 \citet[Table~2]{Gibbs_formation},
 and \citet[Appendix~II~B]{Tro_2006}.
 
+The chemical exergy of a mixture ($b_{ch,m}$) is
+
+\begin{equation}\label{eq:}
+  b_{ch,m} = \sum_{i}{N_m b_{ch,i}} \, .
+\end{equation}
 
 %..............................
 \paragraph{Concentration exergy ($b_c$)}
@@ -908,18 +910,6 @@ $y_i$ are in $\mathrm{mol_i/mol_m}$.
 The reference points for concentrations ($y_i$) are
 species as pure substances,
 so $y_{i,0} \equiv 1$.
-The minimum work required to separate a mixture reversibly
-at constant temperature and pressure is given by
-
-\begin{equation}\label{eq:work}
-    W_{min} = -T_0\Delta{S_m}
-            = R T_0 N_m \sum_{i}(y_i\ln{y_i}) \, ,
-\end{equation}
-%
-where $W_{min}$ is in units of $\mathrm{kJ/mol_m}$.
-The minimum work is negative
-because the environment puts work
-into the mixture.
 
 The concentration exergy of a compound (as defined above)
 is the reversible work needed to concentrate it to the pure state.
@@ -949,6 +939,18 @@ in the reference environment
 becomes less concentrated
 at any statepoint.
 
+The minimum work required to separate a mixture reversibly
+at constant temperature and pressure is given by
+
+\begin{equation}\label{eq:work}
+    W_{min} = -T_0\Delta{S_m}
+            = R T_0 N_m \sum_{i}(y_i\ln{y_i}) \, ,
+\end{equation}
+%
+where $W_{min}$ is in units of $\mathrm{kJ/mol_m}$.
+The minimum work is negative
+because the environment puts work
+into the mixture.
 
 %..............................
 \paragraph{Elements ($j$)}
@@ -1045,6 +1047,8 @@ The four matrices of the PSUT framework
 ****
 Should we include the referenced figure in this paper?
 ---MKH
+I think it would help!
+---EES
 ****
 are
 the resource matrix ($\mat{R}$), which contains exogeneous inputs to a conversion chain;
@@ -1598,11 +1602,7 @@ print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_Q
 For industries that simply transport mass
 (e.g., hauling),
 $Q_{loss}$ is simply equal to the energy input.
-****
-Why does the Mixer have non-zero $Q_{loss}$?
----MKH
-I checked and I am unsure at the moment---EES
-****
+
 For an ECC that includes heat losses,
 the across-industry balance
 of Equation~(\ref{eq:across_industry_balances})
