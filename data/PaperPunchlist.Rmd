@@ -4,7 +4,7 @@ author: Erin Schuman, Matthew Kuperus Heun
 date: "27 Aug 2025"
 ---
 
-- [ ] MKH: get the paper to build
+- [x] MKH: get the paper to build
 - [ ] clean up data repo
 - [ ] Potential b_c example (large amount of b)
       (relevance of concentration exergy)
