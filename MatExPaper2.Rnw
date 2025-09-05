@@ -653,21 +653,20 @@ that organizes information at any statepoint.
 \subsubsection{Material hierarchy}
 \label{sec:material_hierarchy}
 %------------------------------
-
 \begin{table}
 \footnotesize
-\centering
-\caption{Material hierarchy.}
-\begin{tabularx}{0.9\textwidth}{lcl}
+\caption{Components of material exergy.}
+\begin{tabularx}{\textwidth}{C C C C C}
 \toprule
-Name & Subscript & Definition \\
+Name & Subscript & From & To & Constraint \\
 \midrule
-mixture    & $m$		& a combination of compounds and/or elements that exist at a statepoint \\
-compound   & $i$    & a combination of elements \\
-element    & $j$    & a combination of atoms \\
+physical exergy & $b_{ph}$ & $T$ and $P$ & $T_0$ and $P_0$ & without changes in the chemical composition \\
+chemical exergy   & $b_{ch}$	& Chemical composition & Reference chemical composition & while the system remains at $T_0$ and $P_0$\\
+concentration exergy & $b_c$  & Concentration at the statepoint & Entirely concentrated & NA\\
+comminution exergy & $b_{com}$ & Dispersed state & Cohesive state & NA\\
 \bottomrule
 \end{tabularx}
-\label{tab:material_hierarchy}
+\label{tab:material_exergy}
 \end{table}
 
 We define a statepoint ($k$) as a material stream
@@ -718,20 +717,19 @@ is the sum of the work of four reversible processes.
 
 \begin{table}
 \footnotesize
-\caption{Components of material exergy.}
-\begin{tabularx}{\textwidth}{C C C C C}
+\centering
+\caption{Material hierarchy.}
+\begin{tabularx}{0.9\textwidth}{lcl}
 \toprule
-Name & Subscript & From & To & Constraint \\
+Name & Subscript & Definition \\
 \midrule
-physical exergy & $b_{ph}$ & $T$ and $P$ & $T_0$ and $P_0$ & without changes in the chemical composition \\
-chemical exergy   & $b_{ch}$	& Chemical composition & Reference chemical composition & while the system remains at $T_0$ and $P_0$\\
-concentration exergy & $b_c$  & Concentration at the statepoint & Entirely concentrated & NA\\
-comminution exergy & $b_{com}$ & Dispersed state & Cohesive state & NA\\
+mixture    & $m$		& a combination of compounds and/or elements that exist at a statepoint \\
+compound   & $i$    & a combination of elements \\
+element    & $j$    & a combination of atoms \\
 \bottomrule
 \end{tabularx}
-\label{tab:material_exergy}
+\label{tab:material_hierarchy}
 \end{table}
-
 
 We assume that all statepoints in the example MCC
 are at $T_0$ and $P_0$;
@@ -1111,6 +1109,18 @@ is that all upstream activities for the MCC and ECC are accounted in a BXCC.
 \subsubsection{Creating the unified conversion chain (BXCC)}
 \label{sec:creating_bxcc}
 %------------------------------
+\begin{table}[]
+\begin{tabular}{lllllll}
+& \begin{tabular}[c]{@{}l@{}}direct energy input \\ and material model\end{tabular} & MCC  & ECC   & BCC         & XCC                       & BXCC                      \\
+non-exergy materials & \checkmark              & \checkmark &                           & \checkmark &          & \checkmark \\
+energy materials     & \checkmark              & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+non-mass energy      & \checkmark             &                           & \checkmark &      & \checkmark & \checkmark
+\end{tabular}
+\end{table}
+
+Non-exergy materials include limestone, iron ore, and combustion air.
+Energy materials are the fuels considered as mass and then converted to exergy.
+Non-mass energy is the electricity and heat within the unified conversion chain.
 
 The method for creating a
 unified material and energy conversion chain (BXCC)
@@ -1647,13 +1657,11 @@ unless the process is trivial
 -EES***
 
 <<IrreversibilitiesTable, echo=FALSE, results=tex>>=
-print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_I",
+print_efficiencies_table(efficiencies_table_name = "I_BXCC",
                          latex_label = "tab:across_industry_irreversibilities",
                          digits = 0,
                          caption = paste("Irreversibilities ($I$) in the",
-                                         "example conversion chains.",
-                                         "**** EES: Please add irreversibilities to",
-                                         "the table in Paper Examples.xlsx ---MKH ****"),
+                                         "example conversion chains."),
                          size = "footnotesize")
 @
 
