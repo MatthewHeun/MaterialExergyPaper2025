@@ -1023,7 +1023,7 @@ Although the PSUT framework has been applied
 to analysis of energy conversion chains
 (both ECCs and XCCs)~\citep{Heun:2019aa,Aramendia:2024ac},
 this paper represents its first application to
-material conversion chains (MCCs) and
+material conversion chains (MCCs and BCCs) and
 to unified exergy analysis of material and energy conversion chains (BXCCs).
 
 One benefit of the PSUT framework
@@ -1038,13 +1038,6 @@ all in exergy units).
 We apply that structure to the conversion chains
 developed in Section~\ref{sec:results} below.
 The four matrices of the PSUT framework
-\citep[Figure~1]{Aramendia:2022tv}
-****
-Should we include the referenced figure in this paper?
----MKH
-I think it would help!
----EES
-****
 are
 the resource matrix ($\mat{R}$), which contains exogeneous inputs to a conversion chain;
 the use matrix ($\mat{U}$), which includes the consumption of materials and energy;
@@ -1052,6 +1045,14 @@ the make matrix ($\mat{V}$), which describes the production of materials and ene
 by processes in conversion chains; and
 the final demand matrix ($\mat{Y}$), which contains consumption
 of materials and energy by economic sectors.
+See Figure~\ref{fig:psut_framework_mats}.
+
+\begin{figure}
+\centering
+\includegraphics[width=0.7\linewidth]{images/PSUTmats.pdf}
+\caption{Matrices of the PSUT framework. After \citet[Figure~1]{Aramendia:2022tv}.}
+\label{fig:psut_framework_mats}
+\end{figure}
 
 In the PSUT framework,
 processing stages are generically called ``industries,'' and
@@ -1073,21 +1074,24 @@ To illustrate application of the exergy of materials
 to societal exergy analysis,
 we develop several material and energy conversion chains
 using the the $\mat{RUVY}$ matrices of the PSUT framework.
-First, we develop
-two versions of an independent material conversion chain:
-(a) A mass-only independent material conversion chain (MCC) that contains
-    mass flows from extraction through a blast furnace
+First, we develop a direct energy input and material flow model (DEIMFM).
+The DEIMFM includes all material flows and \emph{direct} energy inputs,
+such as electricity consumed by crushers.
+
+Next, we develop two matrix representations of the mass flows of the DEIMFM.
+(a) A mass-only version (MCC) that quantifies material flows in mass units
+    from extraction through a blast furnace
     to the Iron and steel industry
-    (Section~\ref{sec:material_data})
-    and
-(b) an exergy version of the material conversion chain (BCC).
-Each statepoint in the independent MCC is converted to exergy
+    (Section~\ref{sec:material_data}).
+(b) An exergy version (BCC) that quantifies material flows in exergy units.
+Each statepoint in the MCC is converted to exergy
 to form the BCC in accordance with
 the methods discussed in Section~\ref{sec:exergy_of_materials}.
 
-In addition, we develop two versions of an independent
-energy conversion chain to supply the MCC's energy requirements:
+Next, we develop two versions of an independent
+energy conversion chain to supply the DEIMFM's energy requirements:
 (c) an independent energy conversion chain (ECC) obtained from the CL-PFU database
+    where all flows are in energy terms
     as described in Sections~\ref{sec:energy_data} and~\ref{sec:ecc_for_mcc}
     and
 (d) an exergy version of the energy conversion chain (XCC),
@@ -1098,29 +1102,46 @@ populated with the energy requirements of the BCC,
 as discussed in~\citet[Section~2.2.5]{Heun:2018}.
 
 Finally, we develop
-(e) a unified conversion chain (BXCC) that
+(e) a matrix representation of a unified conversion chain (BXCC) that
     brings the exergy of materials and energy together,
     as described in Section~\ref{sec:creating_bxcc} below.
-The benefit of unifying independent material and energy conversion chains
-is that all upstream activities for the MCC and ECC are accounted in a BXCC.
+The benefit of unifying the independent material and energy conversion chains
+is that all upstream activities for the MCC and ECC are accounted in the BXCC.
+
+Table~\ref{tab:conversion_chains} shows the characteristics
+of the DEIMFM and various conversion chains.
+
+\begin{table}
+\footnotesize
+\centering
+\caption{Characteristics of the independent
+         material (MCC and BCC) and
+         energy (ECC and XCC) conversion chains
+         used to build
+         the integrated material and energy conversion chain
+         (BXCC).
+         Non-energy materials include limestone, iron ore, and combustion air.
+         Energy materials are the fuels considered
+         as mass and later converted to exergy.
+         Massless energy is electricity and heat.}
+\label{tab:nomenclature}
+\begin{tabular}{rcccccc}
+\toprule
+                     & DEIMFM       & MCC        & ECC        & BCC        & XCC        & BXCC \\
+\midrule
+Non-energy materials & \checkmark   & \checkmark &            & \checkmark &            & \checkmark \\
+Energy materials     & \checkmark   & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
+Massless energy      & \checkmark   &            & \checkmark &            & \checkmark & \checkmark \\
+\bottomrule
+\end{tabular}
+\label{tab:conversion_chains}
+\end{table}
 
 
 %------------------------------
 \subsubsection{Creating the unified conversion chain (BXCC)}
 \label{sec:creating_bxcc}
 %------------------------------
-\begin{table}[]
-\begin{tabular}{lllllll}
-& \begin{tabular}[c]{@{}l@{}}direct energy input \\ and material model\end{tabular} & MCC  & ECC   & BCC         & XCC                       & BXCC                      \\
-non-exergy materials & \checkmark              & \checkmark &                           & \checkmark &          & \checkmark \\
-energy materials     & \checkmark              & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
-non-mass energy      & \checkmark             &                           & \checkmark &      & \checkmark & \checkmark
-\end{tabular}
-\end{table}
-
-Non-exergy materials include limestone, iron ore, and combustion air.
-Energy materials are the fuels considered as mass and then converted to exergy.
-Non-mass energy is the electricity and heat within the unified conversion chain.
 
 The method for creating a
 unified material and energy conversion chain (BXCC)
@@ -2080,7 +2101,8 @@ LD & Linear dichroism
 The appendix is an optional section that can contain details and data supplemental to the main text---for example, explanations of experimental details that would disrupt the flow of the main text but nonetheless remain crucial to understanding and reproducing the research shown; figures of replicates for experiments of which representative data are shown in the main text can be added here if brief, or as Supplementary Data. Mathematical proofs of results not central to the paper can be added as an appendix.
 
 \begin{table}
-\caption{Nomenclature table\label{tab:nomenclature}}
+\label{tab:nomenclature}
+\caption{Nomenclature table}
 %\newcolumntype{C}{>{\centering\arraybackslash}X}
 \begin{tabularx}{\textwidth}{CCC}
 \toprule
