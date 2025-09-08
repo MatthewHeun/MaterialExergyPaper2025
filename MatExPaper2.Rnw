@@ -1049,7 +1049,7 @@ See Figure~\ref{fig:psut_framework_mats}.
 
 \begin{figure}
 \centering
-\includegraphics[width=0.7\linewidth]{images/PSUTmats.pdf}
+\includegraphics[width=0.6\linewidth]{images/PSUTmats.pdf}
 \caption{Matrices of the PSUT framework. After \citet[Figure~1]{Aramendia:2022tv}.}
 \label{fig:psut_framework_mats}
 \end{figure}
@@ -1075,8 +1075,13 @@ to societal exergy analysis,
 we develop several material and energy conversion chains
 using the the $\mat{RUVY}$ matrices of the PSUT framework.
 First, we develop a direct energy input and material flow model (DEIMFM).
-The DEIMFM includes all material flows and \emph{direct} energy inputs,
-such as electricity consumed by crushers.
+The DEIMFM includes all material flows and \emph{direct} energy inputs.%
+\footnote{
+  Direct energy inputs are consumed directly by a machine,
+  such as electricity consumed by crushers.
+  Indirect energy inputs include upstream resources to create
+  the direct energy inputs, such as coal used to make electricity.
+}
 
 Next, we develop two matrix representations of the mass flows of the DEIMFM.
 (a) A mass-only version (MCC) that quantifies material flows in mass units
@@ -1088,15 +1093,15 @@ Each statepoint in the MCC is converted to exergy
 to form the BCC in accordance with
 the methods discussed in Section~\ref{sec:exergy_of_materials}.
 
-Next, we develop two versions of an independent
+Then, we develop two versions of an independent
 energy conversion chain to supply the DEIMFM's energy requirements:
 (c) an independent energy conversion chain (ECC) obtained from the CL-PFU database
     where all flows are in energy terms
     as described in Sections~\ref{sec:energy_data} and~\ref{sec:ecc_for_mcc}
     and
-(d) an exergy version of the energy conversion chain (XCC),
+(d) an independent exergy version of the energy conversion chain (XCC),
     also extracted from the CL-PFU database.
-To obtain the XCC,
+To obtain the ECC and XCC,
 we perform an ``upstream swim'' from a new final demand ($\mat{Y}$) matrix
 populated with the energy requirements of the BCC,
 as discussed in~\citet[Section~2.2.5]{Heun:2018}.
@@ -1121,17 +1126,20 @@ of the DEIMFM and various conversion chains.
          the integrated material and energy conversion chain
          (BXCC).
          Non-energy materials include limestone, iron ore, and combustion air.
-         Energy materials are the fuels considered
-         as mass and later converted to exergy.
+         Energy materials are fuels considered
+         as mass and later converted to exergy, including
+         coal, natural gas, diesel, and coke oven gas.
          Massless energy is electricity and heat.}
 \label{tab:nomenclature}
 \begin{tabular}{rcccccc}
 \toprule
-                     & DEIMFM       & MCC        & ECC        & BCC        & XCC        & BXCC \\
+                            & DEIMFM     & MCC \& BCC & ECC \& XCC & BXCC \\
 \midrule
-Non-energy materials & \checkmark   & \checkmark &            & \checkmark &            & \checkmark \\
-Energy materials     & \checkmark   & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark \\
-Massless energy      & \checkmark   &            & \checkmark &            & \checkmark & \checkmark \\
+Non-energy materials        & \checkmark & \checkmark &            & \checkmark \\
+Energy materials (direct)   & \checkmark & \checkmark & \checkmark & \checkmark \\
+Massless energy (direct)    & \checkmark & \checkmark & \checkmark & \checkmark \\
+Energy materials (indirect) &            &            & \checkmark & \checkmark \\
+Massless energy (indirect)  &            &            & \checkmark & \checkmark \\
 \bottomrule
 \end{tabular}
 \label{tab:conversion_chains}
@@ -1204,7 +1212,7 @@ will come from the
 \begin{figure}
 \centering
 \includegraphics[width=0.8\linewidth]{images/BXCC_figs_1.pdf}
-\caption{Example independent material~(BCC) and energy~(XCC) conversion chains expressed as exergy.
+\caption{Example independent material~(BCC) and energy~(XCC) conversion chains.
          All values are exergy in kJ.}
 \label{fig:bxcc1}
 \end{figure}
@@ -1259,7 +1267,7 @@ The result for the partial example is shown in Figure~\ref{fig:bxcc4}.
 \begin{figure}
 \centering
 \includegraphics[width=0.8\linewidth]{images/BXCC_figs_4.pdf}
-\caption{An example unified material and exergy conversion chain expressed as exergy~(BXCC).
+\caption{An example unified material and exergy conversion chain~(BXCC).
          All values are exergy in kJ.}
 \label{fig:bxcc4}
 \end{figure}
@@ -1280,7 +1288,7 @@ The matrix equation for inter-industry product balances is
 \end{equation}
 %
 where
-$\mat{i}$ is a unity row or column vector as appropriate,
+$\mat{i}$ is a unity row or column vector of appropriate length,
 $\mat{iR}$ gives column sums of the resource matrix (a row vector),
 $^\mathrm{T}$ is the transpose operator,
 $\mat{iV}$ gives column sums of the make matrix (a row vector),
@@ -1309,6 +1317,10 @@ pass the inter-industry consistency check.
 \label{sec:results}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+This section shows results corresponding to
+contributions 2 and 3 of Section~\ref{sec:question_contributions_structure}.
+Section~\ref{sec:mcc_example} below addresses contribution 2 and
+Section~\ref{sec:psut_mats_bxcc} below addresses contribution 3.
 
 %++++++++++++++++++++++++++++++
 \subsection{Material conversion chain}
@@ -1331,15 +1343,16 @@ contains 46 material statepoints,
 9 energy statepoints,
 and 14 material conversion processes (industries).
 ****
-ESS: add heat loss statepoints
-Double-check these numbers.
-We have made several changes.
+We need to double-check these numbers.
+Be sure to include heat loss statepoints.
+We made a few changes.
 ---MKH
 ****
 Figure~\ref{fig:mcc_example} shows a representation
 of the MCC.
 (For simplicity,
-waste streams are not shown in Figure~\ref{fig:mcc_example}.)
+heat loss and waste streams
+are not shown in Figure~\ref{fig:mcc_example}.)
 Full details of the example independent MCC,
 the example independent ECC from the CL-PFU database, and
 the example unified BXCC,
@@ -1407,17 +1420,20 @@ print_statepoint_table(statepoint_table_name = "Statepoint_ore_into_bf",
 
 <<BlastFurnaceValues, echo=FALSE>>=
 BF_B_in <- read_named_cell("BF_B_in",
-                           unit = "kJ",
+                           unit = "MJ",
                            format = "f",
-                           digits = 1)
+                           digits = 1,
+                           multiplier = 0.001)
 BF_B_out <- read_named_cell("BF_B_out",
-                            unit = "kJ",
+                            unit = "MJ",
                             format = "f",
-                            digits = 1)
+                            digits = 1,
+                            multiplier = 0.001)
 BF_B_slag_out <- read_named_cell("BF_B_slag_out",
-                            unit = "kJ",
+                            unit = "MJ",
                             format = "f",
-                            digits = 1)
+                            digits = 1,
+                            multiplier = 0.001)
 @
 
 <<BFoutputsPIStatepointTable, echo=FALSE, results=tex>>=
@@ -1447,14 +1463,6 @@ The material exergy of the iron ore, quicklime, and coking coal inputs
 to the blast furnace in the example independent BCC is \Sexpr{BF_B_in}.
 The material exergy of the pig iron output is \Sexpr{BF_B_out}.
 The material exergy of the solid waste (slag) output is \Sexpr{BF_B_slag_out}.
-****
-Should we change the above values to MJ?
-If so, use the new ``multiplier'' argument to the
-readnamedcell() function.
----MKH
-Maybe note this for Tania and see what's most readable to her
---EES****
-
 Material exergies for all statepoints
 in the example MCC
 can be found in supplementary information.
@@ -1483,6 +1491,8 @@ example unified material and energy conversion chain (BXCC).
 Arranging material and energy conversion chain data
 in the $\mat{RUVY}$ matrices of the PSUT framework
 provides many benefits to analysts.
+This section discusses further applications
+beyond the contributions shown in Section~\ref{sec:results} above.
 In particular, without the PSUT framework,
 analyses of all transformation processes (industries) involve repetitive
 calculations, once for each process.
@@ -1510,7 +1520,7 @@ across-industry balances do not and should not always
 calculate to the $\mat{0}$ vector.
 Instead, across-industry balances calculate important quantities
 depending on the information contained in the $\mat{RUVY}$ matrices,
-possibly mass flow, energy flows, or exergy flows.
+possibly mass flows, energy flows, or exergy flows.
 Across-industry balances for every industry
 in a conversion chain are given by the matrix equation
 
@@ -1607,7 +1617,7 @@ $\circ$ indicating the Hadamard (element-wise) product,
 subscript ``$h$'' indicating $\mat{U}$ and $\mat{V}$ matrices
 containing enthalpy values, and
 subscript ``$elect$'' indicating indicating $\mat{U}$ and $\mat{V}$ matrices
-containing only electricity inputs.
+containing only (massless) electricity inputs.
 See the supplementary information for the
 $\mat{U}_{MCC}$, $\mat{V}_{\!MCC}$,
 $\mat{U}_h$, $\mat{V}_h$,
@@ -1615,7 +1625,7 @@ $\mat{U}_{elect}$, $\mat{V}_{\!elect}$,
 $\mat{U}_{ECC}$, and $\mat{V}_{ECC}$ matrices
 for the example of Section~\ref{sec:results}.
 Table~\ref{tab:across_industry_Q_loss} shows
-the heat loss vector
+the heat loss vector ($\mat{Q}_{loss}$)
 for the example in Section~\ref{sec:results}.
 
 <<HeatLossTable, echo=FALSE, results=tex>>=
@@ -1629,12 +1639,12 @@ print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_Q
 
 For industries that simply transport mass
 (e.g., hauling),
-$Q_{loss}$ is simply equal to the energy input.
+$Q_{loss}$ is equal to the energy input.
 
 For an ECC that includes heat losses,
 the across-industry balance
 of Equation~(\ref{eq:across_industry_balances})
-should calculate to the $\mat{0}$ vector.
+should calculate the $\mat{0}$ vector.
 
 
 %------------------------------
@@ -1646,7 +1656,7 @@ For an exergy conversion chain
 (BCC, XCC, or BXCC)
 that includes waste heat and mass flows,
 the across-industry balance calculates the
-thermodynamic irreversibility ($I$) of
+thermodynamic irreversibility ($\mathcal{I}$) of
 (or exergy destruction by) an industry.
 For exergy conversion chains that include waste mass flows
 and exclude heat loss terms
@@ -1657,11 +1667,11 @@ calculates the sum of irreversibility and
 exergy loss due to heat dissipation ($\boldsymbol{\mathcal{I}}$).
 Equation~(\ref{eq:across_industry_balances}) becomes
 
-\begin{align} \label{eq:irreversibility_balances}
-  \boldsymbol{\mathcal{I}}_{BCC}  &= (\mat{iU}_{BCC})^\mathrm{T} - \mat{V}_{BCC}\mat{i} \, , \\
-  \boldsymbol{\mathcal{I}}_{XCC}  &= (\mat{iU}_{XCC})^\mathrm{T} - \mat{V}_{XCC}\mat{i} \, , \, \mathrm{and} \\
-  \boldsymbol{\mathcal{I}}_{BXCC} &= (\mat{iU}_{BXCC})^\mathrm{T} - \mat{V}_{BXCC}\mat{i} \, ,
-\end{align}
+
+\begin{equation} \label{eq:irreversibility_balances}
+  \boldsymbol{\mathcal{I}}_{BXCC} =
+        (\mat{iU}_{BXCC})^\mathrm{T} - \mat{V}_{BXCC}\mat{i} \, ,
+\end{equation}
 %
 where $\boldsymbol{\mathcal{I}}$ is a column vector of
 the sum of irreversibility (or exergy destruction)
@@ -1674,15 +1684,14 @@ Exergy is destroyed across all industries,
 unless the process is trivial
 (e.g., coke oven gas distribution).
 
-***Just the BXCC irreversibility equation?
--EES***
-
 <<IrreversibilitiesTable, echo=FALSE, results=tex>>=
 print_efficiencies_table(efficiencies_table_name = "I_BXCC",
                          latex_label = "tab:across_industry_irreversibilities",
                          digits = 0,
-                         caption = paste("Irreversibilities ($I$) in the",
-                                         "example conversion chains."),
+                         caption = paste("Irreversibilities",
+                                         "($\\boldsymbol{\\mathcal{I}}_{BXCC}$) in the",
+                                         "example unified material and",
+                                         "energy conversion chain."),
                          size = "footnotesize")
 @
 
@@ -1691,18 +1700,19 @@ is determined by the exergy inputs and outputs
 to the process,
 
 \begin{equation}\label{eq:irreversibility}
-  I = \sum_{in}{B_m + I_m} - \sum_{out}{B_m + I_m} \, ,
+  \boldsymbol{\mathcal{I}} = \sum_{in}{B_m + I_m} - \sum_{out}{B_m + I_m} \, ,
 \end{equation}
 %
-where $I$ is the irreversibility (or exergy destruction) of the process,
+where $\boldsymbol{\mathcal{I}}$
+is the irreversibility (or exergy destruction) of the process,
 $B_{in,m}$ is the exergy of a mixture going into a process,
 and $B_{out,m}$ is the exergy of a mixture leaving a process
 (all in units of $\mathrm{kJ}$).
-****
-The narrative here should be expanded to cover the exergy
-of massless inputs and outputs, namely heat and electricity.
----MKH
-****
+% ****
+% Perhaps the narrative here should be expanded to cover the exergy
+% of massless inputs and outputs, namely heat and electricity.
+% ---MKH
+% ****
 $I$ should never be a negative value because exergy can not be generated,
 only destroyed.
 
@@ -1723,6 +1733,7 @@ give by
 where $B_{em}$ is the embodied exergy
 (in units of $\mathrm{kJ}$).
 
+
 %++++++++++++++++++++++++++++++
 \subsection{Efficiencies}
 \label{sec:efficiency}
@@ -1734,7 +1745,7 @@ by calculating process efficiencies
 throughout the unified conversion chain (BXCC).
 There are many ways to calculate the efficiencies of industries
 in a material or energy conversion chain.
-We two methods:
+We demonstrate two methods here:
 the rational efficiency and the resource efficiency.
 
 \begin{figure}
@@ -1746,7 +1757,8 @@ the rational efficiency and the resource efficiency.
 
 
 Irreversibility arises from thermodynamic inefficiencies.
-Exergy loss arises from not using outputs.
+Exergy loss arises from unused outputs, i.e.,
+wastes, including mass and heat.
 
 To illustrate calculations for the rational and resource efficiencies,
 we employ Figure~\ref{fig:example_process_diagram} which shows
@@ -1833,20 +1845,12 @@ rational_eta_bf <- read_named_cell("Rational_BF",
                                    digits = 1)
 @
 
-****
-Discuss only rational efficiencies here.
-Discuss resource efficiencies in contrast to rational efficiencies
-in the next subsection.
----MKH
-****
-
 The rational efficiencies of iron ore processes,
 in Table~\ref{tab:process_efficiencies},
-are lower than the limestone and coal efficiencies,
+are lower than the limestone and coal efficiencies.
 ****
-due to what? ---MKH
+Need to add explanation for the lower efficiencies.
 ****
-.
 The rational efficiency for iron ore extraction is \Sexpr{rational_eta_iron_ext}.
 The rational efficiencies for limestone and coal extraction are
 \Sexpr{rational_eta_lime_ext} and \Sexpr{rational_eta_coal_ext}.
@@ -1858,13 +1862,13 @@ are
 \Sexpr{rational_eta_mixer} and
 \Sexpr{rational_eta_bf}, respectively.
 
-****
-EES:
-Discuss the low exergy efficiency of the rotary kiln
-somewhere in this section.
-The low exergy efficiency is due to outputs cooling to $T_0$.
----MKH
-****
+% ****
+% EES:
+% Discuss the low exergy efficiency of the rotary kiln
+% somewhere in this section.
+% The low exergy efficiency is due to outputs cooling to $T_0$.
+% ---MKH
+% ****
 
 
 %------------------------------
@@ -1969,13 +1973,13 @@ concentration exergy will grow increasingly important
 as more critical materials take more work to extract
 due to lower concentrations
 within the earth's crust.
-****
-Can we do a quick calculation to provide a numeric example?
----MKH
-With the three ores we have in the MCC,
-there isn't an easy numeric example.
----EES
-****
+% ****
+% Can we do a quick calculation to provide a numeric example?
+% ---MKH
+% With the three ores we have in the MCC,
+% there isn't an easy numeric example.
+% ---EES
+% ****
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1984,6 +1988,11 @@ there isn't an easy numeric example.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
+****
+Note to Laura and Jorge:
+We need to write the conclusion and complete the sections
+prior to the appendix.
+****
 
 %++++++++++++++++++++++++++++++
 \subsection{Summary}
@@ -2101,12 +2110,14 @@ LD & Linear dichroism
 The appendix is an optional section that can contain details and data supplemental to the main text---for example, explanations of experimental details that would disrupt the flow of the main text but nonetheless remain crucial to understanding and reproducing the research shown; figures of replicates for experiments of which representative data are shown in the main text can be added here if brief, or as Supplementary Data. Mathematical proofs of results not central to the paper can be added as an appendix.
 
 \begin{table}
+\footnotesize
+\centering
 \label{tab:nomenclature}
 \caption{Nomenclature table}
 %\newcolumntype{C}{>{\centering\arraybackslash}X}
 \begin{tabularx}{\textwidth}{CCC}
 \toprule
-\textbf{Symbol}	& \textbf{Description}\\
+Symbol	          & Description\\
 \midrule
 $T_0$					    & ambient temperature [K]\\
 $P_0$					    & ambient pressure [atm]\\
