@@ -204,10 +204,11 @@ is leading to adoption of
 renewable generation technolgies,
 electrified end uses, and
 energy storage.
-Furthermore, declining ore quality can lead to
-increased energy consumption
+Furthermore, declining ore quality~\cite{Calvo:2016aa} and
+energy return on investment (EROI)~\cite{Hall:2014aa}
+can lead to increased energy consumption
 (and \ce{CO2} emissions)
-to extract and process raw materials~\cite{Calvo:2016aa}.
+to extract and process raw materials.
 These changes require increasing levels of material extraction,
 especially for copper ore and rare earth minerals.
 In short, the energy transition will also be a materials transition,
