@@ -201,18 +201,18 @@ for at least three interconnected reasons~\cite{Schandl:2024aa}.
 The first reason is related to \emph{climate change}.
 The drive to reduce \ce{CO2} and other greenhouse gas emissions
 is leading to adoption of
-renewable generation technolgies,
+renewable generation technologies,
 electrified end uses, and
 energy storage.
-Furthermore, declining ore quality~\cite{Calvo:2016aa} and
+Simultaneously, declining ore quality~\cite{Calvo:2016aa} and
 energy return on investment (EROI)~\cite{Hall:2014aa}
 can lead to increased energy consumption
 (and \ce{CO2} emissions)
-to extract and process raw materials.
-These changes require increasing levels of material extraction,
+to extract and process increasingly scarce raw materials.
+These changes require accelerating rates of material extraction,
 especially for copper ore and rare earth minerals.
 In short, the energy transition will also be a materials transition,
-and depletion of key material resources may become a long-term concern.
+and scarcity of key material resources may become a long-term concern.
 
 Second,
 continued \emph{economic growth} implies increasing rates of
@@ -225,7 +225,7 @@ Expanded mining and processing of materials within the economy
 requires growing energy consumption
 and \ce{CO2} emissions associated with those activities.
 
-Third, and in response to the above reasons,
+Third,
 many countries maintain lists of \emph{critical materials}
 that are important, especially but not exclusively,
 for renewable energy technologies~\cite{European-Commission:2020ui, Bauer:2023aa}.
@@ -287,7 +287,7 @@ at many points in the economy.
 \label{sec:exergy}
 %++++++++++++++++++++++++++++++
 
-One way to address concerns about critical materials
+One way to address concerns about scarce or critical materials
 in high-intensity processes
 is to increase the efficiency of energy-consuming
 material processing stages.
@@ -1971,7 +1971,7 @@ of a single process such as iron ore beneficiation.
 
 As ore qualities degrade,
 concentration exergy will grow increasingly important
-as more critical materials take more work to extract
+as more scarce materials take more work to extract
 due to lower concentrations
 within the earth's crust.
 % ****
@@ -1981,6 +1981,31 @@ within the earth's crust.
 % there isn't an easy numeric example.
 % ---EES
 % ****
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Limitations}
+\label{sec:limitations}
+%++++++++++++++++++++++++++++++
+
+Limitations to this study are described in this section.
+
+The first limitation exergy embodied in the physical infrastructure
+of production processes
+is not included in the efficiency calculations of Section~\ref{sec:results}.
+For example,
+exergy embodied in physical infrastructure of the blast furnace
+(in its steel, cement, etc.)
+could be allocated across
+all pig iron produced by the blast furnace throughout its lifetime.
+Methods for doing this allocation would require information
+on the masses of various materials in each production process
+(i.e., in each processing node of Figure~\ref{fig:mcc_example}).
+Although beyond the scope of the current study,
+amortizing embodied exergy to products is a fruitful area
+for future exploration.
+
+**** Add further limitations here. ****
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
