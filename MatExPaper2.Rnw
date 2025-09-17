@@ -1216,6 +1216,8 @@ will come from the
 \centering
 \includegraphics[width=0.8\linewidth]{images/BXCC_figs_1.pdf}
 \caption{Example independent material~(BCC) and energy~(XCC) conversion chains.
+         The dashed red line indicates redirection of electricity
+         to connect the XCC to the BCC.
          All values are exergy in kJ.}
 \label{fig:bxcc1}
 \end{figure}
