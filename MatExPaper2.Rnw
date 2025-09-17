@@ -1994,6 +1994,14 @@ within the earth's crust.
 % ---EES
 % ****
 
+That said, concentration exergy grows in importance in later stages
+of a material conversion chain when manufacturing processes
+assemble intermediate goods into finished products.
+For example, an automobile is an assembly of steel, glass, and rubber.
+Chemical exergies do not change through the assembly process
+but concentration exergies will.
+In fact, changes in concentrations provide the exergy quantification
+of the assembly process.
 
 
 %++++++++++++++++++++++++++++++
