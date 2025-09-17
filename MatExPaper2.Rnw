@@ -2001,7 +2001,8 @@ For example, an automobile is an assembly of steel, glass, and rubber.
 The chemical exergies of the steel, glass, and rubber
 do not change through the assembly process,
 but the concentration exergy of the assembled automobile will.
-In fact, changes in concentrations provide the exergy quantification
+In fact, changes in material concentrations provide
+an exergy quantification
 of the assembly process.
 
 
