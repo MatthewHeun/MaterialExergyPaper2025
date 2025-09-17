@@ -1128,7 +1128,7 @@ of the DEIMFM and various conversion chains.
          (BXCC).
          Non-energy materials include limestone, iron ore, and combustion air.
          Energy materials are fuels considered
-         as mass and later converted to exergy, including
+         as mass and later quantified as exergy, including
          coal, natural gas, diesel, and coke oven gas.
          Massless energy is electricity and heat.}
 \label{tab:nomenclature}
