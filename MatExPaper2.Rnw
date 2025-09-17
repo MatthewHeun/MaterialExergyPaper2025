@@ -1990,17 +1990,20 @@ within the earth's crust.
 
 Limitations to this study are described in this section.
 
-The first limitation exergy embodied in the physical infrastructure
+The first limitation is that
+exergy embodied indirectly in the physical infrastructure
 of production processes
 is not included in the efficiency calculations of Section~\ref{sec:results}.
 For example,
 exergy embodied in physical infrastructure of the blast furnace
 (in its steel, cement, etc.)
-could be allocated across
-all pig iron produced by the blast furnace throughout its lifetime.
+could be allocated as a material input to the blast furnace
+throughout its lifetime.
 Methods for doing this allocation would require information
 on the masses of various materials in each production process
 (i.e., in each processing node of Figure~\ref{fig:mcc_example}).
+By neglecting the embodied exergy of physical infrastructure,
+the efficiency results of Section~\ref{sec:results} are biased upward.
 Although beyond the scope of the current study,
 amortizing embodied exergy to products is a fruitful area
 for future exploration.
