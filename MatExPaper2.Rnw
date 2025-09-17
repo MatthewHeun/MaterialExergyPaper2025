@@ -1527,7 +1527,7 @@ Instead, across-industry balances calculate important quantities
 depending on the information contained in the $\mat{RUVY}$ matrices,
 possibly mass flows, energy flows, or exergy flows.
 Across-industry balances for every industry
-in a conversion chain are given by the matrix equation
+in a conversion chain are given by the vector difference
 
 \begin{equation} \label{eq:across_industry_balances}
   (\mat{iU})^\mathrm{T} - \mat{Vi} \, ,
@@ -1949,6 +1949,14 @@ because the beneficial product of COG treatment is methane,
 which is only 6\% of the output (by mole).
 
 
+**********
+Most of the subsections above this point
+can be moved to Section~\ref{sec:results}.
+Subsections below this point can remain
+in discussion.
+**********
+
+
 %++++++++++++++++++++++++++++++
 \subsection{Relative magnitude of concentration exergy}
 \label{sec:magnitude_concentration_exergy}
@@ -1985,6 +1993,27 @@ within the earth's crust.
 % there isn't an easy numeric example.
 % ---EES
 % ****
+
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Embodied exergy (exergy cost)}
+\label{sec:embodied_exergy}
+%++++++++++++++++++++++++++++++
+
+The embodied exergy of materials
+(also called ``exergy cost''~\cite{Torres:2021aa})
+assigns all
+exergy destruction (irreversibility) and dissipation
+in upstream processes
+to the product(s) of a process.
+Embodied exergy correlates more closely to crustal concentrations
+and commodity prices
+than material exergy itself~**** ref from Jorge here ****.
+Embodied exergy can be found using the $\mat{RUVY}$ matrices
+of the PSUT framework~\citet[Section~3.3]{Heun:2018}.
+Applying exergy cost analysis to the $\mat{RUVY}$ matrices
+of the PSUT framework is an area for future exploration.
 
 
 %++++++++++++++++++++++++++++++
