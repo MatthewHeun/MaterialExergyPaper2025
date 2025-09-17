@@ -265,7 +265,7 @@ in the iron and steel sector.
 High-intensity processes like
 steel-making
 consume energy for the purpose of
-upgrading material quality.
+upgrading material usefulness
 Iron ore is upgraded to pig iron and later steel
 with the aid of heat from coal combustion.
 Aggregate and limestone are combined with cement to make concrete
@@ -274,11 +274,11 @@ Bauxite is upgraded to aluminum via
 electricity for electrolysis.
 Industrial chemicals are produced using
 heat from methane combustion.
-In all cases, the quality of material is upgraded
+In all cases, the usefulness of material is upgraded
 (e.g., from ore to steel)
-while the quality of energy is downgraded
+while the usefulness of energy is downgraded
 (e.g., from coal to heat).
-Societies trade energy quality for material quality
+Societies trade energy usefulness for material usefulness
 at many points in the economy.
 
 
