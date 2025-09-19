@@ -681,9 +681,10 @@ comminution exergy & $b_{com}$ & Dispersed state & Cohesive state & NA\\
 \toprule
 \multicolumn{1}{c}{} & \multicolumn{5}{c}{From} & \multicolumn{5}{c}{To} \\
 \midrule
-\multicolumn{1}{c}{} & T  & P  & y  & d  & species  & T  & P  & y  & d  & species \\
-$b_{com}$            &    &    &    &    &          &    &    &    &    &         \\
-$b_{ph}$             &    &    &    &    &          &    &    &    &    &         \\
+\multicolumn{1}{c}{} & $T$  & $P$  & $y$  & $d$  & species  & $T$  & $P$  & $y$  & $d$  & species   \\
+\midrule
+$b_{com}$            & $T$  & $P$  & $y$  & $d$  & $i$      & $T$   & $P$   & $y$  & $d_0$ & $i$  \\
+$b_{ph}$             & $T$  & $P$  & $y$  &$d_0$ & $i$      & $T_0$ & $P_0$ & $y$  & $d_0$ & $i$  \\
 $b_c$                &    &    &    &    &          &    &    &    &    &         \\
 $b_{ch}$             &    &    &    &    &          &    &    &    &    &         \\
 \bottomrule
