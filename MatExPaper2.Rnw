@@ -654,6 +654,7 @@ that organizes information at any statepoint.
 \subsubsection{Material hierarchy}
 \label{sec:material_hierarchy}
 %------------------------------
+
 \begin{table}
 \footnotesize
 \caption{Components of material exergy.}
@@ -669,6 +670,32 @@ comminution exergy & $b_{com}$ & Dispersed state & Cohesive state & NA\\
 \end{tabularx}
 \label{tab:material_exergy}
 \end{table}
+
+
+
+\begin{table}
+\centering
+\footnotesize
+\caption{Components of material exergy.}
+\begin{tabular}{@{}rcccccccccc@{}}
+\toprule
+\multicolumn{1}{c}{} & \multicolumn{5}{c}{From}                                                                                         & \multicolumn{5}{c}{To}                                                                                           \\ \midrule
+\multicolumn{1}{c}{} & T                    & P                    & y                    & d                    & species              & T                    & P                    & y                    & d                    & species              \\
+$b_{com}$            &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      \\
+$b_{ph}$             &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      \\
+$b_c$                &                      &                      &                      &                      &                      &                      &                      &                      &                      &                      \\
+$b_{ch}$             & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} & \multicolumn{1}{l}{} \\ \bottomrule
+\end{tabular}
+\label{tab:material_exergy}
+\end{table}
+
+
+
+
+
+
+
+
 
 We define a statepoint ($k$) as a material stream
 with a known pressure, temperature, and composition
