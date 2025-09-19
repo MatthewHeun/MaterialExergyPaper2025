@@ -92,7 +92,7 @@
 
 %=================================================================
 % Full title of the paper (Capitalized)
-\Title{The Exergy of Materials With Application to Societal Exergy Analysis}
+\Title{The Exergy of Materials with Application to Societal Exergy Analysis}
 
 % MDPI internal command: Title for citation in the left column
 \TitleCitation{Title}
