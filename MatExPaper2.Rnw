@@ -685,8 +685,8 @@ comminution exergy & $b_{com}$ & Dispersed state & Cohesive state & NA\\
 \midrule
 $b_{com}$            & $T$  & $P$  & $y$  & $d$  & $i$      & $T$   & $P$   & $y$  & $d_0$ & $i$  \\
 $b_{ph}$             & $T$  & $P$  & $y$  &$d_0$ & $i$      & $T_0$ & $P_0$ & $y$  & $d_0$ & $i$  \\
-$b_c$                &    &    &    &    &          &    &    &    &    &         \\
-$b_{ch}$             &    &    &    &    &          &    &    &    &    &         \\
+$b_c$                &      &      &      &      &          &       &       &       &       &      \\
+$b_{ch}$             &      &      &      &      &          &       &       &       &       &      \\
 \bottomrule
 \end{tabular}
 \label{tab:material_exergy}
