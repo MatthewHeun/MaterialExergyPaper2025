@@ -681,12 +681,12 @@ comminution exergy & $b_{com}$ & Dispersed state & Cohesive state & NA\\
 \toprule
 \multicolumn{1}{c}{} & \multicolumn{5}{c}{From} & \multicolumn{5}{c}{To} \\
 \midrule
-\multicolumn{1}{c}{} & $T$  & $P$  & $y$  & $d$  & species  & $T$  & $P$  & $y$  & $d$  & species   \\
+\multicolumn{1}{c}{} & $T$   & $P$   & $y$  & $d$   & species & $T$   & $P$   & $y$   & $d$   & species \\
 \midrule
-$b_{com}$            & $T$  & $P$  & $y$  & $d$  & $i$      & $T$   & $P$   & $y$  & $d_0$ & $i$  \\
-$b_{ph}$             & $T$  & $P$  & $y$  &$d_0$ & $i$      & $T_0$ & $P_0$ & $y$  & $d_0$ & $i$  \\
-$b_c$                &      &      &      &      &          &       &       &       &       &      \\
-$b_{ch}$             &      &      &      &      &          &       &       &       &       &      \\
+$b_{com}$            & $T$   & $P$   & $y$  & $d$   & $i$     & $T$   & $P$   & $y$   & $d_0$ & $i$  \\
+$b_{ph}$             & $T$   & $P$   & $y$  & $d_0$ & $i$     & $T_0$ & $P_0$ & $y$   & $d_0$ & $i$  \\
+$b_c$                & $T_0$ & $P_0$ & $y$  & $d_0$ & $i$     & $T_0$ & $P_0$ & 1     & $d_0$ & $i$  \\
+$b_{ch}$             & $T_0$ & $P_0$ & 1    & $d_0$ & $i$     & $T_0$ & $P_0$ & $y_0$ & $d_0$ & Thanatia  \\
 \bottomrule
 \end{tabular}
 \label{tab:material_exergy}
