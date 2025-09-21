@@ -676,7 +676,11 @@ comminution exergy & $b_{com}$ & Dispersed state & Cohesive state & NA\\
 \begin{table}
 \centering
 \footnotesize
-\caption{Components of material exergy.}
+\caption{Components of material exergy.
+         $T$ is temperature, $y$ is molar concentration, $d$ is particle size, and
+         $i$ is chemical species.
+         Subscript 0 indicates conditions at the reference state, which is
+         the atmosphere for gasses and Thanatia for solids.}
 \begin{tabular}{@{}rcccccccccc@{}}
 \toprule
 \multicolumn{1}{c}{} & \multicolumn{5}{c}{From} & \multicolumn{5}{c}{To} \\
@@ -686,7 +690,7 @@ comminution exergy & $b_{com}$ & Dispersed state & Cohesive state & NA\\
 $b_{com}$            & $T$   & $P$   & $y$  & $d$   & $i$     & $T$   & $P$   & $y$   & $d_0$ & $i$  \\
 $b_{ph}$             & $T$   & $P$   & $y$  & $d_0$ & $i$     & $T_0$ & $P_0$ & $y$   & $d_0$ & $i$  \\
 $b_c$                & $T_0$ & $P_0$ & $y$  & $d_0$ & $i$     & $T_0$ & $P_0$ & 1     & $d_0$ & $i$  \\
-$b_{ch}$             & $T_0$ & $P_0$ & 1    & $d_0$ & $i$     & $T_0$ & $P_0$ & $y_0$ & $d_0$ & Thanatia  \\
+$b_{ch}$             & $T_0$ & $P_0$ & 1    & $d_0$ & $i$     & $T_0$ & $P_0$ & $y_0$ & $d_0$ & $i_0$  \\
 \bottomrule
 \end{tabular}
 \label{tab:material_exergy}
