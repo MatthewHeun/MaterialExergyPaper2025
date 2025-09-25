@@ -655,23 +655,6 @@ that organizes information at any statepoint.
 \label{sec:material_hierarchy}
 %------------------------------
 
-\begin{table}
-\footnotesize
-\caption{Components of material exergy.}
-\begin{tabularx}{\textwidth}{C C C C C}
-\toprule
-Name & Subscript & From & To & Constraint \\
-\midrule
-physical exergy & $b_{ph}$ & $T$ and $P$ & $T_0$ and $P_0$ & without changes in the chemical composition \\
-chemical exergy   & $b_{ch}$	& Chemical composition & Reference chemical composition & while the system remains at $T_0$ and $P_0$\\
-concentration exergy & $b_c$  & Concentration at the statepoint & Entirely concentrated & NA\\
-comminution exergy & $b_{com}$ & Dispersed state & Cohesive state & NA\\
-\bottomrule
-\end{tabularx}
-\label{tab:material_exergy}
-\end{table}
-
-
 
 \begin{table}
 \centering
@@ -680,7 +663,8 @@ comminution exergy & $b_{com}$ & Dispersed state & Cohesive state & NA\\
          $T$ is temperature, $y$ is molar concentration, $d$ is particle size, and
          $i$ is chemical species.
          Subscript 0 indicates conditions at the reference state, which is
-         the atmosphere for gasses and Thanatia for solids.}
+         the atmosphere for gasses and Thanatia for solids.
+         **** Maybe delete this table if we include the figure.}
 \begin{tabular}{@{}rcccccccccc@{}}
 \toprule
 \multicolumn{1}{c}{} & \multicolumn{5}{c}{From} & \multicolumn{5}{c}{To} \\
@@ -698,6 +682,25 @@ $b_{ch}$             & $T_0$ & $P_0$ & 1    & $d_0$ & $i$     & $T_0$ & $P_0$ & 
 
 
 
+
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth]{images/ExergyGraph.pdf}
+\caption{Components of material exergy:
+         comminution ($b_{com}$),
+         physical ($b_{ph}$),
+         concentration ($b_c$), and
+         chemical ($b_{ch}$).
+         $T$ is temperature,
+         $y$ is molar concentration,
+         $d$ is particle size, and
+         $i$ is chemical species.
+         Subscript 0 indicates conditions at the reference state,
+         which is the atmosphere for gasses,
+         Thanatia for solids, and
+         the ocean for liquids.}
+\label{fig:components_material_exergy}
+\end{figure}
 
 
 
