@@ -195,45 +195,45 @@ source("functions.R")
 \label{sec:introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The study of raw material extraction and processing
-is growing in importance at the societal level
-for at least three interconnected reasons~\cite{Schandl:2024aa}.
-The first reason is related to \emph{climate change}.
-The drive to reduce \ce{CO2} and other greenhouse gas emissions
-is leading to adoption of
-renewable generation technologies,
-electrified end uses, and
-energy storage.
-Simultaneously, declining ore grades~\cite{Calvo:2016aa, Calvo:2022aa} and
-energy return on investment (EROI)~\cite{Heun:2012ek, Hall:2014aa}
-can lead to increased energy consumption
-(and \ce{CO2} emissions)
-to extract and process increasingly scarce raw materials.
-These changes require accelerating rates of material extraction,
-especially for copper ore and rare earth minerals.
-In short, the energy transition will also be a materials transition,
-and scarcity of key material resources may become a long-term concern.
-
-Second,
-continued \emph{economic growth} implies increasing rates of
-ore extraction and toxic outflows
-from mining and processing of minerals
-such as iron ore, bauxite, manganese, and rare earth metals
-to support fabrication of products and
-construction of roads, buildings, and other infrastructure.
-Expanded mining and processing of materials within the economy
-requires growing energy consumption
-and \ce{CO2} emissions associated with those activities.
-
-Third,
-many countries maintain lists of \emph{critical materials}
-that are important, especially but not exclusively,
-for renewable energy technologies~\cite{European-Commission:2020ui, Bauer:2023aa}.
-Many critical materials are produced by supply chains
-whose disruption would threaten
-economic or national security.
-Materials on critical lists focus the attention of
-governments and researchers.
+% The study of raw material extraction and processing
+% is growing in importance at the societal level
+% for at least three interconnected reasons~\cite{Schandl:2024aa}.
+% The first reason is related to \emph{climate change}.
+% The drive to reduce \ce{CO2} and other greenhouse gas emissions
+% is leading to adoption of
+% renewable generation technologies,
+% electrified end uses, and
+% energy storage.
+% Simultaneously, declining ore grades~\cite{Calvo:2016aa, Calvo:2022aa} and
+% energy return on investment (EROI)~\cite{Heun:2012ek, Hall:2014aa}
+% can lead to increased energy consumption
+% (and \ce{CO2} emissions)
+% to extract and process increasingly scarce raw materials.
+% These changes require accelerating rates of material extraction,
+% especially for copper ore and rare earth minerals.
+% In short, the energy transition will also be a materials transition,
+% and scarcity of key material resources may become a long-term concern.
+%
+% Second,
+% continued \emph{economic growth} implies increasing rates of
+% ore extraction and toxic outflows
+% from mining and processing of minerals
+% such as iron ore, bauxite, manganese, and rare earth metals
+% to support fabrication of products and
+% construction of roads, buildings, and other infrastructure.
+% Expanded mining and processing of materials within the economy
+% requires growing energy consumption
+% and \ce{CO2} emissions associated with those activities.
+%
+% Third,
+% many countries maintain lists of \emph{critical materials}
+% that are important, especially but not exclusively,
+% for renewable energy technologies~\cite{European-Commission:2020ui, Bauer:2023aa}.
+% Many critical materials are produced by supply chains
+% whose disruption would threaten
+% economic or national security.
+% Materials on critical lists focus the attention of
+% governments and researchers.
 
 
 %++++++++++++++++++++++++++++++
@@ -241,45 +241,45 @@ governments and researchers.
 \label{sec:mccs_eccs}
 %++++++++++++++++++++++++++++++
 
-Extracted raw materials are converted
-to products and infrastructure via
-supply chains that we call
-\emph{material conversion chains} (MCCs).
-Although all processes in societal MCCs
-consume energy,
-some processes exhibit high energy- and carbon-intensity,
-such as
-steel-making,
-concrete production,
-aluminum smelting, and
-chemical manufacturing.
-
-The energy for material transformation processes is delivered
-via energy conversion chains (ECCs) that
-describe the extraction and conversion of energy carriers
-throughout the economy.
-An example ECC follows coal from extraction
-through beneficiation and finally to dissipation as heat
-in the iron and steel sector.
-
-High-intensity processes like
-steel-making
-consume energy for the purpose of
-upgrading material usefulness
-Iron ore is upgraded to pig iron and later steel
-with the aid of heat from coal combustion.
-Aggregate and limestone are combined with cement to make concrete
-with the aid of heat from fossil fuel combustion.
-Bauxite is upgraded to aluminum via
-electricity for electrolysis.
-Industrial chemicals are produced using
-heat from methane combustion.
-In all cases, the usefulness of material is upgraded
-(e.g., from ore to steel)
-while the usefulness of energy is downgraded
-(e.g., from coal to heat).
-Societies trade energy usefulness for material usefulness
-at many points in the economy.
+% Extracted raw materials are converted
+% to products and infrastructure via
+% supply chains that we call
+% \emph{material conversion chains} (MCCs).
+% Although all processes in societal MCCs
+% consume energy,
+% some processes exhibit high energy- and carbon-intensity,
+% such as
+% steel-making,
+% concrete production,
+% aluminum smelting, and
+% chemical manufacturing.
+%
+% The energy for material transformation processes is delivered
+% via energy conversion chains (ECCs) that
+% describe the extraction and conversion of energy carriers
+% throughout the economy.
+% An example ECC follows coal from extraction
+% through beneficiation and finally to dissipation as heat
+% in the iron and steel sector.
+%
+% High-intensity processes like
+% steel-making
+% consume energy for the purpose of
+% upgrading material usefulness
+% Iron ore is upgraded to pig iron and later steel
+% with the aid of heat from coal combustion.
+% Aggregate and limestone are combined with cement to make concrete
+% with the aid of heat from fossil fuel combustion.
+% Bauxite is upgraded to aluminum via
+% electricity for electrolysis.
+% Industrial chemicals are produced using
+% heat from methane combustion.
+% In all cases, the usefulness of material is upgraded
+% (e.g., from ore to steel)
+% while the usefulness of energy is downgraded
+% (e.g., from coal to heat).
+% Societies trade energy usefulness for material usefulness
+% at many points in the economy.
 
 
 %++++++++++++++++++++++++++++++
@@ -287,97 +287,97 @@ at many points in the economy.
 \label{sec:exergy}
 %++++++++++++++++++++++++++++++
 
-One way to address concerns about scarce or critical materials
-in high-intensity processes
-is to increase the efficiency of energy-consuming
-material processing stages.
-The ``efficiency'' of a material conversion process
-is often quantified by
-material output (in mass units) per
-unit of energy input (in energy units),
-e.g.\ tonnes of iron produced per MJ of coal consumed
-or tonnes of cement produced per MJ of heat required.%
+% One way to address concerns about scarce or critical materials
+% in high-intensity processes
+% is to increase the efficiency of energy-consuming
+% material processing stages.
+% The ``efficiency'' of a material conversion process
+% is often quantified by
+% material output (in mass units) per
+% unit of energy input (in energy units),
+% e.g.\ tonnes of iron produced per MJ of coal consumed
+% or tonnes of cement produced per MJ of heat required.%
+% %
+% \footnote{
+%   A related concept is material productivity in units of \$/tonne
+%   (or its inverse material intensity in units of tonne/\$)
+%   where \$ are GDP at the national level.
+%   See **** add references from Nicolas here ****.
+% }
+% %
+% Strictly speaking, such efficiencies are \emph{efficacies},
+% because they are quantified in units of tonnes/MJ and are not unitless.
+% Because different materials are involved (iron and cement),
+% the above two efficacies are not comparable
+% in the thermodynamic sense.
+% To obtain a unitless and comparable
+% efficiency for such processes,
+% both inputs and outputs must be quantified
+% in the same meaningful units.
+% One approach is to quantify
+% both inputs and outputs as exergy.
 %
-\footnote{
-  A related concept is material productivity in units of \$/tonne
-  (or its inverse material intensity in units of tonne/\$)
-  where \$ are GDP at the national level.
-  See **** add references from Nicolas here ****.
-}
+% Exergy is a work quantification of materials and energy
+% expressed in energy units (joules).
+% For materials, exergy is defined as the maximum work
+% that could be obtained from thermodynamic processes that bring
+% a material into equilibrium with a reference environment.
+% Material exergy has four components,
+% each accounting for a different dis-equilibration
+% relative to the reference environment.
+% Physical exergy
+% accounts for differences in temperature and pressure,
+% with the reference environment typically defined as
+% $T_0$ = 298.15~K and $P_0$ = 1~atm.
+% Chemical exergy
+% accounts for differences in chemical species,
+% with the reference environment characterized by
+% reference substances at reference partial pressures (in the atmosphere)
+% and reference concentrations (in seawater or the crust of the Earth).
+% Concentration (or mixing) exergy
+% accounts for differences in relative abundance compared to the reference environment
+% and represents the minimum work required to separate substances from a mixture.
+% Concentration exergy can be especially relevant
+% at the beginning and end of an MCC
+% for ores and complex products, respectively.
+% Finally, comminution exergy
+% accounts for differences in molecular structure.
+% ****
+% Is ``molecular structure'' correct?
+% ---MKH
+% ****.
+% For energy, exergy is defined as the maximum work
+% that could be obtained from thermodynamic processes that bring
+% the energy into equilibrium with its surroundings.
 %
-Strictly speaking, such efficiencies are \emph{efficacies},
-because they are quantified in units of tonnes/MJ and are not unitless.
-Because different materials are involved (iron and cement),
-the above two efficacies are not comparable
-in the thermodynamic sense.
-To obtain a unitless and comparable
-efficiency for such processes,
-both inputs and outputs must be quantified
-in the same meaningful units.
-One approach is to quantify
-both inputs and outputs as exergy.
-
-Exergy is a work quantification of materials and energy
-expressed in energy units (joules).
-For materials, exergy is defined as the maximum work
-that could be obtained from thermodynamic processes that bring
-a material into equilibrium with a reference environment.
-Material exergy has four components,
-each accounting for a different dis-equilibration
-relative to the reference environment.
-Physical exergy
-accounts for differences in temperature and pressure,
-with the reference environment typically defined as
-$T_0$ = 298.15~K and $P_0$ = 1~atm.
-Chemical exergy
-accounts for differences in chemical species,
-with the reference environment characterized by
-reference substances at reference partial pressures (in the atmosphere)
-and reference concentrations (in seawater or the crust of the Earth).
-Concentration (or mixing) exergy
-accounts for differences in relative abundance compared to the reference environment
-and represents the minimum work required to separate substances from a mixture.
-Concentration exergy can be especially relevant
-at the beginning and end of an MCC
-for ores and complex products, respectively.
-Finally, comminution exergy
-accounts for differences in molecular structure.
-****
-Is ``molecular structure'' correct?
----MKH
-****.
-For energy, exergy is defined as the maximum work
-that could be obtained from thermodynamic processes that bring
-the energy into equilibrium with its surroundings.
-
-An important aspect of both
-the exergy of materials and the exergy of energy
-is defining
-the reference environment,
-a non-trivial task for the calculation
-of chemical exergy for minerals
-due to the inhomogeinity of the Earth's crust.
-To that end,
-\citet{Valero_2015} defined \emph{Thanatia},
-a theoretical model of the Earth
-with all minerals and materials dispersed
-in their most degraded and homogeneously mixed form.
-
-With both materials and energy quantified as exergy
-(in work units, joules),
-thermodynamically meaningful and unitless efficiencies
-can be calculated for intensive processes that
-trade the exergy of energy for the exergy of materials.
-For example, the pig iron output of a blast furnace
-can be quantified as exergy instead of mass, thereby
-enabling calculation of a unitless exergy efficiency
-in joules (of pig iron) per joule (of coal).
-
-Quantifying materials and energy as exergy enables calculation
-of comparable efficiencies of all processes in societal MCCs.
-With such efficiencies available,
-hot-spots of inefficiency can be identified
-and actions taken to improve processes.
+% An important aspect of both
+% the exergy of materials and the exergy of energy
+% is defining
+% the reference environment,
+% a non-trivial task for the calculation
+% of chemical exergy for minerals
+% due to the inhomogeinity of the Earth's crust.
+% To that end,
+% \citet{Valero_2015} defined \emph{Thanatia},
+% a theoretical model of the Earth
+% with all minerals and materials dispersed
+% in their most degraded and homogeneously mixed form.
+%
+% With both materials and energy quantified as exergy
+% (in work units, joules),
+% thermodynamically meaningful and unitless efficiencies
+% can be calculated for intensive processes that
+% trade the exergy of energy for the exergy of materials.
+% For example, the pig iron output of a blast furnace
+% can be quantified as exergy instead of mass, thereby
+% enabling calculation of a unitless exergy efficiency
+% in joules (of pig iron) per joule (of coal).
+%
+% Quantifying materials and energy as exergy enables calculation
+% of comparable efficiencies of all processes in societal MCCs.
+% With such efficiencies available,
+% hot-spots of inefficiency can be identified
+% and actions taken to improve processes.
 
 
 %++++++++++++++++++++++++++++++
@@ -386,81 +386,81 @@ and actions taken to improve processes.
 %++++++++++++++++++++++++++++++
 
 In recent years,
-researchers have developed databases of material flows in MCCs
-at the world and societal levels~\citep{Liu:2013ab,Cao:2017aa,Plank:2022aa,Wiedenhofer:2024aa,UN-IRP:aa}.
-These MCCs are in mass terms, not in exergy terms.
-
-Members of the Exergy Economics community~\citep{exergy_economics_website}
-have assembled datasets of energy-only conversion chains (ECCs) and
-exergy conversion chains (XCCs)
-at the societal level
-in both energy and exergy quantifications
-going as far back
-as 1800~\cite{Steenwyk:2022ww,Pinto:2023aa,Heun:2024aa,Brockway:2024ab}.
-Data for these ECCs and XCCs are organized
-in the $\mat{RUVY}$ matrices of the physical supply-use table (PSUT) framework
-to describe the movement of energy through society
-from primary to final to useful stages
-via energy transformation processes~\cite{Heun:2018,Aramendia:2022tv}.
-
-The unified exergy analysis of materials and energy has been
-applied to the analysis and design of
-chemical~\citep{Michalakakis_2021a},
-steel~\citep{Hernandez:2017aa,Carmona:2019aa},
-cement~\citep{Morgado:2024aa}, and
-energy plants~\cite{Bejan:1996}
-to quantify resource efficiency and exergy destruction.
-At the sectoral level,
-a unified exergy analysis of materials and energy
-has been applied to the UK transport sector~\citep{Rodrigues:2022aa}.
-Covering the period from 1960--2015,
-the study quantifies resource productivity
-by tracking improvements in passenger-kilometres per megajoule (pkm/MJ),
-which increased from approximately 0.42 to 0.61~pkm/MJ
-across the period of study.
-
-At the societal level,
-there are several examples of
-unified exergy analysis of materials and energy.
-\citet{Carmona:2021aa} quantified the exergy of products
-(defined as mixtures of substances)
-as a mean weighted average of the chemical exergies
-of minerals and metals that compose each product.
-\citeauthor{Carmona:2021aa} ignored concentration exergy
-(i.e., the exergy of mixing).
-
-Wall and coauthors~\citep{Wall:1987,Wall:1994,Wall:1990aa}
-applied a unified exergy-based analysis to assess resource use
-in Sweden, Japan, and Italy,
-tracing flows from primary inputs to end-use applications,
-excluding the exergy flows of non-metals and precious metals.
-The studies reveal low overall exergy efficiencies
-(around
-20\% for Sweden,
-21\% for Japan, and
-23\% for Italy) and
-highlight substantial losses across
-the material and energy conversion chains.
-\citet{Carmona:2021aa} quantified global resource flows and stocks
-from 1900 to 2010, from extraction to end-use,
-including the exergy flows of non-metals, precious metals, and products.
-During this period,
-primary exergy use increased from 115 to 903~EJ/year,
-while useful exergy rose from 9 to 148~EJ/year,
-with 47\% embedded in material goods by 2010.
-Resource conversion efficiency improved from 8\% to 16\%.
-Previous unified exergy analyses of materials and energy
-at the societal level have lacked process-level detail
-in characterizing material and energy transformations.
-
-To our knowledge, no previous studies of material conversion chains
-at the societal level
-include the concentration exergy ($b_{c}$)
-of inputs and outputs
-of material and energy transformations.
-Furthermore, no previous studies have
-demonstrated application of the PSUT framework
-to unified exergy analysis of material and energy conversion chains.
+% researchers have developed databases of material flows in MCCs
+% at the world and societal levels~\citep{Liu:2013ab,Cao:2017aa,Plank:2022aa,Wiedenhofer:2024aa,UN-IRP:aa}.
+% These MCCs are in mass terms, not in exergy terms.
+%
+% Members of the Exergy Economics community~\citep{exergy_economics_website}
+% have assembled datasets of energy-only conversion chains (ECCs) and
+% exergy conversion chains (XCCs)
+% at the societal level
+% in both energy and exergy quantifications
+% going as far back
+% as 1800~\cite{Steenwyk:2022ww,Pinto:2023aa,Heun:2024aa,Brockway:2024ab}.
+% Data for these ECCs and XCCs are organized
+% in the $\mat{RUVY}$ matrices of the physical supply-use table (PSUT) framework
+% to describe the movement of energy through society
+% from primary to final to useful stages
+% via energy transformation processes~\cite{Heun:2018,Aramendia:2022tv}.
+%
+% The unified exergy analysis of materials and energy has been
+% applied to the analysis and design of
+% chemical~\citep{Michalakakis_2021a},
+% steel~\citep{Hernandez:2017aa,Carmona:2019aa},
+% cement~\citep{Morgado:2024aa}, and
+% energy plants~\cite{Bejan:1996}
+% to quantify resource efficiency and exergy destruction.
+% At the sectoral level,
+% a unified exergy analysis of materials and energy
+% has been applied to the UK transport sector~\citep{Rodrigues:2022aa}.
+% Covering the period from 1960--2015,
+% the study quantifies resource productivity
+% by tracking improvements in passenger-kilometres per megajoule (pkm/MJ),
+% which increased from approximately 0.42 to 0.61~pkm/MJ
+% across the period of study.
+%
+% At the societal level,
+% there are several examples of
+% unified exergy analysis of materials and energy.
+% \citet{Carmona:2021aa} quantified the exergy of products
+% (defined as mixtures of substances)
+% as a mean weighted average of the chemical exergies
+% of minerals and metals that compose each product.
+% \citeauthor{Carmona:2021aa} ignored concentration exergy
+% (i.e., the exergy of mixing).
+%
+% Wall and coauthors~\citep{Wall:1987,Wall:1994,Wall:1990aa}
+% applied a unified exergy-based analysis to assess resource use
+% in Sweden, Japan, and Italy,
+% tracing flows from primary inputs to end-use applications,
+% excluding the exergy flows of non-metals and precious metals.
+% The studies reveal low overall exergy efficiencies
+% (around
+% 20\% for Sweden,
+% 21\% for Japan, and
+% 23\% for Italy) and
+% highlight substantial losses across
+% the material and energy conversion chains.
+% \citet{Carmona:2021aa} quantified global resource flows and stocks
+% from 1900 to 2010, from extraction to end-use,
+% including the exergy flows of non-metals, precious metals, and products.
+% During this period,
+% primary exergy use increased from 115 to 903~EJ/year,
+% while useful exergy rose from 9 to 148~EJ/year,
+% with 47\% embedded in material goods by 2010.
+% Resource conversion efficiency improved from 8\% to 16\%.
+% Previous unified exergy analyses of materials and energy
+% at the societal level have lacked process-level detail
+% in characterizing material and energy transformations.
+%
+% To our knowledge, no previous studies of material conversion chains
+% at the societal level
+% include the concentration exergy ($b_{c}$)
+% of inputs and outputs
+% of material and energy transformations.
+% Furthermore, no previous studies have
+% demonstrated application of the PSUT framework
+% to unified exergy analysis of material and energy conversion chains.
 
 
 %++++++++++++++++++++++++++++++
@@ -468,42 +468,42 @@ to unified exergy analysis of material and energy conversion chains.
 \label{sec:question_contributions_structure}
 %++++++++++++++++++++++++++++++
 
-All of which raises the question addressed by this paper:
-\emph{how should unified energy and material conversion chains
-that extend to products with process-level detail
-be represented for unified exergy analysis of materials and energy
-at the societal level?}
-The answer to this question will inform future efforts
-to develop datasets for unified exergy analysis of
-material and energy conversion chains
-that extend to products
-with process-level detail at the societal level.
-
-Our approach to answering the question
-builds upon and improves previous efforts and
-provides three contributions to the literature.
-For the first time, we
-
-\begin{enumerate}
-
-  \item demonstrate a consistent exergy analysis approach for ECCs and MCCs,
-        including chemical and concentration exergies;
-
-  \item perform exergy analysis with an example MCC
-        (production of pig iron) using PSUT matrices; and
-
-  \item illustrate the interactions
-        between MCCs and ECCs using the $\mat{RUVY}$ matrices of the PSUT framework
-        in a manner amenable to use with existing XCC datasets.
-
-\end{enumerate}
-
-The remainder of this paper is organized as follows:
-Section~\ref{sec:data_and_meethods} documents data sources and methods.
-Section~\ref{sec:results} shows selected results
-of applying methods to data.
-Section~\ref{sec:discussion} discusses the results, and
-Section~\ref{sec:conclusion} concludes.
+% All of which raises the question addressed by this paper:
+% \emph{how should unified energy and material conversion chains
+% that extend to products with process-level detail
+% be represented for unified exergy analysis of materials and energy
+% at the societal level?}
+% The answer to this question will inform future efforts
+% to develop datasets for unified exergy analysis of
+% material and energy conversion chains
+% that extend to products
+% with process-level detail at the societal level.
+%
+% Our approach to answering the question
+% builds upon and improves previous efforts and
+% provides three contributions to the literature.
+% For the first time, we
+%
+% \begin{enumerate}
+%
+%   \item demonstrate a consistent exergy analysis approach for ECCs and MCCs,
+%         including chemical and concentration exergies;
+%
+%   \item perform exergy analysis with an example MCC
+%         (production of pig iron) using PSUT matrices; and
+%
+%   \item illustrate the interactions
+%         between MCCs and ECCs using the $\mat{RUVY}$ matrices of the PSUT framework
+%         in a manner amenable to use with existing XCC datasets.
+%
+% \end{enumerate}
+%
+% The remainder of this paper is organized as follows:
+% Section~\ref{sec:data_and_meethods} documents data sources and methods.
+% Section~\ref{sec:results} shows selected results
+% of applying methods to data.
+% Section~\ref{sec:discussion} discusses the results, and
+% Section~\ref{sec:conclusion} concludes.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -511,31 +511,31 @@ Section~\ref{sec:conclusion} concludes.
 \label{sec:data_and_meethods}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Our method for demonstrating
-a consistent approach
-for societal exergy analysis along
-unified conversion chains (BXCCs)
-is to elucidate mathematical expressions
-and example calculations in full detail.
-The mathematical expressions are shown in
-Section~\ref{sec:exergy_of_materials} below.
-We apply that approach to a unified
-material and energy conversion chain,
-following material from natural resource extraction
-to pig iron production.
-Data for the example MCC,
-whose basis is 1000~kg of iron ore,
-are discussed in Section~\ref{sec:data} below.
-Finally, we demonstrate interactions between
-material and energy conversion chains by developing
-Physical Supply-Use Table (PSUT) matrices that are
-amenable to existing energy conversion chain datasets.
-The process for assembling the PSUT matrices
-is discussed in Section~\ref{sec:psut_framework} below.
-
-We begin by discussing data sources
-for the example MCC
-developed in this paper.
+% Our method for demonstrating
+% a consistent approach
+% for societal exergy analysis along
+% unified conversion chains (BXCCs)
+% is to elucidate mathematical expressions
+% and example calculations in full detail.
+% The mathematical expressions are shown in
+% Section~\ref{sec:exergy_of_materials} below.
+% We apply that approach to a unified
+% material and energy conversion chain,
+% following material from natural resource extraction
+% to pig iron production.
+% Data for the example MCC,
+% whose basis is 1000~kg of iron ore,
+% are discussed in Section~\ref{sec:data} below.
+% Finally, we demonstrate interactions between
+% material and energy conversion chains by developing
+% Physical Supply-Use Table (PSUT) matrices that are
+% amenable to existing energy conversion chain datasets.
+% The process for assembling the PSUT matrices
+% is discussed in Section~\ref{sec:psut_framework} below.
+%
+% We begin by discussing data sources
+% for the example MCC
+% developed in this paper.
 
 
 %++++++++++++++++++++++++++++++
@@ -549,23 +549,23 @@ developed in this paper.
 \label{sec:material_data}
 %------------------------------
 
-Mass ratios and composition
-for each statepoint in the example MCC
-come from a variety of sources.
-Iron ore and coal compositions are representative
-of pig iron production in South Africa.
-The exergy of coal is calculated as shown in
-\citet[Equation~C.3]{Kotas_1995}.
-Coal composition is determined by
-the coke oven output compositions, given by
-\citet[Tables~2, 5, 8, and 9]{Kolling_1977},
-\citet{Apicella_2017}, and
-\citet[Table~2]{Sarna_2_2013}.
-The coke oven mass balance is modeled after
-\citet[Figure~4]{Ergul_2024}.
-
-Limestone production compositions and energy inputs are taken from
-\citet{Saidur_2011} and \citet[para.3]{Sarna_2013}.
+% Mass ratios and composition
+% for each statepoint in the example MCC
+% come from a variety of sources.
+% Iron ore and coal compositions are representative
+% of pig iron production in South Africa.
+% The exergy of coal is calculated as shown in
+% \citet[Equation~C.3]{Kotas_1995}.
+% Coal composition is determined by
+% the coke oven output compositions, given by
+% \citet[Tables~2, 5, 8, and 9]{Kolling_1977},
+% \citet{Apicella_2017}, and
+% \citet[Table~2]{Sarna_2_2013}.
+% The coke oven mass balance is modeled after
+% \citet[Figure~4]{Ergul_2024}.
+%
+% Limestone production compositions and energy inputs are taken from
+% \citet{Saidur_2011} and \citet[para.3]{Sarna_2013}.
 
 
 %------------------------------
@@ -573,44 +573,44 @@ Limestone production compositions and energy inputs are taken from
 \label{sec:energy_data}
 %------------------------------
 
-Processes in the example MCC include
-extraction, hauling, and beneficiaion
-of iron ore, limestone, and coal;
-a rotary kiln to convert limestone into quicklime;
-a coke oven to produce both anthracite
-and coke oven gas from beneficiated coal;
-coke oven gas treatment and distribution;
-and a blast furnace to make pig iron.
-All of the processes in the example MCC
-require energy inputs.
-
-For example, limestone and coal beneficiation processes
-use electricity for grinders and separating machines
-such as crushers, screens, and pelletizers.
-Coal and natural gas are used by the coke oven.
-Gasoline, fuel oil, and diesel are consumed by
-iron, limestone, and coal ore extraction
-and the blast furnace.
-
-Information on the direct energy requirements for
-extraction and beneficiation processes
-was taken from the Energy and Environmental Profile of the U.S.\ Mining Industry
-\citet[Tables~4.3-4, 9.2-3, and 2.7]{Ore_2025} and
-\citet[Table~A3.4]{Jamison_2015}.
-Information for energy requirements of
-iron ore hauling was obtained from
-the \citet[Table~8]{Uni_Cape_Town_2002}.
-Energy inputs to the coke oven and coke oven gas treatment
-were taken from \citet[Fig.~3]{Carmona:2019aa}
-and \citet{COG_treatment_2025}.
-
-Note that most energy inputs to the example MCC
-can also be considered as material inputs, including
-coal, gasoline, diesel, natural gas, and coke oven gas.
-We treat all energy inputs to the example MCC
-to be materials,
-the exception being electricity
-which we assume to be massless.
+% Processes in the example MCC include
+% extraction, hauling, and beneficiaion
+% of iron ore, limestone, and coal;
+% a rotary kiln to convert limestone into quicklime;
+% a coke oven to produce both anthracite
+% and coke oven gas from beneficiated coal;
+% coke oven gas treatment and distribution;
+% and a blast furnace to make pig iron.
+% All of the processes in the example MCC
+% require energy inputs.
+%
+% For example, limestone and coal beneficiation processes
+% use electricity for grinders and separating machines
+% such as crushers, screens, and pelletizers.
+% Coal and natural gas are used by the coke oven.
+% Gasoline, fuel oil, and diesel are consumed by
+% iron, limestone, and coal ore extraction
+% and the blast furnace.
+%
+% Information on the direct energy requirements for
+% extraction and beneficiation processes
+% was taken from the Energy and Environmental Profile of the U.S.\ Mining Industry
+% \citet[Tables~4.3-4, 9.2-3, and 2.7]{Ore_2025} and
+% \citet[Table~A3.4]{Jamison_2015}.
+% Information for energy requirements of
+% iron ore hauling was obtained from
+% the \citet[Table~8]{Uni_Cape_Town_2002}.
+% Energy inputs to the coke oven and coke oven gas treatment
+% were taken from \citet[Fig.~3]{Carmona:2019aa}
+% and \citet{COG_treatment_2025}.
+%
+% Note that most energy inputs to the example MCC
+% can also be considered as material inputs, including
+% coal, gasoline, diesel, natural gas, and coke oven gas.
+% We treat all energy inputs to the example MCC
+% to be materials,
+% the exception being electricity
+% which we assume to be massless.
 
 
 %------------------------------
@@ -618,27 +618,27 @@ which we assume to be massless.
 \label{sec:ecc_for_mcc}
 %------------------------------
 
-The direct energy requirements for the example material conversion chain (MCC)
-are supplied by an energy conversion chain
-that starts at energy extraction and delivers
-electricity, natural gas, gasoline, fuel oil, and diesel
-to material conversion processes.
-Data for the energy conversion chain is obtained from the
-Country-Level Primary-Final-Useful (CL-PFU) database,
-which includes energy and exergy flows for
-1960--2020 covering
-``152 individual countries and 3 rest of world regions,
-7 aggregate and 46 detailed sub-sectors,
-68 final energy products, and
-85 final-to-useful (FU) energy conversion devices''~\citep[p.~1]{Brockway:2024ab}.
-We extract energy conversion chain data for South Africa,
-one of the countries in the CL-PFU database and
-for 2013, because a consistent energy conversion chain
-can be used from the year.
-
-The energy conversion chain is quantified
-as exergy (XCC) to match the exergy version
-of the material conversion chain (BCC).
+% The direct energy requirements for the example material conversion chain (MCC)
+% are supplied by an energy conversion chain
+% that starts at energy extraction and delivers
+% electricity, natural gas, gasoline, fuel oil, and diesel
+% to material conversion processes.
+% Data for the energy conversion chain is obtained from the
+% Country-Level Primary-Final-Useful (CL-PFU) database,
+% which includes energy and exergy flows for
+% 1960--2020 covering
+% ``152 individual countries and 3 rest of world regions,
+% 7 aggregate and 46 detailed sub-sectors,
+% 68 final energy products, and
+% 85 final-to-useful (FU) energy conversion devices''~\citep[p.~1]{Brockway:2024ab}.
+% We extract energy conversion chain data for South Africa,
+% one of the countries in the CL-PFU database and
+% for 2013, because a consistent energy conversion chain
+% can be used from the year.
+%
+% The energy conversion chain is quantified
+% as exergy (XCC) to match the exergy version
+% of the material conversion chain (BCC).
 
 
 %++++++++++++++++++++++++++++++
@@ -646,91 +646,74 @@ of the material conversion chain (BCC).
 \label{sec:methods}
 %++++++++++++++++++++++++++++++
 
-The methods used to create the example MCC are given below.
-We begin by discussing the material hierarchy
-that organizes information at any statepoint.
+% The methods used to create the example MCC are given below.
+% We begin by discussing the material hierarchy
+% that organizes information at any statepoint.
 
 %------------------------------
 \subsubsection{Material hierarchy}
 \label{sec:material_hierarchy}
 %------------------------------
 
-
-\begin{table}
-\centering
-\footnotesize
-\caption{Components of material exergy.
-         $T$ is temperature, $y$ is molar concentration, $d$ is particle size, and
-         $i$ is chemical species.
-         Subscript 0 indicates conditions at the reference state, which is
-         the atmosphere for gasses and Thanatia for solids.
-         **** Maybe delete this table if we include the figure.}
-\begin{tabular}{@{}rcccccccccc@{}}
-\toprule
-\multicolumn{1}{c}{} & \multicolumn{5}{c}{From} & \multicolumn{5}{c}{To} \\
-\midrule
-\multicolumn{1}{c}{} & $T$   & $P$   & $y$  & $d$   & species & $T$   & $P$   & $y$   & $d$   & species \\
-\midrule
-$b_{com}$            & $T$   & $P$   & $y$  & $d$   & $i$     & $T$   & $P$   & $y$   & $d_0$ & $i$  \\
-$b_{ph}$             & $T$   & $P$   & $y$  & $d_0$ & $i$     & $T_0$ & $P_0$ & $y$   & $d_0$ & $i$  \\
-$b_c$                & $T_0$ & $P_0$ & $y$  & $d_0$ & $i$     & $T_0$ & $P_0$ & 1     & $d_0$ & $i$  \\
-$b_{ch}$             & $T_0$ & $P_0$ & 1    & $d_0$ & $i$     & $T_0$ & $P_0$ & $y_0$ & $d_0$ & $i_0$  \\
-\bottomrule
-\end{tabular}
-\label{tab:material_exergy}
-\end{table}
-
-
-
-
-\begin{figure}
-\centering
-\includegraphics[width=1\linewidth]{images/ExergyGraph.pdf}
-\caption{Components of material exergy:
-         comminution ($b_{com}$),
-         physical ($b_{ph}$),
-         concentration ($b_c$), and
-         chemical ($b_{ch}$).
-         $T$ is temperature,
-         $y$ is molar concentration,
-         $d$ is particle size, and
-         $i$ is chemical species.
-         Subscript 0 indicates conditions at the reference state,
-         which is the atmosphere for gasses,
-         Thanatia for solids, and
-         the ocean for liquids.}
-\label{fig:components_material_exergy}
-\end{figure}
-
-
-
-
-
-
-We define a statepoint ($k$) as a material stream
-with a known pressure, temperature, and composition
-as a mixture of compounds
-and or elements \citet[p.19-33]{Ting_2022}.
-To analyze each statepoint of the example MCC,
-we employ the material hierarchy shown in
-Table~\ref{tab:material_hierarchy}.
-This hierarchy enables later expansion to include
-components (a configuration of mixtures) and
-products (an assembly of components)
-between mixture and statepoint in our hierarchy.
-
+% \begin{figure}
+% \centering
+% \includegraphics[width=1\linewidth]{images/ExergyGraph.pdf}
+% \caption{Components of material exergy:
+%          comminution ($b_{com}$),
+%          physical ($b_{ph}$),
+%          concentration ($b_c$), and
+%          chemical ($b_{ch}$).
+%          $T$ is temperature,
+%          $y$ is molar concentration,
+%          $d$ is particle size, and
+%          $i$ is chemical species.
+%          Subscript 0 indicates conditions at the reference state,
+%          which is the atmosphere for gasses,
+%          Thanatia for solids, and
+%          the ocean for liquids.}
+% \label{fig:components_material_exergy}
+% \end{figure}
+%
+% We define a statepoint ($k$) to be a material stream
+% with a known pressure, temperature, and composition
+% as a mixture of compounds
+% and or elements \citet[p.19-33]{Ting_2022}.
+% To analyze each statepoint of the example MCC,
+% we employ the material hierarchy shown in
+% Table~\ref{tab:material_hierarchy}.
 % With this hierarchy,
 % the material at any statepoint
 % may be described as a mixture of compounds,
 % and the compounds an arrangement of elements.
-For this paper, we adopt subscript symbols for the hierarchy
-as shown in Table~\ref{tab:material_hierarchy}
-adapted from \citet[p.~10]{Remmen_2024}.
-For example, $B_{m,k}$ gives the material exergy ($B$)
-of a mixture (subscript $m$) of materials at statepoint $k$.
-Our choices of subscript $j$ (for elements) and
-subscript $i$ (for compounds)
-follow \citet{Valero_2015}.
+% This hierarchy enables later expansion to include
+% components (a configuration of mixtures) and
+% products (an assembly of components)
+% between mixture and statepoint in our hierarchy.
+%
+% For this paper, we adopt subscript symbols for the hierarchy
+% as shown in Table~\ref{tab:material_hierarchy}
+% adapted from \citet[p.~10]{Remmen_2024}.
+% For example, $B_{m,k}$ gives the material exergy ($B$)
+% of a mixture (subscript $m$) of materials at statepoint $k$.
+% Our choices of subscript $j$ (for elements) and
+% subscript $i$ (for compounds)
+% follow \citet{Valero_2015}.
+%
+% \begin{table}
+% \footnotesize
+% \centering
+% \caption{Material hierarchy.}
+% \begin{tabularx}{0.9\textwidth}{lcl}
+% \toprule
+% Name & Subscript & Definition \\
+% \midrule
+% mixture    & $m$		& a combination of compounds and/or elements that exist at a statepoint \\
+% compound   & $i$    & a combination of elements \\
+% element    & $j$    & a combination of atoms \\
+% \bottomrule
+% \end{tabularx}
+% \label{tab:material_hierarchy}
+% \end{table}
 
 
 %------------------------------
@@ -738,60 +721,24 @@ follow \citet{Valero_2015}.
 \label{sec:exergy_of_materials}
 %------------------------------
 
-In this section, we carefully elucidate
-concepts and equations for
-consistent exergy analysis approach for ECCs and MCCs,
-including chemical and concentration exergies
-(contribution 1 of Section~\ref{sec:question_contributions_structure}).
-Material exergy ($B$) is the exergy of a mixture of compounds
-that exist at a statepoint ($B_k$).
-Material exergy is the maximum amount of work
-that could be extracted
-by a process that brings the mixture
-into equilibrium with the reference environment,
-defined by its temperature ($T_0$), pressure ($P_0$), and chemical composition.
-Thus, the total exergy of a material ($B$)
-is the sum of the work of four reversible processes.
-
-\begin{table}
-\footnotesize
-\centering
-\caption{Material hierarchy.}
-\begin{tabularx}{0.9\textwidth}{lcl}
-\toprule
-Name & Subscript & Definition \\
-\midrule
-mixture    & $m$		& a combination of compounds and/or elements that exist at a statepoint \\
-compound   & $i$    & a combination of elements \\
-element    & $j$    & a combination of atoms \\
-\bottomrule
-\end{tabularx}
-\label{tab:material_hierarchy}
-\end{table}
-
-We assume that all statepoints in the example MCC
-are at $T_0$ and $P_0$;
-thus, physical exergy ($b_{ph}$) is zero.
-(The exception is Appendix~\ref{sec:MCC_exergy},
-which for illustration purposes assumes
-material temperature to be different from $T_0$.)
-Natural resources have a positive material exergy ($b$ in kJ/mol)
-because they have a chemical composition
-different from their Environment.
-Comminution exergy is minimal\citep[p.~280]{Valero_2015}
-and ignored for the analysis of conversion chains herein.
-(The exception, again, is Appendix~\ref{sec:MCC_exergy},
-which for illustration purposes
-demonstrates communition exergy calculations.)
-
-Reference environments can include the atmosphere,
-the ocean, or the Earth's crust.
-Species in reference environments are characterized
-by partial pressure ($P_i = y_i P_0$) in the atmosphere,
-by concentrations ($C_i$) in the ocean,
-and by mole fraction ($y_i$) in the Earth's crust.
-We take reference environments
-from \citet[Tables~11.1--11.7]{Valero_2015}.
+% In this section, we carefully elucidate
+% concepts and equations for
+% consistent exergy analysis approach for ECCs and MCCs,
+% including chemical and concentration exergies
+% (contribution 1 of Section~\ref{sec:question_contributions_structure}).
+% Material exergy ($B$) is the exergy of a mixture of compounds
+% that exist at a statepoint $k$.
+% Material exergy is the maximum amount of work
+% that could be extracted
+% by an ideal, reversible process
+% that brings the mixture of materials
+% into equilibrium with the reference environment,
+% defined by
+% particle size ($d_0$),
+% temperature ($T_0$),
+% pressure ($P_0$), and
+% chemical composition ($y_{i,0}$).
+% (See Figure~\ref{fig:components_material_exergy}.)
 
 
 %..............................
@@ -799,35 +746,33 @@ from \citet[Tables~11.1--11.7]{Valero_2015}.
 \label{sec:exergy_of_mixtures}
 %..............................
 
-The total material exergy of a mixture at a statepoint ($B_m$) is
-
-\begin{equation}\label{eq:exergy_mixture}
-   B_m = N_m b_m \, ,
- \end{equation}
+% The total material exergy of a mixture at a statepoint ($B_m$) is
 %
-where $B_m$ is the total exergy of the mixture
-(in units of $\mathrm{kJ_m}$),
-$N_m$ is the amount of the mixture
-(in units of $\mathrm{mol_m}$),
-and $b_m$ is the molar intensive material exergy of the mixture
-(in units of $\mathrm{kJ_m/mol_m}$).
-
-The material exergy of a mixture may be calculated from
-compounds ($i$) in the mixture with
-
-\begin{equation}\label{eq:total_exergy_mixture}
-   B_m = \sum_i{N_i b_i} = N_m\sum_i{y_ib_i} \, ,
-\end{equation}
+% \begin{equation}\label{eq:exergy_mixture}
+%    B_m = N_m b_m \, ,
+%  \end{equation}
+% %
+% where $B_m$ is the total exergy of the mixture
+% (in units of $\mathrm{kJ_m}$),
+% $N_m$ is the number of moles of the mixture
+% (in units of $\mathrm{mol_m}$),
+% and $b_m$ is the molar intensive material exergy of the mixture
+% (in units of $\mathrm{kJ_m/mol_m}$).
 %
-where $N_i$ is the number of moles of compound $i$
-(in $\mathrm{mol_i}$),
-$b_i$ is the molar intensive material exergy
-of compound $i$ (in $\mathrm{kJ_i/mol_i}$),
-and $y_i$ is the mole fraction
-of compound $i$ in its mixture
-(in $\mathrm{mol_i/mol_m}$).
-
-
+% The material exergy of a mixture may be calculated from
+% compounds ($i$) in the mixture with
+%
+% \begin{equation}\label{eq:total_exergy_mixture}
+%    B_m = \sum_i{N_i b_i} = N_m\sum_i{y_i b_i} \, ,
+% \end{equation}
+% %
+% where $N_i$ is the number of moles of compound $i$
+% (in $\mathrm{mol_i}$),
+% $b_i$ is the molar intensive material exergy
+% of compound $i$ (in $\mathrm{kJ_i/mol_i}$),
+% and $y_i$ is the mole fraction
+% of compound $i$ in its mixture
+% (in $\mathrm{mol_i/mol_m}$).
 
 
 %..............................
@@ -835,164 +780,187 @@ of compound $i$ in its mixture
 \label{sec:exergy_of_compounds}
 %..............................
 
-In general, the molar intensive material exergy
-of compound $i$ ($b_i$) is defined as
-
-\begin{equation}
-  b_i = b_{ph,i} + b_{ch,i} + b_{c,i} + b_{com,i} \, ,
-\end{equation}
+% With reference to Figure~\ref{fig:components_material_exergy},
+% the molar intensive material exergy
+% of compound $i$ ($b_i$) in a mixture is defined as
 %
-where $b_{ph,i}$ is physical exergy,
-$b_{ch,i}$ is chemical exergy,
-$b_{c,i}$ is concentration exergy, and
-$b_{com,i}$ is communition exergy.
-(See \citet[p.~276]{Valero_2015}.)
-All terms are in units of $\mathrm{kJ_i/mol_i}$.
-As discussed above,
-physical exergy ($b_{ch,i}$) is zero for all statepoints in the example MCC
-of this paper,
-because all statepoints are assumed to be at $T_0$ and $P_0$.
-Comminution exergy ($b_{com,i}$) is assumed small and neglected.
-(See Appendix~\ref{sec:MCC_exergy} for confirmation of this assumption.)
-Thus, for this paper
-the molar intensive material exergy of a compound is given by
+% \begin{equation}
+%   b_i = b_{com} + b_{ph,i} + b_{c,i} + b_{ch,i} \, ,
+% \end{equation}
+% %
+% where
+% $b_{com,i}$ is communition exergy,
+% $b_{ph,i}$ is physical exergy,
+% $b_{ch,i}$ is chemical exergy, and
+% $b_{c,i}$ is concentration exergy.
+% (See \citet[p.~276]{Valero_2015}.)
+% All terms are in units of $\mathrm{kJ_i/mol_i}$.
+%
+% The molar intensive material exergy of a mixture of materials at statepoint $k$
+% is given by
+% \begin{equation}\label{eq:molar_intensive_exergy_definition}
+%   b_{m,k} = \sum_i{b_{i,k}} \, .
+% \end{equation}
+%
+% Henceforth, we drop subscript $k$ for clarity.
 
-\begin{equation}\label{eq:general_material_exergy_definition}
-  b_i = b_{ch,i} + b_{c,i} \, .
-\end{equation}
 
-The molar intensive material exergy of a statepoint
-is given by
-\begin{equation}\label{eq:molar_intensive_exergy_definition}
-  b_m = \sum_i{b_i} \, .
-\end{equation}
+%..............................
+\paragraph{Communition exergy}
+\label{sec:b_com_main_paper}
+%..............................
+
+% Comminution exergy ($b_{com}$) represents the work done upon the material
+% to grind it
+% from its existing size ($d_i$)
+% to the size observed in the reference environment ($d_{i,0}$).
+% In Figure~\ref{fig:components_material_exergy},
+% comminution exergy is shown as requiring work input to the material
+% (rather than work extracted from the material).
+% As such $b_{com} < 0$ is expected.
+% Comminution exergy is typically small~\citep[p.~280]{Valero_2015}
+% and ignored for the analysis of material and energy conversion chains herein.
+% (The exception is Appendix~\ref{sec:MCC_exergy},
+% which for illustration purposes
+% demonstrates communition exergy calculations.
+% Appendix~\ref{sec:MCC_exergy} also confirms
+% the assumption that communition exergy is small and
+% can be neglected in most cases.)
+
+
+%..............................
+\paragraph{Physical exergy}
+\label{sec:b_ph_main_paper}
+%..............................
+
+% Physical exergy ($b_{ph}$) is the work that could be extracted
+% from a mixture of compounds if the mixture were brought
+% from temperature $T$ and pressure $P$ to reference environment
+% conditions $T_0$ and $P_0$.
+% In Figure~\ref{fig:components_material_exergy},
+% $b_{ph}$ is shown to be positive, because
+% work can be extracted from substances that have
+% $T > T_0$ and $P > P_0$.
+% We assume that all statepoints in the example MCC
+% are at $T_0$ and $P_0$;
+% thus, $b_{ph,i} = 0$.
+% (The exception, again, is Appendix~\ref{sec:MCC_exergy},
+% which for illustration purposes assumes
+% material temperature to be different from $T_0$.)
+
+
+%..............................
+\paragraph{Concentration exergy}
+\label{sec:b_c_main_paper}
+%..............................
+
+% Natural resources have a positive material exergy
+% because they have a chemical composition
+% different from their reference environment.
+% Reference environments can include the atmosphere,
+% the ocean, or the Earth's crust.
+% Species in reference environments are characterized
+% by partial pressure ($P_i = y_i P_0$) in the atmosphere,
+% by concentrations ($C_i$) in the ocean,
+% and by mole fraction ($y_i$) in the Earth's crust.
+% We take reference environments
+% from \citet[Tables~11.1--11.7]{Valero_2015}.
+%
+% The concentration exergy of a mixture ($b_{c,m}$) is
+% the work that could be extracted from the mixture
+% when separating the mixture into pure compounds.
+% Actually, work has to be done upon the mixture
+% to separate the constituents,
+% so concentration exergy ($b_c$) is negative%
+% \footnote{
+%   Some authors define concentration exergy to be positive
+%   but subtract the value when calculating total exergy of a mixture.
+%   For consistency, we opt to calculate a negative number and sum when
+%   calculating total exergy of a mixutre.
+% },
+% as shown in Figure~\ref{fig:components_material_exergy}.
+%
+% The definition of concentration exergy is derived from the entropy of mixing.
+% The entropy of a mixture ($\Delta{S_m}$) is the increase in entropy
+% that occurs when different substances are mixed reversibly and isothermally
+% and is given by
+% \begin{equation}\label{eq:specific_entropy_of_mixture_definition}
+%   \Delta S_m = - R N_m (y_{1}\ln{y_{1}} + y_{2}\ln{y_{2}} + y_{3}\ln{y_{3}} + \ldots)
+%              = - R N_m \sum_{i} y_{i}\ln{y_{i}} \, ,
+% \end{equation}
+% %
+% where $\Delta S_m$ is in units of $\mathrm{kJ/mol_m \cdot K}$,
+% $R$ is the universal gas constant (in units of $\mathrm{kJ/mol \cdot K}$), and
+% $y_i$ are mole fractions in $\mathrm{mol_i/mol_m}$.
+%
+% We define concentration exergy of a compound $i$
+% in the mixture ($b_{c,i}$) as
+%
+% \begin{equation}\label{eq:concentration_exergy}
+%   b_{c,i} = RT_0[\ln(y_i) - \ln(y_{i,0})] \, .
+% \end{equation}
+% %
+% Note that the reference state (subscript ``0'')
+% for concentration exergy
+% is unmixed (pure) compounds,
+% so $y_{i,0} \equiv 1$.
+% Simplifying Equation (\ref{eq:concentration_exergy})
+% with $y_{i,0} = 1$ gives
+%
+% \begin{equation}\label{eq:concentration_exergy_definition}
+%   b_{c,i} = R T_0 \ln(y_i) \, ,
+% \end{equation}
+% %
+% which is always less than or equal to zero
+% for reasons discussed above.
+
 
 %..............................
 \paragraph{Chemical exergy($b_{ch}$)}
-\label{ssec:chemical_exergy}
+\label{sec:chemical_exergy}
 %..............................
 
-The chemical exergy of a compound ($b_{ch,i}$)
-existing in the reference environment
-is the potential amount of work obtainable
-by decomposing the compound
-to compounds and elements
-in their environmentally stable forms.
-If compound $i$ does not exist
-in the reference environment,
-its chemical exergy is the amount of work obtained
-in the reversible chemical reactions
-that decompose the pure compound
-to the set of compounds
-in equilibrium with the environment.
-
-This process can be decomposed into two steps:
-decomposition of compound in the environment to its most stable form of compounds and elements
-including the formation of a compound from stable compounds and elements,
-which is captured by Gibbs free energy.
-The reversible work produced from the first process
-is the chemical exergy of the compound.
-
-****
-Perhaps we can cite this paper:
-\citet{Michalakakis_2021}.
----MKH
-****
-
-
-The chemical exergy of a compound ($b_{ch,i}$) is given by
-
-\begin{equation}\label{eq:chemical_exergy_definition}
-  b_{ch,i} = \Delta{G_{f,i}} + \sum_{i}{n_{j}b_{ch,j}} \, ,
-\end{equation}
+% The chemical exergy of a pure compound ($b_{ch,i}$)
+% is the maximum amount of work obtainable
+% by decomposing the compound
+% to compounds and elements
+% that exist in the reference environment.
+% If compound $i$ does not exist
+% in the reference environment,
+% its chemical exergy is the amount of work obtained
+% in the reversible chemical reactions
+% that decompose compound $i$ into
+% the set of compounds that exist in the reference environment.
 %
-where $b_{ch,i}$ is in units of $\mathrm{kJ_i/mol_i}$,
-$n_j$ is the number of moles of an element (in units of $\mathrm{mol_i}$),
-and Gibbs energy of formation ($\Delta{G_f}$) is in units of $\mathrm{kJ_i/mol_i}$.
-$\Delta{G_{f}}$ values are taken from \citet[pp.~9.4--9.94]{Dean_1979},
-\citet[Table~2]{Gibbs_formation},
-and \citet[Appendix~II~B]{Tro_2006}.
-
-The chemical exergy of a mixture ($b_{ch,m}$) is
-
-\begin{equation}\label{eq:}
-  b_{ch,m} = \sum_{i}{N_m b_{ch,i}} \, .
-\end{equation}
-
-%..............................
-\paragraph{Concentration exergy ($b_c$)}
-\label{sssec:concentration_exergy}
-%..............................
-
-The concentration exergy of a mixture ($b_{c,m}$) is the the minimum work required
-to separate the mixture into pure compounds.
-The definition of concentration exergy is derived from the entropy of mixing.
-The entropy of a mixture ($\Delta{S_m}$) is the increase in entropy
-that occurs when different substances are mixed reversibly and isothermally
-and is given by
-
-\begin{equation}\label{eq:specific_entropy_of_mixture_definition}
-  \Delta{S_m} = -RN_m(y_{1}\ln{y_{1}} + y_{2}\ln{y_{2}} + y_{3}\ln{y_{3}} + \ldots)
-          = -RN_m\sum_{i} y_{i}\ln{y_{i}} \, ,
-\end{equation}
+% % This process can be decomposed into two steps:
+% % decomposition of compound $i$ to its most stable form of compounds and elements
+% % including the formation of a compound from stable compounds and elements,
+% % which is captured by Gibbs free energy.
+% % The reversible work produced from the first process
+% % is the chemical exergy of the compound.
 %
-where $\Delta{S_m}$ is in units of $\mathrm{kJ/mol_m \cdot K}$,
-and $R$ is the universal gas constant (in units of $\mathrm{kJ/mol \cdot K}$), and
-$y_i$ are in $\mathrm{mol_i/mol_m}$.
-
-The reference points for concentrations ($y_i$) are
-species as pure substances,
-so $y_{i,0} \equiv 1$.
-
-The concentration exergy of a compound (as defined above)
-is the reversible work needed to concentrate it to the pure state.
-\citet{Valero_2015}
-****
-Include page number.
----MKH
-****
-define concentration exergy of a compound ($b_{c,i}$) as
-
-\begin{equation}\label{eq:concentration_exergy}
-  b_{c,i} = RT_0[\ln(y_i) - \ln(y_{i,0})] \, .
-\end{equation}
+% ****
+% Perhaps we can cite this paper:
+% \citet{Michalakakis_2021}.
+% ---MKH
+% ****
 %
-
-Simplifying Equation (\ref{eq:concentration_exergy})
-with $y_{i,0} = 1$ gives
-
-\begin{equation}\label{eq:concentration_exergy_definition}
-  b_{c,i} = R T_0 \ln(y_i) \, .
-\end{equation}
 %
-The concentration exergy of a compound in a mixture
-is always negative
-because the pure substance
-in the reference environment
-becomes less concentrated
-at any statepoint.
-
-The minimum work required to separate a mixture reversibly
-at constant temperature and pressure is given by
-
-\begin{equation}\label{eq:work}
-    W_{min} = -T_0\Delta{S_m}
-            = R T_0 N_m \sum_{i}(y_i\ln{y_i}) \, ,
-\end{equation}
+% The chemical exergy of a compound ($b_{ch,i}$) is given by
 %
-where $W_{min}$ is in units of $\mathrm{kJ/mol_m}$.
-The minimum work is negative
-because the environment puts work
-into the mixture.
-
-%..............................
-\paragraph{Elements ($j$)}
-\label{sssec:elements}
-%..............................
-
-We take chemical exergies of elements ($b_{ch,j}$)
-from the crepuscular earth model
-of \citet[Table~9.1]{Valero_2015}.
+% \begin{equation}\label{eq:chemical_exergy_definition}
+%   b_{ch,i} = \Delta{G_{f,i}} + \sum_{i}{n_{j}b_{ch,j}} \, ,
+% \end{equation}
+% %
+% where $b_{ch,i}$ is in units of $\mathrm{kJ_i/mol_i}$,
+% $n_j$ is the number of moles of an element (in units of $\mathrm{mol_i}$),
+% and Gibbs energy of formation ($\Delta{G_f}$) is in units of $\mathrm{kJ_i/mol_i}$.
+% $\Delta{G_{f}}$ values are taken from \citet[pp.~9.4--9.94]{Dean_1979},
+% \citet[Table~2]{Gibbs_formation},
+% and \citet[Appendix~II~B]{Tro_2006}.
+% We take chemical exergies of elements ($b_{ch,j}$)
+% from the crepuscular earth model
+% of \citet[Table~9.1]{Valero_2015}.
 
 
 %------------------------------
@@ -1000,107 +968,107 @@ of \citet[Table~9.1]{Valero_2015}.
 \label{sec:exergy_of_energy}
 %------------------------------
 
-The example MCC has both material and energy inputs to processes.
-We calculate the exergy of energy as
-shown in Equation~(\ref{eq:general_material_exergy_definition})
-for all energy sources with mass (e.g., coal, oil, and natural gas).
-The exergy of energy inputs are determined by
-Equation~(\ref{eq:chemical_exergy_definition})
-when the Gibbs energy of formation
-($\Delta{G_{f}}$)
-is available.
-Otherwise (such as for coal and fuel oil),
-we calculate material exergy by
-
-\begin{equation}\label{eq:energy_exergy_fuels}
-  \varepsilon_i = [LHV_i + w h_{fg}]\phi_i + (9417~\mathrm{kJ/kg}) \, s
-\end{equation}
+% The example MCC has both material and energy inputs to processes.
+% We calculate the exergy of energy as
+% shown in Equation~(\ref{eq:general_material_exergy_definition})
+% for all energy sources with mass (e.g., coal, oil, and natural gas).
+% The exergy of energy inputs are determined by
+% Equation~(\ref{eq:chemical_exergy_definition})
+% when the Gibbs energy of formation
+% ($\Delta{G_{f}}$)
+% is available.
+% Otherwise (such as for coal and fuel oil),
+% we calculate material exergy by
 %
-where $\varepsilon_i$ is the exergy of energy (in units of $\mathrm{kJ}$),
-$LHV_i$ is the lower heating value of the fuel (in units of $\mathrm{kJ/kg}$),
-$w$ is the fuel's mass fraction of moisture (in units of $\mathrm{kg/kg}$),
-$h_{fg}$ is the enthalpy of evaporation of \ce{H2O} (in units of $\mathrm{kJ/kg}$),
-$\phi_i$ is the ratio of exergy to energy (in units of $\mathrm{kJ/kJ}$),
-the constant 9417~kJ/kg is the difference
-in rhombic sulfur's chemical exergy and it's lower heating value,
-and $s$ is the mass fraction of sulfur in the fuel (in units of $\mathrm{kg/kg}$).
-(See \citet[Eq.~C.5a]{Kotas_1995}.)
-We obtain $\phi$ values from \citet[Appendix~C]{Kotas_1995}.
-(See Appendix~\ref{sec:appendix_phi}
-for solid and liquid fuel exergy equations.)
-
-All other energy sources in the example MCC are electricity.
-The exergy of energy at any statepoint
-is given by
-
-\begin{equation}\label{eq:energy_exergy_definition}
-  X_i = \phi_i E_i \, ,
-\end{equation}
+% \begin{equation}\label{eq:energy_exergy_fuels}
+%   \varepsilon_i = [LHV_i + w h_{fg}]\phi_i + (9417~\mathrm{kJ/kg}) \, s
+% \end{equation}
+% %
+% where $\varepsilon_i$ is the exergy of energy (in units of $\mathrm{kJ}$),
+% $LHV_i$ is the lower heating value of the fuel (in units of $\mathrm{kJ/kg}$),
+% $w$ is the fuel's mass fraction of moisture (in units of $\mathrm{kg/kg}$),
+% $h_{fg}$ is the enthalpy of evaporation of \ce{H2O} (in units of $\mathrm{kJ/kg}$),
+% $\phi_i$ is the ratio of exergy to energy (in units of $\mathrm{kJ/kJ}$),
+% the constant 9417~kJ/kg is the difference
+% in rhombic sulfur's chemical exergy and it's lower heating value,
+% and $s$ is the mass fraction of sulfur in the fuel (in units of $\mathrm{kg/kg}$).
+% (See \citet[Eq.~C.5a]{Kotas_1995}.)
+% We obtain $\phi$ values from \citet[Appendix~C]{Kotas_1995}.
+% (See Appendix~\ref{sec:appendix_phi}
+% for solid and liquid fuel exergy equations.)
 %
-where $X_i$ is the exergy of energy of a species (in units of kJ),
-$\phi_i$ is the exergy to energy ratio (unitless),
-and $E_i$ is the energy of a species (in units of kJ).
-Note $\phi_{electricity} \equiv 1$, by definition.
-
-%------------------------------
-\subsubsection{PSUT framework and $\mat{RUVY}$ matrices}
-\label{sec:psut_framework}
-%------------------------------
-
-The native data format for the ECCs and XCCs
-of the CL-PFU database~\citep{Brockway:2024ab} is
-the $\mat{RUVY}$ matrices%
-\footnote{
-  Note that matrices are represented by capital letters in bold, non-italic font.
-  Vectors are represented by lower-case or script letters in bold, non-italic font.
-}
+% All other energy sources in the example MCC are electricity.
+% The exergy of energy at any statepoint
+% is given by
 %
-of the
-Physical Supply-Use Table (PSUT) framework~\citep{Heun:2018,Aramendia:2022tv}.
-Although the PSUT framework has been applied
-to analysis of energy conversion chains
-(both ECCs and XCCs)~\citep{Heun:2019aa,Aramendia:2024ac},
-this paper represents its first application to
-material conversion chains (MCCs and BCCs) and
-to unified exergy analysis of material and energy conversion chains (BXCCs).
-
-One benefit of the PSUT framework
-is that it provides a natural structure for data in
-material conversion chains (MCCs in mass units),
-energy conversion chains (ECCs in energy units), and
-exergy conversion chains
-(BCCs for material,
-XCCs for energy, and
-BXCCs for unified,
-all in exergy units).
-We apply that structure to the conversion chains
-developed in Section~\ref{sec:results} below.
-The four matrices of the PSUT framework
-are
-the resource matrix ($\mat{R}$), which contains exogeneous inputs to a conversion chain;
-the use matrix ($\mat{U}$), which includes the consumption of materials and energy;
-the make matrix ($\mat{V}$), which describes the production of materials and energy
-by processes in conversion chains; and
-the final demand matrix ($\mat{Y}$), which contains consumption
-of materials and energy by economic sectors.
-See Figure~\ref{fig:psut_framework_mats}.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.6\linewidth]{images/PSUTmats.pdf}
-\caption{Matrices of the PSUT framework. After \citet[Figure~1]{Aramendia:2022tv}.}
-\label{fig:psut_framework_mats}
-\end{figure}
-
-In the PSUT framework,
-processing stages are generically called ``industries,'' and
-flows of mass, energy, or exergy between processing stages
-are generically called ``products.''
-In a flow diagram,
-industries are represented visually by boxes.
-Products are represented visually by arrows
-that indicate the direction of product flow
-from one industry to another.
+% \begin{equation}\label{eq:energy_exergy_definition}
+%   X_i = \phi_i E_i \, ,
+% \end{equation}
+% %
+% where $X_i$ is the exergy of energy of a species (in units of kJ),
+% $\phi_i$ is the exergy to energy ratio (unitless),
+% and $E_i$ is the energy of a species (in units of kJ).
+% Note $\phi_{electricity} \equiv 1$, by definition.
+%
+% %------------------------------
+% \subsubsection{PSUT framework and $\mat{RUVY}$ matrices}
+% \label{sec:psut_framework}
+% %------------------------------
+%
+% The native data format for the ECCs and XCCs
+% of the CL-PFU database~\citep{Brockway:2024ab} is
+% the $\mat{RUVY}$ matrices%
+% \footnote{
+%   Note that matrices are represented by capital letters in bold, non-italic font.
+%   Vectors are represented by lower-case or script letters in bold, non-italic font.
+% }
+% %
+% of the
+% Physical Supply-Use Table (PSUT) framework~\citep{Heun:2018,Aramendia:2022tv}.
+% Although the PSUT framework has been applied
+% to analysis of energy conversion chains
+% (both ECCs and XCCs)~\citep{Heun:2019aa,Aramendia:2024ac},
+% this paper represents its first application to
+% material conversion chains (MCCs and BCCs) and
+% to unified exergy analysis of material and energy conversion chains (BXCCs).
+%
+% One benefit of the PSUT framework
+% is that it provides a natural structure for data in
+% material conversion chains (MCCs in mass units),
+% energy conversion chains (ECCs in energy units), and
+% exergy conversion chains
+% (BCCs for material,
+% XCCs for energy, and
+% BXCCs for unified,
+% all in exergy units).
+% We apply that structure to the conversion chains
+% developed in Section~\ref{sec:results} below.
+% The four matrices of the PSUT framework
+% are
+% the resource matrix ($\mat{R}$), which contains exogeneous inputs to a conversion chain;
+% the use matrix ($\mat{U}$), which includes the consumption of materials and energy;
+% the make matrix ($\mat{V}$), which describes the production of materials and energy
+% by processes in conversion chains; and
+% the final demand matrix ($\mat{Y}$), which contains consumption
+% of materials and energy by economic sectors.
+% See Figure~\ref{fig:psut_framework_mats}.
+%
+% \begin{figure}
+% \centering
+% \includegraphics[width=0.6\linewidth]{images/PSUTmats.pdf}
+% \caption{Matrices of the PSUT framework. After \citet[Figure~1]{Aramendia:2022tv}.}
+% \label{fig:psut_framework_mats}
+% \end{figure}
+%
+% In the PSUT framework,
+% processing stages are generically called ``industries,'' and
+% flows of mass, energy, or exergy between processing stages
+% are generically called ``products.''
+% In a flow diagram,
+% industries are represented visually by boxes.
+% Products are represented visually by arrows
+% that indicate the direction of product flow
+% from one industry to another.
 
 
 %------------------------------
@@ -1108,82 +1076,82 @@ from one industry to another.
 \label{sec:conversion_chains}
 %------------------------------
 
-To illustrate application of the exergy of materials
-to societal exergy analysis,
-we develop several material and energy conversion chains
-using the the $\mat{RUVY}$ matrices of the PSUT framework.
-First, we develop a direct energy input and material flow model (DEIMFM).
-The DEIMFM includes all material flows and \emph{direct} energy inputs.%
-\footnote{
-  Direct energy inputs are consumed directly by a machine,
-  such as electricity consumed by crushers.
-  Indirect energy inputs include upstream resources to create
-  the direct energy inputs, such as coal used to make electricity.
-}
-
-Next, we develop two matrix representations of the mass flows of the DEIMFM.
-(a) A mass-only version (MCC) that quantifies material flows in mass units
-    from extraction through a blast furnace
-    to the Iron and steel industry
-    (Section~\ref{sec:material_data}).
-(b) An exergy version (BCC) that quantifies material flows in exergy units.
-Each statepoint in the MCC is converted to exergy
-to form the BCC in accordance with
-the methods discussed in Section~\ref{sec:exergy_of_materials}.
-
-Then, we develop two versions of an independent
-energy conversion chain to supply the DEIMFM's energy requirements:
-(c) an independent energy conversion chain (ECC) obtained from the CL-PFU database
-    where all flows are in energy terms
-    as described in Sections~\ref{sec:energy_data} and~\ref{sec:ecc_for_mcc}
-    and
-(d) an independent exergy version of the energy conversion chain (XCC),
-    also extracted from the CL-PFU database.
-To obtain the ECC and XCC,
-we perform an ``upstream swim'' from a new final demand ($\mat{Y}$) matrix
-populated with the energy requirements of the BCC,
-as discussed in~\citet[Section~2.2.5]{Heun:2018}.
-
-Finally, we develop
-(e) a matrix representation of a unified conversion chain (BXCC) that
-    brings the exergy of materials and energy together,
-    as described in Section~\ref{sec:creating_bxcc} below.
-The benefit of unifying the independent material and energy conversion chains
-is that all upstream activities for the MCC and ECC are accounted in the BXCC.
-
-Table~\ref{tab:conversion_chains} shows the characteristics
-of the DEIMFM and various conversion chains.
-
-\begin{table}
-\footnotesize
-\centering
-\caption{Characteristics of the independent
-         material (MCC and BCC) and
-         energy (ECC and XCC) conversion chains
-         used to build
-         the integrated material and energy conversion chain
-         (BXCC).
-         Non-energy materials include limestone, iron ore, and combustion air.
-         Energy materials are fuels considered
-         as mass and later quantified as exergy, including
-         coal, natural gas, diesel, and coke oven gas.
-         Massless energy is electricity and heat.
-         Direct refers to the immediate inputs to a process.
-         Indirect refers to processes and materials upstream of direct inputs.}
-\label{tab:nomenclature}
-\begin{tabular}{rcccccc}
-\toprule
-                            & DEIMFM     & MCC \& BCC & ECC \& XCC & BXCC \\
-\midrule
-Non-energy materials        & \checkmark & \checkmark &            & \checkmark \\
-Energy materials (direct)   & \checkmark & \checkmark & \checkmark & \checkmark \\
-Massless energy (direct)    & \checkmark & \checkmark & \checkmark & \checkmark \\
-Energy materials (indirect) &            &            & \checkmark & \checkmark \\
-Massless energy (indirect)  &            &            & \checkmark & \checkmark \\
-\bottomrule
-\end{tabular}
-\label{tab:conversion_chains}
-\end{table}
+% To illustrate application of the exergy of materials
+% to societal exergy analysis,
+% we develop several material and energy conversion chains
+% using the the $\mat{RUVY}$ matrices of the PSUT framework.
+% First, we develop a direct energy input and material flow model (DEIMFM).
+% The DEIMFM includes all material flows and \emph{direct} energy inputs.%
+% \footnote{
+%   Direct energy inputs are consumed directly by a machine,
+%   such as electricity consumed by crushers.
+%   Indirect energy inputs include upstream resources to create
+%   the direct energy inputs, such as coal used to make electricity.
+% }
+%
+% Next, we develop two matrix representations of the mass flows of the DEIMFM.
+% (a) A mass-only version (MCC) that quantifies material flows in mass units
+%     from extraction through a blast furnace
+%     to the Iron and steel industry
+%     (Section~\ref{sec:material_data}).
+% (b) An exergy version (BCC) that quantifies material flows in exergy units.
+% Each statepoint in the MCC is converted to exergy
+% to form the BCC in accordance with
+% the methods discussed in Section~\ref{sec:exergy_of_materials}.
+%
+% Then, we develop two versions of an independent
+% energy conversion chain to supply the DEIMFM's energy requirements:
+% (c) an independent energy conversion chain (ECC) obtained from the CL-PFU database
+%     where all flows are in energy terms
+%     as described in Sections~\ref{sec:energy_data} and~\ref{sec:ecc_for_mcc}
+%     and
+% (d) an independent exergy version of the energy conversion chain (XCC),
+%     also extracted from the CL-PFU database.
+% To obtain the ECC and XCC,
+% we perform an ``upstream swim'' from a new final demand ($\mat{Y}$) matrix
+% populated with the energy requirements of the BCC,
+% as discussed in~\citet[Section~2.2.5]{Heun:2018}.
+%
+% Finally, we develop
+% (e) a matrix representation of a unified conversion chain (BXCC) that
+%     brings the exergy of materials and energy together,
+%     as described in Section~\ref{sec:creating_bxcc} below.
+% The benefit of unifying the independent material and energy conversion chains
+% is that all upstream activities for the MCC and ECC are accounted in the BXCC.
+%
+% Table~\ref{tab:conversion_chains} shows the characteristics
+% of the DEIMFM and various conversion chains.
+%
+% \begin{table}
+% \footnotesize
+% \centering
+% \caption{Characteristics of the independent
+%          material (MCC and BCC) and
+%          energy (ECC and XCC) conversion chains
+%          used to build
+%          the integrated material and energy conversion chain
+%          (BXCC).
+%          Non-energy materials include limestone, iron ore, and combustion air.
+%          Energy materials are fuels considered
+%          as mass and later quantified as exergy, including
+%          coal, natural gas, diesel, and coke oven gas.
+%          Massless energy is electricity and heat.
+%          Direct refers to the immediate inputs to a process.
+%          Indirect refers to processes and materials upstream of direct inputs.}
+% \label{tab:nomenclature}
+% \begin{tabular}{rcccccc}
+% \toprule
+%                             & DEIMFM     & MCC \& BCC & ECC \& XCC & BXCC \\
+% \midrule
+% Non-energy materials        & \checkmark & \checkmark &            & \checkmark \\
+% Energy materials (direct)   & \checkmark & \checkmark & \checkmark & \checkmark \\
+% Massless energy (direct)    & \checkmark & \checkmark & \checkmark & \checkmark \\
+% Energy materials (indirect) &            &            & \checkmark & \checkmark \\
+% Massless energy (indirect)  &            &            & \checkmark & \checkmark \\
+% \bottomrule
+% \end{tabular}
+% \label{tab:conversion_chains}
+% \end{table}
 
 
 %------------------------------
@@ -1191,128 +1159,128 @@ Massless energy (indirect)  &            &            & \checkmark & \checkmark 
 \label{sec:creating_bxcc}
 %------------------------------
 
-The method for creating a
-unified material and energy conversion chain (BXCC)
-involves three steps.
-The beginning and end points of the process to create the BXCC
-are flow diagrams depicting the movement of exergy
-from resources to final demand.
-In the middle,
-we generate and manipulate the $\mat{RUVY}$ matrices of the PSUT framework.
-The process is illustrated by Figures~\ref{fig:bxcc1}--\ref{fig:bxcc4}
-which show an illustrative portion of the blast furnace example
-developed elsewhere in this paper.
-The basis for the partial example is 100~kJ of electricity delivered
-to the blast furnace.
-Despite not including all exergy flows of the full example
-developed in this paper,
-the partial example is sufficient
-to demonstrate the steps for creating a BXCC.
-
-We start with independent exergy quantifications
-of material and energy conversion chains (BCC and XCC)
-as described in Section~\ref{sec:conversion_chains}.
-(See Figure~\ref{fig:bxcc1} for the independent conversion chains
-for the partial example.)
-The independent BCC and XCC
-are based upon
-(a)~the material conversion chain expressed in mass units (MCC) and
-(b)~an energy conversion chain expressed in energy units (ECC).
-The MCC contains only the direct energy requirements for material transformations and
-does not contain upstream energy-production processes.
-The ECC does not contain any material transformation information.
-The ECC contains only the energy supplied to
-material conversion processes (industries) in the MCC.
-
-In the independent XCC of Figure~\ref{fig:bxcc1},
-electricity produced by the XCC is delivered to the ``Iron and steel'' sector,
-consistent with existing ECC and XCC
-datasets~\citep{Pinto:2023aa,Brockway:2024ab}.
-In the independent BCC of Figure~\ref{fig:bxcc1},
-electricity consumed by the blast furnace is supplied by
-``Electricity [from Supply]'',
-indicating that the electricity supply is exogenous to the BCC.
-
-The goal of creating a unified BXCC
-is endogenizing the exogenous energy inputs to the independent BCC,
-as illustrated by
-the red cut-lines,
-the gray lines, and
-the red dashed line
-in Figure~\ref{fig:bxcc1}.
-Electricity entering the ``Iron and steel'' sector
-of the independent XCC will be re-routed
-to the ``Blast furnace'' in the independent BCC,
-as shown by the red dashed line.
-In the BXCC,
-electricity formerly provided by ``Electricity [from Supply]''
-will come from the
-``Power plants'' industry instead.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.8\linewidth]{images/BXCC_figs_1.pdf}
-\caption{Example independent material~(BCC) and energy~(XCC) conversion chains.
-         The dashed red line indicates redirection of electricity
-         to connect the XCC to the BCC.
-         All values are exergy in kJ.}
-\label{fig:bxcc1}
-\end{figure}
-
-The first step is to convert the flow diagrams
-for the independent BCC and XCC
-into the $\mat{RUVY}$ matrices of the PSUT framework.
-Figure~\ref{fig:bxcc2} shows $\mat{RUVY}$ matrices
-consistent with the independent material and energy conversion chains
-of the partial example in Figure~\ref{fig:bxcc1}.
-Note that the red ``X''s in Figure~\ref{fig:bxcc2}
-indicate matrix entries
-to be removed according to the
-red cut-lines in Figure~\ref{fig:bxcc1}.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.9\linewidth]{images/BXCC_figs_2.pdf}
-\caption{Resource ($\mat{R}$), use ($\mat{U}$), make ($\mat{V}$), and
-         final demand ($\mat{Y}$) matrices
-         for the independent material~(BCC) and energy~(XCC)
-         conversion chains of the partial example.
-         All values are exergy in kJ.}
-\label{fig:bxcc2}
-\end{figure}
-
-The second step involves three actions:
-(a)~removing entries from the final demand matrix ($\mat{Y}$) of the XCC,
-(b)~removing selected entries from the resource matrix ($\mat{R}$) of the BCC, and
-(c)~summing corresponding matrices in the BCC and XCC,
-    respecting row and column names.
-The result for the partial example is
-the unified conversion chain (BXCC) shown in Figure~\ref{fig:bxcc3}.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.9\linewidth]{images/BXCC_figs_3.pdf}
-\caption{Resource ($\mat{R}$), use ($\mat{U}$), make ($\mat{V}$), and
-         final demand ($\mat{Y}$) matrices
-         for the unified material and energy
-         conversion chains~(BXCC) of the partial example.
-         All values are exergy in kJ.}
-\label{fig:bxcc3}
-\end{figure}
-
-The third and final step is to translate
-the $\mat{RUVY}$ matrices for the unified conversion chain (BXCC)
-(Figure~\ref{fig:bxcc3})
-into a flow diagram.
-The result for the partial example is shown in Figure~\ref{fig:bxcc4}.
-
-\begin{figure}
-\centering
-\includegraphics[width=0.8\linewidth]{images/BXCC_figs_4.pdf}
-\caption{An example unified material and exergy conversion chain~(BXCC).
-         All values are exergy in kJ.}
-\label{fig:bxcc4}
-\end{figure}
+% The method for creating a
+% unified material and energy conversion chain (BXCC)
+% involves three steps.
+% The beginning and end points of the process to create the BXCC
+% are flow diagrams depicting the movement of exergy
+% from resources to final demand.
+% In the middle,
+% we generate and manipulate the $\mat{RUVY}$ matrices of the PSUT framework.
+% The process is illustrated by Figures~\ref{fig:bxcc1}--\ref{fig:bxcc4}
+% which show an illustrative portion of the blast furnace example
+% developed elsewhere in this paper.
+% The basis for the partial example is 100~kJ of electricity delivered
+% to the blast furnace.
+% Despite not including all exergy flows of the full example
+% developed in this paper,
+% the partial example is sufficient
+% to demonstrate the steps for creating a BXCC.
+%
+% We start with independent exergy quantifications
+% of material and energy conversion chains (BCC and XCC)
+% as described in Section~\ref{sec:conversion_chains}.
+% (See Figure~\ref{fig:bxcc1} for the independent conversion chains
+% for the partial example.)
+% The independent BCC and XCC
+% are based upon
+% (a)~the material conversion chain expressed in mass units (MCC) and
+% (b)~an energy conversion chain expressed in energy units (ECC).
+% The MCC contains only the direct energy requirements for material transformations and
+% does not contain upstream energy-production processes.
+% The ECC does not contain any material transformation information.
+% The ECC contains only the energy supplied to
+% material conversion processes (industries) in the MCC.
+%
+% In the independent XCC of Figure~\ref{fig:bxcc1},
+% electricity produced by the XCC is delivered to the ``Iron and steel'' sector,
+% consistent with existing ECC and XCC
+% datasets~\citep{Pinto:2023aa,Brockway:2024ab}.
+% In the independent BCC of Figure~\ref{fig:bxcc1},
+% electricity consumed by the blast furnace is supplied by
+% ``Electricity [from Supply]'',
+% indicating that the electricity supply is exogenous to the BCC.
+%
+% The goal of creating a unified BXCC
+% is endogenizing the exogenous energy inputs to the independent BCC,
+% as illustrated by
+% the red cut-lines,
+% the gray lines, and
+% the red dashed line
+% in Figure~\ref{fig:bxcc1}.
+% Electricity entering the ``Iron and steel'' sector
+% of the independent XCC will be re-routed
+% to the ``Blast furnace'' in the independent BCC,
+% as shown by the red dashed line.
+% In the BXCC,
+% electricity formerly provided by ``Electricity [from Supply]''
+% will come from the
+% ``Power plants'' industry instead.
+%
+% \begin{figure}
+% \centering
+% \includegraphics[width=0.8\linewidth]{images/BXCC_figs_1.pdf}
+% \caption{Example independent material~(BCC) and energy~(XCC) conversion chains.
+%          The dashed red line indicates redirection of electricity
+%          to connect the XCC to the BCC.
+%          All values are exergy in kJ.}
+% \label{fig:bxcc1}
+% \end{figure}
+%
+% The first step is to convert the flow diagrams
+% for the independent BCC and XCC
+% into the $\mat{RUVY}$ matrices of the PSUT framework.
+% Figure~\ref{fig:bxcc2} shows $\mat{RUVY}$ matrices
+% consistent with the independent material and energy conversion chains
+% of the partial example in Figure~\ref{fig:bxcc1}.
+% Note that the red ``X''s in Figure~\ref{fig:bxcc2}
+% indicate matrix entries
+% to be removed according to the
+% red cut-lines in Figure~\ref{fig:bxcc1}.
+%
+% \begin{figure}
+% \centering
+% \includegraphics[width=0.9\linewidth]{images/BXCC_figs_2.pdf}
+% \caption{Resource ($\mat{R}$), use ($\mat{U}$), make ($\mat{V}$), and
+%          final demand ($\mat{Y}$) matrices
+%          for the independent material~(BCC) and energy~(XCC)
+%          conversion chains of the partial example.
+%          All values are exergy in kJ.}
+% \label{fig:bxcc2}
+% \end{figure}
+%
+% The second step involves three actions:
+% (a)~removing entries from the final demand matrix ($\mat{Y}$) of the XCC,
+% (b)~removing selected entries from the resource matrix ($\mat{R}$) of the BCC, and
+% (c)~summing corresponding matrices in the BCC and XCC,
+%     respecting row and column names.
+% The result for the partial example is
+% the unified conversion chain (BXCC) shown in Figure~\ref{fig:bxcc3}.
+%
+% \begin{figure}
+% \centering
+% \includegraphics[width=0.9\linewidth]{images/BXCC_figs_3.pdf}
+% \caption{Resource ($\mat{R}$), use ($\mat{U}$), make ($\mat{V}$), and
+%          final demand ($\mat{Y}$) matrices
+%          for the unified material and energy
+%          conversion chains~(BXCC) of the partial example.
+%          All values are exergy in kJ.}
+% \label{fig:bxcc3}
+% \end{figure}
+%
+% The third and final step is to translate
+% the $\mat{RUVY}$ matrices for the unified conversion chain (BXCC)
+% (Figure~\ref{fig:bxcc3})
+% into a flow diagram.
+% The result for the partial example is shown in Figure~\ref{fig:bxcc4}.
+%
+% \begin{figure}
+% \centering
+% \includegraphics[width=0.8\linewidth]{images/BXCC_figs_4.pdf}
+% \caption{An example unified material and exergy conversion chain~(BXCC).
+%          All values are exergy in kJ.}
+% \label{fig:bxcc4}
+% \end{figure}
 
 
 %------------------------------
@@ -1320,38 +1288,38 @@ The result for the partial example is shown in Figure~\ref{fig:bxcc4}.
 \label{sec:inter-industry_balances}
 %------------------------------
 
-When constructing the $\mat{RUVY}$ matrices of the PSUT framework,
-we perform an important consistency check
-via balances of inter-industry product flows.
-The matrix equation for inter-industry product balances is
-
-\begin{equation} \label{eq:inter_industry_balances}
-  (\mat{iR})^\mathrm{T} + (\mat{iV})^\mathrm{T} - \mat{Ui} - \mat{y} \overset{?}{=} \mat{0} \, ,
-\end{equation}
+% When constructing the $\mat{RUVY}$ matrices of the PSUT framework,
+% we perform an important consistency check
+% via balances of inter-industry product flows.
+% The matrix equation for inter-industry product balances is
 %
-where
-$\mat{i}$ is a unity row or column vector of appropriate length,
-$\mat{iR}$ gives column sums of the resource matrix (a row vector),
-$^\mathrm{T}$ is the transpose operator,
-$\mat{iV}$ gives column sums of the make matrix (a row vector),
-$\mat{Ui}$ gives row sums of the use matrix (a column vector), and
-$\mat{y} \equiv \mat{Yi}$ is the row sums of the final demand matrix (a column vector).
-The result is a column vector with products in rows.
-
-Regardless of the type of conversion chain
-(MCC, BCC, ECC, XCC, BXCC),
-Equation~(\ref{eq:inter_industry_balances}) tests whether
-all products extracted from resources ($\mat{R}$) or
-produced by industries ($\mat{V}$)
-become inputs to industries ($\mat{U}$) or
-final demand sectors ($\mat{Y}$).
-When Equation~(\ref{eq:inter_industry_balances}) is true
-(i.e., when the calculation on the left side produces the $\mat{0}$ vector),
-the conversion chain is internally consistent.
-
-All matrix representations of conversion chains
-developed for this paper
-pass the inter-industry consistency check.
+% \begin{equation} \label{eq:inter_industry_balances}
+%   (\mat{iR})^\mathrm{T} + (\mat{iV})^\mathrm{T} - \mat{Ui} - \mat{y} \overset{?}{=} \mat{0} \, ,
+% \end{equation}
+% %
+% where
+% $\mat{i}$ is a unity row or column vector of appropriate length,
+% $\mat{iR}$ gives column sums of the resource matrix (a row vector),
+% $^\mathrm{T}$ is the transpose operator,
+% $\mat{iV}$ gives column sums of the make matrix (a row vector),
+% $\mat{Ui}$ gives row sums of the use matrix (a column vector), and
+% $\mat{y} \equiv \mat{Yi}$ is the row sums of the final demand matrix (a column vector).
+% The result is a column vector with products in rows.
+%
+% Regardless of the type of conversion chain
+% (MCC, BCC, ECC, XCC, BXCC),
+% Equation~(\ref{eq:inter_industry_balances}) tests whether
+% all products extracted from resources ($\mat{R}$) or
+% produced by industries ($\mat{V}$)
+% become inputs to industries ($\mat{U}$) or
+% final demand sectors ($\mat{Y}$).
+% When Equation~(\ref{eq:inter_industry_balances}) is true
+% (i.e., when the calculation on the left side produces the $\mat{0}$ vector),
+% the conversion chain is internally consistent.
+%
+% All matrix representations of conversion chains
+% developed for this paper
+% pass the inter-industry consistency check.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1359,48 +1327,48 @@ pass the inter-industry consistency check.
 \label{sec:results}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-This section shows results corresponding to
-contributions 2 and 3 of Section~\ref{sec:question_contributions_structure}.
-Section~\ref{sec:mcc_example} below addresses contribution 2 and
-Section~\ref{sec:psut_mats_bxcc} below addresses contribution 3.
+% This section shows results corresponding to
+% contributions 2 and 3 of Section~\ref{sec:question_contributions_structure}.
+% Section~\ref{sec:mcc_example} below addresses contribution 2 and
+% Section~\ref{sec:psut_mats_bxcc} below addresses contribution 3.
 
 %++++++++++++++++++++++++++++++
 \subsection{Material conversion chain}
 \label{sec:mcc_example}
 %++++++++++++++++++++++++++++++
 
-\begin{figure}
-\centering
-\includegraphics[width=1\linewidth]{images/MCC_example.pdf}
-\caption{Simplified version of the example MCC.}
-\label{fig:mcc_example}
-\end{figure}
-
-Using the methods of Section~\ref{sec:methods},
-we compiled an example independent material conversion chain (MCC)
-for the production of pig iron
-(contribution 2 of Section~\ref{sec:question_contributions_structure}).
-The example independent material conversion chain
-contains 46 material statepoints,
-9 energy statepoints,
-and 14 material conversion processes (industries).
-****
-We need to double-check these numbers.
-Be sure to include heat loss statepoints.
-We made a few changes.
----MKH
-****
-Figure~\ref{fig:mcc_example} shows a representation
-of the MCC.
-(For simplicity,
-heat loss and waste streams
-are not shown in Figure~\ref{fig:mcc_example}.)
-Full details of the example independent MCC,
-the example independent ECC from the CL-PFU database, and
-the example unified BXCC,
-including magnitudes for all flows,
-are available in the
-supplementary information.
+% \begin{figure}
+% \centering
+% \includegraphics[width=1\linewidth]{images/MCC_example.pdf}
+% \caption{Simplified version of the example MCC.}
+% \label{fig:mcc_example}
+% \end{figure}
+%
+% Using the methods of Section~\ref{sec:methods},
+% we compiled an example independent material conversion chain (MCC)
+% for the production of pig iron
+% (contribution 2 of Section~\ref{sec:question_contributions_structure}).
+% The example independent material conversion chain
+% contains 46 material statepoints,
+% 9 energy statepoints,
+% and 14 material conversion processes (industries).
+% ****
+% We need to double-check these numbers.
+% Be sure to include heat loss statepoints.
+% We made a few changes.
+% ---MKH
+% ****
+% Figure~\ref{fig:mcc_example} shows a representation
+% of the MCC.
+% (For simplicity,
+% heat loss and waste streams
+% are not shown in Figure~\ref{fig:mcc_example}.)
+% Full details of the example independent MCC,
+% the example independent ECC from the CL-PFU database, and
+% the example unified BXCC,
+% including magnitudes for all flows,
+% are available in the
+% supplementary information.
 
 
 %++++++++++++++++++++++++++++++
@@ -1408,39 +1376,39 @@ supplementary information.
 \label{ssec:blast furnace example}
 %++++++++++++++++++++++++++++++
 
-Equations~(\ref{eq:exergy_mixture}) and~(\ref{eq:total_exergy_mixture})
-are the basis for material exergy accounting
-along the independent material conversion chain.
-At each statepoint,
-we calculate mixture material exergies ($B_m$),
-including chemical ($b_c$) and concentration ($b_{ch}$) exergies
-and all components thereof.
-Table~\ref{tab:bf_input_statepoint} shows the solid material inputs
-to the blast furnace:
-iron ore (\ce{Fe2O3} with \ce{SiO2} impurities),
-quicklime (\ce{CaO}), and
-coking coal.
-Table~\ref{tab:bf_output_statepoint} shows the pig iron output.
-Table~\ref{tab:bf_slag_output_statepoint} gives details
-of the waste slag from the blast furnace.
-See the supplementary information for details
-of the gaseous inputs and outputs of the blast furnace.
-
-Using Table~\ref{tab:bf_input_statepoint} as the example,
-the lower-right value ($B$ for the mixture) is calculated
-by Equation~(\ref{eq:exergy_mixture}) or~(\ref{eq:total_exergy_mixture}).
-The values in the middle rows of the $b_{ch,i}$ column are calculated by
-Equation~(\ref{eq:chemical_exergy_definition}).
-The values in the middle rows of the $b_{c,i}$ column are calculated by
-Equation~(\ref{eq:concentration_exergy_definition}).
-The values in the middle rows of the $b_i$ column are calculated by
-Equation~(\ref{eq:general_material_exergy_definition}).
-The values in the middle rows of the $b_m$ column are calculated by
-Equation~\ref{eq:molar_intensive_exergy_mixture}.
-The values in the middle rows of the $B_m$ column are calculated by
-Equation~\ref{eq:exergy_mixture}.
-Fully-detailed calculations for exergies at the inlet to the rotary kiln
-can be found in Appendix~\ref{sec:MCC_exergy}.
+% Equations~(\ref{eq:exergy_mixture}) and~(\ref{eq:total_exergy_mixture})
+% are the basis for material exergy accounting
+% along the independent material conversion chain.
+% At each statepoint,
+% we calculate mixture material exergies ($B_m$),
+% including chemical ($b_c$) and concentration ($b_{ch}$) exergies
+% and all components thereof.
+% Table~\ref{tab:bf_input_statepoint} shows the solid material inputs
+% to the blast furnace:
+% iron ore (\ce{Fe2O3} with \ce{SiO2} impurities),
+% quicklime (\ce{CaO}), and
+% coking coal.
+% Table~\ref{tab:bf_output_statepoint} shows the pig iron output.
+% Table~\ref{tab:bf_slag_output_statepoint} gives details
+% of the waste slag from the blast furnace.
+% See the supplementary information for details
+% of the gaseous inputs and outputs of the blast furnace.
+%
+% Using Table~\ref{tab:bf_input_statepoint} as the example,
+% the lower-right value ($B$ for the mixture) is calculated
+% by Equation~(\ref{eq:exergy_mixture}) or~(\ref{eq:total_exergy_mixture}).
+% The values in the middle rows of the $b_{ch,i}$ column are calculated by
+% Equation~(\ref{eq:chemical_exergy_definition}).
+% The values in the middle rows of the $b_{c,i}$ column are calculated by
+% Equation~(\ref{eq:concentration_exergy_definition}).
+% The values in the middle rows of the $b_i$ column are calculated by
+% Equation~(\ref{eq:general_material_exergy_definition}).
+% The values in the middle rows of the $b_m$ column are calculated by
+% Equation~\ref{eq:molar_intensive_exergy_mixture}.
+% The values in the middle rows of the $B_m$ column are calculated by
+% Equation~\ref{eq:exergy_mixture}.
+% Fully-detailed calculations for exergies at the inlet to the rotary kiln
+% can be found in Appendix~\ref{sec:MCC_exergy}.
 
 
 \begin{landscape}
@@ -1501,13 +1469,13 @@ print_statepoint_table(statepoint_table_name = "statepoint_slag_out_bf",
 @
 \end{landscape}
 
-The material exergy of the iron ore, quicklime, and coking coal inputs
-to the blast furnace in the example independent BCC is \Sexpr{BF_B_in}.
-The material exergy of the pig iron output is \Sexpr{BF_B_out}.
-The material exergy of the solid waste (slag) output is \Sexpr{BF_B_slag_out}.
-Material exergies for all statepoints
-in the example MCC
-can be found in supplementary information.
+% The material exergy of the iron ore, quicklime, and coking coal inputs
+% to the blast furnace in the example independent BCC is \Sexpr{BF_B_in}.
+% The material exergy of the pig iron output is \Sexpr{BF_B_out}.
+% The material exergy of the solid waste (slag) output is \Sexpr{BF_B_slag_out}.
+% Material exergies for all statepoints
+% in the example MCC
+% can be found in supplementary information.
 
 
 %++++++++++++++++++++++++++++++
@@ -1515,14 +1483,14 @@ can be found in supplementary information.
 \label{sec:psut_mats_bxcc}
 %++++++++++++++++++++++++++++++
 
-We created a representation of the
-example unified material and energy conversion chain
-in the $\mat{RUVY}$ matrix format of the PSUT framework
-using the methods of Section~\ref{sec:creating_bxcc}
-(contribution 3 of Section~\ref{sec:question_contributions_structure}).
-Appendix~\ref{sec:bxcc_mats} contains
-$\mat{RUVY}$ matrices for the
-example unified material and energy conversion chain (BXCC).
+% We created a representation of the
+% example unified material and energy conversion chain
+% in the $\mat{RUVY}$ matrix format of the PSUT framework
+% using the methods of Section~\ref{sec:creating_bxcc}
+% (contribution 3 of Section~\ref{sec:question_contributions_structure}).
+% Appendix~\ref{sec:bxcc_mats} contains
+% $\mat{RUVY}$ matrices for the
+% example unified material and energy conversion chain (BXCC).
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1530,25 +1498,25 @@ example unified material and energy conversion chain (BXCC).
 \label{sec:discussion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Arranging material and energy conversion chain data
-in the $\mat{RUVY}$ matrices of the PSUT framework
-provides many benefits to analysts.
-This section discusses further applications
-beyond the contributions shown in Section~\ref{sec:results} above.
-In particular, without the PSUT framework,
-analyses of all transformation processes (industries) involve repetitive
-calculations, once for each process.
-With the PSUT framework,
-the repetitive calculations can be expressed as a single matrix equation
-that performs the analyses for all industries
-in a conversion chain.
-The interpretation of the results varies,
-depending on the type of conversion chain under consideration.
-We demonstrate below
-the benefits of the PSUT framework
-by discussing
-across-industry balances (Section~\ref{sec:across_industry_balances}) and
-industry efficiencies (Section~\ref{sec:efficiency}).
+% Arranging material and energy conversion chain data
+% in the $\mat{RUVY}$ matrices of the PSUT framework
+% provides many benefits to analysts.
+% This section discusses further applications
+% beyond the contributions shown in Section~\ref{sec:results} above.
+% In particular, without the PSUT framework,
+% analyses of all transformation processes (industries) involve repetitive
+% calculations, once for each process.
+% With the PSUT framework,
+% the repetitive calculations can be expressed as a single matrix equation
+% that performs the analyses for all industries
+% in a conversion chain.
+% The interpretation of the results varies,
+% depending on the type of conversion chain under consideration.
+% We demonstrate below
+% the benefits of the PSUT framework
+% by discussing
+% across-industry balances (Section~\ref{sec:across_industry_balances}) and
+% industry efficiencies (Section~\ref{sec:efficiency}).
 
 
 %++++++++++++++++++++++++++++++
@@ -1556,30 +1524,30 @@ industry efficiencies (Section~\ref{sec:efficiency}).
 \label{sec:across_industry_balances}
 %++++++++++++++++++++++++++++++
 
-In contrast to the inter-industry balances
-of Equation~(\ref{eq:inter_industry_balances}),
-across-industry balances do not and should not always
-calculate to the $\mat{0}$ vector.
-Instead, across-industry balances calculate important quantities
-depending on the information contained in the $\mat{RUVY}$ matrices,
-possibly mass flows, energy flows, or exergy flows.
-Across-industry balances for every industry
-in a conversion chain are given by the vector difference
-
-\begin{equation} \label{eq:across_industry_balances}
-  (\mat{iU})^\mathrm{T} - \mat{Vi} \, ,
-\end{equation}
+% In contrast to the inter-industry balances
+% of Equation~(\ref{eq:inter_industry_balances}),
+% across-industry balances do not and should not always
+% calculate to the $\mat{0}$ vector.
+% Instead, across-industry balances calculate important quantities
+% depending on the information contained in the $\mat{RUVY}$ matrices,
+% possibly mass flows, energy flows, or exergy flows.
+% Across-industry balances for every industry
+% in a conversion chain are given by the vector difference
 %
-where
-$\mat{iU}$ gives column sums of the use matrix,
-$^\mathrm{T}$ indicates the transpose, and
-$\mat{Vi}$ gives row sums of the make matrix.
-The result of Equation~(\ref{eq:across_industry_balances})
-is a column vector with industries in rows.
-
-In the following subsections,
-we discuss calculations using across-industry balances for
-mass, heat loss, and irreversibility.
+% \begin{equation} \label{eq:across_industry_balances}
+%   (\mat{iU})^\mathrm{T} - \mat{Vi} \, ,
+% \end{equation}
+% %
+% where
+% $\mat{iU}$ gives column sums of the use matrix,
+% $^\mathrm{T}$ indicates the transpose, and
+% $\mat{Vi}$ gives row sums of the make matrix.
+% The result of Equation~(\ref{eq:across_industry_balances})
+% is a column vector with industries in rows.
+%
+% In the following subsections,
+% we discuss calculations using across-industry balances for
+% mass, heat loss, and irreversibility.
 
 
 %------------------------------
@@ -1587,43 +1555,43 @@ mass, heat loss, and irreversibility.
 \label{sec:across_industry_mass}
 %------------------------------
 
-For an MCC, the across-industry balance of
-Equation~(\ref{eq:across_industry_balances}) becomes
-
-\begin{equation} \label{eq:across_industry_mass}
-  \mat{m}_{loss} = (\mat{iU}_{MCC})^\mathrm{T} - \mat{V}_{\!MCC}\mat{i} \, ,
-\end{equation}
+% For an MCC, the across-industry balance of
+% Equation~(\ref{eq:across_industry_balances}) becomes
 %
-where $\mat{m}_{loss}$ is a vector of mass losses
-in which rownames are processing stages and
-the subscript ``MCC'' indicates mass versions of the
-$\mat{U}$ and $\mat{V}$ matrices.
-
-For an MCC with all waste flows included
-(as in the example in this paper),
-the across-industry balance of
-Equation~(\ref{eq:across_industry_mass})
-becomes
-
-\begin{equation} \label{eq:across_industry_mass_with_0}
-   \mat{m}_{loss} = (\mat{iU}_{MCC})^\mathrm{T} - \mat{V}_{\!MCC}\mat{i} = \mat{0} \, ,
-\end{equation}
+% \begin{equation} \label{eq:across_industry_mass}
+%   \mat{m}_{loss} = (\mat{iU}_{MCC})^\mathrm{T} - \mat{V}_{\!MCC}\mat{i} \, ,
+% \end{equation}
+% %
+% where $\mat{m}_{loss}$ is a vector of mass losses
+% in which rownames are processing stages and
+% the subscript ``MCC'' indicates mass versions of the
+% $\mat{U}$ and $\mat{V}$ matrices.
 %
-where the $\mat{0}$ vector on the right side
-of Equation~(\ref{eq:across_industry_mass_with_0})
-indicates that mass is conserved.
-The example MCC of Section~\ref{sec:results}
-is mass-balanced across industries,
-as shown in Table~\ref{tab:across_industry_M_loss}.
-
-<<MassLossTable, echo=FALSE, results=tex>>=
-print_efficiencies_table(efficiencies_table_name = "M_across_industry_balance_M_loss",
-                         latex_label = "tab:across_industry_M_loss",
-                         digits = 3,
-                         caption = paste("Mass losses ($m_{loss}$) in the",
-                                         "example material conversion chain."),
-                         size = "footnotesize")
-@
+% For an MCC with all waste flows included
+% (as in the example in this paper),
+% the across-industry balance of
+% Equation~(\ref{eq:across_industry_mass})
+% becomes
+%
+% \begin{equation} \label{eq:across_industry_mass_with_0}
+%    \mat{m}_{loss} = (\mat{iU}_{MCC})^\mathrm{T} - \mat{V}_{\!MCC}\mat{i} = \mat{0} \, ,
+% \end{equation}
+% %
+% where the $\mat{0}$ vector on the right side
+% of Equation~(\ref{eq:across_industry_mass_with_0})
+% indicates that mass is conserved.
+% The example MCC of Section~\ref{sec:results}
+% is mass-balanced across industries,
+% as shown in Table~\ref{tab:across_industry_M_loss}.
+%
+% <<MassLossTable, echo=FALSE, results=tex>>=
+% print_efficiencies_table(efficiencies_table_name = "M_across_industry_balance_M_loss",
+%                          latex_label = "tab:across_industry_M_loss",
+%                          digits = 3,
+%                          caption = paste("Mass losses ($m_{loss}$) in the",
+%                                          "example material conversion chain."),
+%                          size = "footnotesize")
+% @
 
 
 %------------------------------
@@ -1631,62 +1599,62 @@ print_efficiencies_table(efficiencies_table_name = "M_across_industry_balance_M_
 \label{sec:across_industry_heat_losses}
 %------------------------------
 
-For an ECC with no heat losses included
-(as in the example of Section~\ref{sec:results}),
-the across-industry balance
-of Equation~(\ref{eq:across_industry_balances})
-calculates heat loss from each industry:
-
-\begin{equation} \label{eq:across_industry_heat}
-  \mat{Q}_{loss} = (\mat{iU}_{ECC})^\mathrm{T} - \mat{V}_{\!ECC}\mat{i} \, ,
-\end{equation}
+% For an ECC with no heat losses included
+% (as in the example of Section~\ref{sec:results}),
+% the across-industry balance
+% of Equation~(\ref{eq:across_industry_balances})
+% calculates heat loss from each industry:
 %
-where the subscript ``$ECC$'' indicates energy versions of the
-$\mat{U}$ and $\mat{V}$ matrices obtained by
-
-\begin{equation}
-  \mat{U}_{ECC} = (\mat{U}_{MCC} \circ \mat{U}_h) + \mat{U}_{elect}
-\end{equation}
+% \begin{equation} \label{eq:across_industry_heat}
+%   \mat{Q}_{loss} = (\mat{iU}_{ECC})^\mathrm{T} - \mat{V}_{\!ECC}\mat{i} \, ,
+% \end{equation}
+% %
+% where the subscript ``$ECC$'' indicates energy versions of the
+% $\mat{U}$ and $\mat{V}$ matrices obtained by
 %
-and
-
-\begin{equation}
-  \mat{V}_{\!ECC} = (\mat{V}_{\!MCC} \circ \mat{V}_h) + \mat{V}_{elect} \, ,
-\end{equation}
+% \begin{equation}
+%   \mat{U}_{ECC} = (\mat{U}_{MCC} \circ \mat{U}_h) + \mat{U}_{elect}
+% \end{equation}
+% %
+% and
 %
-with
-$\circ$ indicating the Hadamard (element-wise) product,
-subscript ``$h$'' indicating $\mat{U}$ and $\mat{V}$ matrices
-containing enthalpy values, and
-subscript ``$elect$'' indicating indicating $\mat{U}$ and $\mat{V}$ matrices
-containing only (massless) electricity inputs.
-See the supplementary information for the
-$\mat{U}_{MCC}$, $\mat{V}_{\!MCC}$,
-$\mat{U}_h$, $\mat{V}_h$,
-$\mat{U}_{elect}$, $\mat{V}_{\!elect}$,
-$\mat{U}_{ECC}$, and $\mat{V}_{ECC}$ matrices
-for the example of Section~\ref{sec:results}.
-Table~\ref{tab:across_industry_Q_loss} shows
-the heat loss vector ($\mat{Q}_{loss}$)
-for the example in Section~\ref{sec:results}.
-
-<<HeatLossTable, echo=FALSE, results=tex>>=
-print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_Q_loss",
-                         latex_label = "tab:across_industry_Q_loss",
-                         digits = 0,
-                         caption = paste("Process heat losses ($Q_{loss}$) in the",
-                                         "example material conversion chain."),
-                         size = "footnotesize")
-@
-
-For industries that simply transport mass
-(e.g., hauling),
-$Q_{loss}$ is equal to the energy input.
-
-For an ECC that includes heat losses,
-the across-industry balance
-of Equation~(\ref{eq:across_industry_balances})
-should calculate the $\mat{0}$ vector.
+% \begin{equation}
+%   \mat{V}_{\!ECC} = (\mat{V}_{\!MCC} \circ \mat{V}_h) + \mat{V}_{elect} \, ,
+% \end{equation}
+% %
+% with
+% $\circ$ indicating the Hadamard (element-wise) product,
+% subscript ``$h$'' indicating $\mat{U}$ and $\mat{V}$ matrices
+% containing enthalpy values, and
+% subscript ``$elect$'' indicating indicating $\mat{U}$ and $\mat{V}$ matrices
+% containing only (massless) electricity inputs.
+% See the supplementary information for the
+% $\mat{U}_{MCC}$, $\mat{V}_{\!MCC}$,
+% $\mat{U}_h$, $\mat{V}_h$,
+% $\mat{U}_{elect}$, $\mat{V}_{\!elect}$,
+% $\mat{U}_{ECC}$, and $\mat{V}_{ECC}$ matrices
+% for the example of Section~\ref{sec:results}.
+% Table~\ref{tab:across_industry_Q_loss} shows
+% the heat loss vector ($\mat{Q}_{loss}$)
+% for the example in Section~\ref{sec:results}.
+%
+% <<HeatLossTable, echo=FALSE, results=tex>>=
+% print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_Q_loss",
+%                          latex_label = "tab:across_industry_Q_loss",
+%                          digits = 0,
+%                          caption = paste("Process heat losses ($Q_{loss}$) in the",
+%                                          "example material conversion chain."),
+%                          size = "footnotesize")
+% @
+%
+% For industries that simply transport mass
+% (e.g., hauling),
+% $Q_{loss}$ is equal to the energy input.
+%
+% For an ECC that includes heat losses,
+% the across-industry balance
+% of Equation~(\ref{eq:across_industry_balances})
+% should calculate the $\mat{0}$ vector.
 
 
 %------------------------------
@@ -1694,86 +1662,86 @@ should calculate the $\mat{0}$ vector.
 \label{sec:irreversibility}
 %------------------------------
 
-For an exergy conversion chain
-(BCC, XCC, or BXCC)
-that includes waste heat and mass flows,
-the across-industry balance calculates the
-thermodynamic irreversibility ($\mathcal{I}$) of
-(or exergy destruction by) an industry.
-For exergy conversion chains that include waste mass flows
-and exclude heat loss terms
-(as in the example unified material and energy conversion chain
-of this paper),
-the across-exergy balance of Equation~(\ref{eq:across_industry_balances})
-calculates the sum of irreversibility and
-exergy loss due to heat dissipation ($\boldsymbol{\mathcal{I}}$).
-Equation~(\ref{eq:across_industry_balances}) becomes
-
-
-\begin{equation} \label{eq:irreversibility_balances}
-  \boldsymbol{\mathcal{I}}_{BXCC} =
-        (\mat{iU}_{BXCC})^\mathrm{T} - \mat{V}_{BXCC}\mat{i} \, ,
-\end{equation}
+% For an exergy conversion chain
+% (BCC, XCC, or BXCC)
+% that includes waste heat and mass flows,
+% the across-industry balance calculates the
+% thermodynamic irreversibility ($\mathcal{I}$) of
+% (or exergy destruction by) an industry.
+% For exergy conversion chains that include waste mass flows
+% and exclude heat loss terms
+% (as in the example unified material and energy conversion chain
+% of this paper),
+% the across-exergy balance of Equation~(\ref{eq:across_industry_balances})
+% calculates the sum of irreversibility and
+% exergy loss due to heat dissipation ($\boldsymbol{\mathcal{I}}$).
+% Equation~(\ref{eq:across_industry_balances}) becomes
 %
-where $\boldsymbol{\mathcal{I}}$ is a column vector of
-the sum of irreversibility (or exergy destruction)
-and exergy loss due to heat dissipation
-with industries in rows.
-Table~\ref{tab:across_industry_irreversibilities} shows
-irreversibilities for the example conversion chains
-of Section~\ref{sec:results}.
-Exergy is destroyed across all industries,
-unless the process is trivial
-(e.g., coke oven gas distribution).
-
-<<IrreversibilitiesTable, echo=FALSE, results=tex>>=
-print_efficiencies_table(efficiencies_table_name = "I_BXCC",
-                         latex_label = "tab:across_industry_irreversibilities",
-                         digits = 0,
-                         caption = paste("Irreversibilities",
-                                         "($\\boldsymbol{\\mathcal{I}}_{BXCC}$) in the",
-                                         "example unified material and",
-                                         "energy conversion chain."),
-                         size = "footnotesize")
-@
-
-The irreversibilities and loss of exergy at a process
-is determined by the exergy inputs and outputs
-to the process,
-
-\begin{equation}\label{eq:irreversibility}
-  \boldsymbol{\mathcal{I}} = \sum_{in}{B_m + I_m} - \sum_{out}{B_m + I_m} \, ,
-\end{equation}
 %
-where $\boldsymbol{\mathcal{I}}$
-is the irreversibility (or exergy destruction) of the process,
-$B_{in,m}$ is the exergy of a mixture going into a process,
-and $B_{out,m}$ is the exergy of a mixture leaving a process
-(all in units of $\mathrm{kJ}$).
-% ****
-% Perhaps the narrative here should be expanded to cover the exergy
-% of massless inputs and outputs, namely heat and electricity.
-% ---MKH
-% ****
-$I$ should never be a negative value because exergy can not be generated,
-only destroyed.
-
-The exergy lost ($B_{lost}$) from a process is given by
-\begin{equation}\label{exergy_lost}
-  B_{lost} = \sum_{out}{B_{k,m,waste}}
-\end{equation}
+% \begin{equation} \label{eq:irreversibility_balances}
+%   \boldsymbol{\mathcal{I}}_{BXCC} =
+%         (\mat{iU}_{BXCC})^\mathrm{T} - \mat{V}_{BXCC}\mat{i} \, ,
+% \end{equation}
+% %
+% where $\boldsymbol{\mathcal{I}}$ is a column vector of
+% the sum of irreversibility (or exergy destruction)
+% and exergy loss due to heat dissipation
+% with industries in rows.
+% Table~\ref{tab:across_industry_irreversibilities} shows
+% irreversibilities for the example conversion chains
+% of Section~\ref{sec:results}.
+% Exergy is destroyed across all industries,
+% unless the process is trivial
+% (e.g., coke oven gas distribution).
 %
-where $B_{k,m,waste}$ is the exergy of a waste stream
-from a process (in units of $\mathrm{kJ}$).
-The embodied exergy is the exergy loss
-in a supply chain,
-give by
-\begin{equation}\label{embodied_exergy}
-  B_{em} = \sum{B_{lost}}
-\end{equation}
+% <<IrreversibilitiesTable, echo=FALSE, results=tex>>=
+% print_efficiencies_table(efficiencies_table_name = "I_BXCC",
+%                          latex_label = "tab:across_industry_irreversibilities",
+%                          digits = 0,
+%                          caption = paste("Irreversibilities",
+%                                          "($\\boldsymbol{\\mathcal{I}}_{BXCC}$) in the",
+%                                          "example unified material and",
+%                                          "energy conversion chain."),
+%                          size = "footnotesize")
+% @
 %
-where $B_{em}$ is the embodied exergy
-(in units of $\mathrm{kJ}$).
+% The irreversibilities and loss of exergy at a process
+% is determined by the exergy inputs and outputs
+% to the process,
+%
+% \begin{equation}\label{eq:irreversibility}
+%   \boldsymbol{\mathcal{I}} = \sum_{in}{B_m + I_m} - \sum_{out}{B_m + I_m} \, ,
+% \end{equation}
+% %
+% where $\boldsymbol{\mathcal{I}}$
+% is the irreversibility (or exergy destruction) of the process,
+% $B_{in,m}$ is the exergy of a mixture going into a process,
+% and $B_{out,m}$ is the exergy of a mixture leaving a process
+% (all in units of $\mathrm{kJ}$).
+% % ****
+% % Perhaps the narrative here should be expanded to cover the exergy
+% % of massless inputs and outputs, namely heat and electricity.
+% % ---MKH
+% % ****
+% $I$ should never be a negative value because exergy can not be generated,
+% only destroyed.
+%
+% The exergy lost ($B_{lost}$) from a process is given by
+% \begin{equation}\label{exergy_lost}
+%   B_{lost} = \sum_{out}{B_{k,m,waste}}
+% \end{equation}
+% %
+% where $B_{k,m,waste}$ is the exergy of a waste stream
+% from a process (in units of $\mathrm{kJ}$).
+% The embodied exergy is the exergy loss
+% in a supply chain,
+% give by
+% \begin{equation}\label{embodied_exergy}
+%   B_{em} = \sum{B_{lost}}
+% \end{equation}
+% %
+% where $B_{em}$ is the embodied exergy
+% (in units of $\mathrm{kJ}$).
 
 
 %++++++++++++++++++++++++++++++
@@ -1781,36 +1749,36 @@ where $B_{em}$ is the embodied exergy
 \label{sec:efficiency}
 %++++++++++++++++++++++++++++++
 
-We illustrate the application of material exergy to
-societal exergy analysis within the PSUT framework
-by calculating process efficiencies
-throughout the unified conversion chain (BXCC).
-There are many ways to calculate the efficiencies of industries
-in a material or energy conversion chain.
-We demonstrate two methods here:
-the rational efficiency and the resource efficiency.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.5\linewidth]{images/example_process_diagram.pdf}
-  \caption{An example process for efficiency methods.}
-  \label{fig:example_process_diagram}
-\end{figure}
-
-
-Irreversibility arises from thermodynamic inefficiencies.
-Exergy loss arises from unused outputs, i.e.,
-wastes, including mass and heat.
-
-To illustrate calculations for the rational and resource efficiencies,
-we employ Figure~\ref{fig:example_process_diagram} which shows
-an example process (industry) within a conversion chain.
-Inputs $R$ and $E$ represent material resources and energy inputs, respectively.
-Output $P$ represents beneficial products,
-output $W_M$ represents material waste products.
-and output $W_Q$ represents heat waste.
-Note that additional resource, energy input, product, or waste streams
-can be present in real processes.
+% We illustrate the application of material exergy to
+% societal exergy analysis within the PSUT framework
+% by calculating process efficiencies
+% throughout the unified conversion chain (BXCC).
+% There are many ways to calculate the efficiencies of industries
+% in a material or energy conversion chain.
+% We demonstrate two methods here:
+% the rational efficiency and the resource efficiency.
+%
+% \begin{figure}
+%   \centering
+%   \includegraphics[width=0.5\linewidth]{images/example_process_diagram.pdf}
+%   \caption{An example process for efficiency methods.}
+%   \label{fig:example_process_diagram}
+% \end{figure}
+%
+%
+% Irreversibility arises from thermodynamic inefficiencies.
+% Exergy loss arises from unused outputs, i.e.,
+% wastes, including mass and heat.
+%
+% To illustrate calculations for the rational and resource efficiencies,
+% we employ Figure~\ref{fig:example_process_diagram} which shows
+% an example process (industry) within a conversion chain.
+% Inputs $R$ and $E$ represent material resources and energy inputs, respectively.
+% Output $P$ represents beneficial products,
+% output $W_M$ represents material waste products.
+% and output $W_Q$ represents heat waste.
+% Note that additional resource, energy input, product, or waste streams
+% can be present in real processes.
 
 
 %------------------------------
@@ -1999,48 +1967,48 @@ in discussion.
 \label{sec:magnitude_concentration_exergy}
 %++++++++++++++++++++++++++++++
 
-Concentration exergy has a relatively low magnitude
-in comparison to chemical exergy
-when calculated for a single statepoint.
-
-At the unified conversion chain level, concentration exergy
-increases in magnitude
-and represents the destruction of work
-at a statepoint.
-Iron, for example, is concentrated
-from hematite ore
-to pig iron
-with energy inputs to several processes.
-The total concentration exergy
-across the change of iron
-from ore to pig iron
-is significant
-in comparison to the concentration exergy
-of a single process such as iron ore beneficiation.
-
-As ore qualities degrade,
-concentration exergy will grow increasingly important
-as more scarce materials take more work to extract
-due to lower concentrations
-within the earth's crust.
-% ****
-% Can we do a quick calculation to provide a numeric example?
-% ---MKH
-% With the three ores we have in the MCC,
-% there isn't an easy numeric example.
-% ---EES
-% ****
-
-That said, concentration exergy grows in importance in later stages
-of supply chains when manufacturing processes
-assemble intermediate goods into finished products.
-For example, an automobile is an assembly of steel, glass, and rubber.
-The chemical exergies of the steel, glass, and rubber
-do not change through the assembly process,
-but the concentration exergy of the assembled automobile will.
-In fact, changes in material concentrations provide
-an exergy quantification
-of the assembly process.
+% Concentration exergy has a relatively low magnitude
+% in comparison to chemical exergy
+% when calculated for a single statepoint.
+%
+% At the unified conversion chain level, concentration exergy
+% increases in magnitude
+% and represents the destruction of work
+% at a statepoint.
+% Iron, for example, is concentrated
+% from hematite ore
+% to pig iron
+% with energy inputs to several processes.
+% The total concentration exergy
+% across the change of iron
+% from ore to pig iron
+% is significant
+% in comparison to the concentration exergy
+% of a single process such as iron ore beneficiation.
+%
+% As ore qualities degrade,
+% concentration exergy will grow increasingly important
+% as more scarce materials take more work to extract
+% due to lower concentrations
+% within the earth's crust.
+% % ****
+% % Can we do a quick calculation to provide a numeric example?
+% % ---MKH
+% % With the three ores we have in the MCC,
+% % there isn't an easy numeric example.
+% % ---EES
+% % ****
+%
+% That said, concentration exergy grows in importance in later stages
+% of supply chains when manufacturing processes
+% assemble intermediate goods into finished products.
+% For example, an automobile is an assembly of steel, glass, and rubber.
+% The chemical exergies of the steel, glass, and rubber
+% do not change through the assembly process,
+% but the concentration exergy of the assembled automobile will.
+% In fact, changes in material concentrations provide
+% an exergy quantification
+% of the assembly process.
 
 
 %++++++++++++++++++++++++++++++
@@ -2048,19 +2016,19 @@ of the assembly process.
 \label{sec:embodied_exergy}
 %++++++++++++++++++++++++++++++
 
-The embodied exergy of materials
-(also called ``exergy cost''~\cite{Torres:2021aa})
-assigns all
-exergy destruction (irreversibility) and dissipation
-in upstream processes
-to the product(s) of a process.
-Embodied exergy correlates more closely to crustal concentrations
-and commodity prices
-than material exergy itself~**** ref from Jorge here ****.
-Embodied exergy can be found using the $\mat{RUVY}$ matrices
-of the PSUT framework~\citet[Section~3.3]{Heun:2018}.
-Applying exergy cost analysis to the $\mat{RUVY}$ matrices
-of the PSUT framework is an area for future exploration.
+% The embodied exergy of materials
+% (also called ``exergy cost''~\cite{Torres:2021aa})
+% assigns all
+% exergy destruction (irreversibility) and dissipation
+% in upstream processes
+% to the product(s) of a process.
+% Embodied exergy correlates more closely to crustal concentrations
+% and commodity prices
+% than material exergy itself~**** ref from Jorge here ****.
+% Embodied exergy can be found using the $\mat{RUVY}$ matrices
+% of the PSUT framework~\citet[Section~3.3]{Heun:2018}.
+% Applying exergy cost analysis to the $\mat{RUVY}$ matrices
+% of the PSUT framework is an area for future exploration.
 
 
 %++++++++++++++++++++++++++++++
@@ -2068,27 +2036,27 @@ of the PSUT framework is an area for future exploration.
 \label{sec:limitations}
 %++++++++++++++++++++++++++++++
 
-Limitations to this study are described in this section.
-
-The first limitation is that
-exergy embodied indirectly in the physical infrastructure
-of production processes
-is not included in the efficiency calculations of Section~\ref{sec:results}.
-For example,
-exergy embodied in physical infrastructure of the blast furnace
-(in its steel, cement, etc.)
-could be allocated as a material input to the blast furnace
-throughout its lifetime.
-Methods for doing this allocation would require information
-on the masses of various materials in each production process
-(i.e., in each processing node of Figure~\ref{fig:mcc_example}).
-By neglecting the embodied exergy of physical infrastructure,
-the efficiency results of Section~\ref{sec:results} are biased upward.
-Although beyond the scope of the current study,
-amortizing embodied exergy to products is a fruitful area
-for future exploration.
-
-**** Add further limitations here. ****
+% Limitations to this study are described in this section.
+%
+% The first limitation is that
+% exergy embodied indirectly in the physical infrastructure
+% of production processes
+% is not included in the efficiency calculations of Section~\ref{sec:results}.
+% For example,
+% exergy embodied in physical infrastructure of the blast furnace
+% (in its steel, cement, etc.)
+% could be allocated as a material input to the blast furnace
+% throughout its lifetime.
+% Methods for doing this allocation would require information
+% on the masses of various materials in each production process
+% (i.e., in each processing node of Figure~\ref{fig:mcc_example}).
+% By neglecting the embodied exergy of physical infrastructure,
+% the efficiency results of Section~\ref{sec:results} are biased upward.
+% Although beyond the scope of the current study,
+% amortizing embodied exergy to products is a fruitful area
+% for future exploration.
+%
+% **** Add further limitations here. ****
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2096,12 +2064,6 @@ for future exploration.
 \label{sec:conclusion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
-****
-Note to Laura and Jorge:
-We need to write the conclusion and complete the sections
-prior to the appendix.
-****
 
 %++++++++++++++++++++++++++++++
 \subsection{Summary}
@@ -2124,12 +2086,6 @@ The reference should be \citet[Section~3.3]{Heun:2018}
 
 
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Patents}
-
-This section is not mandatory, but may be added if there are patents resulting from the work reported in this manuscript.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{6pt}
@@ -2162,18 +2118,18 @@ This section is not mandatory, but may be added if there are patents resulting f
 %}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\authorcontributions{For research articles with several authors, a short paragraph specifying their individual contributions must be provided. The following statements should be used ``Conceptualization, X.X. and Y.Y.; methodology, X.X.; software, X.X.; validation, X.X., Y.Y. and Z.Z.; formal analysis, X.X.; investigation, X.X.; resources, X.X.; data curation, X.X.; writing---original draft preparation, X.X.; writing---review and editing, X.X.; visualization, X.X.; supervision, X.X.; project administration, X.X.; funding acquisition, Y.Y. All authors have read and agreed to the published version of the manuscript.'', please turn to the  \href{http://img.mdpi.org/data/contributor-role-instruction.pdf}{CRediT taxonomy} for the term explanation. Authorship must be limited to those who have contributed substantially to the work~reported.}
+% \authorcontributions{For research articles with several authors, a short paragraph specifying their individual contributions must be provided. The following statements should be used ``Conceptualization, X.X. and Y.Y.; methodology, X.X.; software, X.X.; validation, X.X., Y.Y. and Z.Z.; formal analysis, X.X.; investigation, X.X.; resources, X.X.; data curation, X.X.; writing---original draft preparation, X.X.; writing---review and editing, X.X.; visualization, X.X.; supervision, X.X.; project administration, X.X.; funding acquisition, Y.Y. All authors have read and agreed to the published version of the manuscript.'', please turn to the  \href{http://img.mdpi.org/data/contributor-role-instruction.pdf}{CRediT taxonomy} for the term explanation. Authorship must be limited to those who have contributed substantially to the work~reported.}
 
-\funding{Please add: ``This research received no external funding'' or ``This research was funded by NAME OF FUNDER grant number XXX.'' and  and ``The APC was funded by XXX''. Check carefully that the details given are accurate and use the standard spelling of funding agency names at \url{https://search.crossref.org/funding}, any errors may affect your future funding.}
+% \funding{Please add: ``This research received no external funding'' or ``This research was funded by NAME OF FUNDER grant number XXX.'' and  and ``The APC was funded by XXX''. Check carefully that the details given are accurate and use the standard spelling of funding agency names at \url{https://search.crossref.org/funding}, any errors may affect your future funding.}
 
-\dataavailability{We encourage all authors of articles published in MDPI journals to share their research data. In this section, please provide details regarding where data supporting reported results can be found, including links to publicly archived datasets analyzed or generated during the study. Where no new data were created, or where data is unavailable due to privacy or ethical restrictions, a statement is still required. Suggested Data Availability Statements are available in section ``MDPI Research Data Policies'' at \url{https://www.mdpi.com/ethics}.}
+% \dataavailability{We encourage all authors of articles published in MDPI journals to share their research data. In this section, please provide details regarding where data supporting reported results can be found, including links to publicly archived datasets analyzed or generated during the study. Where no new data were created, or where data is unavailable due to privacy or ethical restrictions, a statement is still required. Suggested Data Availability Statements are available in section ``MDPI Research Data Policies'' at \url{https://www.mdpi.com/ethics}.}
 
 \acknowledgments{We are grateful for the helpful suggestions from internal reviewers
 Laura Felicio (Instituto Superior Technico, Lisbon, Portugal)
 and
 Jorge Torrubia (University of Zaragoza, Spain).}
 
-\conflictsofinterest{Declare conflicts of interest or state ``The authors declare no conflicts of interest.'' Authors must identify and declare any personal circumstances or interest that may be perceived as inappropriately influencing the representation or interpretation of reported research results. Any role of the funders in the design of the study; in the collection, analyses or interpretation of data; in the writing of the manuscript; or in the decision to publish the results must be declared in this section. If there is no role, please state ``The funders had no role in the design of the study; in the collection, analyses, or interpretation of data; in the writing of the manuscript; or in the decision to publish the results''.}
+% \conflictsofinterest{Declare conflicts of interest or state ``The authors declare no conflicts of interest.'' Authors must identify and declare any personal circumstances or interest that may be perceived as inappropriately influencing the representation or interpretation of reported research results. Any role of the funders in the design of the study; in the collection, analyses or interpretation of data; in the writing of the manuscript; or in the decision to publish the results must be declared in this section. If there is no role, please state ``The funders had no role in the design of the study; in the collection, analyses, or interpretation of data; in the writing of the manuscript; or in the decision to publish the results''.}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Optional
@@ -2203,52 +2159,56 @@ LD & Linear dichroism
 \subsection[\appendixname~\thesubsection]{}
 The appendix is an optional section that can contain details and data supplemental to the main text---for example, explanations of experimental details that would disrupt the flow of the main text but nonetheless remain crucial to understanding and reproducing the research shown; figures of replicates for experiments of which representative data are shown in the main text can be added here if brief, or as Supplementary Data. Mathematical proofs of results not central to the paper can be added as an appendix.
 
-\begin{table}
-\footnotesize
-\centering
-\label{tab:nomenclature}
-\caption{Nomenclature table}
-%\newcolumntype{C}{>{\centering\arraybackslash}X}
-\begin{tabularx}{\textwidth}{CCC}
-\toprule
-Symbol	          & Description\\
-\midrule
-$T_0$					    & ambient temperature [K]\\
-$P_0$					    & ambient pressure [atm]\\
-$y_i$             & molar fraction of a species [mol/mol mixture]\\
-$b$               & material exergy [kJ/mol]\\
-$b_{ch}$          & chemical exergy [kJ/mol]\\
-$b_c$             & concentration exergy [kJ/mol]\\
-$b_{com}$         & comminution exergy [kJ/mol]\\
-$\Delta{G_{f,i}}$ & Gibbs free energy of formation [kJ/mol]\\
-$i$               & compound [NA]\\
-$j$               & element [NA]\\
-$m$               & mixture [NA]\\
-$S_m$             & entropy of mixing [kJ/mol-K]\\
-$R$               & universal gas constant [kJ/mol-K]\\
-$N$               & number of moles [mol]\\
-$B$               & molar intensive exergy [kJ]\\
-$X$               & energy exergy [kJ]\\
-$E$               & energy [kJ]\\
-$\phi$            & exergy to energy ratio [kJ/kJ]\\
-$\eta$            & efficiency [kJ/kJ]\\
-$W_{min}$         & minimum work [kJ]\\
-$\varepsilon$     & exergy of a fuel [kJ]\\
-$LHV$             & lower heating value [kJ/kg]\\
-$w$               & mass fraction of moisture in a fuel [kg/kg]\\
-$h_{fg}$          & enthalpy of evaporation of \ce{H2O} [kJ/kg]\\
-$s$               & mass fraction of sulphur in a fuel [kg/kg]\\
-$I$               & irreversibility [kJ]\\
-$B_{lost}$        & exergy destroyed in a process [kJ]\\
-$B_{em}$          & sum $B_{lost}$ across a MCC [kJ]\\
-\bottomrule
-\end{tabularx}
-\end{table}
+% \begin{table}
+% \footnotesize
+% \centering
+% \label{tab:nomenclature}
+% \caption{Nomenclature table}
+% %\newcolumntype{C}{>{\centering\arraybackslash}X}
+% \begin{tabularx}{\textwidth}{CCC}
+% \toprule
+% Symbol	          & Description\\
+% \midrule
+% $T_0$					    & ambient temperature [K]\\
+% $P_0$					    & ambient pressure [atm]\\
+% $y_i$             & molar fraction of a species [mol/mol mixture]\\
+% $b$               & material exergy [kJ/mol]\\
+% $b_{ch}$          & chemical exergy [kJ/mol]\\
+% $b_c$             & concentration exergy [kJ/mol]\\
+% $b_{com}$         & comminution exergy [kJ/mol]\\
+% $\Delta{G_{f,i}}$ & Gibbs free energy of formation [kJ/mol]\\
+% $i$               & compound [NA]\\
+% $j$               & element [NA]\\
+% $m$               & mixture [NA]\\
+% $S_m$             & entropy of mixing [kJ/mol-K]\\
+% $R$               & universal gas constant [kJ/mol-K]\\
+% $N$               & number of moles [mol]\\
+% $B$               & molar intensive exergy [kJ]\\
+% $X$               & energy exergy [kJ]\\
+% $E$               & energy [kJ]\\
+% $\phi$            & exergy to energy ratio [kJ/kJ]\\
+% $\eta$            & efficiency [kJ/kJ]\\
+% $W_{min}$         & minimum work [kJ]\\
+% $\varepsilon$     & exergy of a fuel [kJ]\\
+% $LHV$             & lower heating value [kJ/kg]\\
+% $w$               & mass fraction of moisture in a fuel [kg/kg]\\
+% $h_{fg}$          & enthalpy of evaporation of \ce{H2O} [kJ/kg]\\
+% $s$               & mass fraction of sulphur in a fuel [kg/kg]\\
+% $I$               & irreversibility [kJ]\\
+% $B_{lost}$        & exergy destroyed in a process [kJ]\\
+% $B_{em}$          & sum $B_{lost}$ across a MCC [kJ]\\
+% \bottomrule
+% \end{tabularx}
+% \end{table}
 
 \section[\appendixname~\thesection]{}
 All appendix sections must be cited in the main text. In the appendices, Figures, Tables, etc. should be labeled, starting with ``A''---e.g., Figure A1, Figure A2, etc.
 
 See \citet[Eq.~C.5a]{Kotas_1995}.
+
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \SweaveInput{appendices/appendix-phi.Rnw}
@@ -2274,7 +2234,6 @@ See \citet[Eq.~C.5a]{Kotas_1995}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\isPreprints{}{% This command is only used for ``preprints''.
-\begin{adjustwidth}{-\extralength}{0cm}
 %} % If the paper is ``preprints'', please uncomment this parenthesis.
 %\printendnotes[custom] % Un-comment to print a list of endnotes
 
@@ -2298,5 +2257,9 @@ See \citet[Eq.~C.5a]{Kotas_1995}.
 %\isPreprints{}{% This command is only used for ``preprints''.
 \end{adjustwidth}
 %} % If the paper is ``preprints'', please uncomment this parenthesis.
+
+
+
+
 \end{document}
 
