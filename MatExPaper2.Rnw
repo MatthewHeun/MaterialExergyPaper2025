@@ -608,7 +608,7 @@ Note that most energy inputs to the example MCC
 can also be considered as material inputs, including
 coal, gasoline, diesel, natural gas, and coke oven gas.
 We treat all energy inputs to the example MCC
-to be materials,
+as material inputs in mass terms,
 the exception being electricity
 which we assume to be massless.
 
@@ -728,12 +728,12 @@ including chemical and concentration exergies
 (contribution 1 of Section~\ref{sec:question_contributions_structure}).
 Material exergy ($B$) is the exergy of a mixture of compounds
 that exist at a statepoint $k$.
-Material exergy is the maximum amount of work
+Material exergy is defined as the maximum amount of work
 that could be extracted
 by an ideal, reversible process
 that brings the mixture of materials
 into equilibrium with the reference environment,
-defined by
+characterized by
 particle size ($d_0$),
 temperature ($T_0$),
 pressure ($P_0$), and
@@ -742,71 +742,84 @@ chemical composition ($y_{i,0}$).
 
 
 %..............................
-\paragraph{Mixture ($m$)}
+\paragraph{Mixture ($B_{m,k}$)}
 \label{sec:exergy_of_mixtures}
 %..............................
 
-The total material exergy of a mixture at a statepoint ($B_m$) is
+Total material exergy ($B$)
+of mixture $m$ at statepoint $k$
+(in $\mathrm{kJ_m}$)
+is given by
 
 \begin{equation}\label{eq:exergy_mixture}
-   B_m = N_m b_m \, ,
+   B_{m,k} = N_{m,k} b_{m,k} \, ,
  \end{equation}
 %
-where $B_m$ is the total exergy of the mixture
-(in units of $\mathrm{kJ_m}$),
-$N_m$ is the number of moles of the mixture
-(in units of $\mathrm{mol_m}$),
-and $b_m$ is the molar intensive material exergy of the mixture
-(in units of $\mathrm{kJ_m/mol_m}$).
+where
+$N_{m,k} = \sum_i{N_{i,k}}$ is
+the number of moles of the mixture at statepoint $k$ and
+the sum of the moles of compounds $i$
+that comprise the mixture at statepoint $k$
+(in $\mathrm{mol_m}$),
+and $b_{m,k}$ is the molar intensive material exergy of the mixture
+at statepoint $k$
+(in $\mathrm{kJ_m/mol_m}$).
 
 The material exergy of a mixture may be calculated from
 compounds ($i$) in the mixture with
 
 \begin{equation}\label{eq:total_exergy_mixture}
-   B_m = \sum_i{N_i b_i} = N_m\sum_i{y_i b_i} \, ,
+   B_{m,k} = \sum_i{N_{i,k} b_{i,k}} = N_{m,k} \sum_i{y_{i,k} b_{i,k}} = N_{m,k} b_{m,k} \, ,
 \end{equation}
 %
-where $N_i$ is the number of moles of compound $i$
+where $N_{i,k}$ is the number of moles
+of compound $i$ at statepoint $k$
 (in $\mathrm{mol_i}$),
-$b_i$ is the molar intensive material exergy
-of compound $i$ (in $\mathrm{kJ_i/mol_i}$),
-and $y_i$ is the mole fraction
-of compound $i$ in its mixture
-(in $\mathrm{mol_i/mol_m}$).
+$b_{i,k}$ is the molar intensive material exergy
+of compound $i$ in the mixture at statepoint $k$
+(in $\mathrm{kJ_i/mol_i}$),
+$N_{m,k}$ is the number of moles of the mixture
+at statepoint $k$
+(in $\mathrm{mol_m}$),
+$y_i$ is the mole fraction
+of compound $i$ in the mixture
+at statepoint $k$
+(in $\mathrm{mol_i/mol_m}$), and
+$b_{m,k} = \sum_i{y_{i,k} b_{i,k}}$
+is the molar intensive exergy of the mixture at statepoint $k$
+(in $\mathrm{kJ_m/mol_m}$).
 
 
 %..............................
-\paragraph{Compound ($i$)}
+\paragraph{Compound ($b_{i,k}$)}
 \label{sec:exergy_of_compounds}
 %..............................
 
 With reference to Figure~\ref{fig:components_material_exergy},
 the molar intensive material exergy
-of compound $i$ ($b_i$) in a mixture is defined as
+of compound $i$ ($b_{i,k}$) in a mixture at a statepoint $k$ is defined as
 
-\begin{equation}
-  b_i = b_{com} + b_{ph,i} + b_{c,i} + b_{ch,i} \, ,
+\begin{equation} \label{eq:exergy_sum_def}
+  b_{i,k} = b_{com,i,k} + b_{ph,i,k} + b_{c,i,k} + b_{ch,i,k} \, ,
 \end{equation}
 %
 where
-$b_{com,i}$ is communition exergy,
-$b_{ph,i}$ is physical exergy,
-$b_{ch,i}$ is chemical exergy, and
-$b_{c,i}$ is concentration exergy.
+$b_{com,i,k}$ is comminution exergy
+of compound $i$ at statepoint $k$,
+$b_{ph,i,k}$ is physical exergy
+of compound $i$ at statepoint $k$,
+$b_{c,i,k}$ is concentration exergy
+of compound $i$ at statepoint $k$, and
+$b_{ch,i,k}$ is chemical exergy
+of compound $i$ at statepoint $k$.
 (See \citet[p.~276]{Valero_2015}.)
 All terms are in units of $\mathrm{kJ_i/mol_i}$.
 
-The molar intensive material exergy of a mixture of materials at statepoint $k$
-is given by
-\begin{equation}\label{eq:molar_intensive_exergy_definition}
-  b_{m,k} = \sum_i{b_{i,k}} \, .
-\end{equation}
-
-Henceforth, we drop subscript $k$ for clarity.
+Henceforth, we drop statepoint subscript $k$ to simplify notation.
 
 
 %..............................
-\paragraph{Communition exergy}
+\paragraph{Comminution exergy ($b_{com}$)}
 \label{sec:b_com_main_paper}
 %..............................
 
@@ -822,21 +835,21 @@ Comminution exergy is typically small~\citep[p.~280]{Valero_2015}
 and ignored for the analysis of material and energy conversion chains herein.
 (The exception is Appendix~\ref{sec:MCC_exergy},
 which for illustration purposes
-demonstrates communition exergy calculations.
-Appendix~\ref{sec:MCC_exergy} also confirms
-the assumption that communition exergy is small and
+demonstrates comminution exergy calculations and
+confirms the assumption that comminution exergy is small and
 can be neglected in most cases.)
 
 
 %..............................
-\paragraph{Physical exergy}
+\paragraph{Physical exergy ($b_{ph}$)}
 \label{sec:b_ph_main_paper}
 %..............................
 
 Physical exergy ($b_{ph}$) is the work that could be extracted
 from a mixture of compounds if the mixture were brought
 from temperature $T$ and pressure $P$ to reference environment
-conditions $T_0$ and $P_0$.
+conditions $T_0$ and $P_0$
+by an ideal process.
 In Figure~\ref{fig:components_material_exergy},
 $b_{ph}$ is shown to be positive, because
 work can be extracted from substances that have
@@ -850,8 +863,92 @@ material temperature to be different from $T_0$.)
 
 
 %..............................
-\paragraph{Concentration exergy}
+\paragraph{Concentration exergy ($b_c$)}
 \label{sec:b_c_main_paper}
+%..............................
+
+The concentration exergy of a mixture ($b_{c,m}$) is
+the work that could be extracted from the mixture
+when separating the mixture into pure compounds.
+Actually, work has to be done upon the mixture
+to separate the constituents,
+so $b_{c,m} < 0$ is expected%
+\footnote{
+  Some authors define concentration exergy to be positive
+  but subtract the value when calculating total exergy of a mixture
+  in Equation~\ref{eq:exergy_sum_def}.
+  For consistency, we opt to calculate a negative number
+  for concentration exergy and sum all exergy terms when
+  calculating total exergy of a mixture.
+},
+as shown in Figure~\ref{fig:components_material_exergy}.
+
+The definition of concentration exergy is derived from the entropy of mixing.
+The entropy of a mixture ($\Delta S_m$) is the \emph{increase} in entropy
+that occurs when different substances are mixed reversibly and isothermally
+and is given by
+\begin{equation}\label{eq:specific_entropy_of_mixture_definition}
+  \Delta S_m = - R N_m (y_{1}\ln{y_{1}} + y_{2}\ln{y_{2}} + y_{3}\ln{y_{3}} + \ldots)
+             = - R N_m \sum_{i} y_{i}\ln{y_{i}} \, ,
+\end{equation}
+%
+where $\Delta S_m$ is the \emph{increase} of entropy due to mixing
+in units of $\mathrm{kJ/mol_m \cdot K}$,
+$R$ is the universal gas constant (in units of $\mathrm{kJ/mol \cdot K}$), and
+$y_i$ are mole fractions in $\mathrm{mol_i/mol_m}$.
+Because $\Delta S_m$ is defined for a mixing process,
+$\Delta S_m > 0$ is obtained.
+
+The concentration exergy of a mixture ($B_{c,m}$)
+is defined as
+
+\begin{equation} \label{eq:b_c_def}
+  \Delta B_{c,m} = - T_0 \Delta S_m = R T_0 N_m \sum_i{y_i \ln{y_i}} \, ,
+\end{equation}
+%
+where
+the negative sign indicates that concentration exergy involves
+a separation process rather than a mixing process.
+On a per mole of mixture basis
+
+\begin{equation}
+  \Delta b_{c,m} = \frac{\Delta B_m}{N_m} = R T_0 \sum_i{y_i \ln{y_i}} \, .
+\end{equation}
+%
+Recognizing that the difference in molar intensive exergy
+is taken relative to a reference point (subscript 0)
+gives
+
+\begin{equation}
+  b_{c,m} = R T_0 \sum_i{[y_i \ln(y_i) - y_{i,0} \ln(y_{i,0})]} \, .
+\end{equation}
+%
+Recognizing that the reference point for concentration exergy is
+unmixed (pure) compounds
+($y_{i,0} = 1$; thus $y_{i,0} \ln{y_{i,0}} = 0$)
+gives
+
+\begin{equation}\label{eq:concentration_exergy_definition}
+  b_{c,m} = R T_0 \sum_i{y_i \ln{y_i}} \, .
+\end{equation}
+%
+The contribution of any single compound
+to the concentration exergy of the mixture is
+
+\begin{equation}
+  b_{c,i} = R T_0 (y_i \ln{y_i}) \, .
+\end{equation}
+%
+$b_{c,m}$ and all $b_{c,i}$ are negative, because
+work must be put \emph{into} the mixture to separate the
+compounds into pure substances
+(rather than work extracted from the mixture,
+the definition of positive exergy).
+
+
+%..............................
+\paragraph{Chemical exergy ($b_{ch}$)}
+\label{sec:chemical_exergy}
 %..............................
 
 Natural resources have a positive material exergy
@@ -866,59 +963,6 @@ and by mole fraction ($y_i$) in the Earth's crust.
 We take reference environments
 from \citet[Tables~11.1--11.7]{Valero_2015}.
 
-The concentration exergy of a mixture ($b_{c,m}$) is
-the work that could be extracted from the mixture
-when separating the mixture into pure compounds.
-Actually, work has to be done upon the mixture
-to separate the constituents,
-so concentration exergy ($b_c$) is negative%
-\footnote{
-  Some authors define concentration exergy to be positive
-  but subtract the value when calculating total exergy of a mixture.
-  For consistency, we opt to calculate a negative number and sum when
-  calculating total exergy of a mixutre.
-},
-as shown in Figure~\ref{fig:components_material_exergy}.
-
-The definition of concentration exergy is derived from the entropy of mixing.
-The entropy of a mixture ($\Delta{S_m}$) is the increase in entropy
-that occurs when different substances are mixed reversibly and isothermally
-and is given by
-\begin{equation}\label{eq:specific_entropy_of_mixture_definition}
-  \Delta S_m = - R N_m (y_{1}\ln{y_{1}} + y_{2}\ln{y_{2}} + y_{3}\ln{y_{3}} + \ldots)
-             = - R N_m \sum_{i} y_{i}\ln{y_{i}} \, ,
-\end{equation}
-%
-where $\Delta S_m$ is in units of $\mathrm{kJ/mol_m \cdot K}$,
-$R$ is the universal gas constant (in units of $\mathrm{kJ/mol \cdot K}$), and
-$y_i$ are mole fractions in $\mathrm{mol_i/mol_m}$.
-
-We define concentration exergy of a compound $i$
-in the mixture ($b_{c,i}$) as
-
-\begin{equation}\label{eq:concentration_exergy}
-  b_{c,i} = RT_0[\ln(y_i) - \ln(y_{i,0})] \, .
-\end{equation}
-%
-Note that the reference state (subscript ``0'')
-for concentration exergy
-is unmixed (pure) compounds,
-so $y_{i,0} \equiv 1$.
-Simplifying Equation (\ref{eq:concentration_exergy})
-with $y_{i,0} = 1$ gives
-
-\begin{equation}\label{eq:concentration_exergy_definition}
-  b_{c,i} = R T_0 \ln(y_i) \, ,
-\end{equation}
-%
-which is always less than or equal to zero
-for reasons discussed above.
-
-
-%..............................
-\paragraph{Chemical exergy($b_{ch}$)}
-\label{sec:chemical_exergy}
-%..............................
 
 The chemical exergy of a pure compound ($b_{ch,i}$)
 is the maximum amount of work obtainable
@@ -2192,24 +2236,24 @@ All appendix sections must be cited in the main text. In the appendices, Figures
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\SweaveInput{appendices/appendix-phi.Rnw}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\SweaveInput{appendices/appendix-chemistry.Rnw}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\SweaveInput{appendices/appendix-exergy-calcs.Rnw}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\SweaveInput{appendices/appendix-bxcc.Rnw}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \SweaveInput{appendices/appendix-phi.Rnw}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \SweaveInput{appendices/appendix-chemistry.Rnw}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \SweaveInput{appendices/appendix-exergy-calcs.Rnw}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \SweaveInput{appendices/appendix-bxcc.Rnw}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
