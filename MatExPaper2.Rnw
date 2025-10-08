@@ -574,7 +574,7 @@ Limestone production compositions and energy inputs are taken from
 %------------------------------
 
 Processes in the example MCC include
-extraction, hauling, and beneficiaion
+extraction, hauling, and beneficiation
 of iron ore, limestone, and coal;
 a rotary kiln to convert limestone into quicklime;
 a coke oven to produce both anthracite
