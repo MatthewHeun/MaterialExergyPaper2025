@@ -250,7 +250,7 @@ consume energy,
 some processes exhibit high energy- and carbon-intensity,
 such as
 steel-making,
-concrete production,
+cement production,
 aluminum smelting, and
 chemical manufacturing.
 
@@ -268,8 +268,8 @@ consume energy for the purpose of
 upgrading material usefulness
 Iron ore is upgraded to pig iron and later steel
 with the aid of heat from coal combustion.
-Aggregate and limestone are combined with cement to make concrete
-with the aid of heat from fossil fuel combustion.
+Cement is created with heat from fossil fuel combustion
+then combined with aggregate and water to make concrete.
 Bauxite is upgraded to aluminum via
 electricity for electrolysis.
 Industrial chemicals are produced using
