@@ -677,7 +677,7 @@ that organizes information at any statepoint.
 We define a statepoint ($k$) to be a material stream
 with a known pressure, temperature, and composition
 as a mixture of compounds
-and or elements \citet[p.19-33]{Ting_2022}.
+and or elements \citep[p.~19--33]{Ting_2022}.
 To analyze each statepoint of the example MCC,
 we employ the material hierarchy shown in
 Table~\ref{tab:material_hierarchy}.
@@ -757,9 +757,7 @@ is given by
 %
 where
 $N_{m,k} = \sum_i{N_{i,k}}$ is
-the number of moles of the mixture at statepoint $k$ and
-the sum of the moles of compounds $i$
-that comprise the mixture at statepoint $k$
+the number of moles of the mixture at statepoint $k$
 (in $\mathrm{mol_m}$),
 and $b_{m,k}$ is the molar intensive material exergy of the mixture
 at statepoint $k$
@@ -824,7 +822,7 @@ Henceforth, we drop statepoint subscript $k$ to simplify notation.
 %..............................
 
 Comminution exergy ($b_{com}$) represents the work done upon the material
-to grind it
+to overcome binding energy by crushing, grinding, or pulverizing
 from its existing size ($d_i$)
 to the size observed in the reference environment ($d_{i,0}$).
 In Figure~\ref{fig:components_material_exergy},
@@ -870,8 +868,8 @@ material temperature to be different from $T_0$.)
 The concentration exergy of a mixture ($b_{c,m}$) is
 the work that could be extracted from the mixture
 when separating the mixture into pure compounds.
-Actually, work has to be done upon the mixture
-to separate the constituents,
+Actually, work has to be done upon a mixture
+to separate its constituents,
 so $b_{c,m} < 0$ is expected%
 \footnote{
   Some authors define concentration exergy to be positive
@@ -916,11 +914,12 @@ On a per mole of mixture basis
 \end{equation}
 %
 Recognizing that the difference in molar intensive exergy
-is taken relative to a reference point (subscript 0)
+is taken relative to the reference environment,
+including the concentrations (subscript 0),
 gives
 
 \begin{equation}
-  b_{c,m} = R T_0 \sum_i{[y_i \ln(y_i) - y_{i,0} \ln(y_{i,0})]} \, .
+  b_{c,m} = R T_0 \sum_i{[y_i \ln{y_i} - y_{i,0} \ln{y_{i,0}}]} \, .
 \end{equation}
 %
 Recognizing that the reference point for concentration exergy is
@@ -944,6 +943,8 @@ work must be put \emph{into} the mixture to separate the
 compounds into pure substances
 (rather than work extracted from the mixture,
 the definition of positive exergy).
+The concentration exergy of pure compounds is 0,
+because $\lim_{y_i \to 0} y_i \ln{y_i} = 0$.
 
 
 %..............................
@@ -951,30 +952,32 @@ the definition of positive exergy).
 \label{sec:chemical_exergy}
 %..............................
 
-Natural resources have a positive material exergy
-because they have a chemical composition
-different from their reference environment.
-Reference environments can include the atmosphere,
-the ocean, or the Earth's crust.
-Species in reference environments are characterized
-by partial pressure ($P_i = y_i P_0$) in the atmosphere,
-by concentrations ($C_i$) in the ocean,
-and by mole fraction ($y_i$) in the Earth's crust.
-We take reference environments
-from \citet[Tables~11.1--11.7]{Valero_2015}.
-
+% Natural resources have a positive material exergy
+% because they have a chemical composition
+% different from their reference environment.
+% Reference environments can include the atmosphere,
+% the ocean, or the Earth's crust.
+% Species in reference environments are characterized
+% by partial pressure ($P_i = y_i P_0$) in the atmosphere,
+% by concentrations ($C_i$) in the ocean,
+% and by mole fractions ($y_i$) in the Earth's crust.
+% We take reference environments for chemical exergy
+% from \citet[Tables~11.1--11.7]{Valero_2015}.
 
 The chemical exergy of a pure compound ($b_{ch,i}$)
 is the maximum amount of work obtainable
-by decomposing the compound
-to compounds and elements
-that exist in the reference environment.
-If compound $i$ does not exist
-in the reference environment,
-its chemical exergy is the amount of work obtained
-in the reversible chemical reactions
-that decompose compound $i$ into
-the set of compounds that exist in the reference environment.
+from reversible processes that both
+(a)~form substances that exist in the reference environment
+        (via chemical reaction, if necessary) and
+(b)~distribute those substances to their concentrations
+        in the reference environment.
+%
+% If compound $i$ does not exist
+% in the reference environment,
+% its chemical exergy is the amount of work obtained
+% in the reversible chemical reactions
+% that decompose compound $i$ into
+% the set of compounds that exist in the reference environment.
 
 % This process can be decomposed into two steps:
 % decomposition of compound $i$ to its most stable form of compounds and elements
@@ -989,20 +992,24 @@ Perhaps we can cite this paper:
 ---MKH
 ****
 
-
 The chemical exergy of a compound ($b_{ch,i}$) is given by
 
 \begin{equation}\label{eq:chemical_exergy_definition}
-  b_{ch,i} = \Delta{G_{f,i}} + \sum_{i}{n_{j}b_{ch,j}} \, ,
+  b_{ch,i} = \Delta{G_{f,i}} + \sum_i{n_j b_{ch,j}} \, ,
 \end{equation}
 %
 where $b_{ch,i}$ is in units of $\mathrm{kJ_i/mol_i}$,
-$n_j$ is the number of moles of an element (in units of $\mathrm{mol_i}$),
-and Gibbs energy of formation ($\Delta{G_f}$) is in units of $\mathrm{kJ_i/mol_i}$.
-$\Delta{G_{f}}$ values are taken from \citet[pp.~9.4--9.94]{Dean_1979},
+$\Delta{G_f}$ is Gibbs energy of formation
+(in units of $\mathrm{kJ_i/mol_i}$),
+$n_j$ is the number of atoms of element $j$
+in one molecule of compound $i$, and
+$b_{ch,j}$ is the elemental chemical exergy of element $j$
+(in $\mathrm{kJ/mol_j}$).
+Values for $\Delta{G_{f}}$ are taken
+from \citet[pp.~9.4--9.94]{Dean_1979},
 \citet[Table~2]{Gibbs_formation},
 and \citet[Appendix~II~B]{Tro_2006}.
-We take chemical exergies of elements ($b_{ch,j}$)
+Values of $b_{ch,j}$ are taken
 from the crepuscular earth model
 of \citet[Table~9.1]{Valero_2015}.
 
