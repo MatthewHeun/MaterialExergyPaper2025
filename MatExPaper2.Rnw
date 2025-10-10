@@ -931,8 +931,8 @@ gives
   b_{c,m} = R T_0 \sum_i{y_i \ln{y_i}} \, .
 \end{equation}
 %
-The contribution of any single compound
-to the concentration exergy of the mixture is
+The contribution of any single compound ($i$)
+to the concentration exergy of the mixture ($m$) is
 
 \begin{equation}
   b_{c,i} = R T_0 (y_i \ln{y_i}) \, .
@@ -986,13 +986,7 @@ from reversible processes that both
 % The reversible work produced from the first process
 % is the chemical exergy of the compound.
 
-****
-Perhaps we can cite this paper:
-\citet{Michalakakis_2021}.
----MKH
-****
-
-The chemical exergy of a compound ($b_{ch,i}$) is given by
+The chemical exergy of a compound ($b_{ch,i}$) in a mixture is given by
 
 \begin{equation}\label{eq:chemical_exergy_definition}
   b_{ch,i} = \Delta{G_{f,i}} + \sum_i{n_j b_{ch,j}} \, ,
