@@ -1210,10 +1210,21 @@ Massless energy (indirect)  &            &            & \checkmark & \checkmark 
 \end{table}
 
 
+****
+Add a section here about calculating heat losses
+from each industry in the ECC.
+---MKH
+****
+
 %------------------------------
 \subsubsection{Creating the unified conversion chain (BXCC)}
 \label{sec:creating_bxcc}
 %------------------------------
+
+****
+Need to include adding heat flows to the BXCC.
+---MKH
+****
 
 The method for creating a
 unified material and energy conversion chain (BXCC)
@@ -1637,14 +1648,14 @@ in which rownames are processing stages and
 the subscript ``MCC'' indicates mass versions of the
 $\mat{U}$ and $\mat{V}$ matrices.
 
-For an MCC with all waste flows included
+For an MCC with all waste mass flows included
 (as in the example in this paper),
 the across-industry balance of
 Equation~(\ref{eq:across_industry_mass})
 becomes
 
 \begin{equation} \label{eq:across_industry_mass_with_0}
-   \mat{m}_{loss} = (\mat{iU}_{MCC})^\mathrm{T} - \mat{V}_{\!MCC}\mat{i} = \mat{0} \, ,
+  \mat{m}_{loss} = (\mat{iU}_{MCC})^\mathrm{T} - \mat{V}_{\!MCC}\mat{i} = \mat{0} \, ,
 \end{equation}
 %
 where the $\mat{0}$ vector on the right side
@@ -1669,6 +1680,18 @@ print_efficiencies_table(efficiencies_table_name = "M_across_industry_balance_M_
 \label{sec:across_industry_heat_losses}
 %------------------------------
 
+****
+I think we should use the equation below to
+calculate waste heat flows from every process.
+Then, we should add those waste heat flows
+to the example BXCC.
+We should move the approach to calculating heat losses
+to the methods section.
+If we take this approach, the mathematics
+and explanation of irreversibilities
+compared to losses becomes a LOT easier.
+---MKH
+****
 For an ECC with no heat losses included
 (as in the example of Section~\ref{sec:results}),
 the across-industry balance
@@ -1737,21 +1760,40 @@ should calculate the $\mat{0}$ vector.
 \label{sec:irreversibility}
 %------------------------------
 
-For an exergy conversion chain
-(BCC, XCC, or BXCC)
-that includes waste heat and mass flows,
+For exergy conversion chains (BXCCs)
+that include waste heat and mass flows,
 the across-industry balance calculates the
-thermodynamic irreversibility ($\mathcal{I}$) of
-(or exergy destruction by) an industry.
+thermodynamic irreversibility%
+\footnote{
+  A synonym for thermodynamic irreversibility
+  is exergy destruction.
+}
+%
+vector ($\boldsymbol{\mathcal{I}}$) for industries.
+****
+The next sentence is confusing and difficult to explain.
+I think we need to add waste heat
+flows to the example BXCC we show in the paper.
+Let's have those waste heat flows go to a
+"Waste" industry or a ``Waste heat'' industry
+column in the \textbf{Y} matrix.
+If we do this, then exergy losses are calculated from
+the $W_M$ and $W_Q$ flows in Figure~\ref{fig:example_process_diagram}.
+If we follow this suggestion,
+we can delete the next sentence.
+If we follow this suggestion, we can delete the clause
+``that include waste heat and mass flows''
+above.
+---MKH
+****
 For exergy conversion chains that include waste mass flows
-and exclude heat loss terms
-(as in the example unified material and energy conversion chain
+but not heat losses
+(as the example unified material and energy conversion chain
 of this paper),
-the across-exergy balance of Equation~(\ref{eq:across_industry_balances})
+the across-exergy difference of Equation~(\ref{eq:across_industry_balances})
 calculates the sum of irreversibility and
 exergy loss due to heat dissipation ($\boldsymbol{\mathcal{I}}$).
 Equation~(\ref{eq:across_industry_balances}) becomes
-
 
 \begin{equation} \label{eq:irreversibility_balances}
   \boldsymbol{\mathcal{I}}_{BXCC} =
@@ -1836,7 +1878,7 @@ the rational efficiency and the resource efficiency.
 \begin{figure}
   \centering
   \includegraphics[width=0.5\linewidth]{images/example_process_diagram.pdf}
-  \caption{An example process for efficiency methods.
+  \caption{An example process that illustrates efficiency analysis.
            $R$ indicates resource inputs.
            $E$ indicates energy inputs.
            $P$ indicates product outputs.
@@ -1854,10 +1896,10 @@ To illustrate calculations for the rational and resource efficiencies,
 we employ Figure~\ref{fig:example_process_diagram} which shows
 an example process (industry) within a conversion chain.
 Inputs $R$ and $E$ represent material resources and energy inputs, respectively.
-Output $P$ represents beneficial products,
-output $W_M$ represents material waste products.
-and output $W_Q$ represents heat waste.
-Note that additional resource, energy input, product, or waste streams
+Output $P$ represents desired products,
+output $W_M$ represents material waste products,
+and output $W_Q$ represents waste heat.
+Note that multipl resource, energy input, product, or waste streams
 can be present in real processes.
 
 
@@ -1870,7 +1912,7 @@ The rational efficiency method accounts for all process outputs
 in the numerator and all process inputs in the denominator.
 With reference to Figure~\ref{fig:example_process_diagram},
 \citet[Equation~(2.45)]{Dincer_2007}
-define the rational efficiency efficiency as
+define the rational efficiency as
 
 \begin{equation} \label{eq:rational_efficiency_process}
   \eta_{rational} = \frac{B_P + B_{W,M}}{X_{elect} + B_R} \, .
@@ -2272,24 +2314,24 @@ All appendix sections must be cited in the main text. In the appendices, Figures
 
 
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \SweaveInput{appendices/appendix-phi.Rnw}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \SweaveInput{appendices/appendix-chemistry.Rnw}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \SweaveInput{appendices/appendix-exergy-calcs.Rnw}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \SweaveInput{appendices/appendix-bxcc.Rnw}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\SweaveInput{appendices/appendix-phi.Rnw}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\SweaveInput{appendices/appendix-chemistry.Rnw}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\SweaveInput{appendices/appendix-exergy-calcs.Rnw}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\SweaveInput{appendices/appendix-bxcc.Rnw}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
