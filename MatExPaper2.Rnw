@@ -265,7 +265,7 @@ in the iron and steel sector.
 High-intensity processes like
 steel-making
 consume energy for the purpose of
-upgrading material usefulness
+upgrading material usefulness.
 Iron ore is upgraded to pig iron and later steel
 with the aid of heat from coal combustion.
 Cement is created with heat from fossil fuel combustion
@@ -873,7 +873,7 @@ to separate its constituents,
 so $b_{c,m} < 0$ is expected%
 \footnote{
   Some authors define concentration exergy to be positive
-  but subtract the value when calculating total exergy of a mixture
+  but subtract its value when calculating total exergy of a mixture
   in Equation~\ref{eq:exergy_sum_def}.
   For consistency, we opt to calculate a negative number
   for concentration exergy and sum all exergy terms when
@@ -986,16 +986,17 @@ from reversible processes that both
 % The reversible work produced from the first process
 % is the chemical exergy of the compound.
 
-The chemical exergy of a compound ($b_{ch,i}$) in a mixture is given by
+The chemical exergy of a compound ($b_{ch,i}$) at a statepoint
+is given by
 
 \begin{equation}\label{eq:chemical_exergy_definition}
-  b_{ch,i} = \Delta{G_{f,i}} + \sum_i{n_j b_{ch,j}} \, ,
+  b_{ch,i} = \Delta{G_{f,i}} + \sum_j{n_{j,i} b_{ch,j}} \, ,
 \end{equation}
 %
 where $b_{ch,i}$ is in units of $\mathrm{kJ_i/mol_i}$,
 $\Delta{G_f}$ is Gibbs energy of formation
 (in units of $\mathrm{kJ_i/mol_i}$),
-$n_j$ is the number of atoms of element $j$
+$n_{j,i}$ is the number of atoms of element $j$
 in one molecule of compound $i$, and
 $b_{ch,j}$ is the elemental chemical exergy of element $j$
 (in $\mathrm{kJ/mol_j}$).
@@ -1005,7 +1006,17 @@ from \citet[pp.~9.4--9.94]{Dean_1979},
 and \citet[Appendix~II~B]{Tro_2006}.
 Values of $b_{ch,j}$ are taken
 from the crepuscular earth model
-of \citet[Table~9.1]{Valero_2015}.
+of \citet[Table~9.1]{Valero_2015}
+and already include the ideal work obtained
+from dispersion from a pure substance
+to the abundance observed in the Earth's crust (Thanatia).
+
+The chemical exergy of a mixture at a statepoint is given by
+
+\begin{equation}
+  b_{ch,m} = \sum_i{y_i b_{ch,i}} \, .
+\end{equation}
+%
 
 
 %------------------------------
@@ -1414,6 +1425,11 @@ the example unified BXCC,
 including magnitudes for all flows,
 are available in the
 supplementary information.
+****
+Add supplementary information location
+upon submission to the journal.
+---MKH
+****
 
 
 %++++++++++++++++++++++++++++++
@@ -1438,6 +1454,11 @@ Table~\ref{tab:bf_slag_output_statepoint} gives details
 of the waste slag from the blast furnace.
 See the supplementary information for details
 of the gaseous inputs and outputs of the blast furnace.
+****
+Add supplementary information location
+upon submission to the journal.
+---MKH
+****
 
 Using Table~\ref{tab:bf_input_statepoint} as the example,
 the lower-right value ($B$ for the mixture) is calculated
@@ -1521,6 +1542,11 @@ The material exergy of the solid waste (slag) output is \Sexpr{BF_B_slag_out}.
 Material exergies for all statepoints
 in the example MCC
 can be found in supplementary information.
+****
+Add supplementary information location
+upon submission to the journal.
+---MKH
+****
 
 
 %++++++++++++++++++++++++++++++
@@ -1585,7 +1611,6 @@ in a conversion chain are given by the vector difference
 %
 where
 $\mat{iU}$ gives column sums of the use matrix,
-$^\mathrm{T}$ indicates the transpose, and
 $\mat{Vi}$ gives row sums of the make matrix.
 The result of Equation~(\ref{eq:across_industry_balances})
 is a column vector with industries in rows.
@@ -1671,7 +1696,7 @@ with
 $\circ$ indicating the Hadamard (element-wise) product,
 subscript ``$h$'' indicating $\mat{U}$ and $\mat{V}$ matrices
 containing enthalpy values, and
-subscript ``$elect$'' indicating indicating $\mat{U}$ and $\mat{V}$ matrices
+subscript ``$elect$'' indicating $\mat{U}$ and $\mat{V}$ matrices
 containing only (massless) electricity inputs.
 See the supplementary information for the
 $\mat{U}_{MCC}$, $\mat{V}_{\!MCC}$,
@@ -1679,6 +1704,11 @@ $\mat{U}_h$, $\mat{V}_h$,
 $\mat{U}_{elect}$, $\mat{V}_{\!elect}$,
 $\mat{U}_{ECC}$, and $\mat{V}_{ECC}$ matrices
 for the example of Section~\ref{sec:results}.
+****
+Add supplementary information location
+upon submission to the journal.
+---MKH
+****
 Table~\ref{tab:across_industry_Q_loss} shows
 the heat loss vector ($\mat{Q}_{loss}$)
 for the example in Section~\ref{sec:results}.
@@ -1806,7 +1836,12 @@ the rational efficiency and the resource efficiency.
 \begin{figure}
   \centering
   \includegraphics[width=0.5\linewidth]{images/example_process_diagram.pdf}
-  \caption{An example process for efficiency methods.}
+  \caption{An example process for efficiency methods.
+           $R$ indicates resource inputs.
+           $E$ indicates energy inputs.
+           $P$ indicates product outputs.
+           $W_M$ indicates wasted mass.
+           $W_Q$ indicates waste heat.}
   \label{fig:example_process_diagram}
 \end{figure}
 
