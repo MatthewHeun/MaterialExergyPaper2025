@@ -734,7 +734,7 @@ by an ideal, reversible process
 that brings the mixture of materials
 into equilibrium with the reference environment,
 characterized by
-particle size ($d_0$),
+particle size ($d_0$, for solids only),
 temperature ($T_0$),
 pressure ($P_0$), and
 chemical composition ($y_{i,0}$).
@@ -783,9 +783,7 @@ $y_i$ is the mole fraction
 of compound $i$ in the mixture
 at statepoint $k$
 (in $\mathrm{mol_i/mol_m}$), and
-$b_{m,k} = \sum_i{y_{i,k} b_{i,k}}$
-is the molar intensive exergy of the mixture at statepoint $k$
-(in $\mathrm{kJ_m/mol_m}$).
+$b_{m,k} = \sum_i{y_{i,k} b_{i,k}}$.
 
 
 %..............................
@@ -824,10 +822,11 @@ Henceforth, we drop statepoint subscript $k$ to simplify notation.
 Comminution exergy ($b_{com}$) represents the work done upon the material
 to overcome binding energy by crushing, grinding, or pulverizing
 from its existing size ($d_i$)
-to the size observed in the reference environment ($d_{i,0}$).
+to the size stipulated for the reference environment ($d_{i,0}$).
 In Figure~\ref{fig:components_material_exergy},
 comminution exergy is shown as requiring work input to the material
-(rather than work extracted from the material).
+(rather than work extracted from the material)
+because typically $d_i > d_{i,0}$.
 As such $b_{com} < 0$ is expected.
 Comminution exergy is typically small~\citep[p.~280]{Valero_2015}
 and ignored for the analysis of material and energy conversion chains herein.
@@ -851,10 +850,16 @@ by an ideal process.
 In Figure~\ref{fig:components_material_exergy},
 $b_{ph}$ is shown to be positive, because
 work can be extracted from substances that have
-$T > T_0$ and $P > P_0$.
+$T \ne T_0$ and $P > P_0$.%
+\footnote{
+  However, physical exergy ($b_{ph}$)
+  can be negative for mixtures,
+  e.g., if $T = T_0$ and $P < P_0$.
+}
+%
 We assume that all statepoints in the example MCC
 are at $T_0$ and $P_0$;
-thus, $b_{ph,i} = 0$.
+thus, $b_{ph} = 0$.
 (The exception, again, is Appendix~\ref{sec:MCC_exergy},
 which for illustration purposes assumes
 material temperature to be different from $T_0$.)
@@ -867,6 +872,7 @@ material temperature to be different from $T_0$.)
 
 The concentration exergy of a mixture ($b_{c,m}$) is
 the work that could be extracted from the mixture
+at $T_0$ and $P_0$
 when separating the mixture into pure compounds.
 Actually, work has to be done upon a mixture
 to separate its constituents,
