@@ -945,8 +945,8 @@ to the concentration exergy of the mixture ($m$) is
 \end{equation}
 %
 $b_{c,m}$ and all $b_{c,i}$ are negative, because
-work must be put \emph{into} the mixture to separate the
-compounds into pure substances
+work must be put \emph{into} the mixture to separate it
+into pure substances
 (rather than work extracted from the mixture,
 the definition of positive exergy).
 The concentration exergy of pure compounds is 0,
@@ -971,12 +971,15 @@ because $\lim_{y_i \to 0} y_i \ln{y_i} = 0$.
 % from \citet[Tables~11.1--11.7]{Valero_2015}.
 
 The chemical exergy of a pure compound ($b_{ch,i}$)
-is the maximum amount of work obtainable
+is defined at $T_0$ and $P_0$
+to be the maximum amount of work obtainable
 from reversible processes that both
-(a)~form substances that exist in the reference environment
-        (via chemical reaction, if necessary) and
-(b)~distribute those substances to their concentrations
-        in the reference environment.
+(a)~form substances at $T_0$ and $P_0$
+    that exist in the reference environment
+    (via chemical reaction, if necessary) and
+(b)~expand those substances to their concentrations
+    or partial pressures
+    in the reference environment.
 %
 % If compound $i$ does not exist
 % in the reference environment,
@@ -992,7 +995,8 @@ from reversible processes that both
 % The reversible work produced from the first process
 % is the chemical exergy of the compound.
 
-The chemical exergy of a compound ($b_{ch,i}$) at a statepoint
+The molar specific chemical exergy
+of a compound ($b_{ch,i}$) at a statepoint
 is given by
 
 \begin{equation}\label{eq:chemical_exergy_definition}
@@ -1017,12 +1021,12 @@ and already include the ideal work obtained
 from dispersion from a pure substance
 to the abundance observed in the Earth's crust (Thanatia).
 
-The chemical exergy of a mixture at a statepoint is given by
+The chemical exergy of a mixture of compounds
+at a statepoint is given by
 
 \begin{equation}
   b_{ch,m} = \sum_i{y_i b_{ch,i}} \, .
 \end{equation}
-%
 
 
 %------------------------------
