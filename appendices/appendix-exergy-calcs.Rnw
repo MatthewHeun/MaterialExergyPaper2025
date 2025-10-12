@@ -252,7 +252,7 @@ where $T_k$ is the temperature at a statepoint
 (in units of K) \citet[Fig.1]{Sarna_2013}.
 
 The temperature of limestone at the rotary kiln is ambient
-and changes to \Sexpr{T_kiln} K in the kiln.
+and changes to \Sexpr{T_kiln} in the kiln.
 
 The change in enthalpy of $\ce{CaCO3}$ is
 \begin{equation}\label{eq:deltah_CaCO3}
@@ -345,7 +345,7 @@ We calculate comminution exergy using \citet[Eqn.9.31]{Valero_2015}:
           \approx \frac{6F_r}{d_M} \, ,
 \end{equation}
 %
-where $\Delta{A_v}$ is undefined, but assumed to be the change in surface are (in units of $\mathrm{m^3}$),
+where $\Delta{A_v}$ is undefined, but assumed to be the change in surface area (in units of $\mathrm{m^3}$),
 $\gamma$ is the surface energy (in units of $\mathrm{\frac{J}{m^{-2}}}$),
 $\rho$ is the solids density (in units of $\mathrm{\frac{g}{cm^3}}$),
 the constant 6 has units of $\mathrm{\frac{J}{m^2}}$,

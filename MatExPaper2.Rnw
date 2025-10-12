@@ -819,15 +819,19 @@ Henceforth, we drop statepoint subscript $k$ to simplify notation.
 \label{sec:b_com_main_paper}
 %..............................
 
-Comminution exergy ($b_{com}$) represents the work done upon the material
-to overcome binding energy by crushing, grinding, or pulverizing
+Comminution exergy ($b_{com}$) represents the work done upon solid ore
+by crushing, grinding, or pulverizing to take the ore
 from its existing size ($d_i$)
 to the size stipulated for the reference environment ($d_{i,0}$).
+Comminution exergy is the minimum amount of work
+to overcome binding energy determined
+by the material's fracture properties~\citep{Zhang:2022aa}.
 In Figure~\ref{fig:components_material_exergy},
 comminution exergy is shown as requiring work input to the material
 (rather than work extracted from the material)
 because typically $d_i > d_{i,0}$.
-As such $b_{com} < 0$ is expected.
+As such,
+$b_{com} < 0$ is expected.
 Comminution exergy is typically small~\citep[p.~280]{Valero_2015}
 and ignored for the analysis of material and energy conversion chains herein.
 (The exception is Appendix~\ref{sec:MCC_exergy},
@@ -1004,13 +1008,13 @@ is given by
 \end{equation}
 %
 where $b_{ch,i}$ is in units of $\mathrm{kJ_i/mol_i}$,
-$\Delta{G_f}$ is Gibbs energy of formation
-(in units of $\mathrm{kJ_i/mol_i}$),
+$\Delta G_{f,i}$ is Gibbs energy of formation
+(in units of $\mathrm{kJ_i/mol_i}$) for compound $i$,
 $n_{j,i}$ is the number of atoms of element $j$
 in one molecule of compound $i$, and
 $b_{ch,j}$ is the elemental chemical exergy of element $j$
 (in $\mathrm{kJ/mol_j}$).
-Values for $\Delta{G_{f}}$ are taken
+Values for $\Delta{G_{f,i}}$ are taken
 from \citet[pp.~9.4--9.94]{Dean_1979},
 \citet[Table~2]{Gibbs_formation},
 and \citet[Appendix~II~B]{Tro_2006}.
@@ -2022,7 +2026,7 @@ The resource approach quantifies
 how efficiently a process converts resources
 (all inputs) into the desired product of the process.
 The resource efficiency removes wastes and
-accounts only for beneficial exergy outputs in the numerator
+accounts only for desired exergy outputs in the numerator
 of the efficiency calculation.
 Similar to the rational efficiency,
 the resource efficiency includes all exergy inputs in the denominator
@@ -2052,7 +2056,7 @@ Equation~(\ref{eq:rational_efficiency_psut}) except that
 the make matrix ($\mat{V}_{\!BXCC}$) is post-multiplied by $\mat{i}_P$
 instead of by $\mat{i}$.
 $\mat{i}_P$ is a product selection vector containing ``1''
-for beneficial outputs and ``0'' for wastes.
+for desired outputs and ``0'' for wastes.
 Table~\ref{tab:process_efficiencies} shows resource efficiencies
 for the example BXCC of Section~\ref{sec:results}.
 
@@ -2082,7 +2086,7 @@ are observed for the COG treatment.
 
 The resource efficiency of the COG treatment process is
 much lower than its rational efficiency,
-because the beneficial product of COG treatment is methane,
+because the desired output of COG treatment is methane,
 which is only 6\% of the output (by mole).
 
 
