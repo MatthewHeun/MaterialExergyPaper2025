@@ -974,6 +974,8 @@ because $\lim_{y_i \to 0} y_i \ln{y_i} = 0$.
 % We take reference environments for chemical exergy
 % from \citet[Tables~11.1--11.7]{Valero_2015}.
 
+Szargut and co-authors \citep{Morris:1986aa} were among the first
+to calculate chemical exergies for minerals.
 The chemical exergy of a pure compound ($b_{ch,i}$)
 is defined at $T_0$ and $P_0$
 to be the maximum amount of work obtainable
