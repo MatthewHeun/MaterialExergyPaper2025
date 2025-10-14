@@ -2230,14 +2230,14 @@ Our description of a way to use the PSUT framework to describe
 material conversion chains
 leads to suggestions for future work.
 
-First, the PSUT framework will enable
+First, the PSUT framework can enable
 determination of embodied exergy
 (also known as ``exergy cost'')
 of materials.
 The calculation of exergy cost could proceed
-in a manner similar to the approach
-to estimating the embodied energy of energy
-shown in  \citet[Section~3.3]{Heun:2018}.
+in a manner similar to the method
+for estimating the embodied energy of energy
+shown in \citet[Section~3.3]{Heun:2018}.
 
 Second, the PSUT framework could be used to describe a country's
 material conversion chain.
