@@ -204,13 +204,13 @@ is leading to adoption of
 renewable generation technologies,
 electrified end uses, and
 energy storage.
+These changes require accelerating rates of material extraction,
+especially for copper ore and rare earth minerals.
 Simultaneously, declining ore grades~\cite{Calvo:2016aa, Calvo:2022aa} and
 energy return on investment (EROI)~\cite{Heun:2012ek, Hall:2014aa}
 can lead to increased energy consumption
 (and \ce{CO2} emissions)
 to extract and process increasingly scarce raw materials.
-These changes require accelerating rates of material extraction,
-especially for copper ore and rare earth minerals.
 In short, the energy transition will also be a materials transition,
 and scarcity of key material resources may become a long-term concern.
 
@@ -422,13 +422,12 @@ across the period of study.
 At the societal level,
 there are several examples of
 unified exergy analysis of materials and energy.
-\citet{Carmona:2021aa} quantified the exergy of products
-(defined as mixtures of substances)
-as a mean weighted average of the chemical exergies
-of minerals and metals that compose each product.
-\citeauthor{Carmona:2021aa} ignored concentration exergy
-(i.e., the exergy of mixing).
-
+% \citet{Carmona:2021aa} quantified the exergy of products
+% (defined as mixtures of substances)
+% as a mean weighted average of the chemical exergies
+% of minerals and metals that compose each product.
+% \citeauthor{Carmona:2021aa} ignored concentration exergy
+% (i.e., the exergy of mixing).
 Wall and coauthors~\citep{Wall:1987,Wall:1994,Wall:1990aa}
 applied a unified exergy-based analysis to assess resource use
 in Sweden, Japan, and Italy,
@@ -442,13 +441,19 @@ The studies reveal low overall exergy efficiencies
 highlight substantial losses across
 the material and energy conversion chains.
 \citet{Carmona:2021aa} quantified global resource flows and stocks
-from 1900 to 2010, from extraction to end-use,
+from extraction to end-use for 1900 to 2010,
 including the exergy flows of non-metals, precious metals, and products.
 During this period,
 primary exergy use increased from 115 to 903~EJ/year,
 while useful exergy rose from 9 to 148~EJ/year,
 with 47\% embedded in material goods by 2010.
 Resource conversion efficiency improved from 8\% to 16\%.
+\citet{Carmona:2021aa} quantified the exergy of products
+(defined as mixtures of substances)
+as a mean weighted average of the chemical exergies
+of minerals and metals that compose each product.
+\citeauthor{Carmona:2021aa} ignored concentration exergy
+(i.e., the exergy of mixing).
 Previous unified exergy analyses of materials and energy
 at the societal level have lacked process-level detail
 in characterizing material and energy transformations.
@@ -824,8 +829,8 @@ by crushing, grinding, or pulverizing to take the ore
 from its existing size ($d_i$)
 to the size stipulated for the reference environment ($d_{i,0}$).
 Comminution exergy is the minimum amount of work
-to overcome binding energy determined
-by the material's fracture properties~\citep{Zhang:2022aa}.
+to overcome binding energy and is determined
+by the material's fracture properties~\citep{Zhang:2021aa}.
 In Figure~\ref{fig:components_material_exergy},
 comminution exergy is shown as requiring work input to the material
 (rather than work extracted from the material)
