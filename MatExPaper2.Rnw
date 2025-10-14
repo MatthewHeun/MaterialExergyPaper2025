@@ -588,7 +588,6 @@ coke oven gas treatment and distribution;
 and a blast furnace to make pig iron.
 All of the processes in the example MCC
 require energy inputs.
-
 For example, limestone and coal beneficiation processes
 use electricity for grinders and separating machines
 such as crushers, screens, and pelletizers.
@@ -600,7 +599,12 @@ and the blast furnace.
 Information on the direct energy requirements for
 extraction and beneficiation processes
 was taken from the Energy and Environmental Profile of the U.S.\ Mining Industry
-\citet[Tables~4.3-4, 9.2-3, and 2.7]{Ore_2025} and
+\citet[Tables~4.3-4, 9.2-3, and 2.7]{Ore_2025}
+****
+Need a better citation.
+---MKH
+****
+and
 \citet[Table~A3.4]{Jamison_2015}.
 Information for energy requirements of
 iron ore hauling was obtained from
@@ -638,9 +642,7 @@ which includes energy and exergy flows for
 85 final-to-useful (FU) energy conversion devices''~\citep[p.~1]{Brockway:2024ab}.
 We extract energy conversion chain data for South Africa,
 one of the countries in the CL-PFU database and
-for 2013, because a consistent energy conversion chain
-can be used from the year.
-
+for 2013 to match the years for which material data are available.
 The energy conversion chain is quantified
 as exergy (XCC) to match the exergy version
 of the material conversion chain (BCC).
