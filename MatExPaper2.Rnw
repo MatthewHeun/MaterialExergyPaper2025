@@ -642,7 +642,12 @@ which includes energy and exergy flows for
 85 final-to-useful (FU) energy conversion devices''~\citep[p.~1]{Brockway:2024ab}.
 We extract energy conversion chain data for South Africa,
 one of the countries in the CL-PFU database and
-for 2013 to match the years for which material data are available.
+for 2013
+****
+Need justification for choosing 2013.
+Maybe tie to materials/mining data year?
+---MKH
+****
 The energy conversion chain is quantified
 as exergy (XCC) to match the exergy version
 of the material conversion chain (BCC).
@@ -683,7 +688,7 @@ that organizes information at any statepoint.
 
 We define a statepoint ($k$) to be a material stream
 with a known pressure, temperature, and composition
-as a mixture of compounds
+expressed as a mixture of compounds
 and or elements \citep[p.~19--33]{Ting_2022}.
 To analyze each statepoint of the example MCC,
 we employ the material hierarchy shown in
@@ -1056,8 +1061,7 @@ Equation~(\ref{eq:chemical_exergy_definition})
 when the Gibbs energy of formation
 ($\Delta{G_{f}}$)
 is available.
-Otherwise (such as for coal and fuel oil),
-we calculate material exergy by
+Otherwise, we calculate material exergy by
 
 \begin{equation}\label{eq:energy_exergy_fuels}
   \varepsilon_i = [LHV_i + w h_{fg}]\phi_i + (9417~\mathrm{kJ/kg}) \, s
@@ -1074,7 +1078,7 @@ and $s$ is the mass fraction of sulfur in the fuel (in units of $\mathrm{kg/kg}$
 (See \citet[Eq.~C.5a]{Kotas_1995}.)
 We obtain $\phi$ values from \citet[Appendix~C]{Kotas_1995}.
 (See Appendix~\ref{sec:appendix_phi}
-for solid and liquid fuel exergy equations.)
+for gaseous and liquid fuel exergy equations.)
 
 All other energy sources in the example MCC are electricity.
 The exergy of energy at any statepoint
@@ -2335,26 +2339,26 @@ All appendix sections must be cited in the main text. In the appendices, Figures
 
 
 
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\SweaveInput{appendices/appendix-phi.Rnw}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\SweaveInput{appendices/appendix-chemistry.Rnw}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\SweaveInput{appendices/appendix-exergy-calcs.Rnw}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\SweaveInput{appendices/appendix-bxcc.Rnw}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \SweaveInput{appendices/appendix-phi.Rnw}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \SweaveInput{appendices/appendix-chemistry.Rnw}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \SweaveInput{appendices/appendix-exergy-calcs.Rnw}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \SweaveInput{appendices/appendix-bxcc.Rnw}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
