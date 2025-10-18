@@ -1403,6 +1403,342 @@ All matrix representations of conversion chains
 developed for this paper
 pass the inter-industry consistency check.
 
+Arranging material and energy conversion chain data
+in the $\mat{RUVY}$ matrices of the PSUT framework
+provides many benefits to analysts
+in addition to the inter-industry consistency check.
+In particular, without the PSUT framework,
+analyses of all transformation processes (industries) involve repetitive
+calculations, once for each process.
+With the PSUT framework,
+the repetitive calculations can be expressed as a single matrix equation
+that performs the analyses for all industries
+in a conversion chain.
+The following sections show additional calculations
+made easier by the PSUT framework.
+
+
+%------------------------------
+\subsubsection{Across-industry balances}
+\label{sec:across_industry_balances}
+%------------------------------
+
+In contrast to the inter-industry balances
+of Equation~(\ref{eq:inter_industry_balances}),
+across-industry balances may or may not
+calculate to the $\mat{0}$ vector.
+Instead, across-industry balances calculate important quantities
+depending on the information contained in the $\mat{RUVY}$ matrices,
+possibly mass flows, energy flows, or exergy flows.
+Across-industry balances for every industry
+in a conversion chain are given by the vector difference
+
+\begin{equation} \label{eq:across_industry_balances}
+  (\mat{iU})^\mathrm{T} - \mat{Vi} \, ,
+\end{equation}
+%
+where
+$\mat{iU}$ gives column sums of the use matrix,
+$\mat{Vi}$ gives row sums of the make matrix.
+The result of Equation~(\ref{eq:across_industry_balances})
+is a column vector with industries in rows.
+
+In the following subsections,
+we discuss calculations using across-industry balances for
+mass, heat loss, and irreversibility.
+
+
+%..............................
+\paragraph{Across-industry mass balances: mass losses}
+\label{sec:across_industry_mass}
+%..............................
+
+****
+I don't like the term mass loss,
+because we are accounting for all masses.
+Maybe this should instead be $\Delta m$
+to indicate mass imbalance?
+---MKH
+****
+
+For an MCC, the across-industry balance of
+Equation~(\ref{eq:across_industry_balances}) becomes
+
+\begin{equation} \label{eq:across_industry_mass}
+  \mat{m}_{loss} = (\mat{iU}_{MCC})^\mathrm{T} - \mat{V}_{\!MCC}\mat{i} \, ,
+\end{equation}
+%
+where $\mat{m}_{loss}$ is a vector of mass losses
+in which rownames are processing stages and
+the subscript ``MCC'' indicates mass versions of the
+$\mat{U}$ and $\mat{V}$ matrices.
+
+For an MCC with all waste mass flows included
+(as in the examples in this paper),
+the across-industry balance of
+Equation~(\ref{eq:across_industry_mass})
+becomes
+
+\begin{equation} \label{eq:across_industry_mass_with_0}
+  \mat{m}_{loss} = (\mat{iU}_{MCC})^\mathrm{T} - \mat{V}_{\!MCC}\mat{i} = \mat{0} \, ,
+\end{equation}
+%
+where the $\mat{0}$ vector on the right side
+of Equation~(\ref{eq:across_industry_mass_with_0})
+indicates that mass is conserved.
+
+
+%..............................
+\paragraph{Across-industry energy balances: heat losses}
+\label{sec:across_industry_heat_losses}
+%..............................
+
+****
+I think we should use the equation below to
+calculate waste heat flows from every process.
+Then, we should add those waste heat flows
+to the example BXCC.
+We should move the approach to calculating heat losses
+to the methods section.
+If we take this approach, the mathematics
+and explanation of irreversibilities
+compared to losses becomes a LOT easier.
+---MKH
+****
+
+****
+I don't like the term heat loss,
+because we are accounting for all energy flows.
+Maybe this should instead be $\Delta E$
+to indicate energy imbalance?
+---MKH
+****
+
+The across-industry balance
+of Equation~(\ref{eq:across_industry_balances})
+can calculate the energy balance of each industry.
+
+\begin{equation} \label{eq:across_industry_heat}
+  \mat{Q}_{loss} = (\mat{iU}_{ECC})^\mathrm{T} - \mat{V}_{\!ECC}\mat{i} \, ,
+\end{equation}
+%
+where the subscript ``$ECC$'' indicates energy versions of the
+$\mat{U}$ and $\mat{V}$ matrices obtained by
+
+\begin{equation}
+  \mat{U}_{ECC} = (\mat{U}_{MCC} \circ \mat{U}_h) + \mat{U}_{elect}
+\end{equation}
+%
+and
+
+\begin{equation}
+  \mat{V}_{\!ECC} = (\mat{V}_{\!MCC} \circ \mat{V}_h) + \mat{V}_{elect} \, ,
+\end{equation}
+%
+with
+$\circ$ indicating the Hadamard (element-wise) product,
+subscript ``$h$'' indicating $\mat{U}$ and $\mat{V}$ matrices
+containing enthalpy values, and
+subscript ``$elect$'' indicating $\mat{U}$ and $\mat{V}$ matrices
+containing only (massless) electricity inputs.
+See the supplementary information for the
+$\mat{U}_{MCC}$, $\mat{V}_{\!MCC}$,
+$\mat{U}_h$, $\mat{V}_h$,
+$\mat{U}_{elect}$, $\mat{V}_{\!elect}$,
+$\mat{U}_{ECC}$, and $\mat{V}_{ECC}$ matrices
+for the example of Section~\ref{sec:results}.
+****
+Add supplementary information location
+upon submission to the journal.
+---MKH
+****
+
+For an ECC that includes waste heat flows
+(as in the examples of this paper),
+the across-industry energy balance
+of Equation~(\ref{eq:across_industry_heat})
+will calculate the $\mat{0}$ vector.
+
+\begin{equation} \label{eq:across_industry_heat_zero}
+  \mat{Q}_{loss} = (\mat{iU}_{ECC})^\mathrm{T} - \mat{V}_{\!ECC}\mat{i} = \mat{0} \, .
+\end{equation}
+
+
+%..............................
+\paragraph{Across-industry energy balances: irreversibilities}
+\label{sec:across_industry_irreversibilities}
+%..............................
+
+For conversion chains (BXCCs)
+that are mass- and energy-balanced
+(as the example BXCC in this paper),
+the across-industry balance calculates the
+thermodynamic irreversibility%
+\footnote{
+  A synonym for thermodynamic irreversibility
+  is exergy destruction.
+}
+%
+vector ($\boldsymbol{\mathcal{I}}$) for industries.
+Equation~(\ref{eq:across_industry_balances}) becomes
+
+\begin{equation} \label{eq:irreversibility_balances}
+  \boldsymbol{\mathcal{I}}_{BXCC} =
+        (\mat{iU}_{BXCC})^\mathrm{T} - \mat{V}_{BXCC}\mat{i} \, ,
+\end{equation}
+%
+where $\boldsymbol{\mathcal{I}}$ is a column vector of
+irreversibility with industries in rows.
+
+
+%------------------------------
+\subsubsection{Exergy loss}
+\label{sec:exergy_loss}
+%------------------------------
+
+While irreversibilities arises from thermodynamic inefficiencies,
+exergy loss arises from unused outputs, i.e.,
+wastes, including mass and heat.
+****
+Can we do better here?
+Use a selection vector to sum the
+loss columns in the $\mat{Y}$ matrix?
+---MKH
+****
+The exergy lost ($B_{lost}$) from a process is given by
+\begin{equation}\label{exergy_lost}
+  B_{lost} = \sum_{out}{B_{k,m,waste}}
+\end{equation}
+%
+where $B_{k,m,waste}$ is the exergy of a waste stream
+from a process (in units of $\mathrm{kJ}$).
+The embodied exergy is the exergy loss
+in an upstream supply chain,
+given by
+\begin{equation}\label{embodied_exergy}
+  B_{em} = \sum{B_{lost}}
+\end{equation}
+%
+where $B_{em}$ is the embodied exergy
+(in units of $\mathrm{kJ}$).
+
+
+
+%------------------------------
+\subsubsection{Process efficiencies}
+\label{sec:process_efficiencies_methods}
+%------------------------------
+
+We illustrate the application of material exergy to
+societal exergy analysis within the PSUT framework
+by calculating process efficiencies
+throughout the unified conversion chain (BXCC).
+There are many ways to calculate the efficiencies of industries
+in a material or energy conversion chain.
+We demonstrate two methods here:
+the rational efficiency and the resource efficiency.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.5\linewidth]{images/example_process_diagram.pdf}
+  \caption{An example process that illustrates efficiency analysis.
+           $R$ indicates resource inputs.
+           $E$ indicates energy inputs.
+           $P$ indicates product outputs.
+           $W_M$ indicates wasted mass.
+           $W_Q$ indicates waste heat.}
+  \label{fig:example_process_diagram}
+\end{figure}
+
+To illustrate method for calculating
+rational and resource efficiencies,
+we employ Figure~\ref{fig:example_process_diagram} which shows
+an example process (industry) within a conversion chain.
+Inputs $R$ and $E$ represent material resources and energy inputs, respectively.
+Output $P$ represents desired products,
+output $W_M$ represents material waste products,
+and output $W_Q$ represents waste heat.
+Note that multipl resource, energy input, product, or waste streams
+can be present in real processes.
+
+
+%..............................
+\paragraph{Rational efficiencies}
+\label{sec:rational_efficiency}
+%..............................
+
+The rational efficiency method accounts for all process outputs
+in the numerator and all process inputs in the denominator.
+With reference to Figure~\ref{fig:example_process_diagram},
+\citet[Equation~(2.45)]{Dincer_2007}
+define the rational efficiency as
+
+\begin{equation} \label{eq:rational_efficiency_process}
+  \eta_{rational} = \frac{B_P + B_{W,M}}{X_{elect} + B_R} \, .
+\end{equation}
+%
+where $X_{elect}$ is the exergy of energy input E.
+Equation~(\ref{eq:rational_efficiency_process}) must be applied separately
+to each process in a conversion chain.
+
+In the PSUT framework,
+Equation~(\ref{eq:rational_efficiency_process})
+can be re-cast as a matrix equation
+that applies to all processes in a conversion chain.
+
+\begin{equation} \label{eq:rational_efficiency_psut}
+  \boldsymbol{\upeta}_{rational} = (\widehat{\mat{iU}}_{BXCC})\!^{-1} (\mat{V}_{\!BXCC}\mat{i}) \, ,
+\end{equation}
+%
+where
+$\boldsymbol{\upeta}_{rational}$ is a column vector of rational efficiencies
+for transformation processs with industries in rows,
+the~~$\widehat{~}$~~symbol indicates diagonalization
+of the $\mat{iU}$ vector into a square matrix, and
+$^{-1}$ indicates matrix inversion.
+
+
+%..............................
+\paragraph{Resource efficiencies}
+\label{sec:resource_efficiencies}
+%..............................
+
+The resource approach quantifies
+how efficiently a process converts resources
+(all inputs) into the desired product of the process.
+The resource efficiency removes wastes and
+accounts only for desired exergy outputs in the numerator
+of the efficiency calculation.
+Similar to the rational efficiency,
+the resource efficiency includes all exergy inputs in the denominator
+of the efficiency calculation.
+With reference to Figure~\ref{fig:example_process_diagram},
+\citet[Equation~(2.44)]{Dincer_2007}
+define the resource efficiency efficiency as
+%
+\begin{equation} \label{eq:resource_efficiency_process}
+  \eta_{resource} = \frac{B_P}{X_{elect}+ B_R} \, .
+\end{equation}
+%
+Similar to Equation~(\ref{eq:rational_efficiency_process}),
+Equation~(\ref{eq:resource_efficiency_process}) must be applied separately
+to each process in a conversion chain.
+
+In the PSUT framework,
+Equation~(\ref{eq:resource_efficiency_process}) can be re-cast as a matrix equation
+that applies to all process in a conversion chain.
+
+\begin{equation} \label{eq:resource_efficiency_psut}
+  \boldsymbol{\upeta}_{resource} = (\widehat{\mat{iU}}_{BXCC})\!^{-1} (\mat{V}_{\!BXCC}\mat{i}_P)
+\end{equation}
+%
+Equation~(\ref{eq:resource_efficiency_psut}) is identical to
+Equation~(\ref{eq:rational_efficiency_psut}) except that
+the make matrix ($\mat{V}_{\!BXCC}$) is post-multiplied by $\mat{i}_P$
+instead of by $\mat{i}$.
+$\mat{i}_P$ is a product selection vector containing ``1''
+for desired outputs and ``0'' for wastes.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
@@ -1456,6 +1792,58 @@ Add supplementary information location
 upon submission to the journal.
 ---MKH
 ****
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Mass balances}
+\label{sec:mass_balance_results}
+%++++++++++++++++++++++++++++++
+
+The example MCC
+is mass-balanced across industries,
+as calculated by Equation~(\ref{eq:across_industry_mass})
+and shown in Table~\ref{tab:across_industry_M_loss}.
+
+<<MassLossTable, echo=FALSE, results=tex>>=
+print_efficiencies_table(efficiencies_table_name = "M_across_industry_balance_M_loss",
+                         latex_label = "tab:across_industry_M_loss",
+                         digits = 3,
+                         caption = paste("Mass losses ($m_{loss}$) in the",
+                                         "example material conversion chain."),
+                         size = "footnotesize")
+@
+
+Note that all mass losses are accounted
+in the $\mat{RUVY}$ matrices of the example independent MCC,
+because all mass losses are $\mat{0}$.
+
+
+%++++++++++++++++++++++++++++++
+\subsection{Energy balances}
+\label{sec:energy_balance_results}
+%++++++++++++++++++++++++++++++
+
+Table~\ref{tab:across_industry_Q_loss} shows
+the heat loss vector ($\mat{Q}_{loss}$)
+for the example independent MCC.
+****
+We need to include the heat losses in the matrices.
+---MKH
+****
+
+<<HeatLossTable, echo=FALSE, results=tex>>=
+print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_Q_loss",
+                         latex_label = "tab:across_industry_Q_loss",
+                         digits = 0,
+                         caption = paste("Process heat losses ($Q_{loss}$) in the",
+                                         "example material conversion chain.",
+                                         "**** These all need to be zero. ---MKH ****"),
+                         size = "footnotesize")
+@
+
+Note that all heat losses are accounted
+in the $\mat{RUVY}$ matrices of the example independent MCC,
+because all heat losses are $\mat{0}$.
 
 
 %++++++++++++++++++++++++++++++
@@ -1590,241 +1978,22 @@ $\mat{RUVY}$ matrices for the
 example unified material and energy conversion chain (BXCC).
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Discussion}
-\label{sec:discussion}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-Arranging material and energy conversion chain data
-in the $\mat{RUVY}$ matrices of the PSUT framework
-provides many benefits to analysts.
-This section discusses further applications
-beyond the contributions shown in Section~\ref{sec:results} above.
-In particular, without the PSUT framework,
-analyses of all transformation processes (industries) involve repetitive
-calculations, once for each process.
-With the PSUT framework,
-the repetitive calculations can be expressed as a single matrix equation
-that performs the analyses for all industries
-in a conversion chain.
-The interpretation of the results varies,
-depending on the type of conversion chain under consideration.
-We demonstrate below
-the benefits of the PSUT framework
-by discussing
-across-industry balances (Section~\ref{sec:across_industry_balances}) and
-industry efficiencies (Section~\ref{sec:efficiency}).
-
 
 %++++++++++++++++++++++++++++++
-\subsection{Across-industry balances}
-\label{sec:across_industry_balances}
+\subsection{Irreversibility and exergy losses}
+\label{sec:irreversibility_exergy_loss}
 %++++++++++++++++++++++++++++++
 
-In contrast to the inter-industry balances
-of Equation~(\ref{eq:inter_industry_balances}),
-across-industry balances do not and should not always
-calculate to the $\mat{0}$ vector.
-Instead, across-industry balances calculate important quantities
-depending on the information contained in the $\mat{RUVY}$ matrices,
-possibly mass flows, energy flows, or exergy flows.
-Across-industry balances for every industry
-in a conversion chain are given by the vector difference
-
-\begin{equation} \label{eq:across_industry_balances}
-  (\mat{iU})^\mathrm{T} - \mat{Vi} \, ,
-\end{equation}
-%
-where
-$\mat{iU}$ gives column sums of the use matrix,
-$\mat{Vi}$ gives row sums of the make matrix.
-The result of Equation~(\ref{eq:across_industry_balances})
-is a column vector with industries in rows.
-
-In the following subsections,
-we discuss calculations using across-industry balances for
-mass, heat loss, and irreversibility.
-
-
-%------------------------------
-\subsubsection{Across-industry mass balances: mass losses}
-\label{sec:across_industry_mass}
-%------------------------------
-
-For an MCC, the across-industry balance of
-Equation~(\ref{eq:across_industry_balances}) becomes
-
-\begin{equation} \label{eq:across_industry_mass}
-  \mat{m}_{loss} = (\mat{iU}_{MCC})^\mathrm{T} - \mat{V}_{\!MCC}\mat{i} \, ,
-\end{equation}
-%
-where $\mat{m}_{loss}$ is a vector of mass losses
-in which rownames are processing stages and
-the subscript ``MCC'' indicates mass versions of the
-$\mat{U}$ and $\mat{V}$ matrices.
-
-For an MCC with all waste mass flows included
-(as in the example in this paper),
-the across-industry balance of
-Equation~(\ref{eq:across_industry_mass})
-becomes
-
-\begin{equation} \label{eq:across_industry_mass_with_0}
-  \mat{m}_{loss} = (\mat{iU}_{MCC})^\mathrm{T} - \mat{V}_{\!MCC}\mat{i} = \mat{0} \, ,
-\end{equation}
-%
-where the $\mat{0}$ vector on the right side
-of Equation~(\ref{eq:across_industry_mass_with_0})
-indicates that mass is conserved.
-The example MCC of Section~\ref{sec:results}
-is mass-balanced across industries,
-as shown in Table~\ref{tab:across_industry_M_loss}.
-
-<<MassLossTable, echo=FALSE, results=tex>>=
-print_efficiencies_table(efficiencies_table_name = "M_across_industry_balance_M_loss",
-                         latex_label = "tab:across_industry_M_loss",
-                         digits = 3,
-                         caption = paste("Mass losses ($m_{loss}$) in the",
-                                         "example material conversion chain."),
-                         size = "footnotesize")
-@
-
-
-%------------------------------
-\subsubsection{Across-industry energy balances: heat losses}
-\label{sec:across_industry_heat_losses}
-%------------------------------
-
-****
-I think we should use the equation below to
-calculate waste heat flows from every process.
-Then, we should add those waste heat flows
-to the example BXCC.
-We should move the approach to calculating heat losses
-to the methods section.
-If we take this approach, the mathematics
-and explanation of irreversibilities
-compared to losses becomes a LOT easier.
----MKH
-****
-For an ECC with no heat losses included
-(as in the example of Section~\ref{sec:results}),
-the across-industry balance
-of Equation~(\ref{eq:across_industry_balances})
-calculates heat loss from each industry:
-
-\begin{equation} \label{eq:across_industry_heat}
-  \mat{Q}_{loss} = (\mat{iU}_{ECC})^\mathrm{T} - \mat{V}_{\!ECC}\mat{i} \, ,
-\end{equation}
-%
-where the subscript ``$ECC$'' indicates energy versions of the
-$\mat{U}$ and $\mat{V}$ matrices obtained by
-
-\begin{equation}
-  \mat{U}_{ECC} = (\mat{U}_{MCC} \circ \mat{U}_h) + \mat{U}_{elect}
-\end{equation}
-%
-and
-
-\begin{equation}
-  \mat{V}_{\!ECC} = (\mat{V}_{\!MCC} \circ \mat{V}_h) + \mat{V}_{elect} \, ,
-\end{equation}
-%
-with
-$\circ$ indicating the Hadamard (element-wise) product,
-subscript ``$h$'' indicating $\mat{U}$ and $\mat{V}$ matrices
-containing enthalpy values, and
-subscript ``$elect$'' indicating $\mat{U}$ and $\mat{V}$ matrices
-containing only (massless) electricity inputs.
-See the supplementary information for the
-$\mat{U}_{MCC}$, $\mat{V}_{\!MCC}$,
-$\mat{U}_h$, $\mat{V}_h$,
-$\mat{U}_{elect}$, $\mat{V}_{\!elect}$,
-$\mat{U}_{ECC}$, and $\mat{V}_{ECC}$ matrices
-for the example of Section~\ref{sec:results}.
-****
-Add supplementary information location
-upon submission to the journal.
----MKH
-****
-Table~\ref{tab:across_industry_Q_loss} shows
-the heat loss vector ($\mat{Q}_{loss}$)
-for the example in Section~\ref{sec:results}.
-
-<<HeatLossTable, echo=FALSE, results=tex>>=
-print_efficiencies_table(efficiencies_table_name = "BX_across_industry_balance_Q_loss",
-                         latex_label = "tab:across_industry_Q_loss",
-                         digits = 0,
-                         caption = paste("Process heat losses ($Q_{loss}$) in the",
-                                         "example material conversion chain."),
-                         size = "footnotesize")
-@
-
-For industries that simply transport mass
-(e.g., hauling),
-$Q_{loss}$ is equal to the energy input.
-
-For an ECC that includes heat losses,
-the across-industry balance
-of Equation~(\ref{eq:across_industry_balances})
-should calculate the $\mat{0}$ vector.
-
-
-%------------------------------
-\subsubsection{Across-industry exergy balances: exergy losses and irreversibility}
-\label{sec:irreversibility}
-%------------------------------
-
-For exergy conversion chains (BXCCs)
-that include waste heat and mass flows,
-the across-industry balance calculates the
-thermodynamic irreversibility%
-\footnote{
-  A synonym for thermodynamic irreversibility
-  is exergy destruction.
-}
-%
-vector ($\boldsymbol{\mathcal{I}}$) for industries.
-****
-The next sentence is confusing and difficult to explain.
-I think we need to add waste heat
-flows to the example BXCC we show in the paper.
-Let's have those waste heat flows go to a
-"Waste" industry or a ``Waste heat'' industry
-column in the \textbf{Y} matrix.
-If we do this, then exergy losses are calculated from
-the $W_M$ and $W_Q$ flows in Figure~\ref{fig:example_process_diagram}.
-If we follow this suggestion,
-we can delete the next sentence.
-If we follow this suggestion, we can delete the clause
-``that include waste heat and mass flows''
-above.
----MKH
-****
-For exergy conversion chains that include waste mass flows
-but not heat losses
-(as the example unified material and energy conversion chain
-of this paper),
-the across-exergy difference of Equation~(\ref{eq:across_industry_balances})
-calculates the sum of irreversibility and
-exergy loss due to heat dissipation ($\boldsymbol{\mathcal{I}}$).
-Equation~(\ref{eq:across_industry_balances}) becomes
-
-\begin{equation} \label{eq:irreversibility_balances}
-  \boldsymbol{\mathcal{I}}_{BXCC} =
-        (\mat{iU}_{BXCC})^\mathrm{T} - \mat{V}_{BXCC}\mat{i} \, ,
-\end{equation}
-%
-where $\boldsymbol{\mathcal{I}}$ is a column vector of
-the sum of irreversibility (or exergy destruction)
-and exergy loss due to heat dissipation
-with industries in rows.
 Table~\ref{tab:across_industry_irreversibilities} shows
 irreversibilities for the example conversion chains
-of Section~\ref{sec:results}.
+of Section~\ref{sec:results}
+calculated by Equation~(\ref{eq:irreversibility_balances}).
 Exergy is destroyed across all industries,
 unless the process is trivial
 (e.g., coke oven gas distribution).
+$\mathcal{I}$ should never be negative,
+because exergy can not be generated,
+only destroyed.
 
 <<IrreversibilitiesTable, echo=FALSE, results=tex>>=
 print_efficiencies_table(efficiencies_table_name = "I_BXCC",
@@ -1837,122 +2006,19 @@ print_efficiencies_table(efficiencies_table_name = "I_BXCC",
                          size = "footnotesize")
 @
 
-The irreversibilities and loss of exergy at a process
-is determined by the exergy inputs and outputs
-to the process,
-
-\begin{equation}\label{eq:irreversibility}
-  \boldsymbol{\mathcal{I}} = \sum_{in}{B_m + I_m} - \sum_{out}{B_m + I_m} \, ,
-\end{equation}
-%
-where $\boldsymbol{\mathcal{I}}$
-is the irreversibility (or exergy destruction) of the process,
-$B_{in,m}$ is the exergy of a mixture going into a process,
-and $B_{out,m}$ is the exergy of a mixture leaving a process
-(all in units of $\mathrm{kJ}$).
-% ****
-% Perhaps the narrative here should be expanded to cover the exergy
-% of massless inputs and outputs, namely heat and electricity.
-% ---MKH
-% ****
-$I$ should never be a negative value because exergy can not be generated,
-only destroyed.
-
-The exergy lost ($B_{lost}$) from a process is given by
-\begin{equation}\label{exergy_lost}
-  B_{lost} = \sum_{out}{B_{k,m,waste}}
-\end{equation}
-%
-where $B_{k,m,waste}$ is the exergy of a waste stream
-from a process (in units of $\mathrm{kJ}$).
-The embodied exergy is the exergy loss
-in a supply chain,
-give by
-\begin{equation}\label{embodied_exergy}
-  B_{em} = \sum{B_{lost}}
-\end{equation}
-%
-where $B_{em}$ is the embodied exergy
-(in units of $\mathrm{kJ}$).
+****
+Add exergy loss results here.
+---MKH
+****
 
 
 %++++++++++++++++++++++++++++++
 \subsection{Efficiencies}
-\label{sec:efficiency}
+\label{sec:efficiencies_results}
 %++++++++++++++++++++++++++++++
 
-We illustrate the application of material exergy to
-societal exergy analysis within the PSUT framework
-by calculating process efficiencies
-throughout the unified conversion chain (BXCC).
-There are many ways to calculate the efficiencies of industries
-in a material or energy conversion chain.
-We demonstrate two methods here:
-the rational efficiency and the resource efficiency.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.5\linewidth]{images/example_process_diagram.pdf}
-  \caption{An example process that illustrates efficiency analysis.
-           $R$ indicates resource inputs.
-           $E$ indicates energy inputs.
-           $P$ indicates product outputs.
-           $W_M$ indicates wasted mass.
-           $W_Q$ indicates waste heat.}
-  \label{fig:example_process_diagram}
-\end{figure}
-
-
-Irreversibility arises from thermodynamic inefficiencies.
-Exergy loss arises from unused outputs, i.e.,
-wastes, including mass and heat.
-
-To illustrate calculations for the rational and resource efficiencies,
-we employ Figure~\ref{fig:example_process_diagram} which shows
-an example process (industry) within a conversion chain.
-Inputs $R$ and $E$ represent material resources and energy inputs, respectively.
-Output $P$ represents desired products,
-output $W_M$ represents material waste products,
-and output $W_Q$ represents waste heat.
-Note that multipl resource, energy input, product, or waste streams
-can be present in real processes.
-
-
-%------------------------------
-\subsubsection{Rational efficiencies}
-\label{sec:rational_efficiency}
-%------------------------------
-
-The rational efficiency method accounts for all process outputs
-in the numerator and all process inputs in the denominator.
-With reference to Figure~\ref{fig:example_process_diagram},
-\citet[Equation~(2.45)]{Dincer_2007}
-define the rational efficiency as
-
-\begin{equation} \label{eq:rational_efficiency_process}
-  \eta_{rational} = \frac{B_P + B_{W,M}}{X_{elect} + B_R} \, .
-\end{equation}
-%
-where $X_{elect}$ is the exergy of energy input E.
-Equation~(\ref{eq:rational_efficiency_process}) must be applied separately
-to each process in a conversion chain.
-
-In the PSUT framework,
-Equation~(\ref{eq:rational_efficiency_process})
-can be re-cast as a matrix equation
-that applies to all processes in a conversion chain.
-
-\begin{equation} \label{eq:rational_efficiency_psut}
-  \boldsymbol{\upeta}_{rational} = (\widehat{\mat{iU}}_{BXCC})\!^{-1} (\mat{V}_{\!BXCC}\mat{i}) \, ,
-\end{equation}
-%
-where
-$\boldsymbol{\upeta}_{rational}$ is a column vector of rational efficiencies
-for transformation processs with industries in rows,
-the~~$\widehat{~}$~~symbol indicates diagonalization
-of the $\mat{iU}$ vector into a square matrix, and
-$^{-1}$ indicates matrix inversion.
 Table~\ref{tab:process_efficiencies} shows rational efficiencies
+calculated by Equation~(\ref{eq:rational_efficiency_psut})
 for the example BXCC in Section~\ref{sec:results}.
 
 <<EfficienciesTable, echo=FALSE, results=tex>>=
@@ -1964,7 +2030,7 @@ print_efficiencies_table(efficiencies_table_name = "Efficiencies__Tables_for_Pap
                          size = "footnotesize")
 @
 
-<<DiscussionRationalEfficiencyValues, echo=FALSE>>=
+<<ResultsRationalEfficiencyValues, echo=FALSE>>=
 rational_eta_iron_ext <- read_named_cell("Rational_IronExtraction",
                                          unit = "\\\\%",
                                          perc = TRUE,
@@ -2017,47 +2083,6 @@ The low exergy efficiency is due to outputs cooling to $T_0$.
 ---MKH
 ****
 
-
-%------------------------------
-\subsubsection{Resource efficiencies}
-\label{sec:resource_efficiency}
-%------------------------------
-
-The resource approach quantifies
-how efficiently a process converts resources
-(all inputs) into the desired product of the process.
-The resource efficiency removes wastes and
-accounts only for desired exergy outputs in the numerator
-of the efficiency calculation.
-Similar to the rational efficiency,
-the resource efficiency includes all exergy inputs in the denominator
-of the efficiency calculation.
-With reference to Figure~\ref{fig:example_process_diagram},
-\citet[Equation~(2.44)]{Dincer_2007}
-define the resource efficiency efficiency as
-%
-\begin{equation} \label{eq:resource_efficiency_process}
-  \eta_{resource} = \frac{B_P}{X_{elect}+ B_R} \, .
-\end{equation}
-%
-Similar to Equation~(\ref{eq:rational_efficiency_process}),
-Equation~(\ref{eq:resource_efficiency_process}) must be applied separately
-to each process in a conversion chain.
-
-In the PSUT framework,
-Equation~(\ref{eq:resource_efficiency_process}) can be re-cast as a matrix equation
-that applies to all process in a conversion chain.
-
-\begin{equation} \label{eq:resource_efficiency_psut}
-  \boldsymbol{\upeta}_{resource} = (\widehat{\mat{iU}}_{BXCC})\!^{-1} (\mat{V}_{\!BXCC}\mat{i}_P)
-\end{equation}
-%
-Equation~(\ref{eq:resource_efficiency_psut}) is identical to
-Equation~(\ref{eq:rational_efficiency_psut}) except that
-the make matrix ($\mat{V}_{\!BXCC}$) is post-multiplied by $\mat{i}_P$
-instead of by $\mat{i}$.
-$\mat{i}_P$ is a product selection vector containing ``1''
-for desired outputs and ``0'' for wastes.
 Table~\ref{tab:process_efficiencies} shows resource efficiencies
 for the example BXCC of Section~\ref{sec:results}.
 
@@ -2091,13 +2116,16 @@ because the desired output of COG treatment is methane,
 which is only 6\% of the output (by mole).
 
 
-**********
-Most of the subsections above this point
-can be moved to Section~\ref{sec:results}.
-Subsections below this point can remain
-in discussion.
-**********
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Discussion}
+\label{sec:discussion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+With the results of Section~\ref{sec:results} in hand,
+a few points can be made.
+First, we discuss the relative magnitude of concentration exergy.
+Second, embodied exergy (or exergy cost) is discussed.
+Finally, we identify some limitations of this work.
 
 %++++++++++++++++++++++++++++++
 \subsection{Relative magnitude of concentration exergy}
@@ -2169,6 +2197,20 @@ of the PSUT framework is an area for future exploration.
 
 
 %++++++++++++++++++++++++++++++
+\subsection{Comparing irreversibilities and exergy losses}
+\label{sec:compare_irrev_losses}
+%++++++++++++++++++++++++++++++
+
+****
+Can we compare the magnitudes of irreversibilities
+exergy losses here?
+We could do something about exergy losses.
+There is not much to be done about irreversibilities.
+---MKH
+****
+
+
+%++++++++++++++++++++++++++++++
 \subsection{Limitations}
 \label{sec:limitations}
 %++++++++++++++++++++++++++++++
@@ -2230,7 +2272,7 @@ shown in \citet[Section~3.3]{Heun:2018}.
 Second, the PSUT framework could be used to describe a country's
 material conversion chain.
 Data for material conversion chains could be
-obtained from databases such as
+obtained from databases such as the
 MISO2 model~\citep{Wiedenhofer_2024}.
 
 
