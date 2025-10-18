@@ -325,28 +325,25 @@ a material into equilibrium with a reference environment.
 Material exergy has four components,
 each accounting for a different dis-equilibration
 relative to the reference environment.
+Comminution exergy accounts for grain size differences
+between the material ($d_i$) and
+the size stipulated for the reference environment ($d_{i,0}$).
 Physical exergy
 accounts for differences in temperature and pressure,
 with the reference environment typically defined as
 $T_0$ = 298.15~K and $P_0$ = 1~atm.
-Chemical exergy
-accounts for differences in chemical species,
-with the reference environment characterized by
-reference substances at reference partial pressures (in the atmosphere)
-and reference concentrations (in seawater or the crust of the Earth).
 Concentration (or mixing) exergy
 accounts for differences in relative abundance compared to the reference environment
 and represents the minimum work required to separate substances from a mixture.
 Concentration exergy can be especially relevant
 at the beginning and end of an MCC
 for ores and complex products, respectively.
-Finally, comminution exergy
-accounts for differences in molecular structure.
-****
-Is ``molecular structure'' correct?
----MKH
-****.
-For energy, exergy is defined as the maximum work
+Chemical exergy
+accounts for differences in chemical species,
+with the reference environment characterized by
+reference substances at reference partial pressures (in the atmosphere)
+and reference concentrations (in seawater or the crust of the Earth).
+For energy carriers, exergy is defined as the maximum work
 that could be obtained from thermodynamic processes that bring
 the energy into equilibrium with its surroundings.
 
@@ -374,7 +371,7 @@ enabling calculation of a unitless exergy efficiency
 in joules (of pig iron) per joule (of coal).
 
 Quantifying materials and energy as exergy enables calculation
-of comparable efficiencies of all processes in societal MCCs.
+of comparable efficiencies for all processes in societal MCCs.
 With such efficiencies available,
 hot-spots of inefficiency can be identified
 and actions taken to improve processes.
@@ -520,12 +517,14 @@ Our method for demonstrating
 a consistent approach
 for societal exergy analysis along
 unified conversion chains (BXCCs)
+(contribution 1 of Section~\ref{sec:question_contributions_structure})
 is to elucidate mathematical expressions
 and example calculations in full detail.
 The mathematical expressions are shown in
 Section~\ref{sec:exergy_of_materials} below.
-We apply that approach to a unified
-material and energy conversion chain,
+We apply that approach to construct a unified
+material and energy conversion chain
+(contribution 2 of Section~\ref{sec:question_contributions_structure}),
 following material from natural resource extraction
 to pig iron production.
 Data for the example MCC,
@@ -534,7 +533,8 @@ are discussed in Section~\ref{sec:data} below.
 Finally, we demonstrate interactions between
 material and energy conversion chains by developing
 Physical Supply-Use Table (PSUT) matrices that are
-amenable to existing energy conversion chain datasets.
+amenable to existing energy conversion chain datasets
+(contribution 3 of Section~\ref{sec:question_contributions_structure}).
 The process for assembling the PSUT matrices
 is discussed in Section~\ref{sec:psut_framework} below.
 
@@ -554,11 +554,16 @@ developed in this paper.
 \label{sec:material_data}
 %------------------------------
 
-Mass ratios and composition
+Mass ratios and compositions
 for each statepoint in the example MCC
 come from a variety of sources.
 Iron ore and coal compositions are representative
-of pig iron production in South Africa.
+of pig iron production in South Africa
+****
+Need a reference here.
+---MKH
+****
+.
 The exergy of coal is calculated as shown in
 \citet[Equation~C.3]{Kotas_1995}.
 Coal composition is determined by
@@ -570,7 +575,7 @@ The coke oven mass balance is modeled after
 \citet[Figure~4]{Ergul_2024}.
 
 Limestone production compositions and energy inputs are taken from
-\citet{Saidur_2011} and \citet[para.3]{Sarna_2013}.
+\citet{Saidur_2011} and \citet[paragraph 3]{Sarna_2013}.
 
 
 %------------------------------
@@ -628,7 +633,7 @@ which we assume to be massless.
 %------------------------------
 
 The direct energy requirements for the example material conversion chain (MCC)
-are supplied by an energy conversion chain
+are supplied by an energy conversion chain (ECC)
 that starts at energy extraction and delivers
 electricity, natural gas, gasoline, fuel oil, and diesel
 to material conversion processes.
@@ -649,7 +654,7 @@ Maybe tie to materials/mining data year?
 ---MKH
 ****
 The energy conversion chain is quantified
-as exergy (XCC) to match the exergy version
+as exergy (so actually an XCC) to match the exergy version
 of the material conversion chain (BCC).
 
 
@@ -667,29 +672,10 @@ that organizes information at any statepoint.
 \label{sec:material_hierarchy}
 %------------------------------
 
-\begin{figure}
-\centering
-\includegraphics[width=1\linewidth]{images/ExergyGraph.pdf}
-\caption{Components of material exergy:
-         comminution ($b_{com}$),
-         physical ($b_{ph}$),
-         concentration ($b_c$), and
-         chemical ($b_{ch}$).
-         $T$ is temperature,
-         $y$ is molar concentration,
-         $d$ is particle size, and
-         $i$ is chemical species.
-         Subscript 0 indicates conditions at the reference state,
-         which is the atmosphere for gasses,
-         Thanatia for solids, and
-         the ocean for liquids.}
-\label{fig:components_material_exergy}
-\end{figure}
-
 We define a statepoint ($k$) to be a material stream
 with a known pressure, temperature, and composition
 expressed as a mixture of compounds
-and or elements \citep[p.~19--33]{Ting_2022}.
+and/or elements \citep[p.~19--33]{Ting_2022}.
 To analyze each statepoint of the example MCC,
 we employ the material hierarchy shown in
 Table~\ref{tab:material_hierarchy}.
@@ -751,6 +737,25 @@ temperature ($T_0$),
 pressure ($P_0$), and
 chemical composition ($y_{i,0}$).
 (See Figure~\ref{fig:components_material_exergy}.)
+
+\begin{figure}
+\centering
+\includegraphics[width=1\linewidth]{images/ExergyGraph.pdf}
+\caption{Components of material exergy:
+         comminution ($b_{com}$),
+         physical ($b_{ph}$),
+         concentration ($b_c$), and
+         chemical ($b_{ch}$).
+         $T$ is temperature,
+         $y$ is molar concentration,
+         $d$ is particle size, and
+         $i$ is chemical species.
+         Subscript 0 indicates conditions at the reference state,
+         which is the atmosphere for gasses,
+         Thanatia for solids, and
+         the ocean for liquids.}
+\label{fig:components_material_exergy}
+\end{figure}
 
 
 %..............................
@@ -2352,24 +2357,24 @@ All appendix sections must be cited in the main text. In the appendices, Figures
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\SweaveInput{appendices/appendix-phi.Rnw}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\SweaveInput{appendices/appendix-chemistry.Rnw}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\SweaveInput{appendices/appendix-exergy-calcs.Rnw}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\SweaveInput{appendices/appendix-bxcc.Rnw}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \SweaveInput{appendices/appendix-phi.Rnw}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \SweaveInput{appendices/appendix-chemistry.Rnw}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \SweaveInput{appendices/appendix-exergy-calcs.Rnw}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \SweaveInput{appendices/appendix-bxcc.Rnw}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
