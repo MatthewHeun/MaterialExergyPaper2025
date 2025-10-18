@@ -765,7 +765,7 @@ chemical composition ($y_{i,0}$).
 
 Total material exergy ($B$)
 of mixture $m$ at statepoint $k$
-(in $\mathrm{kJ_m}$)
+(in kilojoules of the mixture, $\mathrm{kJ_m}$)
 is given by
 
 \begin{equation}\label{eq:exergy_mixture}
@@ -941,7 +941,7 @@ On a per mole of mixture basis
 \end{equation}
 %
 Recognizing that the difference in molar intensive exergy
-is taken relative to the reference environment,
+is taken relative to a reference environment,
 including the concentrations (subscript 0),
 gives
 
@@ -971,7 +971,7 @@ into pure substances
 (rather than work extracted from the mixture,
 the definition of positive exergy).
 The concentration exergy of pure compounds is 0,
-because $\lim_{y_i \to 0} y_i \ln{y_i} = 0$.
+because $y_i \ln{y_i} = 0$ when $y_i = 1$.
 
 
 %..............................
@@ -979,44 +979,18 @@ because $\lim_{y_i \to 0} y_i \ln{y_i} = 0$.
 \label{sec:chemical_exergy}
 %..............................
 
-% Natural resources have a positive material exergy
-% because they have a chemical composition
-% different from their reference environment.
-% Reference environments can include the atmosphere,
-% the ocean, or the Earth's crust.
-% Species in reference environments are characterized
-% by partial pressure ($P_i = y_i P_0$) in the atmosphere,
-% by concentrations ($C_i$) in the ocean,
-% and by mole fractions ($y_i$) in the Earth's crust.
-% We take reference environments for chemical exergy
-% from \citet[Tables~11.1--11.7]{Valero_2015}.
-
 Szargut and co-authors \citep{Morris:1986aa} were among the first
 to calculate chemical exergies for minerals.
 The chemical exergy of a pure compound ($b_{ch,i}$)
 is defined at $T_0$ and $P_0$
 to be the maximum amount of work obtainable
 from reversible processes that both
-(a)~form substances at $T_0$ and $P_0$
+(a)~form pure substances at $T_0$ and $P_0$
     that exist in the reference environment
     (via chemical reaction, if necessary) and
 (b)~expand those substances to their concentrations
     or partial pressures
     in the reference environment.
-%
-% If compound $i$ does not exist
-% in the reference environment,
-% its chemical exergy is the amount of work obtained
-% in the reversible chemical reactions
-% that decompose compound $i$ into
-% the set of compounds that exist in the reference environment.
-
-% This process can be decomposed into two steps:
-% decomposition of compound $i$ to its most stable form of compounds and elements
-% including the formation of a compound from stable compounds and elements,
-% which is captured by Gibbs free energy.
-% The reversible work produced from the first process
-% is the chemical exergy of the compound.
 
 The molar specific chemical exergy
 of a compound ($b_{ch,i}$) at a statepoint
@@ -1032,7 +1006,7 @@ $\Delta G_{f,i}$ is Gibbs energy of formation
 $n_{j,i}$ is the number of atoms of element $j$
 in one molecule of compound $i$, and
 $b_{ch,j}$ is the elemental chemical exergy of element $j$
-(in $\mathrm{kJ/mol_j}$).
+(in $\mathrm{kJ_j/mol_j}$).
 Values for $\Delta{G_{f,i}}$ are taken
 from \citet[pp.~9.4--9.94]{Dean_1979},
 \citet[Table~2]{Gibbs_formation},
@@ -1059,10 +1033,8 @@ at a statepoint is given by
 
 The example MCC has both material and energy inputs to processes.
 We calculate the exergy of energy as
-shown in Equation~(\ref{eq:general_material_exergy_definition})
-for all energy sources with mass (e.g., coal, oil, and natural gas).
-The exergy of energy inputs are determined by
-Equation~(\ref{eq:chemical_exergy_definition})
+shown in Equation~(\ref{eq:chemical_exergy_definition})
+for all energy sources with mass (e.g., coal, oil, and natural gas)
 when the Gibbs energy of formation
 ($\Delta{G_{f}}$)
 is available.
@@ -1072,7 +1044,8 @@ Otherwise, we calculate material exergy by
   \varepsilon_i = [LHV_i + w h_{fg}]\phi_i + (9417~\mathrm{kJ/kg}) \, s
 \end{equation}
 %
-where $\varepsilon_i$ is the exergy of energy (in units of $\mathrm{kJ}$),
+where $\varepsilon_i$ is the exergy of energy carrier $i$
+(in units of $\mathrm{kJ_i}$),
 $LHV_i$ is the lower heating value of the fuel (in units of $\mathrm{kJ/kg}$),
 $w$ is the fuel's mass fraction of moisture (in units of $\mathrm{kg/kg}$),
 $h_{fg}$ is the enthalpy of evaporation of \ce{H2O} (in units of $\mathrm{kJ/kg}$),
@@ -1081,22 +1054,32 @@ the constant 9417~kJ/kg is the difference
 in rhombic sulfur's chemical exergy and it's lower heating value,
 and $s$ is the mass fraction of sulfur in the fuel (in units of $\mathrm{kg/kg}$).
 (See \citet[Eq.~C.5a]{Kotas_1995}.)
-We obtain $\phi$ values from \citet[Appendix~C]{Kotas_1995}.
+We obtain $\phi_i$ values from \citet[Appendix~C]{Kotas_1995}.
 (See Appendix~\ref{sec:appendix_phi}
 for gaseous and liquid fuel exergy equations.)
 
-All other energy sources in the example MCC are electricity.
-The exergy of energy at any statepoint
-is given by
+The exergy of massless energy (electricity and heat)
+at any statepoint is given by
 
 \begin{equation}\label{eq:energy_exergy_definition}
   X_i = \phi_i E_i \, ,
 \end{equation}
 %
-where $X_i$ is the exergy of energy of a species (in units of kJ),
+where $X_i$ is the exergy of the massless energy carrier
+(in units of kJ),
 $\phi_i$ is the exergy to energy ratio (unitless),
-and $E_i$ is the energy of a species (in units of kJ).
-Note $\phi_{electricity} \equiv 1$, by definition.
+and $E_i$ is the energy of the massless energy carrier (in units of kJ).
+Note that the exergy-to-energy ratio for electricity
+($\phi_{elect}$) is 1,
+by definition.
+The value of $\phi_{heat}$ is the Carnot efficiency of a heat
+engine operating between the temperatures of the heat ($T$)
+and the reference environment ($T_0$).
+
+\begin{equation} \label{eq:phi_heat}
+  \phi_{heat} = 1 - \frac{T_0}{T} \, .
+\end{equation}
+
 
 %------------------------------
 \subsubsection{PSUT framework and $\mat{RUVY}$ matrices}
@@ -1129,7 +1112,7 @@ exergy conversion chains
 XCCs for energy, and
 BXCCs for unified,
 all in exergy units).
-We apply that structure to the conversion chains
+We apply the PSUT structure to the conversion chains
 developed in Section~\ref{sec:results} below.
 The four matrices of the PSUT framework
 are
@@ -1269,12 +1252,12 @@ we generate and manipulate the $\mat{RUVY}$ matrices of the PSUT framework.
 The process is illustrated by Figures~\ref{fig:bxcc1}--\ref{fig:bxcc4}
 which show an illustrative portion of the blast furnace example
 developed elsewhere in this paper.
-The basis for the partial example is 100~kJ of electricity delivered
-to the blast furnace.
 Despite not including all exergy flows of the full example
 developed in this paper,
 the partial example is sufficient
 to demonstrate the steps for creating a BXCC.
+The basis for the partial example is 100~kJ of electricity delivered
+to the blast furnace.
 
 We start with independent exergy quantifications
 of material and energy conversion chains (BCC and XCC)
@@ -1291,7 +1274,7 @@ The ECC does not contain any material transformation information.
 The ECC contains only the energy supplied to
 material conversion processes (industries) in the MCC.
 
-In the independent XCC of Figure~\ref{fig:bxcc1},
+In the independent XCC at the top of Figure~\ref{fig:bxcc1},
 electricity produced by the XCC is delivered to the ``Iron and steel'' sector,
 consistent with existing ECC and XCC
 datasets~\citep{Pinto:2023aa,Brockway:2024ab}.
@@ -1383,8 +1366,8 @@ The result for the partial example is shown in Figure~\ref{fig:bxcc4}.
 
 
 %------------------------------
-\subsubsection{Inter-industry balances}
-\label{sec:inter-industry_balances}
+\subsubsection{Inter-industry consistency}
+\label{sec:inter-industry_consistency}
 %------------------------------
 
 When constructing the $\mat{RUVY}$ matrices of the PSUT framework,
@@ -1439,7 +1422,7 @@ Section~\ref{sec:psut_mats_bxcc} below addresses contribution 3.
 \begin{figure}
 \centering
 \includegraphics[width=1\linewidth]{images/MCC_example.pdf}
-\caption{Simplified version of the example MCC.}
+\caption{Simplified version of the example independent MCC.}
 \label{fig:mcc_example}
 \end{figure}
 
@@ -1460,7 +1443,7 @@ We made a few changes.
 Figure~\ref{fig:mcc_example} shows a representation
 of the MCC.
 (For simplicity,
-heat loss and waste streams
+heat loss and material waste streams
 are not shown in Figure~\ref{fig:mcc_example}.)
 Full details of the example independent MCC,
 the example independent ECC from the CL-PFU database, and
@@ -1485,7 +1468,7 @@ are the basis for material exergy accounting
 along the independent material conversion chain.
 At each statepoint,
 we calculate mixture material exergies ($B_m$),
-including chemical ($b_c$) and concentration ($b_{ch}$) exergies
+including concentration ($b_c$) and chemical ($b_{ch}$) exergies
 and all components thereof.
 Table~\ref{tab:bf_input_statepoint} shows the solid material inputs
 to the blast furnace:
@@ -1511,9 +1494,9 @@ Equation~(\ref{eq:chemical_exergy_definition}).
 The values in the middle rows of the $b_{c,i}$ column are calculated by
 Equation~(\ref{eq:concentration_exergy_definition}).
 The values in the middle rows of the $b_i$ column are calculated by
-Equation~(\ref{eq:general_material_exergy_definition}).
+Equation~(\ref{eq:exergy_sum_def}).
 The values in the middle rows of the $b_m$ column are calculated by
-Equation~\ref{eq:molar_intensive_exergy_mixture}.
+$b_m = y_i b_i$.
 The values in the middle rows of the $B_m$ column are calculated by
 Equation~\ref{eq:exergy_mixture}.
 Fully-detailed calculations for exergies at the inlet to the rotary kiln
