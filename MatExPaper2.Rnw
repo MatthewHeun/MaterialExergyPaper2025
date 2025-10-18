@@ -1209,7 +1209,7 @@ of the DEIMFM and various conversion chains.
          Massless energy is electricity and heat.
          Direct refers to the immediate inputs to a process.
          Indirect refers to processes and materials upstream of direct inputs.}
-\label{tab:nomenclature}
+\label{tab:conversion_chains}
 \begin{tabular}{rcccccc}
 \toprule
                             & DEIMFM     & MCC \& BCC & ECC \& XCC & BXCC \\
@@ -1221,7 +1221,6 @@ Energy materials (indirect) &            &            & \checkmark & \checkmark 
 Massless energy (indirect)  &            &            & \checkmark & \checkmark \\
 \bottomrule
 \end{tabular}
-\label{tab:conversion_chains}
 \end{table}
 
 
@@ -2337,7 +2336,7 @@ The appendix is an optional section that can contain details and data supplement
 \label{tab:nomenclature}
 \caption{Nomenclature table}
 %\newcolumntype{C}{>{\centering\arraybackslash}X}
-\begin{tabularx}{\textwidth}{CCC}
+\begin{tabularx}{\textwidth}{RL}
 \toprule
 Symbol	          & Description\\
 \midrule
@@ -2382,24 +2381,24 @@ All appendix sections must be cited in the main text. In the appendices, Figures
 
 
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \SweaveInput{appendices/appendix-phi.Rnw}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \SweaveInput{appendices/appendix-chemistry.Rnw}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \SweaveInput{appendices/appendix-exergy-calcs.Rnw}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \SweaveInput{appendices/appendix-bxcc.Rnw}
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\SweaveInput{appendices/appendix-phi.Rnw}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\SweaveInput{appendices/appendix-chemistry.Rnw}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\SweaveInput{appendices/appendix-exergy-calcs.Rnw}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\SweaveInput{appendices/appendix-bxcc.Rnw}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
