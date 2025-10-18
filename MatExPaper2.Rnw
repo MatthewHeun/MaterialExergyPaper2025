@@ -2330,47 +2330,49 @@ LD & Linear dichroism
 \subsection[\appendixname~\thesubsection]{}
 The appendix is an optional section that can contain details and data supplemental to the main text---for example, explanations of experimental details that would disrupt the flow of the main text but nonetheless remain crucial to understanding and reproducing the research shown; figures of replicates for experiments of which representative data are shown in the main text can be added here if brief, or as Supplementary Data. Mathematical proofs of results not central to the paper can be added as an appendix.
 
+
 \begin{table}
 \footnotesize
 \centering
+\caption{Nomenclature.}
 \label{tab:nomenclature}
-\caption{Nomenclature table}
-%\newcolumntype{C}{>{\centering\arraybackslash}X}
-\begin{tabularx}{\textwidth}{RL}
+\begin{tabular}{r l}
 \toprule
-Symbol	          & Description\\
+Symbol	          & Description [units] \\
 \midrule
-$T_0$					    & ambient temperature [K]\\
-$P_0$					    & ambient pressure [atm]\\
-$y_i$             & molar fraction of a species [mol/mol mixture]\\
+$B$               & material exergy [kJ]\\
+$B_{em}$          & embodied exergy [kJ]\\
+$B_{lost}$        & exergy lost by a process [kJ]\\
 $b$               & material exergy [kJ/mol]\\
-$b_{ch}$          & chemical exergy [kJ/mol]\\
 $b_c$             & concentration exergy [kJ/mol]\\
+$b_{ch}$          & chemical exergy [kJ/mol]\\
 $b_{com}$         & comminution exergy [kJ/mol]\\
-$\Delta{G_{f,i}}$ & Gibbs free energy of formation [kJ/mol]\\
-$i$               & compound [NA]\\
-$j$               & element [NA]\\
-$m$               & mixture [NA]\\
-$S_m$             & entropy of mixing [kJ/mol-K]\\
-$R$               & universal gas constant [kJ/mol-K]\\
-$N$               & number of moles [mol]\\
-$B$               & molar intensive exergy [kJ]\\
-$X$               & energy exergy [kJ]\\
 $E$               & energy [kJ]\\
-$\phi$            & exergy to energy ratio [kJ/kJ]\\
-$\eta$            & efficiency [kJ/kJ]\\
-$W_{min}$         & minimum work [kJ]\\
-$\varepsilon$     & exergy of a fuel [kJ]\\
-$LHV$             & lower heating value [kJ/kg]\\
-$w$               & mass fraction of moisture in a fuel [kg/kg]\\
+$\Delta G_f$      & Gibbs free energy of formation [kJ/mol]\\
 $h_{fg}$          & enthalpy of evaporation of \ce{H2O} [kJ/kg]\\
-$s$               & mass fraction of sulphur in a fuel [kg/kg]\\
 $I$               & irreversibility [kJ]\\
-$B_{lost}$        & exergy destroyed in a process [kJ]\\
-$B_{em}$          & sum $B_{lost}$ across a MCC [kJ]\\
+$i$               & compound subscript \\
+$j$               & element subscript \\
+$LHV$             & lower heating value [kJ/kg]\\
+$m$               & mixture subscript \\
+$N$               & number of moles [mol]\\
+$P_0$					    & ambient pressure [atm]\\
+$R$               & universal gas constant [kJ/mol-K]\\
+$S_m$             & entropy of mixing [kJ/mol-K]\\
+$s$               & mass fraction of sulphur in a fuel [kg/kg]\\
+$T_0$					    & ambient temperature [K]\\
+$W_{min}$         & minimum work [kJ]\\
+$w$               & mass fraction of moisture in a fuel [kg/kg]\\
+$X$               & energy exergy [kJ]\\
+$x_i$             & mass fraction of a species [kg$\mathrm{_i}$/kg$\mathrm{_m}$] \\
+$y_i$             & molar fraction of a species [mol$\mathrm{_i}$/mol$\mathrm{_m}$]\\
+$\varepsilon$     & exergy of a fuel [kJ]\\
+$\eta$            & efficiency [kJ/kJ]\\
+$\phi$            & exergy to energy ratio [kJ/kJ]\\
 \bottomrule
-\end{tabularx}
+\end{tabular}
 \end{table}
+
 
 \section[\appendixname~\thesection]{}
 All appendix sections must be cited in the main text. In the appendices, Figures, Tables, etc. should be labeled, starting with ``A''---e.g., Figure A1, Figure A2, etc.
@@ -2381,24 +2383,24 @@ All appendix sections must be cited in the main text. In the appendices, Figures
 
 
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\SweaveInput{appendices/appendix-phi.Rnw}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\SweaveInput{appendices/appendix-chemistry.Rnw}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\SweaveInput{appendices/appendix-exergy-calcs.Rnw}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\SweaveInput{appendices/appendix-bxcc.Rnw}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \SweaveInput{appendices/appendix-phi.Rnw}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \SweaveInput{appendices/appendix-chemistry.Rnw}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \SweaveInput{appendices/appendix-exergy-calcs.Rnw}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \SweaveInput{appendices/appendix-bxcc.Rnw}
+% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 
