@@ -2272,7 +2272,7 @@ shown in \citet[Section~3.3]{Heun:2018}.
 Second, the PSUT framework could be used to describe a country's
 material conversion chain.
 Data for material conversion chains could be
-obtained from databases such as
+obtained from databases such as the
 MISO2 model~\citep{Wiedenhofer_2024}.
 
 
