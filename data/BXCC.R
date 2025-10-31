@@ -22,6 +22,45 @@ zaf_2013_ecc |>
   Recca::verify_SUT_energy_balance()
 
 #
+# Calculate heat losses
+#
+
+zaf_2013_ecc_Qlosses <- zaf_2013_ecc |>
+  dplyr::filter(EnergyType == "E") |>
+  dplyr::mutate(
+    Qloss = matsbyname::colsums_byname(U) |>
+      matsbyname::transpose_byname() |>
+      matsbyname::difference_byname(matsbyname::rowsums_byname(V)) |>
+      matsbyname::setcolnames_byname("Qloss"),
+    # Add to V matrix as a column
+    V = matsbyname::sum_byname(V, Qloss),
+    # Add to Y matrix as an entry
+    Y = matsbyname::sum_byname(Y, matsbyname::sumall_byname(Qloss) |>
+                                 matsbyname::setrownames_byname("Qloss") |>
+                                 matsbyname::setcolnames_byname("Waste heat")),
+    # Calculate cross-industry balance
+    Xindustrybalance = matsbyname::colsums_byname(R) |>
+      matsbyname::sum_byname(matsbyname::colsums_byname(V)) |>
+      matsbyname::transpose_byname() |>
+      matsbyname::difference_byname(matsbyname::rowsums_byname(U)) |>
+      matsbyname::difference_byname(matsbyname::rowsums_byname(Y))
+  )
+
+#
+# Verify that everything is balanced
+#
+
+stopifnot(zaf_2013_ecc_Qlosses$Xindustrybalance[[1]] |>
+            matsbyname::iszero_byname())
+
+#
+# Identify the temperate of heat losses
+#
+
+
+
+
+#
 # Save full ZAF data to an Excel file for later inspection.
 #
 
