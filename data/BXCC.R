@@ -25,6 +25,11 @@ zaf_2013_ecc |>
 # Calculate heat losses
 #
 
+
+# Change to specific heat temperature columns in the V matrix and
+# specific heat temperature rows in the Y matrix.
+# MTH.200.C, for example.
+
 zaf_2013_ecc_Qlosses <- zaf_2013_ecc |>
   dplyr::filter(EnergyType == "E") |>
   dplyr::mutate(
