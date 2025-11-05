@@ -42,9 +42,9 @@ zaf_2013_ecc_Qlosses <- zaf_2013_ecc |>
     # Add to Y matrix as an entry
     Y = matsbyname::sum_byname(Y, matsbyname::sumall_byname(Qloss) |>
                                  matsbyname::setrownames_byname("Qloss") |>
-                                 matsbyname::setcolnames_byname("Waste heat")),
+                                 matsbyname::setcolnames_byname("Losses")),
     # Calculate cross-industry balance
-    Xindustrybalance = matsbyname::colsums_byname(R) |>
+    CrossIndustryBalance = matsbyname::colsums_byname(R) |>
       matsbyname::sum_byname(matsbyname::colsums_byname(V)) |>
       matsbyname::transpose_byname() |>
       matsbyname::difference_byname(matsbyname::rowsums_byname(U)) |>
@@ -55,12 +55,88 @@ zaf_2013_ecc_Qlosses <- zaf_2013_ecc |>
 # Verify that everything is balanced
 #
 
-stopifnot(zaf_2013_ecc_Qlosses$Xindustrybalance[[1]] |>
+stopifnot(zaf_2013_ecc_Qlosses$CrossIndustryBalance[[1]] |>
             matsbyname::iszero_byname())
 
 #
-# Identify the temperate of heat losses
+# Identify the temperatures of heat losses
 #
+
+heat_loss_flows <- file.path("data", "HeatLossFlows.xlsx") |>
+  readxl::read_excel() |>
+  dplyr::select(-Note) |>
+  dplyr::mutate(
+    Qloss = "Losses",
+    HeatLossFlow = RCLabels::paste_pref_suff(pref = HeatLossFlow, suff = Qloss),
+    Qloss = NULL
+  )
+
+#
+# Add heat losses to the RUVY matrices
+#
+
+zaf_2013_ecc_Qlosses_mat <- zaf_2013_ecc |>
+  dplyr::filter(EnergyType == "E") |>
+  dplyr::mutate(
+    # Calculate heat losses by industry
+    Qloss = matsbyname::colsums_byname(U) |>
+      matsbyname::transpose_byname() |>
+      matsbyname::difference_byname(matsbyname::rowsums_byname(V)) |>
+      matsbyname::setcolnames_byname("Qloss"),
+    # Convert to a data frame
+    QLossDF = lapply(X = Qloss, FUN = function(x) {
+      tibble::as_tibble(x, rownames = "Industry")
+    }),
+    # Add a column of data frames for heat loss flows by industry
+    HeatLossFlows = list(heat_loss_flows),
+    # Join heat loss flows by industry
+    QLossDF = Map(f = dplyr::left_join, QLossDF, HeatLossFlows, by = "Industry") |>
+      lapply(FUN = function(x) {
+        # Convert to a matrix
+        tidyr::pivot_wider(x, names_from = "HeatLossFlow", values_from = "Qloss", values_fill = 0) |>
+          tibble::column_to_rownames("Industry") |>
+          as.matrix()
+      }),
+    # Do a bit of cleanup
+    HeatLossFlows = NULL,
+    Qloss = QLossDF,
+    QLossDF = NULL,
+    # Add the Qloss matrix to the V matrix,
+    # as waste heat (in columns)
+    # is "made" by the industries (in rows).
+    V = matsbyname::sum_byname(V, Qloss),
+
+    # # Eliminate the Qloss column in the V matrix;
+    # # it is now distributed across different columns
+    # V = matsbyname::select_cols_byname(V, remove_pattern = "^Qloss$"),
+
+    # Transpose the Qloss matrix and sum rows to get a Waste heat column
+    # in before adding to the Y matrix.
+    QlossForY = matsbyname::transpose_byname(Qloss) |>
+      matsbyname::rowsums_byname() |>
+      matsbyname::setcolnames_byname("Losses"),
+    # Add to the Y matrix
+    Y = matsbyname::sum_byname(Y, QlossForY),
+    # No longer need these.
+    Qloss = NULL,
+    QlossForY = NULL,
+    # Calculate cross-industry balance again
+    CrossIndustryBalance = matsbyname::colsums_byname(R) |>
+      matsbyname::sum_byname(matsbyname::colsums_byname(V)) |>
+      matsbyname::transpose_byname() |>
+      matsbyname::difference_byname(matsbyname::rowsums_byname(U)) |>
+      matsbyname::difference_byname(matsbyname::rowsums_byname(Y))
+  )
+
+#
+# Verify that everything is balanced
+#
+
+stopifnot(zaf_2013_ecc_Qlosses_mat$CrossIndustryBalance[[1]] |>
+            matsbyname::iszero_byname())
+
+#
+
 
 
 
