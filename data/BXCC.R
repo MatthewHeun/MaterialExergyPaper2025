@@ -136,6 +136,10 @@ stopifnot(zaf_2013_ecc_Qlosses_mat$CrossIndustryBalance[[1]] |>
             matsbyname::iszero_byname())
 
 #
+# Convert the heat losses to exergy losses
+#
+
+
 
 
 
