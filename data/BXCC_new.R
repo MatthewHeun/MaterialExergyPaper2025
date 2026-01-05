@@ -59,7 +59,6 @@ zaf_2013_ecc_Qlosses <- zaf_2013_ecc |>
   dplyr::mutate(
     "{Recca::balance_cols$losses_alloc_colname}" := list(heat_loss_allocation_mat)
   ) |>
-  # Recca::calc_intra_industry_balance() |>
   Recca::endogenize_losses(replace_cols = TRUE) |>
   # Verify that inter-industry balances are preserved
   Recca::calc_inter_industry_balance() |>
