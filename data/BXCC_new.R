@@ -20,17 +20,13 @@ zaf_2013_ecc <- file.path("data", "zaf_2013_ecc.rds") |>
 
 zaf_2013_ecc |>
   Recca::calc_inter_industry_balance() |>
-  Recca::verify_inter_industry_balance() |>
-  dplyr::mutate(
-    "{Recca::balance_cols$inter_industry_balance_colname}" := NULL,
-    "{Recca::balance_cols$inter_industry_balanced_colname}" := NULL
-  )
+  Recca::verify_inter_industry_balance(delete_balance_cols_if_verified = TRUE)
 
 #
-# Identify the temperatures of heat losses
+# Identify the temperatures for heat loss flows
 #
 
-heat_loss_flows <- file.path("data", "HeatLossFlows.xlsx") |>
+heat_loss_temps <- file.path("data", "HeatLossFlows.xlsx") |>
   readxl::read_excel() |>
   dplyr::select(-Note) |>
   dplyr::mutate(
@@ -38,6 +34,21 @@ heat_loss_flows <- file.path("data", "HeatLossFlows.xlsx") |>
     HeatLossFlow = RCLabels::paste_pref_suff(pref = HeatLossFlow, suff = Qloss),
     Qloss = NULL
   )
+
+#
+# Create heat loss allocation matrix
+#
+
+heat_loss_allocation_mat <- heat_loss_temps |>
+  dplyr::mutate(
+    matvals = 1
+  ) |>
+  dplyr::rename(
+    rownames = "Industry",
+    colnames = "HeatLossFlow"
+  ) |>
+  matsindf::rowcolval_to_mat(rowtypes = "Industry", coltypes = "Product")
+
 
 #
 # Calculate heat losses
