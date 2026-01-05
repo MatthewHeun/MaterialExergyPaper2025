@@ -51,18 +51,16 @@ heat_loss_allocation_mat <- heat_loss_temps |>
 
 
 #
-# Calculate heat losses
+# Calculate and endogenize heat losses
 #
-
-# Change to specific heat temperature columns in the V matrix and
-# specific heat temperature rows in the Y matrix.
-# MTH.200.C, for example.
 
 zaf_2013_ecc_Qlosses <- zaf_2013_ecc |>
   dplyr::filter(EnergyType == "E") |>
-  Recca::calc_intra_industry_balance() |>
-  Recca::endogenize_losses(loss_product = "Qloss",
-                           replace_cols = TRUE) |>
+  dplyr::mutate(
+    "{Recca::balance_cols$losses_alloc_colname}" := list(heat_loss_allocation_mat)
+  ) |>
+  # Recca::calc_intra_industry_balance() |>
+  Recca::endogenize_losses(replace_cols = TRUE) |>
   # Verify that inter-industry balances are preserved
   Recca::calc_inter_industry_balance() |>
   Recca::verify_inter_industry_balance(delete_balance_cols_if_verified = TRUE) |>
