@@ -15,7 +15,7 @@ zaf_2013_ecc <- file.path("data", "zaf_2013_ecc.rds") |>
   )
 
 #
-# Verify the inter-industry exergy balance
+# Verify the inter-industry balance
 #
 
 zaf_2013_ecc |>
@@ -23,23 +23,17 @@ zaf_2013_ecc |>
   Recca::verify_inter_industry_balance(delete_balance_cols_if_verified = TRUE)
 
 #
-# Identify the temperatures for heat loss flows
+# Create loss allocation matrix
 #
 
-heat_loss_temps <- file.path("data", "HeatLossFlows.xlsx") |>
+heat_loss_allocation_mat <- file.path("data", "HeatLossFlows.xlsx") |>
   readxl::read_excel() |>
-  dplyr::select(-Note) |>
+  dplyr::select(Industry, HeatLossFlow) |>
   dplyr::mutate(
     Qloss = "Losses",
     HeatLossFlow = RCLabels::paste_pref_suff(pref = HeatLossFlow, suff = Qloss),
     Qloss = NULL
-  )
-
-#
-# Create heat loss allocation matrix
-#
-
-heat_loss_allocation_mat <- heat_loss_temps |>
+  ) |>
   dplyr::mutate(
     matvals = 1
   ) |>
@@ -49,9 +43,79 @@ heat_loss_allocation_mat <- heat_loss_temps |>
   ) |>
   matsindf::rowcolval_to_mat(rowtypes = "Industry", coltypes = "Product")
 
+#
+# Get the phi vector
+#
+
+# Database phi vector
+phi_db <- file.path("data", "zaf2013_phi.rds") |>
+  readRDS() |>
+  magrittr::extract2("phi") |>
+  magrittr::extract2(1)
+# Waste heat phi vector
+phi_waste_heat <- file.path("data", "HeatLossFlows.xlsx") |>
+  readxl::read_excel() |>
+  dplyr::select(HeatLossFlow, phi) |>
+  unique() |>
+  dplyr::rename(
+    rownames = "HeatLossFlow",
+    matvals = "phi"
+  ) |>
+  dplyr::mutate(
+    colnames = "phi"
+  ) |>
+  matsindf::rowcolval_to_mat(rowtypes = "Product", coltypes = "phi")
+# Add them together
+phi_vec <- matsbyname::sum_byname(phi_db, phi_waste_heat)
+
+
+foo <- zaf_2013_ecc |>
+  # Start with the energy version
+  dplyr::filter(EnergyType == "E") |>
+  dplyr::mutate(
+    # Add the heat loss allocation matrix
+    "{Recca::balance_cols$losses_alloc_colname}" := list(heat_loss_allocation_mat),
+    # Add the phi vector
+    "{Recca::psut_cols$phi}" := list(phi_vec)
+  ) |>
+  # Endogenize the heat losses
+  Recca::endogenize_losses(replace_cols = TRUE) |>
+  # Verify that inter-industry balances are preserved
+  Recca::calc_inter_industry_balance() |>
+  Recca::verify_inter_industry_balance(delete_balance_cols_if_verified = TRUE) |>
+  # Verify all industries are now balanced
+  Recca::calc_intra_industry_balance() |>
+  Recca::verify_intra_industry_balance(delete_balance_cols_if_verified = TRUE) |>
+  # Convert to exergy using the phi vector
+  Recca::extend_to_exergy(mat_piece = "noun") |>
+  # Add a column of loss allocation matrices for calculating exergy destruction.
+  # This is a bit janky, as we're assuming we have
+  # energy in row 1 and exergy in row 2.
+  dplyr::mutate(
+    "{Recca::balance_cols$losses_alloc_colname}" := list(Recca::balance_cols$default_losses_alloc_mat |>
+                                                           matsbyname::setcolnames_byname("Destroyed heat"),
+                                                         Recca::balance_cols$default_destruction_alloc_mat)
+  )
+
+# |>
+#   # Now endogenize losses again to get exergy destruction
+#   Recca::endogenize_losses(loss_sector = "Destruction")
+
+# Check the V and Y matrices in the exergy (X) row.
+# They have NA for HTH.1144.K -> Losses and similar columns and rows
+# after extending to exergy. Why?
+
+foo[2, ] |>
+  Recca::endogenize_losses(loss_sector = "Destruction")
+
+
+
+
+
+
 
 #
-# Calculate and endogenize heat losses
+# Calculate and endogenize energy losses
 #
 
 zaf_2013_ecc_Qlosses <- zaf_2013_ecc |>
@@ -67,70 +131,19 @@ zaf_2013_ecc_Qlosses <- zaf_2013_ecc |>
   Recca::calc_intra_industry_balance() |>
   Recca::verify_intra_industry_balance(delete_balance_cols_if_verified = TRUE)
 
-
 #
-# Add heat losses to the RUVY matrices
+# Figure out phi vector
 #
 
-zaf_2013_ecc_Qlosses_mat <- zaf_2013_ecc |>
-  dplyr::filter(EnergyType == "E") |>
+phi_vec <- zaf_2013_phi
+zaf_2013_ecc_Qlosses_phi <- zaf_2013_ecc_Qlosses |>
   dplyr::mutate(
-    # Calculate heat losses by industry
-    Qloss = matsbyname::colsums_byname(U) |>
-      matsbyname::transpose_byname() |>
-      matsbyname::difference_byname(matsbyname::rowsums_byname(V)) |>
-      matsbyname::setcolnames_byname("Qloss"),
-    # Convert to a data frame
-    QLossDF = lapply(X = Qloss, FUN = function(x) {
-      tibble::as_tibble(x, rownames = "Industry")
-    }),
-    # Add a column of data frames for heat loss flows by industry
-    HeatLossFlows = list(heat_loss_flows),
-    # Join heat loss flows by industry
-    QLossDF = Map(f = dplyr::left_join, QLossDF, HeatLossFlows, by = "Industry") |>
-      lapply(FUN = function(x) {
-        # Convert to a matrix
-        tidyr::pivot_wider(x, names_from = "HeatLossFlow", values_from = "Qloss", values_fill = 0) |>
-          tibble::column_to_rownames("Industry") |>
-          as.matrix()
-      }),
-    # Do a bit of cleanup
-    HeatLossFlows = NULL,
-    Qloss = QLossDF,
-    QLossDF = NULL,
-    # Add the Qloss matrix to the V matrix,
-    # as waste heat (in columns)
-    # is "made" by the industries (in rows).
-    V = matsbyname::sum_byname(V, Qloss),
-
-    # # Eliminate the Qloss column in the V matrix;
-    # # it is now distributed across different columns
-    # V = matsbyname::select_cols_byname(V, remove_pattern = "^Qloss$"),
-
-    # Transpose the Qloss matrix and sum rows to get a Waste heat column
-    # in before adding to the Y matrix.
-    QlossForY = matsbyname::transpose_byname(Qloss) |>
-      matsbyname::rowsums_byname() |>
-      matsbyname::setcolnames_byname("Losses"),
-    # Add to the Y matrix
-    Y = matsbyname::sum_byname(Y, QlossForY),
-    # No longer need these.
-    Qloss = NULL,
-    QlossForY = NULL,
-    # Calculate cross-industry balance again
-    CrossIndustryBalance = matsbyname::colsums_byname(R) |>
-      matsbyname::sum_byname(matsbyname::colsums_byname(V)) |>
-      matsbyname::transpose_byname() |>
-      matsbyname::difference_byname(matsbyname::rowsums_byname(U)) |>
-      matsbyname::difference_byname(matsbyname::rowsums_byname(Y))
+    phi =
   )
 
-#
-# Verify that everything is balanced
-#
 
-stopifnot(zaf_2013_ecc_Qlosses_mat$CrossIndustryBalance[[1]] |>
-            matsbyname::iszero_byname())
+
+
 
 #
 # Convert the heat losses to exergy losses
