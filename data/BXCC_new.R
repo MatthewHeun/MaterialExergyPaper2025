@@ -9,18 +9,14 @@
 #
 
 zaf_2013_ecc <- file.path("data", "zaf_2013_ecc.rds") |>
-  readRDS() |>
-  dplyr::mutate(
-    WorksheetNames = paste0(Country, "_", Year, "_", EnergyType)
-  )
+  readRDS()
 
 #
 # Verify the inter-industry balance
 #
 
 zaf_2013_ecc |>
-  Recca::calc_inter_industry_balance() |>
-  Recca::verify_inter_industry_balance(delete_balance_cols_if_verified = TRUE)
+  Recca::verify_inter_industry_balance(delete_balance_if_verified = TRUE)
 
 #
 # Create loss allocation matrix
@@ -30,7 +26,7 @@ heat_loss_allocation_mat <- file.path("data", "HeatLossFlows.xlsx") |>
   readxl::read_excel() |>
   dplyr::select(Industry, HeatLossFlow) |>
   dplyr::mutate(
-    Qloss = "Losses",
+    Qloss = "Transformation losses",
     HeatLossFlow = RCLabels::paste_pref_suff(pref = HeatLossFlow, suff = Qloss),
     Qloss = NULL
   ) |>
@@ -69,7 +65,7 @@ phi_waste_heat <- file.path("data", "HeatLossFlows.xlsx") |>
 phi_vec <- matsbyname::sum_byname(phi_db, phi_waste_heat)
 
 
-foo <- zaf_2013_ecc |>
+zaf_2013_ecc_with_losses <- zaf_2013_ecc |>
   # Start with the energy version
   dplyr::filter(EnergyType == "E") |>
   dplyr::mutate(
@@ -82,19 +78,23 @@ foo <- zaf_2013_ecc |>
   Recca::endogenize_losses(replace_cols = TRUE) |>
   # Verify that inter-industry balances are preserved
   Recca::calc_inter_industry_balance() |>
-  Recca::verify_inter_industry_balance(delete_balance_cols_if_verified = TRUE) |>
+  Recca::verify_inter_industry_balance(delete_balance_if_verified = TRUE) |>
   # Verify all industries are now balanced
   Recca::calc_intra_industry_balance() |>
-  Recca::verify_intra_industry_balance(delete_balance_cols_if_verified = TRUE) |>
+  Recca::verify_intra_industry_balance(delete_balance_if_verified = TRUE) |>
   # Convert to exergy using the phi vector
   Recca::extend_to_exergy(mat_piece = "noun",
                           # R and U matrices have from notation,
                           # V and Y matrices have arrow notation.
                           notation = list(RCLabels::from_notation, RCLabels::arrow_notation)) |>
-  # Add a column of loss allocation matrices for calculating exergy destruction.
-  # This is a bit janky, as we're assuming we have
-  # energy in row 1 and exergy in row 2.
   dplyr::mutate(
+    # Add worksheet names
+    WorksheetNames = paste0(Country, "_", Year, "_", EnergyType)
+  ) |>
+  dplyr::mutate(
+    # Add a column of loss allocation matrices for calculating exergy destruction.
+    # This is a bit janky, as we're assuming we have
+    # energy in row 1 and exergy in row 2.
     "{Recca::balance_cols$losses_alloc_colname}" := list(Recca::balance_cols$default_losses_alloc_mat |>
                                                            matsbyname::setcolnames_byname("Destroyed heat"),
                                                          Recca::balance_cols$default_destruction_alloc_mat)
@@ -103,57 +103,12 @@ foo <- zaf_2013_ecc |>
 Recca::endogenize_losses(replace_cols = TRUE, loss_sector = "Destruction")
 
 
-
-
-
-
-#
-# Calculate and endogenize energy losses
-#
-
-zaf_2013_ecc_Qlosses <- zaf_2013_ecc |>
-  dplyr::filter(EnergyType == "E") |>
-  dplyr::mutate(
-    "{Recca::balance_cols$losses_alloc_colname}" := list(heat_loss_allocation_mat)
-  ) |>
-  Recca::endogenize_losses(replace_cols = TRUE) |>
-  # Verify that inter-industry balances are preserved
-  Recca::calc_inter_industry_balance() |>
-  Recca::verify_inter_industry_balance(delete_balance_cols_if_verified = TRUE) |>
-  # Verify all is now balanced
-  Recca::calc_intra_industry_balance() |>
-  Recca::verify_intra_industry_balance(delete_balance_cols_if_verified = TRUE)
-
-#
-# Figure out phi vector
-#
-
-phi_vec <- zaf_2013_phi
-zaf_2013_ecc_Qlosses_phi <- zaf_2013_ecc_Qlosses |>
-  dplyr::mutate(
-    phi =
-  )
-
-
-
-
-
-#
-# Convert the heat losses to exergy losses
-#
-
-
-
-
-
-
-
 #
 # Save full ZAF data to an Excel file for later inspection.
 #
 
 zaf_2013_ecc_path <- file.path("data", "zaf_2013_ecc.xlsx")
-zaf_2013_ecc |>
+zaf_2013_ecc_with_losses |>
   Recca::write_ecc_to_excel(path = zaf_2013_ecc_path,
                             worksheet_names = "WorksheetNames",
                             overwrite_file = TRUE,
