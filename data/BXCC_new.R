@@ -114,6 +114,18 @@ zaf_2013_ecc_with_losses |>
                             overwrite_file = TRUE,
                             overwrite_worksheets = TRUE)
 
+
+
+
+
+
+
+
+
+
+
+
+
 #
 # Read ECC requirements from the MCC spreadsheet.
 # These energy requirements are in TJ.
