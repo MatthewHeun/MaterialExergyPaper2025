@@ -87,7 +87,10 @@ foo <- zaf_2013_ecc |>
   Recca::calc_intra_industry_balance() |>
   Recca::verify_intra_industry_balance(delete_balance_cols_if_verified = TRUE) |>
   # Convert to exergy using the phi vector
-  Recca::extend_to_exergy(mat_piece = "noun") |>
+  Recca::extend_to_exergy(mat_piece = "noun",
+                          # R and U matrices have from notation,
+                          # V and Y matrices have arrow notation.
+                          notation = list(RCLabels::from_notation, RCLabels::arrow_notation)) |>
   # Add a column of loss allocation matrices for calculating exergy destruction.
   # This is a bit janky, as we're assuming we have
   # energy in row 1 and exergy in row 2.
@@ -95,19 +98,9 @@ foo <- zaf_2013_ecc |>
     "{Recca::balance_cols$losses_alloc_colname}" := list(Recca::balance_cols$default_losses_alloc_mat |>
                                                            matsbyname::setcolnames_byname("Destroyed heat"),
                                                          Recca::balance_cols$default_destruction_alloc_mat)
-  )
-
-# |>
-#   # Now endogenize losses again to get exergy destruction
-#   Recca::endogenize_losses(loss_sector = "Destruction")
-
-# Check the V and Y matrices in the exergy (X) row.
-# They have NA for HTH.1144.K -> Losses and similar columns and rows
-# after extending to exergy. Why?
-
-foo[2, ] |>
-  Recca::endogenize_losses(loss_sector = "Destruction")
-
+  ) |>
+# Now endogenize losses again to get exergy destruction
+Recca::endogenize_losses(replace_cols = TRUE, loss_sector = "Destruction")
 
 
 
