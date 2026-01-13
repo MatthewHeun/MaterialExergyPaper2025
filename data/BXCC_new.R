@@ -77,10 +77,8 @@ zaf_2013_ecc_with_losses <- zaf_2013_ecc |>
   # Endogenize the heat losses
   Recca::endogenize_losses(replace_cols = TRUE) |>
   # Verify that inter-industry balances are preserved
-  Recca::calc_inter_industry_balance() |>
   Recca::verify_inter_industry_balance(delete_balance_if_verified = TRUE) |>
   # Verify all industries are now balanced
-  Recca::calc_intra_industry_balance() |>
   Recca::verify_intra_industry_balance(delete_balance_if_verified = TRUE) |>
   # Convert to exergy using the phi vector
   Recca::extend_to_exergy(mat_piece = "noun",
