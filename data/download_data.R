@@ -8,7 +8,7 @@
 #
 
 # Establish the connection to the Mexer database
-conn <- PFUPipelineTools::get_scratchmdb_conn()
+conn <- PFUPipelineTools::get_mexerdb_conn(user = "dbcreator")
 on.exit(DBI::dbDisconnect(conn))
 
 # Read the ECC data

@@ -12,116 +12,11 @@ zaf_2013_ecc <- file.path("data", "zaf_2013_ecc.rds") |>
   readRDS()
 
 #
-# Verify the inter-industry balance
+# Verify the inter-industry balance before we get started
 #
 
 zaf_2013_ecc |>
-  Recca::verify_inter_industry_balance(delete_balance_if_verified = TRUE)
-
-#
-# Create loss allocation matrix
-#
-
-heat_loss_allocation_mat <- file.path("data", "HeatLossFlows.xlsx") |>
-  readxl::read_excel() |>
-  dplyr::select(Industry, HeatLossFlow) |>
-  dplyr::mutate(
-    Qloss = "Transformation losses",
-    HeatLossFlow = RCLabels::paste_pref_suff(pref = HeatLossFlow, suff = Qloss),
-    Qloss = NULL
-  ) |>
-  dplyr::mutate(
-    matvals = 1
-  ) |>
-  dplyr::rename(
-    rownames = "Industry",
-    colnames = "HeatLossFlow"
-  ) |>
-  matsindf::rowcolval_to_mat(rowtypes = "Industry", coltypes = "Product")
-
-#
-# Get the phi vector
-#
-
-# Database phi vector
-phi_db <- file.path("data", "zaf2013_phi.rds") |>
-  readRDS() |>
-  magrittr::extract2("phi") |>
-  magrittr::extract2(1)
-# Waste heat phi vector
-phi_waste_heat <- file.path("data", "HeatLossFlows.xlsx") |>
-  readxl::read_excel() |>
-  dplyr::select(HeatLossFlow, phi) |>
-  unique() |>
-  dplyr::rename(
-    rownames = "HeatLossFlow",
-    matvals = "phi"
-  ) |>
-  dplyr::mutate(
-    colnames = "phi"
-  ) |>
-  matsindf::rowcolval_to_mat(rowtypes = "Product", coltypes = "phi")
-# Add them together
-phi_vec <- matsbyname::sum_byname(phi_db, phi_waste_heat)
-
-
-zaf_2013_ecc_with_losses <- zaf_2013_ecc |>
-  # Start with the energy version
-  dplyr::filter(EnergyType == "E") |>
-  dplyr::mutate(
-    # Add the heat loss allocation matrix
-    "{Recca::balance_cols$losses_alloc_colname}" := list(heat_loss_allocation_mat),
-    # Add the phi vector
-    "{Recca::psut_cols$phi}" := list(phi_vec)
-  ) |>
-  # Endogenize the heat losses
-  Recca::endogenize_losses(replace_cols = TRUE) |>
-  # Verify that inter-industry balances are preserved
-  Recca::verify_inter_industry_balance(delete_balance_if_verified = TRUE) |>
-  # Verify all industries are now balanced
-  Recca::verify_intra_industry_balance(delete_balance_if_verified = TRUE) |>
-  # Convert to exergy using the phi vector
-  Recca::extend_to_exergy(mat_piece = "noun",
-                          # R and U matrices have from notation,
-                          # V and Y matrices have arrow notation.
-                          notation = list(RCLabels::from_notation, RCLabels::arrow_notation)) |>
-  dplyr::mutate(
-    # Add worksheet names
-    WorksheetNames = paste0(Country, "_", Year, "_", EnergyType)
-  ) |>
-  dplyr::mutate(
-    # Add a column of loss allocation matrices for calculating exergy destruction.
-    # This is a bit janky, as we're assuming we have
-    # energy in row 1 and exergy in row 2.
-    "{Recca::balance_cols$losses_alloc_colname}" := list(Recca::balance_cols$default_losses_alloc_mat |>
-                                                           matsbyname::setcolnames_byname("Destroyed heat"),
-                                                         Recca::balance_cols$default_destruction_alloc_mat)
-  ) |>
-# Now endogenize losses again to get exergy destruction
-Recca::endogenize_losses(replace_cols = TRUE, loss_sector = "Destruction")
-
-
-#
-# Save full ZAF data to an Excel file for later inspection.
-#
-
-zaf_2013_ecc_path <- file.path("data", "zaf_2013_ecc.xlsx")
-zaf_2013_ecc_with_losses |>
-  Recca::write_ecc_to_excel(path = zaf_2013_ecc_path,
-                            worksheet_names = "WorksheetNames",
-                            overwrite_file = TRUE,
-                            overwrite_worksheets = TRUE)
-
-
-
-
-
-
-
-
-
-
-
+  Recca::verify_inter_industry_balance()
 
 
 #
@@ -129,12 +24,15 @@ zaf_2013_ecc_with_losses |>
 # These energy requirements are in TJ.
 #
 
-mcc_energy_reqts <- openxlsx2::read_xlsx(file = file.path("data",
-                                                          "Paper Examples.xlsx"),
-                                         named_region = "mcc_energy_reqts") |>
-  dplyr::select(-`X [kJ]`) |>
-  dplyr::rename(X = "X [TJ]", rownames = "EnergyCarrier") |>
-  tidyr::pivot_longer(cols = "X",
+mcc_e_reqts <- openxlsx2::read_xlsx(file = file.path("data",
+                                                     "Paper Examples.xlsx"),
+                                    named_region = "mcc_EX_reqts") |>
+  dplyr::select(-`E [kJ]`, -`X [kJ]`, -`X [TJ]`) |>
+  dplyr::rename(
+    E = "E [TJ]",
+    rownames = "EnergyCarrier"
+  ) |>
+  tidyr::pivot_longer(cols = "E",
                       names_to = "EnergyType",
                       values_to = "matvals") |>
   dplyr::mutate(
@@ -167,15 +65,15 @@ mcc_energy_reqts <- openxlsx2::read_xlsx(file = file.path("data",
 # the Iron and steel and Mining and quarrying sectors
 #
 
-Y_rownames_supply <- mcc_energy_reqts$Y_prime[[1]] |>
+Y_rownames_supply <- mcc_e_reqts$Y_prime[[1]] |>
   rownames()
 Y_colnames_supply <- c("Iron and steel", "Mining and quarrying")
 
-xcc_supply_to_bcc <- zaf_2013_ecc |>
-  dplyr::filter(EnergyType == "X") |>
+ecc_supply_to_mcc <- zaf_2013_ecc |>
+  dplyr::filter(EnergyType == "E") |>
   Recca::calc_io_mats() |>
   dplyr::mutate(
-    # Isolate only the rows we need
+    # Isolate only the rows of Y we need
     Y_prime = matsbyname::select_rows_byname(
       .data[["Y"]],
       retain_pattern = RCLabels::make_or_pattern(Y_rownames_supply)
@@ -187,18 +85,22 @@ xcc_supply_to_bcc <- zaf_2013_ecc |>
     )
   ) |>
   # Calculate _prime, etc matrices that supply only those
-  # energy carriers and sectors we need.
+  # energy carriers and sectors we need,
+  # namely Iron and steel and Mining and quarrying
   Recca::new_Y() |>
+  # Keep only the _prime matrices
   dplyr::mutate(
     R = NULL, U = NULL, V = NULL, Y = NULL, U_feed = NULL, U_EIOU = NULL, r_EIOU = NULL
   ) |>
+  # Rename _prim matrices to be R, U, V, Y etc.
   dplyr::rename(
     R = R_prime, U = U_prime, V = V_prime, Y = Y_prime,
     U_feed = U_feed_prime, U_EIOU = U_EIOU_prime, r_EIOU = r_EIOU_prime
   ) |>
   dplyr::mutate(
     # Create a new Y matrix that has just an Iron and steel sector
-    # that is the sum of the Iron and steel and Mining and quarying sectors.
+    # that is the sum of the Iron and steel and Mining and quarrying sectors
+    # (the two sectors in Y_colnames_supply).
     # For now, call it the y vector.
     y = .data[["Y"]] |>
       matsbyname::rowsums_byname(colname = "Iron and steel"),
@@ -208,19 +110,18 @@ xcc_supply_to_bcc <- zaf_2013_ecc |>
   # Rename the y vector to be Y, the new Y matrix.
   dplyr::rename(Y = y) |>
   # Now add the Y_prime matrix from mcc_energy_reqts
-  dplyr::left_join(mcc_energy_reqts, by = "EnergyType") |>
+  dplyr::left_join(mcc_e_reqts, by = "EnergyType") |>
+  # Calculate the XCC needed to supply the Y_prime demand
   Recca::new_Y() |>
   dplyr::mutate(
-    R = NULL, U = NULL, V = NULL, Y = NULL,
-    U_EIOU = NULL, U_feed = NULL, r_EIOU = NULL
+    R = NULL, U = NULL, V = NULL, Y = NULL, U_EIOU = NULL, U_feed = NULL, r_EIOU = NULL
   ) |>
   dplyr::rename(
     R = R_prime, U = U_prime, V = V_prime, Y = Y_prime,
     U_EIOU = U_EIOU_prime, U_feed = U_feed_prime, r_EIOU = r_EIOU_prime
   ) |>
   dplyr::select(Dataset, ValidFromVersion, ValidToVersion, Country, Method, EnergyType, LastStage,
-                IncludesNEU, Year, R, U, V, Y, U_feed, U_EIOU, r_EIOU, S_units,
-                WorksheetNames) |>
+                IncludesNEU, Year, R, U, V, Y, U_feed, U_EIOU, r_EIOU, S_units) |>
   dplyr::mutate(
     # Convert from TJ to kJ everywhere
     R = matsbyname::hadamardproduct_byname(R, 1e9),
@@ -230,15 +131,172 @@ xcc_supply_to_bcc <- zaf_2013_ecc |>
     V = matsbyname::hadamardproduct_byname(V, 1e9),
     Y = matsbyname::hadamardproduct_byname(Y, 1e9),
     S_units = matsbyname::setcolnames_byname(S_units, colnames = "kJ")
+  ) |>
+  dplyr::mutate(
+    WorksheetNames = paste(Country, Year, EnergyType, sep = "_")
   )
+
 
 # Save the ECC that supplies the MCC to an Excel file for inspection.
 # This ECC is in TJ.
-xcc_supply_to_bcc |>
+ecc_supply_to_mcc |>
   Recca::write_ecc_to_excel(path = file.path("data", "ecc_supply_to_mcc.xlsx"),
                             worksheet_names = "WorksheetNames",
                             overwrite_file = TRUE,
                             overwrite_worksheets = TRUE)
+
+
+#
+# Now endogenize the losses for the ECC that supplies the MCC.
+#
+
+##
+## Create loss allocation matrix
+##
+
+heat_loss_allocation_mat <- file.path("data", "HeatLossFlows.xlsx") |>
+  readxl::read_excel() |>
+  dplyr::select(Industry, HeatLossFlow) |>
+  dplyr::mutate(
+    Qloss = "Transformation losses",
+    HeatLossFlow = RCLabels::paste_pref_suff(pref = HeatLossFlow, suff = Qloss),
+    Qloss = NULL
+  ) |>
+  dplyr::mutate(
+    matvals = 1
+  ) |>
+  dplyr::rename(
+    rownames = "Industry",
+    colnames = "HeatLossFlow"
+  ) |>
+  matsindf::rowcolval_to_mat(rowtypes = "Industry", coltypes = "Product")
+
+##
+## Endogenize heat losses for the ECC that supplies the MCC
+##
+
+ecc_supply_to_mcc_with_losses <- ecc_supply_to_mcc |>
+  dplyr::mutate(
+    # Add the heat loss allocation matrix
+    "{Recca::balance_cols$losses_alloc_colname}" := list(heat_loss_allocation_mat),
+    # # Add the phi vector
+    # "{Recca::psut_cols$phi}" := list(phi_vec)
+  ) |>
+  # Endogenize the heat losses
+  Recca::endogenize_losses(replace_cols = TRUE) |>
+  # Verify that inter-industry balances are preserved
+  Recca::verify_inter_industry_balance(delete_balance_if_verified = TRUE) |>
+  # Verify that intra-industry balance is now observed
+  Recca::verify_intra_industry_balance(delete_balance_if_verified = TRUE)
+
+#
+# Convert the ECC with endogenized heat losses to exergy
+#
+
+##
+## Create the phi vector
+##
+
+### Database phi vector
+phi_db <- file.path("data", "zaf2013_phi.rds") |>
+  readRDS() |>
+  magrittr::extract2("phi") |>
+  magrittr::extract2(1)
+### Waste heat phi vector
+phi_waste_heat <- file.path("data", "HeatLossFlows.xlsx") |>
+  readxl::read_excel() |>
+  dplyr::select(HeatLossFlow, phi) |>
+  unique() |>
+  dplyr::rename(
+    rownames = "HeatLossFlow",
+    matvals = "phi"
+  ) |>
+  dplyr::mutate(
+    colnames = "phi"
+  ) |>
+  matsindf::rowcolval_to_mat(rowtypes = "Product", coltypes = "phi")
+### Check for any identical rownames
+common_rows <- intersect(rownames(phi_db), rownames(phi_waste_heat))
+### Eliminate common rows from phi_waste_heat
+phi_waste_heat <- matsbyname::select_rows_byname(phi_waste_heat,
+                                                 remove_pattern = RCLabels::make_or_pattern(common_rows))
+### Verify we have no common rows
+common_rows_2 <- intersect(rownames(phi_db), rownames(phi_waste_heat))
+assertthat::assert_that(length(common_rows_2) == 0)
+
+### Add the vectors together
+phi_vec <- matsbyname::sum_byname(phi_db, phi_waste_heat)
+
+##
+## Now convert to exergy
+##
+
+excc_supply_to_mcc_with_losses <- ecc_supply_to_mcc_with_losses |>
+  dplyr::mutate(
+    # Add the phi vector
+    "{Recca::psut_cols$phi}" := list(phi_vec)
+  ) |>
+  # Convert to exergy using the phi vector
+  Recca::extend_to_exergy(mat_piece = "noun",
+                          # R and U matrices have from notation,
+                          # V and Y matrices have arrow notation.
+                          notation = list(RCLabels::from_notation, RCLabels::arrow_notation)) |>
+  dplyr::mutate(
+    # Add worksheet names
+    WorksheetNames = paste0(Country, "_", Year, "_", EnergyType)
+  ) |>
+  dplyr::mutate(
+    # Add a column of loss allocation matrices for calculating exergy destruction.
+    # This is a bit janky, as we're assuming we have
+    # energy in row 1 and exergy in row 2.
+    "{Recca::balance_cols$losses_alloc_colname}" := list(Recca::balance_cols$default_losses_alloc_mat |>
+                                                           matsbyname::setcolnames_byname("Destroyed heat"),
+                                                         Recca::balance_cols$default_destruction_alloc_mat)
+  ) |>
+  # Now endogenize losses again to get exergy destruction
+  Recca::endogenize_losses(replace_cols = TRUE, losses_sector = "Destruction") |>
+  # Verify that inter- and intra-industry balances are good intact
+  Recca::verify_inter_industry_balance(delete_balance_if_verified = TRUE) |>
+  Recca::verify_intra_industry_balance(delete_balance_if_verified = TRUE)
+
+#
+# Save trimmed ZAF data to an Excel file for later inspection.
+#
+
+excc_supply_to_mcc_with_losses_path <- file.path("data", "excc_supply_to_mcc_with_losses.xlsx")
+excc_supply_to_mcc_with_losses |>
+  Recca::write_ecc_to_excel(path = excc_supply_to_mcc_with_losses_path,
+                            worksheet_names = "WorksheetNames",
+                            overwrite_file = TRUE,
+                            overwrite_worksheets = TRUE)
+
+
+
+
+
+# Now do the same thing with the MCC
+
+# Read the MCC with endogenized losses
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #
 # Modify the XCC by removing the Y matrix
