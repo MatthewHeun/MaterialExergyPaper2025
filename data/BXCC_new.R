@@ -276,8 +276,13 @@ excc_supply_to_mcc_with_losses |>
 
 # Now do the same thing with the MCC
 
-# Read the MCC with endogenized losses
+#
+# Read the BCC exergy matrices.
+# These are in kJ and material exergy (B).
+#
 
+bcc_mats <- file.path("data", "Paper Examples.xlsx") |>
+  Recca::read_ecc_from_excel(worksheets = "MCC_B_RUVY_matrices_mat_level")
 
 
 
@@ -330,13 +335,6 @@ xcc_supply_to_bcc_long <- xcc_supply_to_bcc |>
   )
 
 
-#
-# Read the BCC exergy matrices.
-# These are in kJ and material exergy (B).
-#
-
-bcc_mats <- file.path("data", "Paper Examples.xlsx") |>
-  Recca::read_ecc_from_excel(worksheets = "MCC_B_RUVY_matrices_mat_level")
 
 
 #
