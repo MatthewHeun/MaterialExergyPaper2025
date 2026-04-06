@@ -172,7 +172,7 @@ heat_loss_allocation_mat <- file.path("data", "HeatLossFlows.xlsx") |>
   matsindf::rowcolval_to_mat(rowtypes = "Industry", coltypes = "Product")
 
 ##
-## Endogenize heat losses for the ECC that supplies the MCC
+## Step 1: Endogenize heat losses for the ECC that supplies the MCC
 ##
 
 ecc_supply_to_mcc_with_losses <- ecc_supply_to_mcc |>
@@ -228,12 +228,13 @@ assertthat::assert_that(length(common_rows_2) == 0)
 phi_vec <- matsbyname::sum_byname(phi_db, phi_waste_heat)
 
 ##
-## Now convert to exergy
+## Step 2: Convert to exergy
 ##
 
-excc_supply_to_mcc_with_losses <- ecc_supply_to_mcc_with_losses |>
+xcc_supply_to_mcc_with_losses <- ecc_supply_to_mcc_with_losses |>
   dplyr::mutate(
-    # Add the phi vector
+    # Add the phi vector that already includes
+    # phi for heat losses
     "{Recca::psut_cols$phi}" := list(phi_vec)
   ) |>
   # Convert to exergy using the phi vector
@@ -244,7 +245,43 @@ excc_supply_to_mcc_with_losses <- ecc_supply_to_mcc_with_losses |>
   dplyr::mutate(
     # Add worksheet names
     WorksheetNames = paste0(Country, "_", Year, "_", EnergyType)
-  ) |>
+  )
+
+
+
+
+# Now do the same thing with the MCC
+
+# First, read the matrices
+
+mcc_m_mats <- file.path("data", "Paper Examples.xlsx") |>
+  Recca::read_ecc_from_excel(worksheets = "MCC_M_RUVY_matrices_mat_level") |>
+  # Verify that inter-industry balances is observed
+  Recca::verify_inter_industry_balance(delete_balance_if_verified = TRUE) |>
+  # Verify that intra-industry balance is observed
+  Recca::verify_intra_industry_balance(delete_balance_if_verified = TRUE)
+
+
+##
+## Step 3: Endogenize mass losses
+##
+
+# Don't need to endogenize losses
+# Mass losses are already endogenized
+# in the matrices we read in the next step.
+
+# Read the MCC RUVY matrices
+
+mcc_h_mats <- file.path("data", "Paper Examples.xlsx") |>
+  Recca::read_ecc_from_excel(worksheets = "MCC_h_RUVY_matrices_mat_level")
+mcc_mw_mats <- file.path("data", "Paper Examples.xlsx") |>
+  Recca::read_ecc_from_excel(worksheets = "MCC_MW_RUVY_matrices_mat_level")
+
+
+
+
+
+|>
   dplyr::mutate(
     # Add a column of loss allocation matrices for calculating exergy destruction.
     # This is a bit janky, as we're assuming we have
@@ -274,7 +311,10 @@ excc_supply_to_mcc_with_losses |>
 
 
 
-# Now do the same thing with the MCC
+
+
+
+
 
 #
 # Read the BCC exergy matrices.
