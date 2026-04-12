@@ -249,11 +249,14 @@ xcc_supply_to_mcc_with_losses <- ecc_supply_to_mcc_with_losses |>
 
 
 
-
 # Now do the same thing with the MCC
 
-# First, read the matrices
 
+##
+## Step 3: Endogenize mass losses
+##
+
+# First, read the mass matrices
 mcc_m_mats <- file.path("data", "Paper Examples.xlsx") |>
   Recca::read_ecc_from_excel(worksheets = "MCC_M_RUVY_matrices_mat_level") |>
   # Verify that inter-industry balances is observed
@@ -264,28 +267,29 @@ mcc_m_mats <- file.path("data", "Paper Examples.xlsx") |>
     which = "M"
   )
 
+# Endogenize mass losses, but we
+# don't need to endogenize losses.
+# Mass losses are already endogenized in mcc_m_mats.
+
 ##
-## Step 3: Endogenize mass losses
+## Step 4: Create the energy matrices
 ##
 
-# Don't need to endogenize losses
-# Mass losses are already endogenized
-# in the matrices we read in the next step.
-
-# Read the enthalpy and molecular weight RUVY matrices
-
+# Read the enthalpy RUVY matrice
 mcc_h_mats <- file.path("data", "Paper Examples.xlsx") |>
   Recca::read_ecc_from_excel(worksheets = "MCC_h_RUVY_matrices_mat_level") |>
   dplyr::mutate(
     which = "H"
   )
 
+# Read the molecular weight RUVY matrices
 mcc_mw_mats <- file.path("data", "Paper Examples.xlsx") |>
   Recca::read_ecc_from_excel(worksheets = "MCC_MW_RUVY_matrices_mat_level") |>
   dplyr::mutate(
     which = "MW"
   )
 
+# Calculate M*H/MW
 mcc_e_mats <- dplyr::bind_rows(mcc_m_mats, mcc_h_mats, mcc_mw_mats) |>
   dplyr::mutate(
     S_units = NULL,
@@ -301,9 +305,6 @@ mcc_e_mats <- dplyr::bind_rows(mcc_m_mats, mcc_h_mats, mcc_mw_mats) |>
   )
 
 
-##
-## Step 4: Create the mass energy matrices
-##
 
 
 
