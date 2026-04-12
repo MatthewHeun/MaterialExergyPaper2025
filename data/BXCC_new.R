@@ -259,8 +259,10 @@ mcc_m_mats <- file.path("data", "Paper Examples.xlsx") |>
   # Verify that inter-industry balances is observed
   Recca::verify_inter_industry_balance(delete_balance_if_verified = TRUE) |>
   # Verify that intra-industry balance is observed
-  Recca::verify_intra_industry_balance(delete_balance_if_verified = TRUE)
-
+  Recca::verify_intra_industry_balance(delete_balance_if_verified = TRUE) |>
+  dplyr::mutate(
+    which = "M"
+  )
 
 ##
 ## Step 3: Endogenize mass losses
@@ -270,18 +272,45 @@ mcc_m_mats <- file.path("data", "Paper Examples.xlsx") |>
 # Mass losses are already endogenized
 # in the matrices we read in the next step.
 
-# Read the MCC RUVY matrices
+# Read the enthalpy and molecular weight RUVY matrices
 
 mcc_h_mats <- file.path("data", "Paper Examples.xlsx") |>
-  Recca::read_ecc_from_excel(worksheets = "MCC_h_RUVY_matrices_mat_level")
+  Recca::read_ecc_from_excel(worksheets = "MCC_h_RUVY_matrices_mat_level") |>
+  dplyr::mutate(
+    which = "H"
+  )
+
 mcc_mw_mats <- file.path("data", "Paper Examples.xlsx") |>
-  Recca::read_ecc_from_excel(worksheets = "MCC_MW_RUVY_matrices_mat_level")
+  Recca::read_ecc_from_excel(worksheets = "MCC_MW_RUVY_matrices_mat_level") |>
+  dplyr::mutate(
+    which = "MW"
+  )
+
+mcc_e_mats <- dplyr::bind_rows(mcc_m_mats, mcc_h_mats, mcc_mw_mats) |>
+  dplyr::mutate(
+    S_units = NULL,
+    WorksheetNames = NULL
+  ) |>
+  tidyr::pivot_longer(cols = c(R, U, V, Y, U_feed, U_EIOU, r_EIOU)) |>
+  tidyr::pivot_wider(names_from = which, values_from = value) |>
+  dplyr::mutate(
+    E = matsbyname::hadamardproduct_byname(M, H) |>
+      matsbyname::quotient_byname(MW) |>
+      matsbyname::replaceNaN_byname() |>
+      matsbyname::clean_byname()
+  )
+
+
+##
+## Step 4: Create the mass energy matrices
+##
 
 
 
 
 
-|>
+
+mcc|>
   dplyr::mutate(
     # Add a column of loss allocation matrices for calculating exergy destruction.
     # This is a bit janky, as we're assuming we have
