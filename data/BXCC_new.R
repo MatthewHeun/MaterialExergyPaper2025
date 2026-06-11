@@ -102,19 +102,24 @@ ecc_supply_to_mcc <- zaf_2013_ecc |>
     # Create a new Y matrix that has just an Iron and steel sector
     # that is the sum of the Iron and steel and Mining and quarrying sectors
     # (the two sectors in Y_colnames_supply).
-    # For now, call it the y vector.
-    y = .data[["Y"]] |>
+    # This is necessary, because the MCC's
+    # Iron and steel sector includes its mining operations.
+    # Call it the Y matrix,
+    # in the process deleting the existing Y matrix.
+    Y = .data[["Y"]] |>
       matsbyname::rowsums_byname(colname = "Iron and steel"),
-    # Delete the existing Y matrix.
-    Y = NULL
   ) |>
-  # Rename the y vector to be Y, the new Y matrix.
-  dplyr::rename(Y = y) |>
+  # At this point, we have a consistent ECC that
+  # includes only energy types needed to supply energy to the MCC.
+  # But the scale of the ECC is wrong.
+  # It is too large. We need to righ-size the ECC.
+  # To do so, we add the Y_prime matrix from the MCC energy requirements.
   # Now add the Y_prime matrix from mcc_energy_reqts to the data frame
   dplyr::left_join(mcc_e_reqts, by = "EnergyType") |>
-  # Calculate the XCC needed to supply the Y_prime demand
+  # Calculate the ECC needed to supply the Y_prime demand
   Recca::new_Y() |>
   dplyr::mutate(
+    # Keep only the _prime matrices
     R = NULL, U = NULL, V = NULL, Y = NULL, U_EIOU = NULL, U_feed = NULL, r_EIOU = NULL
   ) |>
   dplyr::rename(
@@ -178,7 +183,7 @@ heat_loss_allocation_mat <- file.path("data", "HeatLossFlows.xlsx") |>
 
 ecc_supply_to_mcc_with_losses <- ecc_supply_to_mcc |>
   dplyr::mutate(
-    # Add the heat loss allocation matrix
+    # Add the heat loss allocation matrix to the data frame
     "{Recca::balance_cols$losses_alloc_colname}" := list(heat_loss_allocation_mat),
     # # Add the phi vector
     # "{Recca::psut_cols$phi}" := list(phi_vec)
@@ -201,8 +206,7 @@ ecc_supply_to_mcc_with_losses <- ecc_supply_to_mcc |>
 ### Database phi vector
 phi_db <- file.path("data", "zaf2013_phi.rds") |>
   readRDS() |>
-  magrittr::extract2("phi") |>
-  magrittr::extract2(1)
+  purrr::pluck("phi", 1)
 ### Waste heat phi vector
 phi_waste_heat <- file.path("data", "HeatLossFlows.xlsx") |>
   readxl::read_excel() |>
@@ -268,15 +272,15 @@ mcc_m_mats <- file.path("data", "Paper Examples.xlsx") |>
     which = "M"
   )
 
-# Endogenize mass losses, but we
-# don't need to endogenize losses.
+# Here, we should endogenize mass losses, but we
+# don't need to do so.
 # Mass losses are already endogenized in mcc_m_mats.
 
 ##
 ## Step 4: Create the energy matrices
 ##
 
-# Read the enthalpy RUVY matrice
+# Read the enthalpy RUVY matrices
 mcc_h_mats <- file.path("data", "Paper Examples.xlsx") |>
   Recca::read_ecc_from_excel(worksheets = "MCC_h_RUVY_matrices_mat_level") |>
   dplyr::mutate(
@@ -302,8 +306,32 @@ mcc_e_mats <- dplyr::bind_rows(mcc_m_mats, mcc_h_mats, mcc_mw_mats) |>
     E = matsbyname::hadamardproduct_byname(M, H) |>
       matsbyname::quotient_byname(MW) |>
       matsbyname::replaceNaN_byname() |>
-      matsbyname::clean_byname()
-  )
+      matsbyname::clean_byname(),
+    # We don't need these matrices any more,
+    # now that we have the energy versions.
+    M = NULL,
+    H = NULL,
+    MW = NULL
+  ) |>
+  tidyr::pivot_wider(names_from = "name", values_from = "E")
+
+
+#### Got to here.
+
+
+# Convert to exergy
+# mcc_ex_mats <- mcc_e_mats |>
+#   dplyr::left_join(phi vectors)
+
+# Calculate heat losses via energy balance for matrices
+
+mcc_e_mats_with_losses <- mcc_e_mats |>
+  # Add the losses allocation matrix
+  dplyr::left_join()
+  Recca::endogenize_losses(replace_cols = TRUE, losses_alloc = ) |>
+
+
+
 
 
 
