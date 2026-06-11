@@ -48,13 +48,13 @@ mcc_e_reqts <- openxlsx2::read_xlsx(file = file.path("data",
 
 #
 # Calculate an ECC that contains only the energy carriers
-# we need to supply the MCC.
+# consumed by the MCC.
 # This ECC is in TJ.
 # Note that many pieces of the ECC are covered by our MCC,
 # so we trim those out to focus only on the rows and columns
 # of interest for supplying the MCC
 # before calculating the input-output matrices.
-# The pieces we need are the ECC to supply
+# The pieces we need
 # are identified by row and column names of the Y matrix.
 # The row names of interest are the energy carriers needed
 # by the MCC.
@@ -84,7 +84,8 @@ ecc_supply_to_mcc <- zaf_2013_ecc |>
       retain_pattern = RCLabels::make_or_pattern(Y_colnames_supply)
     )
   ) |>
-  # Calculate _prime, etc matrices that supply only those
+  # Use the Y_prime matrix to
+  # calculate *_prime matrices that supply only those
   # energy carriers and sectors we need,
   # namely Iron and steel and Mining and quarrying
   Recca::new_Y() |>
@@ -92,7 +93,7 @@ ecc_supply_to_mcc <- zaf_2013_ecc |>
   dplyr::mutate(
     R = NULL, U = NULL, V = NULL, Y = NULL, U_feed = NULL, U_EIOU = NULL, r_EIOU = NULL
   ) |>
-  # Rename _prim matrices to be R, U, V, Y etc.
+  # Rename _prime matrices to be R, U, V, Y etc.
   dplyr::rename(
     R = R_prime, U = U_prime, V = V_prime, Y = Y_prime,
     U_feed = U_feed_prime, U_EIOU = U_EIOU_prime, r_EIOU = r_EIOU_prime
@@ -109,7 +110,7 @@ ecc_supply_to_mcc <- zaf_2013_ecc |>
   ) |>
   # Rename the y vector to be Y, the new Y matrix.
   dplyr::rename(Y = y) |>
-  # Now add the Y_prime matrix from mcc_energy_reqts
+  # Now add the Y_prime matrix from mcc_energy_reqts to the data frame
   dplyr::left_join(mcc_e_reqts, by = "EnergyType") |>
   # Calculate the XCC needed to supply the Y_prime demand
   Recca::new_Y() |>
