@@ -315,20 +315,71 @@ mcc_e_mats <- dplyr::bind_rows(mcc_m_mats, mcc_h_mats, mcc_mw_mats) |>
   ) |>
   tidyr::pivot_wider(names_from = "name", values_from = "E")
 
+# Calculate waste heat from the mass matrices
+waste_heat <- mcc_e_mats |>
+  Recca::endogenize_losses(replace_cols = TRUE,
+                           losses_sector = "Waste heat",
+                           losses_alloc = list(Recca::balance_cols$default_losses_alloc_mat))
 
-#### Got to here.
+
+# Read the phi matrices
+mcc_phi_mats <- file.path("data", "Paper Examples.xlsx") |>
+  Recca::read_ecc_from_excel(worksheets = "MCC_phi_RUVY_matrices_mat_level") |>
+  dplyr::mutate(
+    WorksheetNames = NULL
+  )
+
+# Multiply the mass matrices by phi to develop exergy matrices
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Convert to exergy
-# mcc_ex_mats <- mcc_e_mats |>
-#   dplyr::left_join(phi vectors)
+mcc_eb_mats <- mcc_e_mats |>
+  dplyr::left_join(phi vectors)
 
-# Calculate heat losses via energy balance for matrices
+dplyr::mutate(
+  # Add the phi vector that already includes
+  # phi for heat losses
+  "{Recca::psut_cols$phi}" := list(phi_vec)
+) |>
 
-mcc_e_mats_with_losses <- mcc_e_mats |>
-  # Add the losses allocation matrix
-  dplyr::left_join()
-  Recca::endogenize_losses(replace_cols = TRUE, losses_alloc = ) |>
+
+
+
 
 
 
