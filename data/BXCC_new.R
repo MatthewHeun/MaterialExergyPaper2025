@@ -317,10 +317,13 @@ mcc_e_mats <- dplyr::bind_rows(mcc_m_mats, mcc_h_mats, mcc_mw_mats) |>
 
 # Calculate waste heat from the mass matrices
 waste_heat <- mcc_e_mats |>
-  Recca::endogenize_losses(replace_cols = TRUE,
-                           losses_sector = "Waste heat",
-                           losses_alloc = list(Recca::balance_cols$default_losses_alloc_mat))
-
+  dplyr::mutate(
+    "{Recca::balance_cols$losses_alloc_colname}" :=
+      RCLabels::make_list(Recca::balance_cols$default_losses_alloc,
+                          n = dplyr::n(),
+                          lenx = 1)
+  ) |>
+  Recca::endogenize_losses(replace_cols = TRUE)
 
 # Read the phi matrices
 mcc_phi_mats <- file.path("data", "Paper Examples.xlsx") |>
