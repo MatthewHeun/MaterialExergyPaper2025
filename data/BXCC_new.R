@@ -315,25 +315,75 @@ mcc_e_mats <- dplyr::bind_rows(mcc_m_mats, mcc_h_mats, mcc_mw_mats) |>
   ) |>
   tidyr::pivot_wider(names_from = "name", values_from = "E")
 
+# Read electricity inputs to each processing stage
+elect_inputs <- openxlsx2::read_xlsx(file = file.path("data",
+                                                      "Paper Examples.xlsx"),
+                                     sheet = "BXCC Q loss",
+                                     named_region = "Electricity_input")
+
+elect_inputs_vec <- file.path("data", "Paper Examples.xlsx") |>
+  openxlsx2::wb_load() |>
+  openxlsx2::wb_to_df(sheet = "BXCC Q loss",
+                      named_region = "Electricity_input",
+                      row_names = TRUE) |>
+  as.matrix() |>
+  matsbyname::setrowtype("Industry") |>
+  matsbyname::setcoltype("Product") |>
+  # Will add to U matrix, so transpose
+  matsbyname::transpose_byname()
+
 # Calculate waste heat from the mass matrices
-waste_heat <- mcc_e_mats |>
+waste_heat_vec <- mcc_e_mats |>
   dplyr::mutate(
     "{Recca::balance_cols$losses_alloc_colname}" :=
-      RCLabels::make_list(Recca::balance_cols$default_losses_alloc,
+      RCLabels::make_list(Recca::balance_cols$default_losses_alloc |>
+                            matsbyname::setcolnames_byname("Waste heat"),
                           n = dplyr::n(),
-                          lenx = 1)
+                          lenx = 1),
+    Elect = list(elect_inputs_vec),
+    U = matsbyname::sum_byname(U, Elect),
+    Elect = NULL
   ) |>
-  Recca::endogenize_losses(replace_cols = TRUE)
+  # This call to Recca::endogenize_losses() gives a warning
+  # about inter-industry balance being off, but that is expected.
+  # We have injected more energy into the U matrix with electricity
+  # consumption that doesn't balance with the R matrix.
+  # However, for this calculation we care about calculations across
+  # industries in a U - V sense, so we can ignore the warnings.
+  Recca::endogenize_losses(replace_cols = TRUE) |>
+  dplyr::mutate(
+    waste_heat = matsbyname::select_cols_byname(V, retain_pattern = "Waste heat")
+  ) |>
+  purrr::pluck("V", 1) |>
+  matsbyname::select_cols_byname("Waste heat")
 
 # Read the phi matrices
 mcc_phi_mats <- file.path("data", "Paper Examples.xlsx") |>
   Recca::read_ecc_from_excel(worksheets = "MCC_phi_RUVY_matrices_mat_level") |>
   dplyr::mutate(
     WorksheetNames = NULL
+  ) |>
+  tidyr::pivot_longer(cols = c(R, U, V, Y, r_EIOU, U_EIOU, U_feed, S_units),
+                      names_to = "matnames",
+                      values_to = "phi") |>
+  dplyr::mutate(
+    which = NULL,
+    WorksheetNames = NULL
   )
 
 # Multiply the mass matrices by phi to develop exergy matrices
-
+b_mats <- mcc_m_mats |>
+  tidyr::pivot_longer(cols = c(R, U, V, Y, r_EIOU, U_EIOU, U_feed, S_units),
+                      names_to = "matnames",
+                      values_to = "m") |>
+  dplyr::mutate(
+    which = NULL,
+    WorksheetNames = NULL
+  ) |>
+  dplyr::full_join(mcc_phi_mats, by = "matnames") |>
+  dplyr::mutate(
+    B = matsbyname::hadamardproduct_byname(m, phi)
+  )
 
 
 
