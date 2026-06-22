@@ -411,25 +411,22 @@ b_m_mats <- mcc_m_mats |>
       matsbyname::clean_byname()
   )
 
-# Add massless exergy flows (electricity) into the matrices
+# Add massless exergy flows (electricity) into the mass exergy matrices (R and U)
 
 
 
+# Add waste heat flows into the mass and massless exergy matrices (V and Y)
 
 
 
+# Add the xcc to the bcc
 
 
 
-# Convert to exergy
-mcc_eb_mats <- mcc_e_mats |>
-  dplyr::left_join(phi vectors)
+# Calculate exergy destruction by endogenizing the intra-industry imbalances.
 
-dplyr::mutate(
-  # Add the phi vector that already includes
-  # phi for heat losses
-  "{Recca::psut_cols$phi}" := list(phi_vec)
-) |>
+
+
 
 
 
