@@ -333,7 +333,7 @@ elect_inputs_vec <- file.path("data", "Paper Examples.xlsx") |>
   matsbyname::transpose_byname()
 
 # Calculate waste heat from the mass matrices
-waste_heat_vec <- mcc_e_mats |>
+Q_waste_heat <- mcc_e_mats |>
   dplyr::mutate(
     "{Recca::balance_cols$losses_alloc_colname}" :=
       RCLabels::make_list(Recca::balance_cols$default_losses_alloc |>
@@ -355,7 +355,27 @@ waste_heat_vec <- mcc_e_mats |>
     waste_heat = matsbyname::select_cols_byname(V, retain_pattern = "Waste heat")
   ) |>
   purrr::pluck("V", 1) |>
-  matsbyname::select_cols_byname("Waste heat")
+  matsbyname::select_cols_byname("Waste heat") |>
+  matsbyname::setcolnames_byname("Q_waste_heat")
+
+# Calculate the exergy of waste heat flows
+# using the phi vector read from the Excel file.
+T_waste_heat <- file.path("data", "Paper Examples.xlsx") |>
+  openxlsx2::wb_load() |>
+  openxlsx2::wb_to_df(sheet = "BXCC Q loss",
+                      named_region = "T_waste_heat",
+                      row_names = TRUE) |>
+  as.matrix() |>
+  matsbyname::setrowtype("Industry") |>
+  matsbyname::setcoltype("Product")
+T_0 <- 298.15 # K
+phi_waste_heat <- 1 - matsbyname::quotient_byname(T_0, T_waste_heat) |>
+  matsbyname::setcolnames_byname("phi")
+# Calculate exergy of waste heat
+X_waste_heat <- matsbyname::hadamardproduct_byname(
+  Q_waste_heat |> matsbyname::setcolnames_byname("X_waste_heat"),
+  phi_waste_heat |> matsbyname::setcolnames_byname("X_waste_heat")
+)
 
 # Read the phi matrices
 mcc_phi_mats <- file.path("data", "Paper Examples.xlsx") |>
@@ -372,7 +392,8 @@ mcc_phi_mats <- file.path("data", "Paper Examples.xlsx") |>
   )
 
 # Multiply the mass matrices by phi to develop exergy matrices
-b_mats <- mcc_m_mats |>
+# for mass flows.
+b_m_mats <- mcc_m_mats |>
   tidyr::pivot_longer(cols = c(R, U, V, Y, r_EIOU, U_EIOU, U_feed, S_units),
                       names_to = "matnames",
                       values_to = "m") |>
@@ -380,37 +401,17 @@ b_mats <- mcc_m_mats |>
     which = NULL,
     WorksheetNames = NULL
   ) |>
+  # Add the phi matrices
   dplyr::full_join(mcc_phi_mats, by = "matnames") |>
   dplyr::mutate(
-    B = matsbyname::hadamardproduct_byname(m, phi)
+    m = matsbyname::clean_byname(m),
+    phi = matsbyname::clean_byname(phi),
+    # Multiply masses by phi
+    B = matsbyname::hadamardproduct_byname(m, phi) |>
+      matsbyname::clean_byname()
   )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# Add massless exergy flows (electricity) into the matrices
 
 
 
