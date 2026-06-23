@@ -2,171 +2,29 @@
 # unified material and energy conversion chain (BXCC)
 # for the blast furnace example in the paper.
 
-#
 # Read information downloaded from the Mexer database.
 # See the script download_data.R,
-# which downloads and creates the zaf_2013_ecc.rds file.
-#
+# which creates the zaf_2013_ecc.rds file.
 
 zaf_2013_ecc <- file.path("data", "zaf_2013_ecc.rds") |>
-  readRDS() |>
-  dplyr::mutate(
-    WorksheetNames = paste0(Country, "_", Year, "_", EnergyType)
-  )
+  readRDS()
 
-#
-# Verify the inter-industry exergy balance
-#
-
+# Verify the inter-industry balance before we get started
 zaf_2013_ecc |>
-  Recca::verify_SUT_energy_balance()
+  Recca::verify_inter_industry_balance()
 
-#
-# Calculate heat losses
-#
-
-
-# Change to specific heat temperature columns in the V matrix and
-# specific heat temperature rows in the Y matrix.
-# MTH.200.C, for example.
-
-zaf_2013_ecc_Qlosses <- zaf_2013_ecc |>
-  dplyr::filter(EnergyType == "E") |>
-  dplyr::mutate(
-    Qloss = matsbyname::colsums_byname(U) |>
-      matsbyname::transpose_byname() |>
-      matsbyname::difference_byname(matsbyname::rowsums_byname(V)) |>
-      matsbyname::setcolnames_byname("Qloss"),
-    # Add to V matrix as a column
-    V = matsbyname::sum_byname(V, Qloss),
-    # Add to Y matrix as an entry
-    Y = matsbyname::sum_byname(Y, matsbyname::sumall_byname(Qloss) |>
-                                 matsbyname::setrownames_byname("Qloss") |>
-                                 matsbyname::setcolnames_byname("Losses")),
-    # Calculate cross-industry balance
-    CrossIndustryBalance = matsbyname::colsums_byname(R) |>
-      matsbyname::sum_byname(matsbyname::colsums_byname(V)) |>
-      matsbyname::transpose_byname() |>
-      matsbyname::difference_byname(matsbyname::rowsums_byname(U)) |>
-      matsbyname::difference_byname(matsbyname::rowsums_byname(Y))
-  )
-
-#
-# Verify that everything is balanced
-#
-
-stopifnot(zaf_2013_ecc_Qlosses$CrossIndustryBalance[[1]] |>
-            matsbyname::iszero_byname())
-
-#
-# Identify the temperatures of heat losses
-#
-
-heat_loss_flows <- file.path("data", "HeatLossFlows.xlsx") |>
-  readxl::read_excel() |>
-  dplyr::select(-Note) |>
-  dplyr::mutate(
-    Qloss = "Losses",
-    HeatLossFlow = RCLabels::paste_pref_suff(pref = HeatLossFlow, suff = Qloss),
-    Qloss = NULL
-  )
-
-#
-# Add heat losses to the RUVY matrices
-#
-
-zaf_2013_ecc_Qlosses_mat <- zaf_2013_ecc |>
-  dplyr::filter(EnergyType == "E") |>
-  dplyr::mutate(
-    # Calculate heat losses by industry
-    Qloss = matsbyname::colsums_byname(U) |>
-      matsbyname::transpose_byname() |>
-      matsbyname::difference_byname(matsbyname::rowsums_byname(V)) |>
-      matsbyname::setcolnames_byname("Qloss"),
-    # Convert to a data frame
-    QLossDF = lapply(X = Qloss, FUN = function(x) {
-      tibble::as_tibble(x, rownames = "Industry")
-    }),
-    # Add a column of data frames for heat loss flows by industry
-    HeatLossFlows = list(heat_loss_flows),
-    # Join heat loss flows by industry
-    QLossDF = Map(f = dplyr::left_join, QLossDF, HeatLossFlows, by = "Industry") |>
-      lapply(FUN = function(x) {
-        # Convert to a matrix
-        tidyr::pivot_wider(x, names_from = "HeatLossFlow", values_from = "Qloss", values_fill = 0) |>
-          tibble::column_to_rownames("Industry") |>
-          as.matrix()
-      }),
-    # Do a bit of cleanup
-    HeatLossFlows = NULL,
-    Qloss = QLossDF,
-    QLossDF = NULL,
-    # Add the Qloss matrix to the V matrix,
-    # as waste heat (in columns)
-    # is "made" by the industries (in rows).
-    V = matsbyname::sum_byname(V, Qloss),
-
-    # # Eliminate the Qloss column in the V matrix;
-    # # it is now distributed across different columns
-    # V = matsbyname::select_cols_byname(V, remove_pattern = "^Qloss$"),
-
-    # Transpose the Qloss matrix and sum rows to get a Waste heat column
-    # in before adding to the Y matrix.
-    QlossForY = matsbyname::transpose_byname(Qloss) |>
-      matsbyname::rowsums_byname() |>
-      matsbyname::setcolnames_byname("Losses"),
-    # Add to the Y matrix
-    Y = matsbyname::sum_byname(Y, QlossForY),
-    # No longer need these.
-    Qloss = NULL,
-    QlossForY = NULL,
-    # Calculate cross-industry balance again
-    CrossIndustryBalance = matsbyname::colsums_byname(R) |>
-      matsbyname::sum_byname(matsbyname::colsums_byname(V)) |>
-      matsbyname::transpose_byname() |>
-      matsbyname::difference_byname(matsbyname::rowsums_byname(U)) |>
-      matsbyname::difference_byname(matsbyname::rowsums_byname(Y))
-  )
-
-#
-# Verify that everything is balanced
-#
-
-stopifnot(zaf_2013_ecc_Qlosses_mat$CrossIndustryBalance[[1]] |>
-            matsbyname::iszero_byname())
-
-#
-# Convert the heat losses to exergy losses
-#
-
-
-
-
-
-
-
-#
-# Save full ZAF data to an Excel file for later inspection.
-#
-
-zaf_2013_ecc_path <- file.path("data", "zaf_2013_ecc.xlsx")
-zaf_2013_ecc |>
-  Recca::write_ecc_to_excel(path = zaf_2013_ecc_path,
-                            worksheet_names = "WorksheetNames",
-                            overwrite_file = TRUE,
-                            overwrite_worksheets = TRUE)
-
-#
 # Read ECC requirements from the MCC spreadsheet.
 # These energy requirements are in TJ.
-#
 
-mcc_energy_reqts <- openxlsx2::read_xlsx(file = file.path("data",
-                                                          "Paper Examples.xlsx"),
-                                         named_region = "mcc_energy_reqts") |>
-  dplyr::select(-`X [kJ]`) |>
-  dplyr::rename(X = "X [TJ]", rownames = "EnergyCarrier") |>
-  tidyr::pivot_longer(cols = "X",
+mcc_e_reqts <- openxlsx2::read_xlsx(file = file.path("data",
+                                                     "Paper Examples.xlsx"),
+                                    named_region = "mcc_EX_reqts") |>
+  dplyr::select(-`E [kJ]`, -`X [kJ]`, -`X [TJ]`) |>
+  dplyr::rename(
+    E = "E [TJ]",
+    rownames = "EnergyCarrier"
+  ) |>
+  tidyr::pivot_longer(cols = "E",
                       names_to = "EnergyType",
                       values_to = "matvals") |>
   dplyr::mutate(
@@ -179,16 +37,14 @@ mcc_energy_reqts <- openxlsx2::read_xlsx(file = file.path("data",
   matsindf::collapse_to_matrices() |>
   dplyr::rename(Y_prime = "matvals")
 
-
-#
 # Calculate an ECC that contains only the energy carriers
-# we need to supply the MCC.
+# consumed by the MCC.
 # This ECC is in TJ.
 # Note that many pieces of the ECC are covered by our MCC,
 # so we trim those out to focus only on the rows and columns
 # of interest for supplying the MCC
 # before calculating the input-output matrices.
-# The pieces we need are the ECC to supply
+# The pieces we need
 # are identified by row and column names of the Y matrix.
 # The row names of interest are the energy carriers needed
 # by the MCC.
@@ -197,17 +53,16 @@ mcc_energy_reqts <- openxlsx2::read_xlsx(file = file.path("data",
 # The column names of interest are the two sectors
 # involved in the MCC:
 # the Iron and steel and Mining and quarrying sectors
-#
 
-Y_rownames_supply <- mcc_energy_reqts$Y_prime[[1]] |>
+Y_rownames_supply <- mcc_e_reqts$Y_prime[[1]] |>
   rownames()
 Y_colnames_supply <- c("Iron and steel", "Mining and quarrying")
 
-xcc_supply_to_bcc <- zaf_2013_ecc |>
-  dplyr::filter(EnergyType == "X") |>
+ecc_supply_to_mcc <- zaf_2013_ecc |>
+  dplyr::filter(EnergyType == "E") |>
   Recca::calc_io_mats() |>
   dplyr::mutate(
-    # Isolate only the rows we need
+    # Isolate only the rows of Y we need
     Y_prime = matsbyname::select_rows_byname(
       .data[["Y"]],
       retain_pattern = RCLabels::make_or_pattern(Y_rownames_supply)
@@ -218,41 +73,50 @@ xcc_supply_to_bcc <- zaf_2013_ecc |>
       retain_pattern = RCLabels::make_or_pattern(Y_colnames_supply)
     )
   ) |>
-  # Calculate _prime, etc matrices that supply only those
-  # energy carriers and sectors we need.
+  # Use the Y_prime matrix to
+  # calculate *_prime matrices that supply only those
+  # energy carriers and sectors we need,
+  # namely Iron and steel and Mining and quarrying
   Recca::new_Y() |>
+  # Keep only the _prime matrices
   dplyr::mutate(
     R = NULL, U = NULL, V = NULL, Y = NULL, U_feed = NULL, U_EIOU = NULL, r_EIOU = NULL
   ) |>
+  # Rename _prime matrices to be R, U, V, Y etc.
   dplyr::rename(
     R = R_prime, U = U_prime, V = V_prime, Y = Y_prime,
     U_feed = U_feed_prime, U_EIOU = U_EIOU_prime, r_EIOU = r_EIOU_prime
   ) |>
   dplyr::mutate(
     # Create a new Y matrix that has just an Iron and steel sector
-    # that is the sum of the Iron and steel and Mining and quarying sectors.
-    # For now, call it the y vector.
-    y = .data[["Y"]] |>
+    # that is the sum of the Iron and steel and Mining and quarrying sectors
+    # (the two sectors in Y_colnames_supply).
+    # This is necessary, because the MCC's
+    # Iron and steel sector includes its mining operations.
+    # Call it the Y matrix,
+    # in the process deleting the existing Y matrix.
+    Y = .data[["Y"]] |>
       matsbyname::rowsums_byname(colname = "Iron and steel"),
-    # Delete the existing Y matrix.
-    Y = NULL
   ) |>
-  # Rename the y vector to be Y, the new Y matrix.
-  dplyr::rename(Y = y) |>
-  # Now add the Y_prime matrix from mcc_energy_reqts
-  dplyr::left_join(mcc_energy_reqts, by = "EnergyType") |>
+  # At this point, we have a consistent ECC that
+  # includes only energy types needed to supply energy to the MCC.
+  # But the scale of the ECC is wrong.
+  # It is too large. We need to righ-size the ECC.
+  # To do so, we add the Y_prime matrix from the MCC energy requirements.
+  # Now add the Y_prime matrix from mcc_energy_reqts to the data frame
+  dplyr::left_join(mcc_e_reqts, by = "EnergyType") |>
+  # Calculate the ECC needed to supply the Y_prime demand
   Recca::new_Y() |>
   dplyr::mutate(
-    R = NULL, U = NULL, V = NULL, Y = NULL,
-    U_EIOU = NULL, U_feed = NULL, r_EIOU = NULL
+    # Keep only the _prime matrices
+    R = NULL, U = NULL, V = NULL, Y = NULL, U_EIOU = NULL, U_feed = NULL, r_EIOU = NULL
   ) |>
   dplyr::rename(
     R = R_prime, U = U_prime, V = V_prime, Y = Y_prime,
     U_EIOU = U_EIOU_prime, U_feed = U_feed_prime, r_EIOU = r_EIOU_prime
   ) |>
   dplyr::select(Dataset, ValidFromVersion, ValidToVersion, Country, Method, EnergyType, LastStage,
-                IncludesNEU, Year, R, U, V, Y, U_feed, U_EIOU, r_EIOU, S_units,
-                WorksheetNames) |>
+                IncludesNEU, Year, R, U, V, Y, U_feed, U_EIOU, r_EIOU, S_units) |>
   dplyr::mutate(
     # Convert from TJ to kJ everywhere
     R = matsbyname::hadamardproduct_byname(R, 1e9),
@@ -262,25 +126,366 @@ xcc_supply_to_bcc <- zaf_2013_ecc |>
     V = matsbyname::hadamardproduct_byname(V, 1e9),
     Y = matsbyname::hadamardproduct_byname(Y, 1e9),
     S_units = matsbyname::setcolnames_byname(S_units, colnames = "kJ")
+  ) |>
+  dplyr::mutate(
+    WorksheetNames = paste(Country, Year, EnergyType, sep = "_")
   )
 
 # Save the ECC that supplies the MCC to an Excel file for inspection.
 # This ECC is in TJ.
-xcc_supply_to_bcc |>
+
+ecc_supply_to_mcc |>
   Recca::write_ecc_to_excel(path = file.path("data", "ecc_supply_to_mcc.xlsx"),
                             worksheet_names = "WorksheetNames",
                             overwrite_file = TRUE,
                             overwrite_worksheets = TRUE)
 
+
+# Note: Step numbers below align with the the file CalcFlowChart.ppt.
+
 #
-# Modify the XCC by removing the Y matrix
-# in preparation for summation with the MCC.
+# Step 1: Endogenize heat losses for the ECC that supplies the MCC
 #
 
-xcc_supply_to_bcc_long <- xcc_supply_to_bcc |>
+## Create heat loss allocation matrix
+
+heat_loss_allocation_mat <- file.path("data", "HeatLossFlows.xlsx") |>
+  readxl::read_excel() |>
+  dplyr::select(Industry, HeatLossFlow) |>
   dplyr::mutate(
+    Qloss = "Transformation losses",
+    HeatLossFlow = RCLabels::paste_pref_suff(pref = HeatLossFlow, suff = Qloss),
+    Qloss = NULL
+  ) |>
+  dplyr::mutate(
+    matvals = 1
+  ) |>
+  dplyr::rename(
+    rownames = "Industry",
+    colnames = "HeatLossFlow"
+  ) |>
+  matsindf::rowcolval_to_mat(rowtypes = "Industry", coltypes = "Product")
+
+## Endogenize heat losses for the ECC that supplies the MCC
+
+ecc_supply_to_mcc_with_losses <- ecc_supply_to_mcc |>
+  dplyr::mutate(
+    # Add the heat loss allocation matrix to the data frame
+    "{Recca::balance_cols$losses_alloc_colname}" := list(heat_loss_allocation_mat)
+  ) |>
+  # Endogenize the heat losses
+  Recca::endogenize_losses(replace_cols = TRUE)
+
+## Save trimmed ZAF data to an Excel file for later inspection.
+
+ecc_supply_to_mcc_with_losses_path <- file.path("data", "ecc_supply_to_mcc_with_losses.xlsx")
+ecc_supply_to_mcc_with_losses |>
+  Recca::write_ecc_to_excel(path = ecc_supply_to_mcc_with_losses_path,
+                            worksheet_names = "WorksheetNames",
+                            overwrite_file = TRUE,
+                            overwrite_worksheets = TRUE)
+
+#
+# Step 2: Convert the ECC with endogenized heat losses to exergy
+#
+
+## Create the phi vector
+
+### Database phi vector
+phi_db <- file.path("data", "zaf2013_phi.rds") |>
+  readRDS() |>
+  purrr::pluck("phi", 1)
+### Waste heat phi vector
+phi_waste_heat <- file.path("data", "HeatLossFlows.xlsx") |>
+  readxl::read_excel() |>
+  dplyr::select(HeatLossFlow, phi) |>
+  unique() |>
+  dplyr::rename(
+    rownames = "HeatLossFlow",
+    matvals = "phi"
+  ) |>
+  dplyr::mutate(
+    colnames = "phi"
+  ) |>
+  matsindf::rowcolval_to_mat(rowtypes = "Product", coltypes = "phi")
+### Check for any identical rownames
+common_rows <- intersect(rownames(phi_db), rownames(phi_waste_heat))
+### Eliminate common rows from phi_waste_heat
+phi_waste_heat <- matsbyname::select_rows_byname(phi_waste_heat,
+                                                 remove_pattern = RCLabels::make_or_pattern(common_rows))
+### Verify we have no common rows
+common_rows_2 <- intersect(rownames(phi_db), rownames(phi_waste_heat))
+assertthat::assert_that(length(common_rows_2) == 0)
+
+## Add the vectors together
+phi_vec <- matsbyname::sum_byname(phi_db, phi_waste_heat)
+
+xcc_supply_to_mcc_with_losses <- ecc_supply_to_mcc_with_losses |>
+  ## Add the phi vector that already includes phi for heat losses
+  dplyr::mutate(
+    "{Recca::psut_cols$phi}" := list(phi_vec)
+  ) |>
+  ## Convert to exergy using the phi vector
+  Recca::extend_to_exergy(mat_piece = "noun",
+                          # R and U matrices have from notation,
+                          # V and Y matrices have arrow notation.
+                          notation = list(RCLabels::from_notation, RCLabels::arrow_notation)) |>
+  dplyr::mutate(
+    ## Add worksheet names
+    WorksheetNames = paste0(Country, "_", Year, "_", EnergyType)
+  )
+
+## Save trimmed ZAF data to an Excel file for later inspection.
+
+xcc_supply_to_mcc_with_losses_path <- file.path("data", "xcc_supply_to_mcc_with_losses.xlsx")
+xcc_supply_to_mcc_with_losses |>
+  dplyr::filter(EnergyType == "X") |>
+  Recca::write_ecc_to_excel(path = xcc_supply_to_mcc_with_losses_path,
+                            worksheet_names = "WorksheetNames",
+                            overwrite_file = TRUE,
+                            overwrite_worksheets = TRUE)
+
+#
+# Step 3: Endogenize mass losses
+#
+
+## First, read the mass matrices
+
+mcc_m_mats <- file.path("data", "Paper Examples.xlsx") |>
+  Recca::read_ecc_from_excel(worksheets = "MCC_M_RUVY_matrices_mat_level") |>
+  # Verify that inter-industry balances is observed
+  Recca::verify_inter_industry_balance(delete_balance_if_verified = TRUE) |>
+  # Verify that intra-industry balance is observed
+  Recca::verify_intra_industry_balance(delete_balance_if_verified = TRUE) |>
+  dplyr::mutate(
+    which = "M"
+  )
+
+## Here, we should endogenize mass losses, but we
+## don't need to do so.
+## Mass losses are already endogenized in mcc_m_mats.
+
+#
+# Step 4: Create the energy matrices with m*h_bar/MW in matrices
+#
+
+## Read the enthalpy RUVY matrices
+
+mcc_h_mats <- file.path("data", "Paper Examples.xlsx") |>
+  Recca::read_ecc_from_excel(worksheets = "MCC_h_RUVY_matrices_mat_level") |>
+  dplyr::mutate(
+    which = "H"
+  )
+
+## Read the molecular weight RUVY matrices
+
+mcc_mw_mats <- file.path("data", "Paper Examples.xlsx") |>
+  Recca::read_ecc_from_excel(worksheets = "MCC_MW_RUVY_matrices_mat_level") |>
+  dplyr::mutate(
+    which = "MW"
+  )
+
+## Calculate M*H/MW
+
+S_units_mat <- Matrix::Matrix(1,
+                              nrow = nrow(mcc_m_mats$U[[1]]),
+                              ncol = 1,
+                              dimnames = list(rownames(mcc_m_mats$U[[1]]), "kJ"))
+
+mcc_e_mats <- dplyr::bind_rows(mcc_m_mats, mcc_h_mats, mcc_mw_mats) |>
+  dplyr::mutate(
+    S_units = NULL,
+    WorksheetNames = NULL
+  ) |>
+  tidyr::pivot_longer(cols = c(R, U, V, Y, U_feed, U_EIOU, r_EIOU)) |>
+  tidyr::pivot_wider(names_from = which, values_from = value) |>
+  dplyr::mutate(
+    E = matsbyname::hadamardproduct_byname(M, H) |>
+      matsbyname::quotient_byname(MW) |>
+      matsbyname::replaceNaN_byname() |>
+      matsbyname::clean_byname(),
+    # We don't need these matrices any more,
+    # now that we have the energy versions.
+    M = NULL,
+    H = NULL,
+    MW = NULL
+  ) |>
+  tidyr::pivot_wider(names_from = "name", values_from = "E") |>
+  ### Add S_units matrix back
+  dplyr::mutate(
+    S_units = list(S_units_mat)
+  )
+
+## Read electricity (massless energy) inputs to each processing stage
+
+elect_inputs <- openxlsx2::read_xlsx(file = file.path("data",
+                                                      "Paper Examples.xlsx"),
+                                     sheet = "BXCC Q loss",
+                                     named_region = "Electricity_input")
+
+## Calculate R matrix electricity supply.
+## This item will be added to the R matrix.
+
+elect_inputs_vec_R <- elect_inputs_vec_U |>
+  matsbyname::transpose_byname() |>
+  matsbyname::colsums_byname() |>
+  matsbyname::setrownames_byname("Supply [of Electricity]") |>
+  matsbyname::setcolnames_byname("Electricity [from Supply]")
+
+## Calculate U matrix electricity usage.
+## This item will be added to the U matrix.
+
+elect_inputs_vec_U <- file.path("data", "Paper Examples.xlsx") |>
+  openxlsx2::wb_load() |>
+  openxlsx2::wb_to_df(sheet = "BXCC Q loss",
+                      named_region = "Electricity_input",
+                      row_names = TRUE) |>
+  as.matrix() |>
+  matsbyname::setcolnames_byname("Electricity [from Supply]") |>
+  matsbyname::setrowtype("Industry") |>
+  matsbyname::setcoltype("Product") |>
+  ### Will add to U matrix, so transpose
+  matsbyname::transpose_byname()
+
+#
+# Step 5: Add mass and massless energy matrices for the MCC
+#
+
+E_m_mats <- mcc_e_mats |>
+  dplyr::mutate(
+    "{Recca::balance_cols$losses_alloc_colname}" :=
+      RCLabels::make_list(Recca::balance_cols$default_losses_alloc |>
+                            matsbyname::setcolnames_byname("Waste heat"),
+                          n = dplyr::n(),
+                          lenx = 1),
+    # Add electricity to the U matrix
+    Elect = list(elect_inputs_vec_U),
+    U = matsbyname::sum_byname(U, Elect),
+    # Add electricity to the R matrix
+    Elect = list(elect_inputs_vec_R),
+    R = matsbyname::sum_byname(R, Elect)
+  )
+
+#
+# Step 6: Calculate waste heat (by endogenizing losses)
+#
+
+Q_waste_heat <- E_m_mats |>
+  ## Endogenize losses to calculate waste heat
+  Recca::endogenize_losses(replace_cols = TRUE) |>
+  dplyr::mutate(
+    waste_heat = matsbyname::select_cols_byname(V, retain_pattern = "Waste heat")
+  ) |>
+  purrr::pluck("V", 1) |>
+  matsbyname::select_cols_byname("Waste heat") |>
+  matsbyname::setcolnames_byname("Q_waste_heat")
+
+#
+# Step 7: Convert mass flow matrices to exergy
+#
+
+# Read the phi matrices
+mcc_phi_mats <- file.path("data", "Paper Examples.xlsx") |>
+  Recca::read_ecc_from_excel(worksheets = "MCC_phi_RUVY_matrices_mat_level") |>
+  dplyr::mutate(
+    WorksheetNames = NULL
+  ) |>
+  tidyr::pivot_longer(cols = c(R, U, V, Y, r_EIOU, U_EIOU, U_feed, S_units),
+                      names_to = "matnames",
+                      values_to = "phi") |>
+  dplyr::mutate(
+    which = NULL,
+    WorksheetNames = NULL
+  )
+
+## Multiply the mass matrices by phi to develop exergy matrices for mass flows.
+b_m_mats <- mcc_m_mats |>
+  tidyr::pivot_longer(cols = c(R, U, V, Y, r_EIOU, U_EIOU, U_feed, S_units),
+                      names_to = "matnames",
+                      values_to = "m") |>
+  dplyr::mutate(
+    which = NULL,
+    WorksheetNames = NULL
+  ) |>
+  ### Add the phi matrices
+  dplyr::full_join(mcc_phi_mats, by = "matnames") |>
+  dplyr::mutate(
+    m = matsbyname::clean_byname(m),
+    phi = matsbyname::clean_byname(phi),
+    ### Multiply masses by phi
+    B = matsbyname::hadamardproduct_byname(m, phi) |>
+      matsbyname::clean_byname()
+  ) |>
+  dplyr::mutate(
+    m = NULL,
+    phi = NULL
+  ) |>
+  tidyr::pivot_wider(names_from = matnames, values_from = B) |>
+  dplyr::mutate(
+    ### We multiplied kg by kJ/kg, so the unit is not kJ.
+    S_units = S_units |>
+      matsbyname::setcolnames_byname("kJ")
+  )
+
+#
+# Step 8: Calculate exergy of waste heat flows of the mass matrices
+#
+
+## Read the phi vector read from the Excel file.
+T_waste_heat <- file.path("data", "Paper Examples.xlsx") |>
+  openxlsx2::wb_load() |>
+  openxlsx2::wb_to_df(sheet = "BXCC Q loss",
+                      named_region = "T_waste_heat",
+                      row_names = TRUE) |>
+  as.matrix() |>
+  matsbyname::setrowtype("Industry") |>
+  matsbyname::setcoltype("Product")
+T_0 <- 298.15 # K
+phi_waste_heat <- 1 - matsbyname::quotient_byname(T_0, T_waste_heat) |>
+  matsbyname::setcolnames_byname("phi")
+## Calculate exergy of waste heat
+X_waste_heat <- matsbyname::hadamardproduct_byname(
+  Q_waste_heat |> matsbyname::setcolnames_byname("X_waste_heat"),
+  phi_waste_heat |> matsbyname::setcolnames_byname("X_waste_heat")
+)
+
+#
+# Step 9: Convert electricity supply to MCC to exergy
+#
+
+## Step 9 is not needed, as the phi value for electricity is 1.0.
+
+#
+# Step 10: Sum exergy matrices for mass, waste heat, and electricity
+# to form the B matrices
+#
+
+bcc_mats <- b_m_mats |>
+  dplyr::mutate(
+    ## Add waste heat exergy to the mass V and Y matrices
+    V = matsbyname::sum_byname(V, X_waste_heat),
+    Y = matsbyname::sum_byname(Y, X_waste_heat |>
+                                 matsbyname::colsums_byname(rowname = "Transformation losses") |>
+                                 matsbyname::transpose_byname()),
+    ## Add electricity to the R and U matrices
+    R = matsbyname::sum_byname(R, elect_inputs_vec_R),
+    U = matsbyname::sum_byname(U, elect_inputs_vec_U)
+  ) |>
+  ## Verify that inter-industry flows remain in balance.
+  Recca::verify_inter_industry_balance(delete_balance_if_verified = TRUE)
+
+#
+# Step 11: Add the XCC to BCC
+#
+
+## Clean up the xcc_supply_to_mcc_with_losses data frame
+## in preparation for summation with the MCC.
+
+xcc_supply_to_bcc_long <- xcc_supply_to_mcc_with_losses |>
+  dplyr::filter(EnergyType == "X") |>
+  dplyr::mutate(
+    ### Remove unneeded columns
     WorksheetNames = NULL,
-    Y = NULL,
     Dataset = NULL,
     ValidFromVersion = NULL,
     ValidToVersion = NULL,
@@ -291,47 +496,34 @@ xcc_supply_to_bcc_long <- xcc_supply_to_bcc |>
     IncludesNEU = NULL,
     Year = NULL
   ) |>
-  tidyr::pivot_longer(cols = c("R", "U", "V",
-                               "U_feed", "U_EIOU", "r_EIOU",
-                               "S_units"),
+  tidyr::pivot_longer(cols = c("R", "U", "V", "Y", "U_feed", "U_EIOU", "r_EIOU", "S_units"),
                       names_to = "matnames",
                       values_to = "X") |>
-  # There are several near-zero but not zero values
-  # in these matrices.
-  # Eliminate small values.
+  ### Modify the XCC by removing the Y matrix.
+  ### Final exergy will be injected into the MCC
+  ### after summing the MCC and the XCC.
+  dplyr::filter(!matnames == "Y") |>
+  ### There are several near-zero but not zero values in these matrices.
+  ### Eliminate small values.
   dplyr::mutate(
     X = matsbyname::clean_byname(.data[["X"]], tol = 1e-8)
   )
 
-
-#
-# Read the BCC exergy matrices.
-# These are in kJ and material exergy (B).
-#
-
-bcc_mats <- file.path("data", "Paper Examples.xlsx") |>
-  Recca::read_ecc_from_excel(worksheets = "MCC_B_RUVY_matrices_mat_level")
-
-
-#
-# Modify the BCC by removing the "Supply [of X]"
-# rows from the R matrix and removing
-# the [from Supply] suffix from row and column names
-# in other matrices to prepare for summation.
-#
+## Modify the BCC by removing the "Supply [of X]"
+## rows from the R matrix and removing
+## the [from Supply] suffix from row and column names
+## in other matrices to prepare for summation.
 
 bcc_mats_long <- bcc_mats |>
   dplyr::mutate(
     WorksheetNames = NULL,
     R = matsbyname::select_rows_byname(.data[["R"]], remove_pattern = "^Supply")
   ) |>
-  tidyr::pivot_longer(cols = c("R", "U", "V", "Y",
-                               "U_feed", "U_EIOU", "r_EIOU",
-                               "S_units"),
+  tidyr::pivot_longer(cols = c("R", "U", "V", "Y", "U_feed", "U_EIOU", "r_EIOU", "S_units"),
                       names_to = "matnames",
                       values_to = "B") |>
-  # Rename Product margins by removing " [from Supply]",
-  # thereby preparing for summation.
+  ### Rename Product margins by removing " [from Supply]",
+  ### thereby preparing for summation.
   dplyr::mutate(
     B = .data[["B"]] |>
       matsbyname::rename_via_pattern_byname(margin = "Product",
@@ -340,10 +532,7 @@ bcc_mats_long <- bcc_mats |>
                                             fixed = TRUE)
   )
 
-
-#
-# Sum the XCC and BCC matrices
-#
+## Sum the XCC and BCC matrices
 
 bx_mats <- dplyr::left_join(bcc_mats_long,
                             xcc_supply_to_bcc_long,
@@ -356,12 +545,8 @@ bx_mats <- dplyr::left_join(bcc_mats_long,
                       values_to = "matvals") |>
   tidyr::pivot_wider(names_from = "matnames", values_from = "matvals")
 
-
-#
-# Write the combined material and energy
-# conversion chains
-# to an Excel file for inspection
-#
+## Write the combined material and energy conversion chains
+## to an Excel file for inspection
 
 bx_mats |>
   Recca::write_ecc_to_excel(path = file.path("data", "BXCC.xlsx"),
@@ -370,20 +555,26 @@ bx_mats |>
                             overwrite_worksheets = TRUE)
 
 #
-# Write the data into the Paper Examples.xlsx file, too.
+# Step 12: Endogenize exergy imbalance
+#          to calculate exergy destruction
 #
 
-bx_mats |>
-  Recca::write_ecc_to_excel(path = file.path("data", "Paper Examples.xlsx"),
-                            worksheet_names = "EnergyType",
-                            overwrite_file = TRUE,
-                            overwrite_worksheets = TRUE)
+bx_mats_with_exergy_destruction <- bx_mats |>
+  dplyr::filter(EnergyType == "BX") |>
+  dplyr::mutate(
+    "{Recca::balance_cols$losses_alloc_colname}" :=
+      RCLabels::make_list(Recca::balance_cols$default_losses_alloc |>
+                            matsbyname::setcolnames_byname("Destroyed exergy"),
+                          n = dplyr::n(),
+                          lenx = 1)
+  ) |>
+  Recca::endogenize_losses(losses_sector = "Exergy destruction")
 
 #
 # Write the data to an RDS file for use in the paper
 #
 
-bx_mats |>
+bx_mats_with_exergy_destruction |>
   saveRDS(file = file.path("data", "BXCC.rds"))
 
 #
