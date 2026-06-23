@@ -323,15 +323,6 @@ elect_inputs <- openxlsx2::read_xlsx(file = file.path("data",
                                      sheet = "BXCC Q loss",
                                      named_region = "Electricity_input")
 
-## Calculate R matrix electricity supply.
-## This item will be added to the R matrix.
-
-elect_inputs_vec_R <- elect_inputs_vec_U |>
-  matsbyname::transpose_byname() |>
-  matsbyname::colsums_byname() |>
-  matsbyname::setrownames_byname("Supply [of Electricity]") |>
-  matsbyname::setcolnames_byname("Electricity [from Supply]")
-
 ## Calculate U matrix electricity usage.
 ## This item will be added to the U matrix.
 
@@ -346,6 +337,15 @@ elect_inputs_vec_U <- file.path("data", "Paper Examples.xlsx") |>
   matsbyname::setcoltype("Product") |>
   ### Will add to U matrix, so transpose
   matsbyname::transpose_byname()
+
+## Calculate R matrix electricity supply.
+## This item will be added to the R matrix.
+
+elect_inputs_vec_R <- elect_inputs_vec_U |>
+  matsbyname::transpose_byname() |>
+  matsbyname::colsums_byname() |>
+  matsbyname::setrownames_byname("Supply [of Electricity]") |>
+  matsbyname::setcolnames_byname("Electricity [from Supply]")
 
 #
 # Step 5: Add mass and massless energy matrices for the MCC
@@ -568,7 +568,28 @@ bx_mats_with_exergy_destruction <- bx_mats |>
                           n = dplyr::n(),
                           lenx = 1)
   ) |>
+
+
+
+
+
+  #######
+  ####### Got here. There are imbalances.
+  #######
+
+
   Recca::endogenize_losses(losses_sector = "Exergy destruction")
+
+
+
+
+
+
+
+
+
+
+
 
 #
 # Write the data to an RDS file for use in the paper
