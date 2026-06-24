@@ -496,6 +496,7 @@ xcc_supply_to_bcc_long <- xcc_supply_to_mcc_with_losses |>
     IncludesNEU = NULL,
     Year = NULL
   ) |>
+  Recca::verify_inter_industry_balance(delete_balance_if_verified = TRUE) |>
   tidyr::pivot_longer(cols = c("R", "U", "V", "Y", "U_feed", "U_EIOU", "r_EIOU", "S_units"),
                       names_to = "matnames",
                       values_to = "X") |>
@@ -544,7 +545,8 @@ bx_mats <- dplyr::left_join(bcc_mats_long,
   tidyr::pivot_longer(cols = c("B", "X", "BX"),
                       names_to = "EnergyType",
                       values_to = "matvals") |>
-  tidyr::pivot_wider(names_from = "matnames", values_from = "matvals")
+  tidyr::pivot_wider(names_from = "matnames", values_from = "matvals") |>
+  Recca::verify_inter_industry_balance(delete_balance_if_verified = TRUE)
 
 ## Write the combined material and energy conversion chains
 ## to an Excel file for inspection
