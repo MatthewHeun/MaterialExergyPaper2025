@@ -8,11 +8,14 @@
 #
 
 # Establish the connection to the Mexer database
-conn <- PFUPipelineTools::get_mexerdb_conn(user = "dbcreator")
+# conn <- PFUPipelineTools::get_mexerdb_conn(user = "dbcreator")
+# Using ScratchMDB here, because v3.0a2 is in ScratchMDB.
+conn <- PFUPipelineTools::get_scratchmdb_conn()
 on.exit(DBI::dbDisconnect(conn))
 
 # Read the ECC data
 zaf_2013_ecc <- PFUPipelineTools::pl_filter_collect("PSUTReAllChopAllDsAllGrAll",
+                                                    version_string = "v3.0a2",
                                                     Dataset == "CL-PFU IEA",
                                                     Country == "ZAF",
                                                     Year == 2013,
@@ -24,9 +27,12 @@ zaf_2013_ecc <- PFUPipelineTools::pl_filter_collect("PSUTReAllChopAllDsAllGrAll"
                                                     collect = TRUE,
                                                     matrix_class = "matrix")
 
+
+
+
 # Read the phi vector
-conn <- PFUPipelineTools::get_mexerdb_conn(user = "dbcreator")
 zaf_2013_phi <- PFUPipelineTools::pl_filter_collect("Phivecs",
+                                                    version_string = "v3.0a2",
                                                     Dataset == "CL-PFU",
                                                     Country == "ZAF",
                                                     Year == 2013,
