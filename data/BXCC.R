@@ -515,6 +515,7 @@ xcc_supply_to_bcc_long <- xcc_supply_to_mcc_with_losses |>
 ## in other matrices to prepare for summation.
 
 bcc_mats_long <- bcc_mats |>
+  Recca::verify_inter_industry_balance(delete_balance_if_verified = TRUE) |>
   dplyr::mutate(
     WorksheetNames = NULL,
     R = matsbyname::select_rows_byname(.data[["R"]], remove_pattern = "^Supply")
