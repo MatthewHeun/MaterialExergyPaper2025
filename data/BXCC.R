@@ -129,7 +129,8 @@ ecc_supply_to_mcc <- zaf_2013_ecc |>
   ) |>
   dplyr::mutate(
     WorksheetNames = paste(Country, Year, EnergyType, sep = "_")
-  )
+  ) |>
+  Recca::verify_inter_industry_balance(delete_balance_if_verified = TRUE)
 
 # Save the ECC that supplies the MCC to an Excel file for inspection.
 # This ECC is in TJ.
@@ -503,6 +504,7 @@ xcc_supply_to_bcc_long <- xcc_supply_to_mcc_with_losses |>
   ### Modify the XCC by removing the Y matrix.
   ### Final exergy will be injected into the MCC
   ### after summing the MCC and the XCC.
+  ### This step causes the X matrices to be unbalanced.
   dplyr::filter(!matnames == "Y") |>
   ### There are several near-zero but not zero values in these matrices.
   ### Eliminate small values.
@@ -519,6 +521,7 @@ bcc_mats_long <- bcc_mats |>
   Recca::verify_inter_industry_balance(delete_balance_if_verified = TRUE) |>
   dplyr::mutate(
     WorksheetNames = NULL,
+    ### Removing the Supply rows eliminates the inter-industry balance.
     R = matsbyname::select_rows_byname(.data[["R"]], remove_pattern = "^Supply")
   ) |>
   tidyr::pivot_longer(cols = c("R", "U", "V", "Y", "U_feed", "U_EIOU", "r_EIOU", "S_units"),
@@ -540,6 +543,7 @@ bx_mats <- dplyr::left_join(bcc_mats_long,
                             xcc_supply_to_bcc_long,
                             by = "matnames") |>
   dplyr::mutate(
+    ### This summation should cause the BX matrices to have inter-industry balance
     BX = matsbyname::sum_byname(.data[["B"]], .data[["X"]])
   ) |>
   tidyr::pivot_longer(cols = c("B", "X", "BX"),
