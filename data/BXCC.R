@@ -441,7 +441,7 @@ T_waste_heat <- file.path("data", "Paper Examples.xlsx") |>
   as.matrix() |>
   matsbyname::setrowtype("Industry") |>
   matsbyname::setcoltype("Product")
-T_0 <- 298.15 # K
+T_0 <- 298.15 # K (25 C)
 phi_waste_heat <- 1 - matsbyname::quotient_byname(T_0, T_waste_heat) |>
   matsbyname::setcolnames_byname("phi")
 ## Calculate exergy of waste heat
@@ -498,18 +498,22 @@ xcc_supply_to_bcc_long <- xcc_supply_to_mcc_with_losses |>
     Year = NULL
   ) |>
   Recca::verify_inter_industry_balance(delete_balance_if_verified = TRUE) |>
-  tidyr::pivot_longer(cols = c("R", "U", "V", "Y", "U_feed", "U_EIOU", "r_EIOU", "S_units"),
-                      names_to = "matnames",
-                      values_to = "X") |>
-  ### Modify the XCC by removing the Y matrix.
+  ### Remove the Iron and steel industry from the Y matrix.
   ### Final exergy will be injected into the MCC
   ### after summing the MCC and the XCC.
   ### This step causes the X matrices to be unbalanced.
-  dplyr::filter(!matnames == "Y") |>
+  dplyr::mutate(
+    Y = Y |>
+      matsbyname::select_cols_byname(remove_pattern = "^Iron and steel$")
+  ) |>
+  tidyr::pivot_longer(cols = c("R", "U", "V", "Y", "U_feed", "U_EIOU", "r_EIOU", "S_units"),
+                      names_to = "matnames",
+                      values_to = "X") |>
   ### There are several near-zero but not zero values in these matrices.
   ### Eliminate small values.
   dplyr::mutate(
-    X = matsbyname::clean_byname(.data[["X"]], tol = 1e-8)
+    X = X |>
+      matsbyname::clean_byname(tol = 1e-8)
   )
 
 ## Modify the BCC by removing the "Supply [of X]"
@@ -549,8 +553,7 @@ bx_mats <- dplyr::left_join(bcc_mats_long,
   tidyr::pivot_longer(cols = c("B", "X", "BX"),
                       names_to = "EnergyType",
                       values_to = "matvals") |>
-  tidyr::pivot_wider(names_from = "matnames", values_from = "matvals") |>
-  Recca::verify_inter_industry_balance(delete_balance_if_verified = TRUE)
+  tidyr::pivot_wider(names_from = "matnames", values_from = "matvals")
 
 ## Write the combined material and energy conversion chains
 ## to an Excel file for inspection
@@ -562,12 +565,13 @@ bx_mats |>
                             overwrite_worksheets = TRUE)
 
 #
-# Step 12: Endogenize exergy imbalance
+# Step 12: Endogenize intra-industry exergy imbalance
 #          to calculate exergy destruction
 #
 
 bx_mats_with_exergy_destruction <- bx_mats |>
   dplyr::filter(EnergyType == "BX") |>
+  Recca::verify_inter_industry_balance(delete_balance_if_verified = TRUE) |>
   dplyr::mutate(
     "{Recca::balance_cols$losses_alloc_colname}" :=
       RCLabels::make_list(Recca::balance_cols$default_losses_alloc |>
@@ -575,28 +579,7 @@ bx_mats_with_exergy_destruction <- bx_mats |>
                           n = dplyr::n(),
                           lenx = 1)
   ) |>
-
-
-
-
-
-  #######
-  ####### Got here. There are imbalances.
-  #######
-
-
   Recca::endogenize_losses(losses_sector = "Exergy destruction")
-
-
-
-
-
-
-
-
-
-
-
 
 #
 # Write the data to an RDS file for use in the paper
@@ -612,7 +595,8 @@ bx_mats_with_exergy_destruction |>
 
 efficiencies <- bx_mats |>
   dplyr::filter(EnergyType == "BX") |>
-  Recca::verify_SUT_energy_balance() |>
+  Recca::verify_inter_industry_balance(delete_balance_if_verified = TRUE) |>
+  Recca::verify_intra_industry_balance(delete_balance_if_verified = TRUE) |>
   Recca::calc_eta_i()
 
 #
